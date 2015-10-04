@@ -5,8 +5,36 @@
   - name: add apt repositories
     become: yes
     become_method: sudo
-    apt_repository: repo='{{ item }}'
+    apt_repository: repo={{ item }}
     with_items:
       - ppa:git-core/ppa
       - ppa:webupd8team/java
       - ppa:caffeine-developers/ppa
+  - name: update apt cache
+    become: yes
+    become_method: sudo
+    apt: update_cache=yes
+  - name: install packages
+    become: yes
+    become_method: sudo
+    apt: name={{ item }} state=latest
+    with_items:
+      - alacarte
+      - ack-grep
+      - caffeine
+      - clipit
+      - curl
+      - deluge
+      - fonts-inconsolata
+      - git
+      - gparted
+      - htop
+      - indicator-multiload
+      - lm-sensors
+      - make
+      - mercurial
+      - tree
+      - tmux
+      - vim
+      - vlc
+      - wget
