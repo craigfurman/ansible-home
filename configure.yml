@@ -1,6 +1,8 @@
 ---
 - hosts: pc
   remote_user: craig
+  vars:
+    user: craig
   tasks:
   - name: add apt repositories
     become: yes
@@ -38,3 +40,12 @@
       - vim
       - vlc
       - wget
+      - zsh
+  - name: clone oh my zsh
+    git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{ user }}/.oh-my-zsh
+  - name: set zsh as default shell
+    become: yes
+    become_method: sudo
+    user: name={{ user }} shell=/bin/zsh
+  - name: clone home repo
+    script: scripts/home.sh creates='/home/{{ user }}/.git'
