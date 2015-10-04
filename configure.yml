@@ -1,0 +1,12 @@
+---
+- hosts: pc
+  remote_user: craig
+  tasks:
+  - name: add apt repositories
+    become: yes
+    become_method: sudo
+    apt_repository: repo='{{ item }}'
+    with_items:
+      - ppa:git-core/ppa
+      - ppa:webupd8team/java
+      - ppa:caffeine-developers/ppa
