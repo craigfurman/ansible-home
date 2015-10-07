@@ -1,2 +1,10 @@
 # ansible-home
-My laptop configuration automation. Probably not massively useful for anyone else
+
+This is probably totally un-idiomatic Ansible. Ideally, these playbooks will only install stuff, configuration lives in my [dotfiles repo](https://github.com/craigfurman/home).
+
+Todo:
+* A lot.
+
+Laptop only:
+* tlp for power management
+* xbacklight and custom shortcuts for screen brightness
