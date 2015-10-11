@@ -55,3 +55,9 @@
     user: name={{ user }} shell=/bin/zsh
   - name: clone home repo
     script: scripts/home.sh creates='/home/{{ user }}/.git'
+  - name: ubuntu tweak download
+    get_url: url=https://launchpad.net/ubuntu-tweak/0.8.x/0.8.7/+download/ubuntu-tweak_0.8.7-1~trusty2_all.deb dest=~/Downloads/ubuntu-tweak.deb
+  - name: install ubuntu tweak
+    become: yes
+    become_method: sudo
+    apt: deb=/home/{{ user }}/Downloads/ubuntu-tweak.deb
