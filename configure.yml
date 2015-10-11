@@ -36,6 +36,7 @@
       - clipit
       - curl
       - deluge
+      - exuberant-ctags
       - fonts-inconsolata
       - git
       - gparted
@@ -45,9 +46,11 @@
       - make
       - mercurial
       - oracle-java8-installer
+      - silversearcher-ag
       - tree
       - tmux
       - vim
+      - vim-nox
       - vlc
       - wget
       - xclip
@@ -74,3 +77,9 @@
     unarchive: copy=no src=~/Downloads/go.tar.gz dest=~/Downloads creates=~/golang # yes, look at next step
   - name: move go
     command: mv ~/Downloads/go ~/golang creates=~/golang
+  - name: clone luan vim config
+    git: repo=https://github.com/luan/vimfiles.git dest=~/.vim
+  - name: install luan vim config
+    command: ~/.vim/install
+  - name: install atom package sync
+    command: apm install package-sync creates=~/.atom/packages/package-sync
