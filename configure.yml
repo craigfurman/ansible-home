@@ -24,7 +24,7 @@
   - name: Accept Oracle license for Java
     become: yes
     become_method: sudo
-    debconf: name='oracle-java7-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+    debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
   - name: install packages
     become: yes
     become_method: sudo
