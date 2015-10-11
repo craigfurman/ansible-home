@@ -61,3 +61,9 @@
     become: yes
     become_method: sudo
     apt: deb=/home/{{ user }}/Downloads/ubuntu-tweak.deb
+  - name: download go
+    get_url: url=https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz dest=~/Downloads/go.tar.gz
+  - name: extract go
+    unarchive: copy=no src=~/Downloads/go.tar.gz dest=~/Downloads creates=~/golang # yes, look at next step
+  - name: move go
+    command: mv ~/Downloads/go ~/golang creates=~/golang
