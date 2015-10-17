@@ -126,3 +126,11 @@
   # Can't install this non-interactively
   # - name: monokai terminal theme
   #   command: ~/git-apps/gnome-terminal-colors-monokai/install.sh
+  - name: download docker install script
+    get_url: url=https://get.docker.com dest=~/Downloads/docker.sh
+  - name: make docker install script executable
+    file: path=~/Downloads/docker.sh mode=0755
+  - name: install docker
+    become: yes
+    become_method: sudo
+    command: /home/{{ user }}/Downloads/docker.sh creates=/usr/bin/docker
