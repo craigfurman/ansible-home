@@ -8,6 +8,10 @@
       dropbox: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.02.12_amd64.deb
       ubuntu_tweak: https://launchpad.net/ubuntu-tweak/0.8.x/0.8.7/+download/ubuntu-tweak_0.8.7-1~trusty2_all.deb
       atom: https://atom.io/download/deb
+    git_apps:
+      chruby: https://github.com/postmodern/chruby.git
+      ruby-install:  https://github.com/postmodern/ruby-install.git
+      direnv: https://github.com/direnv/direnv.git
   tasks:
   - name: add apt repositories
     become: yes
@@ -17,6 +21,7 @@
       - ppa:git-core/ppa
       - ppa:webupd8team/java
       - ppa:caffeine-developers/ppa
+      - ppa:ansible/ansible
   - name: update apt cache
     become: yes
     become_method: sudo
@@ -32,6 +37,7 @@
     with_items:
       - alacarte
       - ack-grep
+      - ansible
       - caffeine
       - clipit
       - curl
@@ -56,7 +62,7 @@
       - xclip
       - zsh
   - name: clone oh my zsh
-    git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{ user }}/.oh-my-zsh
+    git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
   - name: set zsh as default shell
     become: yes
     become_method: sudo
@@ -69,7 +75,7 @@
   - name: install debs
     become: yes
     become_method: sudo
-    apt: deb=/home/craig/Downloads/{{ item.key }}.deb
+    apt: deb=/home/{{ user }}/Downloads/{{ item.key }}.deb
     with_dict: "{{ debs }}"
   - name: download go
     get_url: url=https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz dest=~/Downloads/go.tar.gz
@@ -80,6 +86,27 @@
   - name: clone luan vim config
     git: repo=https://github.com/luan/vimfiles.git dest=~/.vim
   - name: install luan vim config
-    command: ~/.vim/install
+    command: ~/.vim/install creates=~/.vimrc
   - name: install atom package sync
     command: apm install package-sync creates=~/.atom/packages/package-sync
+  - name: make git-apps directory # TODO is this really necessary?
+    command: mkdir -p ~/git-apps
+  - name: clone git apps
+    git: repo={{ item.value }} dest=~/git-apps/{{ item.key }}
+    with_dict: "{{ git_apps }}"
+  - name: install makeable git apps
+    become: yes
+    become_method: sudo
+    command: make install chdir=/home/{{ user }}/git-apps/{{ item.name }} creates={{ item.creates }}
+    with_items:
+      - { name: 'chruby', creates: '/usr/local/share/chruby' }
+      - { name: 'ruby-install', creates: '/usr/local/bin/ruby-install' }
+  - name: install direnv
+    become: yes
+    become_method: sudo
+    command: make install chdir=/home/{{ user }}/git-apps/direnv creates=/usr/local/bin/direnv
+    environment:
+      GOROOT: /home/{{ user }}/golang
+      PATH: /home/{{ user }}/golang/bin:{{ ansible_env.PATH }}
+  - name: install ruby
+    command: ruby-install ruby 2.2.3 creates=~/.rubies/ruby-2.2.3/bin/ruby
