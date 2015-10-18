@@ -1,0 +1,7 @@
+---
+- name: download plex
+  get_url: url=https://downloads.plex.tv/plex-media-server/0.9.12.13.1464-4ccd2ca/plexmediaserver_0.9.12.13.1464-4ccd2ca_amd64.deb dest=~/Downloads/plex.deb
+- name: install plex
+  become: yes
+  become_method: sudo
+  apt: deb=/home/{{ user }}/Downloads/plex.deb
