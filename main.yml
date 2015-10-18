@@ -1,0 +1,13 @@
+---
+- hosts: pc
+  remote_user: craig
+  vars:
+    user: craig
+  vars_prompt:
+  - name: is_laptop
+    prompt: "Is this a laptop? Y/N"
+    default: "N"
+    private: no
+  roles:
+  - common
+  - { role: laptop, when: is_laptop == 'Y' }
