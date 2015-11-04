@@ -10,3 +10,4 @@ git_apps:
   ruby-install:  https://github.com/postmodern/ruby-install.git
   direnv: https://github.com/direnv/direnv.git
   gnome-terminal-colors-monokai: https://github.com/pricco/gnome-terminal-colors-monokai.git
+  lastpass-cli: https://github.com/lastpass/lastpass-cli.git

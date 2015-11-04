@@ -57,6 +57,13 @@
     - wget
     - xclip
     - zsh
+    # For lastpass CLI
+    - openssl
+    - libcurl4-openssl-dev
+    - libxml2
+    - libssl-dev
+    - libxml2-dev
+    - pinentry-curses
 - name: clone oh my zsh
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
 - name: set zsh as default shell
@@ -97,6 +104,7 @@
   with_items:
     - { name: 'chruby', creates: '/usr/local/share/chruby' }
     - { name: 'ruby-install', creates: '/usr/local/bin/ruby-install' }
+    - { name: 'lastpass-cli', creates: '/usr/bin/lpass' }
 - name: install direnv
   become: yes
   become_method: sudo
