@@ -6,12 +6,12 @@
   with_items:
     - ppa:git-core/ppa
     - ppa:webupd8team/java
-    - ppa:caffeine-developers/ppa
+    # - ppa:caffeine-developers/ppa # TODO renable when Wily supported
     - ppa:ansible/ansible
 - name: add virtualbox repository
   become: yes
   become_method: sudo
-  lineinfile: dest=/etc/apt/sources.list line='deb http://download.virtualbox.org/virtualbox/debian vivid contrib'
+  lineinfile: dest=/etc/apt/sources.list line='deb http://download.virtualbox.org/virtualbox/debian wily contrib'
 - name: add virtualbox repository key
   become: yes
   become_method: sudo
