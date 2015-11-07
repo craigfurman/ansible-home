@@ -1,6 +1,6 @@
 ---
 - name: download plex
-  get_url: https://downloads.plex.tv/plex-media-server/0.9.12.19.1537-f38ac80/plexmediaserver_0.9.12.19.1537-f38ac80_amd64.deb
+  get_url: url=https://downloads.plex.tv/plex-media-server/0.9.12.19.1537-f38ac80/plexmediaserver_0.9.12.19.1537-f38ac80_amd64.deb dest=~/Downloads/plex.deb
 - name: install plex
   become: yes
   become_method: sudo
