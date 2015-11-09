@@ -8,22 +8,27 @@
     - ppa:webupd8team/java
     - ppa:caffeine-developers/ppa
     - ppa:ansible/ansible
+
 - name: add virtualbox repository
   become: yes
   become_method: sudo
   lineinfile: dest=/etc/apt/sources.list line='deb http://download.virtualbox.org/virtualbox/debian vivid contrib'
+
 - name: add virtualbox repository key
   become: yes
   become_method: sudo
   apt_key: url=https://www.virtualbox.org/download/oracle_vbox.asc
+
 - name: update apt cache
   become: yes
   become_method: sudo
   apt: update_cache=yes
+
 - name: Accept Oracle license for Java
   become: yes
   become_method: sudo
   debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+
 - name: install packages
   become: yes
   become_method: sudo
@@ -64,42 +69,57 @@
     - libssl-dev
     - libxml2-dev
     - pinentry-curses
+
 - name: clone oh my zsh
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+
 - name: set zsh as default shell
   become: yes
   become_method: sudo
   user: name={{ user }} shell=/bin/zsh
+
 - name: clone home repo
   script: home.sh creates='/home/{{ user }}/.git'
+
 - name: download debs
   get_url: url={{ item.value }} dest=~/Downloads/{{ item.key }}.deb
   with_dict: "{{ debs }}"
+
 - name: install debs
   become: yes
   become_method: sudo
   apt: deb=/home/{{ user }}/Downloads/{{ item.key }}.deb
   with_dict: "{{ debs }}"
+
 - name: download go
   get_url: url=https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz dest=~/Downloads/go.tar.gz
+
 - name: extract go
   unarchive: copy=no src=~/Downloads/go.tar.gz dest=~/Downloads creates=~/golang # yes, look at next step
+
 - name: move go
   command: mv ~/Downloads/go ~/golang creates=~/golang
+
 - name: clone luan vim config
   git: repo=https://github.com/luan/vimfiles.git dest=~/.vim
+
 - name: install luan vim config
   command: ~/.vim/install creates=~/.vimrc
+
 - name: install atom package sync
   command: apm install package-sync creates=~/.atom/packages/package-sync
+
 - name: make git-apps directory # TODO is this really necessary?
   command: mkdir -p ~/git-apps
+
 - name: clone git apps
   git: repo={{ item.value }} dest=~/git-apps/{{ item.key }}
   with_dict: "{{ git_apps }}"
+
 # TODO remove when PR merged
 - name: clone ruby-install
   git: repo=https://github.com/craigfurman/ruby-install.git version=stdin-sudo-password dest=~/git-apps/ruby-install
+
 - name: install makeable git apps
   become: yes
   become_method: sudo
@@ -108,6 +128,7 @@
     - { name: 'chruby', creates: '/usr/local/share/chruby' }
     - { name: 'ruby-install', creates: '/usr/local/bin/ruby-install' }
     - { name: 'lastpass-cli', creates: '/usr/bin/lpass' }
+
 - name: install direnv
   become: yes
   become_method: sudo
@@ -115,15 +136,20 @@
   environment:
     GOROOT: /home/{{ user }}/golang
     PATH: /home/{{ user }}/golang/bin:{{ ansible_env.PATH }}
+
 - name: install ruby
   shell: echo {{ sudo_password }} | ruby-install ruby 2.2.3 creates=~/.rubies/ruby-2.2.3/bin/ruby
+
 # Can't install this non-interactively
 # - name: monokai terminal theme
 #   command: ~/git-apps/gnome-terminal-colors-monokai/install.sh
+
 - name: download docker install script
   get_url: url=https://get.docker.com dest=~/Downloads/docker.sh
+
 - name: make docker install script executable
   file: path=~/Downloads/docker.sh mode=0755
+
 - name: install docker
   become: yes
   become_method: sudo
