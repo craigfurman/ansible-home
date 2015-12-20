@@ -7,7 +7,7 @@ debs:
   vagrant: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
 git_apps:
   chruby: https://github.com/postmodern/chruby.git
-  # ruby-install:  https://github.com/postmodern/ruby-install.git
+  # ruby-install:  https://github.com/postmodern/ruby-install.git # TODO restore when PR merged
   direnv: https://github.com/direnv/direnv.git
   gnome-terminal-colors-monokai: https://github.com/pricco/gnome-terminal-colors-monokai.git
   lastpass-cli: https://github.com/lastpass/lastpass-cli.git
