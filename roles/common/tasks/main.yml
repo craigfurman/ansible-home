@@ -79,14 +79,17 @@
 - name: clone home repo
   script: home.sh creates='/home/{{ user }}/.git'
 
+- name: create downloads directory
+  command: mkdir -p ~/Downloads/ansible-home-files
+
 - name: download debs
-  get_url: url={{ item.value }} dest=~/Downloads/{{ item.key }}.deb
+  get_url: url={{ item.value }} dest=~/Downloads/ansible-home-files/{{ item.key }}.deb
   with_dict: "{{ debs }}"
 
 - name: install debs
   become: yes
   become_method: sudo
-  apt: deb=/home/{{ user }}/Downloads/{{ item.key }}.deb
+  apt: deb=/home/{{ user }}/Downloads/ansible-home-files/{{ item.key }}.deb
   with_dict: "{{ debs }}"
 
 # Dropbox deb adds its own PPA, trying to update the deb package using apt module will fail
@@ -96,23 +99,23 @@
   failed_when: dropbox_installed.rc > 1
 
 - name: download dropbox
-  get_url: url=https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb dest=~/Downloads/dropbox.deb
+  get_url: url=https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb dest=~/Downloads/ansible-home-files/dropbox.deb
   when: dropbox_installed.rc != 0
 
 - name: install dropbox
   become: yes
   become_method: sudo
-  apt: deb=/home/{{ user }}/Downloads/dropbox.deb
+  apt: deb=/home/{{ user }}/Downloads/ansible-home-files/dropbox.deb
   when: dropbox_installed.rc != 0
 
 - name: download go
-  get_url: url=https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz dest=~/Downloads/go.tar.gz
+  get_url: url=https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz dest=~/Downloads/ansible-home-files/go.tar.gz
 
 - name: extract go
-  unarchive: copy=no src=~/Downloads/go.tar.gz dest=~/Downloads creates=~/golang # yes, look at next step
+  unarchive: copy=no src=~/Downloads/ansible-home-files/go.tar.gz dest=~/Downloads/ansible-home-files creates=~/golang # yes, look at next step
 
 - name: move go
-  command: mv ~/Downloads/go ~/golang creates=~/golang
+  command: mv ~/Downloads/ansible-home-files/go ~/golang creates=~/golang
 
 - name: clone luan vim config
   git: repo=https://github.com/luan/vimfiles.git dest=~/.vim
@@ -123,7 +126,7 @@
 - name: install atom package sync
   command: apm install package-sync creates=~/.atom/packages/package-sync
 
-- name: make git-apps directory # TODO is this really necessary?
+- name: make git-apps directory
   command: mkdir -p ~/git-apps
 
 - name: clone git apps
@@ -155,16 +158,17 @@
   shell: echo {{ sudo_password }} | ruby-install ruby 2.2.3 creates=~/.rubies/ruby-2.2.3/bin/ruby
 
 # Can't install this non-interactively
+# TODO is this fixable?
 # - name: monokai terminal theme
 #   command: ~/git-apps/gnome-terminal-colors-monokai/install.sh
 
 - name: download docker install script
-  get_url: url=https://get.docker.com dest=~/Downloads/docker.sh
+  get_url: url=https://get.docker.com dest=~/Downloads/ansible-home-files/docker.sh
 
 - name: make docker install script executable
-  file: path=~/Downloads/docker.sh mode=0755
+  file: path=~/Downloads/ansible-home-files/docker.sh mode=0755
 
 - name: install docker
   become: yes
   become_method: sudo
-  command: /home/{{ user }}/Downloads/docker.sh creates=/usr/bin/docker
+  command: /home/{{ user }}/Downloads/ansible-home-files/docker.sh creates=/usr/bin/docker
