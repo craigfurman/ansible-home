@@ -1,7 +1,6 @@
 ---
 debs:
   chrome: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  dropbox: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.02.12_amd64.deb
   ubuntu_tweak: https://launchpad.net/ubuntu-tweak/0.8.x/0.8.7/+download/ubuntu-tweak_0.8.7-1~trusty2_all.deb
   atom: https://atom.io/download/deb
   vagrant: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb

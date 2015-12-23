@@ -89,6 +89,22 @@
   apt: deb=/home/{{ user }}/Downloads/{{ item.key }}.deb
   with_dict: "{{ debs }}"
 
+# Dropbox deb adds its own PPA, trying to update the deb package using apt module will fail
+- name: check dropbox installed
+  command: which dropbox
+  register: dropbox_installed
+  failed_when: dropbox_installed.rc > 1
+
+- name: download dropbox
+  get_url: url=https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb dest=~/Downloads/dropbox.deb
+  when: dropbox_installed.rc != 0
+
+- name: install dropbox
+  become: yes
+  become_method: sudo
+  apt: deb=/home/{{ user }}/Downloads/dropbox.deb
+  when: dropbox_installed.rc != 0
+
 - name: download go
   get_url: url=https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz dest=~/Downloads/go.tar.gz
 
