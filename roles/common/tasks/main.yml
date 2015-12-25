@@ -50,6 +50,7 @@
     - make
     - mercurial
     - oracle-java8-installer
+    - redshift-gtk
     - silversearcher-ag
     - tree
     - tmux
