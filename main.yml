@@ -8,8 +8,8 @@
     prompt: "Is this a laptop? Y/N"
     default: "N"
     private: no
-  - name: is_plex_server
-    prompt: "Is this a Plex media server? Y/N"
+  - name: is_media_server
+    prompt: "Is this a media server? Y/N"
     default: "N"
     private: no
   - name: sudo_password
@@ -18,4 +18,4 @@
   roles:
   - common
   - { role: laptop, when: is_laptop == 'Y' }
-  - { role: plex_server, when: is_plex_server == 'Y' }
+  - { role: media_server, when: is_media_server == 'Y' }
