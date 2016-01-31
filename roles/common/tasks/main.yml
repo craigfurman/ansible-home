@@ -109,15 +109,6 @@
   apt: deb=/home/{{ user }}/Downloads/ansible-home-files/dropbox.deb
   when: dropbox_installed.rc != 0
 
-- name: download go
-  get_url: url=https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz dest=~/Downloads/ansible-home-files/go.tar.gz
-
-- name: extract go
-  unarchive: copy=no src=~/Downloads/ansible-home-files/go.tar.gz dest=~/Downloads/ansible-home-files creates=~/golang # yes, look at next step
-
-- name: move go
-  command: mv ~/Downloads/ansible-home-files/go ~/golang creates=~/golang
-
 - name: clone luan vim config
   git: repo=https://github.com/luan/vimfiles.git dest=~/.vim
 

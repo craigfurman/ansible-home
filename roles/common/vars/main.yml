@@ -3,10 +3,11 @@ debs:
   chrome: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   ubuntu_tweak: https://launchpad.net/ubuntu-tweak/0.8.x/0.8.7/+download/ubuntu-tweak_0.8.7-1~trusty2_all.deb
   atom: https://atom.io/download/deb
-  vagrant: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
+  vagrant: https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
 git_apps:
   chruby: https://github.com/postmodern/chruby.git
   # ruby-install:  https://github.com/postmodern/ruby-install.git # TODO restore when PR merged
   direnv: https://github.com/direnv/direnv.git
   gnome-terminal-colors-monokai: https://github.com/pricco/gnome-terminal-colors-monokai.git
   lastpass-cli: https://github.com/lastpass/lastpass-cli.git
+  whichgo: https://github.com/craigfurman/whichgo
