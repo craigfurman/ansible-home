@@ -125,10 +125,6 @@
   git: repo={{ item.value }} dest=~/git-apps/{{ item.key }}
   with_dict: "{{ git_apps }}"
 
-# TODO remove when PR merged
-- name: clone ruby-install
-  git: repo=https://github.com/craigfurman/ruby-install.git version=stdin-sudo-password dest=~/git-apps/ruby-install
-
 - name: install makeable git apps
   become: yes
   become_method: sudo
