@@ -145,11 +145,6 @@
 - name: install ruby
   shell: echo {{ sudo_password }} | ruby-install ruby 2.2.3 creates=~/.rubies/ruby-2.2.3/bin/ruby
 
-# Can't install this non-interactively
-# TODO is this fixable?
-# - name: monokai terminal theme
-#   command: ~/git-apps/gnome-terminal-colors-monokai/install.sh
-
 - name: download docker install script
   get_url: url=https://get.docker.com dest=~/Downloads/ansible-home-files/docker.sh
 
