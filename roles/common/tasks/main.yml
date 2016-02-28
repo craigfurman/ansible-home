@@ -142,9 +142,6 @@
     GOROOT: /home/{{ user }}/golang
     PATH: /home/{{ user }}/golang/bin:{{ ansible_env.PATH }}
 
-- name: install ruby
-  shell: echo {{ sudo_password }} | ruby-install ruby 2.2.3 creates=~/.rubies/ruby-2.2.3/bin/ruby
-
 - name: download docker install script
   get_url: url=https://get.docker.com dest=~/Downloads/ansible-home-files/docker.sh
 
