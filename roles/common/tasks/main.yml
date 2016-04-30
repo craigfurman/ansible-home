@@ -11,7 +11,7 @@
 - name: add virtualbox repository
   become: yes
   become_method: sudo
-  lineinfile: dest=/etc/apt/sources.list line='deb http://download.virtualbox.org/virtualbox/debian wily contrib'
+  lineinfile: dest=/etc/apt/sources.list line='deb http://download.virtualbox.org/virtualbox/debian xenial contrib'
 - name: add virtualbox repository key
   become: yes
   become_method: sudo
