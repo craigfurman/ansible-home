@@ -134,13 +134,14 @@
     - { name: 'ruby-install', creates: '/usr/local/bin/ruby-install' }
     - { name: 'lastpass-cli', creates: '/usr/bin/lpass' }
 
-- name: install direnv
-  become: yes
-  become_method: sudo
-  command: make install chdir=/home/{{ user }}/git-apps/direnv creates=/usr/local/bin/direnv
-  environment:
-    GOROOT: /home/{{ user }}/golang
-    PATH: /home/{{ user }}/golang/bin:{{ ansible_env.PATH }}
+# Manual installation of Go prevents installing direnv automatically
+# - name: install direnv
+#   become: yes
+#   become_method: sudo
+#   command: make install chdir=/home/{{ user }}/git-apps/direnv creates=/usr/local/bin/direnv
+#   environment:
+#     GOROOT: /home/{{ user }}/golang
+#     PATH: /home/{{ user }}/golang/bin:{{ ansible_env.PATH }}
 
 - name: download docker install script
   get_url: url=https://get.docker.com dest=~/Downloads/ansible-home-files/docker.sh

@@ -10,6 +10,7 @@ This is probably totally un-idiomatic Ansible. Ideally, these playbooks will onl
 * upgrade git apps: don't just install them once
 
 ## Running
-```
-bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bootstrap.sh)"
-```
+1. `bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bootstrap.sh)"`
+1. Install Go using `whichgo`
+1. Install Ruby using `ruby-install`
+1. Install direnv with `make` (requires Go)
