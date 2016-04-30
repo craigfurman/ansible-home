@@ -1,6 +1,6 @@
 ---
 - name: download plex
-  get_url: url=https://downloads.plex.tv/plex-media-server/0.9.15.2.1663-7efd046/plexmediaserver_0.9.15.2.1663-7efd046_amd64.deb dest=~/Downloads/ansible-home-files/plex.deb dest=~/Downloads/ansible-home-files/plex.deb
+  get_url: url=https://downloads.plex.tv/plex-media-server/0.9.16.6.1993-5089475/plexmediaserver_0.9.16.6.1993-5089475_amd64.deb dest=~/Downloads/ansible-home-files/plex.deb dest=~/Downloads/ansible-home-files/plex.deb
 
 - name: install plex
   become: yes
