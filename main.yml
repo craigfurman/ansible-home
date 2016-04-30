@@ -12,9 +12,6 @@
     prompt: "Is this a media server? Y/N"
     default: "N"
     private: no
-  - name: sudo_password
-    prompt: "Enter your sudo password"
-    private: yes
   roles:
   - common
   - { role: laptop, when: is_laptop == 'Y' }
