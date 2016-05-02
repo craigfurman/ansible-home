@@ -14,7 +14,7 @@
 - name: add virtualbox repository key
   become: yes
   become_method: sudo
-  apt_key: url=https://www.virtualbox.org/download/oracle_vbox.asc
+  apt_key: url=https://www.virtualbox.org/download/oracle_vbox_2016.asc
 
 - name: update apt cache
   become: yes
