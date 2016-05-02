@@ -1,7 +1,6 @@
 ---
 debs:
   chrome: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  ubuntu_tweak: https://launchpad.net/ubuntu-tweak/0.8.x/0.8.7/+download/ubuntu-tweak_0.8.7-1~trusty2_all.deb
   atom: https://atom.io/download/deb
   vagrant: https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
 git_apps:
