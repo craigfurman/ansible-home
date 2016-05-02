@@ -14,3 +14,4 @@ This is probably totally un-idiomatic Ansible. Ideally, these playbooks will onl
 1. Install Go using `whichgo`
 1. Install Ruby using `ruby-install`
 1. Install direnv with `make` (requires Go)
+1. update vimfiles after installing Go
