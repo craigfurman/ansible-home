@@ -6,7 +6,6 @@
   with_items:
     - ppa:git-core/ppa
     - ppa:webupd8team/java
-    - ppa:ansible/ansible
 
 - name: add virtualbox repository
   become: yes
@@ -34,7 +33,6 @@
   with_items:
     - alacarte
     - ack-grep
-    - ansible
     - caffeine
     - clipit
     - curl
