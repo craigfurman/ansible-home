@@ -47,6 +47,7 @@
     - lm-sensors
     - make
     - mercurial
+    - network-manager-openvpn-gnome
     - oracle-java8-installer
     - redshift-gtk
     - silversearcher-ag
