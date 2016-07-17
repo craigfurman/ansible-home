@@ -3,6 +3,7 @@
   become: yes
   become_method: sudo
   apt_repository: repo=ppa:linrunner/tlp
+
 - name: install laptop packages
   become: yes
   become_method: sudo

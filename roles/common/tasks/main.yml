@@ -6,11 +6,13 @@
   with_items:
     - ppa:git-core/ppa
     - ppa:webupd8team/java
+    - ppa:webupd8team/atom
 
 - name: add virtualbox repository
   become: yes
   become_method: sudo
   lineinfile: dest=/etc/apt/sources.list line='deb http://download.virtualbox.org/virtualbox/debian xenial contrib'
+
 - name: add virtualbox repository key
   become: yes
   become_method: sudo
@@ -33,6 +35,7 @@
   with_items:
     - alacarte
     - ack-grep
+    - atom
     - caffeine
     - clipit
     - curl
@@ -83,15 +86,13 @@
 - name: create downloads directory
   command: mkdir -p ~/Downloads/ansible-home-files
 
-- name: download debs
-  get_url: url={{ item.value }} dest=~/Downloads/ansible-home-files/{{ item.key }}.deb
-  with_dict: "{{ debs }}"
+- name: download vagrant
+  get_url: url=https://releases.hashicorp.com/vagrant/1.8.4/vagrant_1.8.4_x86_64.deb dest=~/Downloads/ansible-home-files/vagrant.deb
 
-- name: install debs
+- name: install vagrant
   become: yes
   become_method: sudo
-  apt: deb=/home/{{ user }}/Downloads/ansible-home-files/{{ item.key }}.deb
-  with_dict: "{{ debs }}"
+  apt: deb=/home/{{ user }}/Downloads/ansible-home-files/vagrant.deb
 
 # Dropbox deb adds its own PPA, trying to update the deb package using apt module will fail
 - name: check dropbox installed
@@ -109,14 +110,36 @@
   apt: deb=/home/{{ user }}/Downloads/ansible-home-files/dropbox.deb
   when: dropbox_installed.rc != 0
 
+# Chrome deb adds its own PPA, trying to update the deb package using apt module will fail
+- name: check chrome installed
+  command: which google-chrome
+  register: chrome_installed
+  failed_when: chrome_installed.rc > 1
+
+- name: download chrome
+  get_url: url=https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb dest=~/Downloads/ansible-home-files/chrome.deb
+  when: chrome_installed.rc != 0
+
+- name: install chrome
+  become: yes
+  become_method: sudo
+  apt: deb=/home/{{ user }}/Downloads/ansible-home-files/chrome.deb
+  when: chrome_installed.rc != 0
+
+- name: download go
+  get_url: url=https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz dest=~/Downloads/ansible-home-files/go.tar.gz
+
+- name: extract go
+  unarchive: copy=no src=~/Downloads/ansible-home-files/go.tar.gz dest=/usr/local creates=/usr/local/go
+
 - name: clone luan vim config
   git: repo=https://github.com/luan/vimfiles.git dest=~/.vim
 
 - name: install luan vim config
-  command: ~/.vim/install creates=~/.vimrc
+  command: ~/.vim/install chdir=~/.vim
 
 - name: install atom package sync
-  command: apm install package-sync creates=~/.atom/packages/package-sync
+  command: apm install package-sync
 
 - name: make git-apps directory
   command: mkdir -p ~/git-apps
@@ -128,20 +151,14 @@
 - name: install makeable git apps
   become: yes
   become_method: sudo
-  command: make install chdir=/home/{{ user }}/git-apps/{{ item.name }} creates={{ item.creates }}
+  command: make install chdir=/home/{{ user }}/git-apps/{{ item.name }}
   with_items:
-    - { name: 'chruby', creates: '/usr/local/share/chruby' }
-    - { name: 'ruby-install', creates: '/usr/local/bin/ruby-install' }
-    - { name: 'lastpass-cli', creates: '/usr/bin/lpass' }
-
-# Manual installation of Go prevents installing direnv automatically
-# - name: install direnv
-#   become: yes
-#   become_method: sudo
-#   command: make install chdir=/home/{{ user }}/git-apps/direnv creates=/usr/local/bin/direnv
-#   environment:
-#     GOROOT: /home/{{ user }}/golang
-#     PATH: /home/{{ user }}/golang/bin:{{ ansible_env.PATH }}
+    - { name: 'chruby' }
+    - { name: 'ruby-install' }
+    - { name: 'lastpass-cli' }
+    - { name: 'direnv' }
+  environment:
+    PATH: /usr/local/go/bin:{{ ansible_env.PATH }}
 
 - name: download docker install script
   get_url: url=https://get.docker.com dest=~/Downloads/ansible-home-files/docker.sh
