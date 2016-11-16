@@ -87,7 +87,7 @@
   command: mkdir -p ~/Downloads/ansible-home-files
 
 - name: download vagrant
-  get_url: url=https://releases.hashicorp.com/vagrant/1.8.6/vagrant_1.8.6_x86_64.deb dest=~/Downloads/ansible-home-files/vagrant.deb
+  get_url: url=https://releases.hashicorp.com/vagrant/1.8.7/vagrant_1.8.7_x86_64.deb dest=~/Downloads/ansible-home-files/vagrant.deb
 
 - name: install vagrant
   become: yes
@@ -127,7 +127,7 @@
   when: chrome_installed.rc != 0
 
 - name: download go
-  get_url: url=https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz dest=~/Downloads/ansible-home-files/go.tar.gz
+  get_url: url=https://storage.googleapis.com/golang/go1.7.3.linux-amd64.tar.gz dest=~/Downloads/ansible-home-files/go.tar.gz
 
 - name: extract go
   unarchive: copy=no src=~/Downloads/ansible-home-files/go.tar.gz dest=/usr/local creates=/usr/local/go
