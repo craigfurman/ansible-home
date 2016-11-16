@@ -18,6 +18,16 @@
   become_method: sudo
   apt_key: url=https://www.virtualbox.org/download/oracle_vbox_2016.asc
 
+- name: add Google Cloud repository
+  become: yes
+  become_method: sudo
+  lineinfile: dest=/etc/apt/sources.list.d/google-cloud-sdk.list line='deb https://packages.cloud.google.com/apt cloud-sdk-xenial main' create=yes
+
+- name: add Google Cloud repository key
+  become: yes
+  become_method: sudo
+  apt_key: url=https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
 - name: update apt cache
   become: yes
   become_method: sudo
@@ -44,6 +54,7 @@
     - exuberant-ctags
     - fonts-inconsolata
     - git
+    - google-cloud-sdk
     - gparted
     - htop
     - indicator-multiload
