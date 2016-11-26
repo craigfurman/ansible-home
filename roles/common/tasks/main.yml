@@ -160,13 +160,13 @@
   get_url: url=https://storage.googleapis.com/golang/go1.7.3.linux-amd64.tar.gz dest=~/Downloads/ansible-home-files/go.tar.gz
 
 - name: extract go
-  unarchive: copy=no src=~/Downloads/ansible-home-files/go.tar.gz dest=/usr/local creates=/usr/local/go
+  become: yes
+  become_method: sudo
+  unarchive: copy=no src=/home/{{user}}/Downloads/ansible-home-files/go.tar.gz dest=/usr/local creates=/usr/local/go
 
+# Can't install luan/vimfiles non-interactively anymore
 - name: clone luan vim config
   git: repo=https://github.com/luan/vimfiles.git dest=~/.vim
-
-- name: install luan vim config
-  command: ~/.vim/install chdir=~/.vim
 
 - name: install atom package sync
   command: apm install package-sync
