@@ -105,6 +105,25 @@
   become_method: sudo
   apt: deb=/home/{{ user }}/Downloads/ansible-home-files/vagrant.deb
 
+- name: download Visual Studio Code
+  get_url: url=https://az764295.vo.msecnd.net/stable/7ba55c5860b152d999dda59393ca3ebeb1b5c85f/code_1.7.2-1479766213_amd64.deb dest=~/Downloads/ansible-home-files/vscode.deb
+
+- name: install Visual Studio Code
+  become: yes
+  become_method: sudo
+  apt: deb=/home/{{ user }}/Downloads/ansible-home-files/vscode.deb
+
+- name: install Visual Studio Code extensions
+  command: code --install-extension {{item}}
+  with_items:
+  - PeterJausovec.vscode-docker
+  - haaaad.ansible
+  - lukehoban.Go
+  - mauve.terraform
+  - rebornix.Ruby
+  - samverschueren.final-newline
+  - vscodevim.vim
+
 # Dropbox deb adds its own PPA, trying to update the deb package using apt module will fail
 - name: check dropbox installed
   command: which dropbox
