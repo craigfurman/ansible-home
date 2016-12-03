@@ -47,6 +47,7 @@
     - ack-grep
     - atom
     - caffeine
+    - cmake
     - clipit
     - curl
     - deluge
@@ -177,6 +178,9 @@
 - name: clone git apps
   git: repo={{ item.value }} dest=~/git-apps/{{ item.key }}
   with_dict: "{{ git_apps }}"
+
+- name: generate lastpass CLI makefile
+  command: cmake . chdir=~/git-apps/lastpass-cli
 
 - name: install makeable git apps
   become: yes
