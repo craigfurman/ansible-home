@@ -158,7 +158,7 @@
   when: chrome_installed.rc != 0
 
 - name: download go
-  get_url: url=https://storage.googleapis.com/golang/go1.7.3.linux-amd64.tar.gz dest=~/Downloads/ansible-home-files/go.tar.gz
+  get_url: url=https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz dest=~/Downloads/ansible-home-files/go.tar.gz
 
 - name: extract go
   become: yes
