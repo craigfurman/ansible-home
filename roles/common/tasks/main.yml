@@ -7,6 +7,7 @@
     - ppa:git-core/ppa
     - ppa:webupd8team/java
     - ppa:webupd8team/atom
+    - ppa:neovim-ppa/stable
 
 - name: add virtualbox repository
   become: yes
@@ -38,7 +39,7 @@
   become_method: sudo
   debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
 
-- name: install packages
+- name: install apt packages
   become: yes
   become_method: sudo
   apt: name={{ item }} state=latest
@@ -46,12 +47,11 @@
     - alacarte
     - ack-grep
     - atom
+    - build-essential
     - caffeine
-    - cmake
     - clipit
+    - cmake
     - curl
-    - deluge
-    - dkms
     - exuberant-ctags
     - fonts-inconsolata
     - git
@@ -62,12 +62,16 @@
     - lm-sensors
     - make
     - mercurial
+    - neovim
     - network-manager-openvpn-gnome
     - oracle-java8-installer
+    - python-dev
+    - python-pip
+    - python3-dev
+    - python3-pip
     - redshift-gtk
     - silversearcher-ag
     - tree
-    - tmux
     - unity-tweak-tool
     - vim
     - vim-nox
@@ -83,6 +87,8 @@
     - libssl-dev
     - libxml2-dev
     - pinentry-curses
+    # For tmux
+    - libevent-dev
 
 - name: clone oh my zsh
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
@@ -95,35 +101,41 @@
 - name: clone home repo
   script: home.sh creates='/home/{{ user }}/.git'
 
-- name: create downloads directory
-  command: mkdir -p ~/Downloads/ansible-home-files
+- name: ensure downloads directory exists
+  file: path=~/Downloads/ansible-home-files state=directory
+
+- name: download tmux
+  get_url: url=https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz dest=~/Downloads/ansible-home-files/tmux-2.3.tar.gz
+
+- name: extract tmux
+  unarchive: copy=no src=~/Downloads/ansible-home-files/tmux.tar.gz dest=~/Downloads/ansible-home-files creates=~/Downloads/ansible-home-files/tmux-2.3
 
 - name: download vagrant
-  get_url: url=https://releases.hashicorp.com/vagrant/1.8.7/vagrant_1.8.7_x86_64.deb dest=~/Downloads/ansible-home-files/vagrant.deb
+  get_url: url=https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1_x86_64.deb dest=~/Downloads/ansible-home-files/vagrant.deb
+
+- name: check tmux installed
+  command: which tmux
+  register: tmux_installed
+  failed_when: tmux_installed.rc > 1
+
+- name: configure tmux
+  command: ./configure chdir=~/Downloads/ansible-home-files/tmux-2.3
+  when: tmux_installed.rc != 0
+
+- name: compile tmux
+  make: chdir=~/Downloads/ansible-home-files/tmux-2.3
+  when: tmux_installed.rc != 0
+
+- name: install tmux
+  become: yes
+  become_method: sudo
+  make: target=install chdir=~/Downloads/ansible-home-files/tmux-2.3
+  when: tmux_installed.rc != 0
 
 - name: install vagrant
   become: yes
   become_method: sudo
   apt: deb=/home/{{ user }}/Downloads/ansible-home-files/vagrant.deb
-
-- name: download Visual Studio Code
-  get_url: url=https://az764295.vo.msecnd.net/stable/7ba55c5860b152d999dda59393ca3ebeb1b5c85f/code_1.7.2-1479766213_amd64.deb dest=~/Downloads/ansible-home-files/vscode.deb
-
-- name: install Visual Studio Code
-  become: yes
-  become_method: sudo
-  apt: deb=/home/{{ user }}/Downloads/ansible-home-files/vscode.deb
-
-- name: install Visual Studio Code extensions
-  command: code --install-extension {{item}}
-  with_items:
-  - PeterJausovec.vscode-docker
-  - haaaad.ansible
-  - lukehoban.Go
-  - mauve.terraform
-  - rebornix.Ruby
-  - samverschueren.final-newline
-  - vscodevim.vim
 
 # Dropbox deb adds its own PPA, trying to update the deb package using apt module will fail
 - name: check dropbox installed
@@ -158,49 +170,27 @@
   when: chrome_installed.rc != 0
 
 - name: download go
-  get_url: url=https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz dest=~/Downloads/ansible-home-files/go.tar.gz
+  get_url: url=https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz dest=~/Downloads/ansible-home-files/go.tar.gz
 
 - name: extract go
   become: yes
   become_method: sudo
   unarchive: copy=no src=/home/{{user}}/Downloads/ansible-home-files/go.tar.gz dest=/usr/local creates=/usr/local/go
 
-# Can't install luan/vimfiles non-interactively anymore
-- name: clone luan vim config
-  git: repo=https://github.com/luan/vimfiles.git dest=~/.vim
+- name: ensure git-apps directory exists
+  file: path=~/git-apps state=directory
 
-- name: install atom package sync
-  command: apm install package-sync
-
-- name: make git-apps directory
-  command: mkdir -p ~/git-apps
-
-- name: clone git apps
-  git: repo={{ item.value }} dest=~/git-apps/{{ item.key }}
+- name: checkout git apps
+  git: repo={{ item.value }} dest=~/git-apps/{{ item.key }} force=yes
   with_dict: "{{ git_apps }}"
 
 - name: generate lastpass CLI makefile
   command: cmake . chdir=~/git-apps/lastpass-cli
 
-- name: install makeable git apps
+- name: install git apps
   become: yes
   become_method: sudo
-  command: make install chdir=/home/{{ user }}/git-apps/{{ item.name }}
-  with_items:
-    - { name: 'chruby' }
-    - { name: 'ruby-install' }
-    - { name: 'lastpass-cli' }
-    - { name: 'direnv' }
+  make: target=install chdir=/home/{{ user }}/git-apps/{{ item.key }}
+  with_dict: "{{ git_apps }}"
   environment:
     PATH: /usr/local/go/bin:{{ ansible_env.PATH }}
-
-- name: download docker install script
-  get_url: url=https://get.docker.com dest=~/Downloads/ansible-home-files/docker.sh
-
-- name: make docker install script executable
-  file: path=~/Downloads/ansible-home-files/docker.sh mode=0755
-
-- name: install docker
-  become: yes
-  become_method: sudo
-  command: /home/{{ user }}/Downloads/ansible-home-files/docker.sh creates=/usr/bin/docker

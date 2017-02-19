@@ -8,8 +8,10 @@ This is probably totally un-idiomatic Ansible. Ideally, these playbooks will onl
 * vagrant-vbox-snapshot Vagrant plugin
 * transmission ppa
 * rethink apt packages and ppas
-* tmux compilation
+* docker installation process has changed
+* Install/update Luan's vim congiguration
 
 ## Running
 1. `bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bootstrap.sh)"`
 1. Install Ruby using `ruby-install`
+1. Install [vim configuration](https://github.com/luan/vimfiles)

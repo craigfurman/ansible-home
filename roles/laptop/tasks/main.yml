@@ -1,5 +1,5 @@
 ---
-- name: add tlp apt repositories
+- name: add tlp apt repository
   become: yes
   become_method: sudo
   apt_repository: repo=ppa:linrunner/tlp
