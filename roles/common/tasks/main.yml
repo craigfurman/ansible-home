@@ -120,23 +120,23 @@
   get_url: url=https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1_x86_64.deb dest=~/Downloads/ansible-home-files/vagrant.deb
 
 - name: check tmux installed
-  command: which tmux
-  register: tmux_installed
-  failed_when: tmux_installed.rc > 1
+  command: tmux -V
+  register: tmux_version
+  failed_when: tmux_version.rc != 0 and tmux_version.rc != 127
 
 - name: configure tmux
   command: ./configure chdir=~/Downloads/ansible-home-files/tmux-2.3
-  when: tmux_installed.rc != 0
+  when: tmux_version.stdout != "tmux 2.3"
 
 - name: compile tmux
   make: chdir=~/Downloads/ansible-home-files/tmux-2.3
-  when: tmux_installed.rc != 0
+  when: tmux_version.stdout != "tmux 2.3"
 
 - name: install tmux
   become: yes
   become_method: sudo
   make: target=install chdir=~/Downloads/ansible-home-files/tmux-2.3
-  when: tmux_installed.rc != 0
+  when: tmux_version.stdout != "tmux 2.3"
 
 - name: install vagrant
   become: yes
