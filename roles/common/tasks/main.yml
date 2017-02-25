@@ -42,7 +42,7 @@
 - name: install apt packages
   become: yes
   become_method: sudo
-  apt: name={{ item }} state=latest
+  apt: name={{ item }} state=latest update_cache=yes
   with_items:
     - alacarte
     - ack-grep
