@@ -90,6 +90,12 @@
     # For tmux
     - libevent-dev
 
+- name: install neovim pip package
+  pip: name=neovim executable=/usr/bin/pip
+
+- name: install neovim pip3 package
+  pip: name=neovim executable=/usr/bin/pip3
+
 - name: clone oh my zsh
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
 
@@ -194,3 +200,9 @@
   with_dict: "{{ git_apps }}"
   environment:
     PATH: /usr/local/go/bin:{{ ansible_env.PATH }}
+
+- name: clone vim config
+  git: repo=https://github.com/luan/vimfiles dest=~/.vim
+
+- name: install vim config
+  command: ~/.vim/update
