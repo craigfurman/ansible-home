@@ -108,7 +108,7 @@
   get_url: url=https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz dest=~/Downloads/ansible-home-files/tmux-2.3.tar.gz
 
 - name: extract tmux
-  unarchive: copy=no src=~/Downloads/ansible-home-files/tmux.tar.gz dest=~/Downloads/ansible-home-files creates=~/Downloads/ansible-home-files/tmux-2.3
+  unarchive: copy=no src=~/Downloads/ansible-home-files/tmux-2.3.tar.gz dest=~/Downloads/ansible-home-files creates=~/Downloads/ansible-home-files/tmux-2.3
 
 - name: download vagrant
   get_url: url=https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1_x86_64.deb dest=~/Downloads/ansible-home-files/vagrant.deb
