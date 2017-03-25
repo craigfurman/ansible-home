@@ -89,11 +89,17 @@
     # For tmux
     - libevent-dev
 
+- name: install pip
+  pip: name=pip state=latest extra_args=--user
+
+- name: install pip3
+  pip: name=pip state=latest extra_args=--user executable=/usr/bin/pip3
+
 - name: install neovim pip package
-  pip: name=neovim executable=/usr/bin/pip
+  pip: name=neovim state=latest extra_args=--user
 
 - name: install neovim pip3 package
-  pip: name=neovim executable=/usr/bin/pip3
+  pip: name=neovim state=latest extra_args=--user executable=~/.local/bin/pip3
 
 - name: clone oh my zsh
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
