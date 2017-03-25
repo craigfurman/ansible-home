@@ -1,16 +1,13 @@
-set -e
+set -euo pipefail
 
-sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
-sudo apt-get install -y git libffi-dev libssl-dev python-pip
-pip install paramiko PyYAML Jinja2 httplib2 six pycrypto
+sudo apt-get install -y python-pip libssl-dev
+pip install --user --upgrade pip
 
-mkdir -p ~/git-apps
-pushd ~/git-apps
-git clone --recursive https://github.com/ansible/ansible.git
-popd
-
-. ~/git-apps/ansible/hacking/env-setup
-
+(
+mkdir -p ~/projects
+cd ~/projects
 git clone https://github.com/craigfurman/ansible-home.git
-(cd ansible-home && ./run.sh local)
+cd ansible-home
+./run.sh local
+)
