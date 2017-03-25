@@ -60,7 +60,6 @@
     - htop
     - indicator-multiload
     - lm-sensors
-    - make
     - mercurial
     - neovim
     - network-manager-openvpn-gnome
