@@ -1,8 +1,0 @@
----
-- name: download plex
-  get_url: url=https://downloads.plex.tv/plex-media-server/1.3.4.3285-b46e0ea/plexmediaserver_1.3.4.3285-b46e0ea_amd64.deb dest=~/Downloads/ansible-home-files/plex.deb dest=~/Downloads/ansible-home-files/plex.deb
-
-- name: install plex
-  become: yes
-  become_method: sudo
-  apt: deb=/home/{{ user }}/Downloads/ansible-home-files/plex.deb
