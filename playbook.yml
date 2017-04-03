@@ -76,7 +76,7 @@
     - pinentry-curses
     # For tmux
     - libevent-dev
-
+    - libncurses5-dev
 
   - name: install pip
     pip: name=pip state=latest extra_args=--user
@@ -108,7 +108,7 @@
     get_url: url=https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz dest={{downloads_dir}}/tmux-2.3.tar.gz
 
   - name: extract tmux
-    unarchive: copy=no src=~/Downloads/ansible-home-files/tmux-2.3.tar.gz dest={{downloads_dir}} creates={{downloads_dir}}/tmux-2.3
+    unarchive: copy=no src={{downloads_dir}}/tmux-2.3.tar.gz dest={{downloads_dir}} creates={{downloads_dir}}/tmux-2.3
 
   - name: check tmux installed
     command: tmux -V
