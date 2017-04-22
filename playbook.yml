@@ -106,10 +106,10 @@
     file: path={{downloads_dir}} state=directory
 
   - name: download tmux
-    get_url: url=https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz dest={{downloads_dir}}/tmux-2.3.tar.gz
+    get_url: url=https://github.com/tmux/tmux/releases/download/2.4/tmux-2.4.tar.gz dest={{downloads_dir}}/tmux-2.4.tar.gz
 
   - name: extract tmux
-    unarchive: copy=no src={{downloads_dir}}/tmux-2.3.tar.gz dest={{downloads_dir}} creates={{downloads_dir}}/tmux-2.3
+    unarchive: copy=no src={{downloads_dir}}/tmux-2.4.tar.gz dest={{downloads_dir}} creates={{downloads_dir}}/tmux-2.4
 
   - name: check tmux installed
     command: tmux -V
@@ -117,18 +117,18 @@
     failed_when: tmux_version.rc != 0 and tmux_version.rc != 127
 
   - name: configure tmux
-    command: ./configure chdir={{downloads_dir}}/tmux-2.3
-    when: tmux_version.stdout != "tmux 2.3"
+    command: ./configure chdir={{downloads_dir}}/tmux-2.4
+    when: tmux_version.stdout != "tmux 2.4"
 
   - name: compile tmux
-    make: chdir={{downloads_dir}}/tmux-2.3
-    when: tmux_version.stdout != "tmux 2.3"
+    make: chdir={{downloads_dir}}/tmux-2.4
+    when: tmux_version.stdout != "tmux 2.4"
 
   - name: install tmux
     become: yes
     become_method: sudo
-    make: target=install chdir={{downloads_dir}}/tmux-2.3
-    when: tmux_version.stdout != "tmux 2.3"
+    make: target=install chdir={{downloads_dir}}/tmux-2.4
+    when: tmux_version.stdout != "tmux 2.4"
 
   - name: download go
     get_url: url=https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz dest={{downloads_dir}}/go.tar.gz
