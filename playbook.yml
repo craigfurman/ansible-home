@@ -1,14 +1,12 @@
 ---
-- hosts: all
-  remote_user: craig
+- tags: [desktop ,laptop, vm]
+  hosts: all
   vars:
     git_apps:
       chruby: https://github.com/postmodern/chruby.git
       ruby-install:  https://github.com/postmodern/ruby-install.git
-      direnv: https://github.com/direnv/direnv.git
-      lastpass-cli: https://github.com/lastpass/lastpass-cli.git
     downloads_dir: /tmp/downloads
-  tags: [everything]
+    tmux_version: 2.5
   tasks:
   - name: add apt repositories
     become: yes
@@ -46,13 +44,14 @@
     with_items:
     - ack-grep
     - build-essential
-    - cmake
     - curl
+    - direnv
     - exuberant-ctags
     - fonts-inconsolata
     - git
     - google-cloud-sdk
     - htop
+    - lastpass-cli
     - mercurial
     - neovim
     - oracle-java8-installer
@@ -68,13 +67,6 @@
     - wget
     - xclip
     - zsh
-    # For lastpass CLI
-    - openssl
-    - libcurl4-openssl-dev
-    - libxml2
-    - libssl-dev
-    - libxml2-dev
-    - pinentry-curses
     # For tmux
     - libevent-dev
     - libncurses5-dev
@@ -106,32 +98,32 @@
     file: path={{downloads_dir}} state=directory
 
   - name: download tmux
-    get_url: url=https://github.com/tmux/tmux/releases/download/2.4/tmux-2.4.tar.gz dest={{downloads_dir}}/tmux-2.4.tar.gz
+    get_url: url=https://github.com/tmux/tmux/releases/download/{{tmux_version}}/tmux-{{tmux_version}}.tar.gz dest={{downloads_dir}}/tmux-{{tmux_version}}.tar.gz
 
   - name: extract tmux
-    unarchive: copy=no src={{downloads_dir}}/tmux-2.4.tar.gz dest={{downloads_dir}} creates={{downloads_dir}}/tmux-2.4
+    unarchive: copy=no src={{downloads_dir}}/tmux-{{tmux_version}}.tar.gz dest={{downloads_dir}} creates={{downloads_dir}}/tmux-{{tmux_version}}
 
   - name: check tmux installed
     command: tmux -V
-    register: tmux_version
-    failed_when: tmux_version.rc != 0 and tmux_version.rc != 127
+    register: tmux_version_check
+    failed_when: tmux_version_check.rc != 0 and tmux_version_check.rc != 127
 
   - name: configure tmux
-    command: ./configure chdir={{downloads_dir}}/tmux-2.4
-    when: tmux_version.stdout != "tmux 2.4"
+    command: ./configure chdir={{downloads_dir}}/tmux-{{tmux_version}}
+    when: tmux_version_check.stdout != "tmux {{tmux_version}}"
 
   - name: compile tmux
-    make: chdir={{downloads_dir}}/tmux-2.4
-    when: tmux_version.stdout != "tmux 2.4"
+    make: chdir={{downloads_dir}}/tmux-{{tmux_version}}
+    when: tmux_version_check.stdout != "tmux {{tmux_version}}"
 
   - name: install tmux
     become: yes
     become_method: sudo
-    make: target=install chdir={{downloads_dir}}/tmux-2.4
-    when: tmux_version.stdout != "tmux 2.4"
+    make: target=install chdir={{downloads_dir}}/tmux-{{tmux_version}}
+    when: tmux_version_check.stdout != "tmux {{tmux_version}}"
 
   - name: download go
-    get_url: url=https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz dest={{downloads_dir}}/go.tar.gz
+    get_url: url=https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz dest={{downloads_dir}}/go.tar.gz
 
   - name: extract go
     become: yes
@@ -145,16 +137,11 @@
     git: repo={{ item.value }} dest=~/git-apps/{{ item.key }} force=yes
     with_dict: "{{ git_apps }}"
 
-  - name: generate lastpass CLI makefile
-    command: cmake . chdir=~/git-apps/lastpass-cli
-
   - name: install git apps
     become: yes
     become_method: sudo
     make: target=install chdir={{ ansible_env.HOME }}/git-apps/{{ item.key }}
     with_dict: "{{ git_apps }}"
-    environment:
-      PATH: /usr/local/go/bin:{{ ansible_env.PATH }}
 
   - name: clone vim config
     git: repo=https://github.com/luan/vimfiles dest=~/.vim
@@ -162,11 +149,10 @@
   - name: install vim config
     command: ~/.vim/update
 
-- hosts: all
-  remote_user: craig
+- tags: [desktop, laptop]
+  hosts: all
   vars:
     downloads_dir: /tmp/downloads
-  tags: [desktop, laptop]
   tasks:
   - name: add apt repositories (gui)
     become: yes
@@ -241,23 +227,21 @@
     apt: deb={{downloads_dir}}/chrome.deb
     when: chrome_installed.rc != 0
 
-- hosts: all
-  remote_user: craig
+- tags: [desktop]
+  hosts: all
   vars:
     downloads_dir: /tmp/downloads
-  tags: [desktop]
   tasks:
   - name: download plex
-    get_url: url=https://downloads.plex.tv/plex-media-server/1.3.4.3285-b46e0ea/plexmediaserver_1.3.4.3285-b46e0ea_amd64.deb dest=~/Downloads/ansible-home-files/plex.deb dest={{downloads_dir}}/plex.deb
+    get_url: url=https://downloads.plex.tv/plex-media-server/1.7.2.3878-8088811b8/plexmediaserver_1.7.2.3878-8088811b8_amd64.deb dest=~/Downloads/ansible-home-files/plex.deb dest={{downloads_dir}}/plex.deb
 
   - name: install plex
     become: yes
     become_method: sudo
     apt: deb={{downloads_dir}}/plex.deb
 
-- hosts: all
-  remote_user: craig
-  tags: [laptop]
+- tags: [laptop]
+  hosts: all
   tasks:
   - name: add tlp apt repository
     become: yes

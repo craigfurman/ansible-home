@@ -1,19 +1,21 @@
 #!/bin/bash
 set -euo pipefail
 
-if [ -n "${1:-}" ]; then
-  con="$1"
-  echo "running with --con=$con"
-  shift
-fi
+tags() {
+  ansible_tags="vm"
+  if [[ "$(hostname)" == *desktop* ]]; then
+    echo "${ansible_tags},desktop"
+    return 0
+  elif [[ "$(hostname)" == *laptop* ]]; then
+    echo "${ansible_tags},laptop"
+    return 0
+  else
+    echo "unrecognised hostname: $(hostname)" >&2
+    exit 1
+  fi
+}
 
 (
 cd $(dirname $0)
-cmd="ansible-playbook --ask-become-pass -i hosts main.yml"
-
-if [ -n "${con:-}" ]; then
-  cmd="$cmd --con=$con"
-fi
-
-$cmd
+ansible-playbook --ask-become-pass -i localhost, --con local --tags $(tags) playbook.yml
 )
