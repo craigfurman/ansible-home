@@ -12,6 +12,7 @@ This is probably totally un-idiomatic Ansible. Ideally, these playbooks will onl
 ## Running
 1. `bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bootstrap.sh)"`
 1. Install Ruby using `ruby-install`
+1. In tmux, prefix+I to install plugins.
 
 ## Ubuntu desktop stuff
 

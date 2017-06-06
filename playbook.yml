@@ -149,6 +149,9 @@
   - name: install vim config
     command: ~/.vim/update
 
+  - name: install TPM
+    git: repo=https://github.com/tmux-plugins/tpm dest=~/.tmux/plugins/tpm
+
 - tags: [desktop, laptop]
   hosts: all
   vars:
