@@ -43,6 +43,8 @@
     apt: name={{ item }} state=latest update_cache=yes
     with_items:
     - ack-grep
+    - automake
+    - autotools-dev
     - build-essential
     - curl
     - direnv
@@ -52,6 +54,7 @@
     - google-cloud-sdk
     - htop
     - lastpass-cli
+    - libseccomp-dev
     - mercurial
     - neovim
     - oracle-java8-installer
@@ -62,6 +65,7 @@
     - python3-pip
     - silversearcher-ag
     - tree
+    - valgrind
     - vim
     - vim-nox
     - wget
