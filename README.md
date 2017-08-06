@@ -1,26 +1,20 @@
 # ansible-home
 
-This is probably totally un-idiomatic Ansible. Ideally, these playbooks will only install stuff, configuration lives in my [dotfiles repo](https://github.com/craigfurman/home).
+Currently moving from Ubuntu to Arch.
 
-## Todo
-* Google music manager (https://dl.google.com/linux/direct/google-musicmanager-beta_current_amd64.deb)
-* vagrant-vbox-snapshot Vagrant plugin
-* transmission ppa
-* rethink apt packages and ppas
-* docker installation process has changed
+## Known limitations
 
-## Running
+1. Didn't attempt to install google-musicmanager from AUR due to having to build qtwebkit in a clean chroot, which takes over an hour. Leaving this as a manual step.
+
+## To do
+
+1. AUR packages
+1. Config: zsh, vim
+
+## First run
 1. `bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bootstrap.sh)"`
-1. Install Ruby using `ruby-install`
+1. Check limitations section
 1. In tmux, prefix+I to install plugins.
 
-## Ubuntu desktop stuff
-
-### Get a newer kernel and graphics stack
-
-`sudo apt-get install --install-recommends linux-generic-hwe-16.04 xserver-xorg-hwe-16.04`
-
-### Fix text scaling issues
-
-1. In screen display settings, adjust scale factor as appropriate.
-1. In `/usr/share/applications/google-chrome.desktop`, add `--force-device-scale-factor=n` to each `Exec=` line. [Source](http://stackoverflow.com/questions/37935305/how-to-fix-chromium-hidpi-scaling)
+## Subsequent runs
+1. `run.sh`

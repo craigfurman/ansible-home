@@ -1,10 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-sudo apt-get update
-sudo apt-get install -y python-pip libssl-dev git
-pip install --user --upgrade pip
-pip install --user --upgrade ansible
+sudo pacman -S --needed git ansible
 
 (
 mkdir -p ~/workspace
