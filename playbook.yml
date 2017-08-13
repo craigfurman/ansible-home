@@ -45,6 +45,9 @@
     - xclip
     - zsh
 
+  - user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
+    become: true
+
   - git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
 
   - git: repo=https://github.com/luan/vimfiles dest=~/.vim
