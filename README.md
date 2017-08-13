@@ -15,6 +15,7 @@ Currently moving from Ubuntu to Arch.
 1. `bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bootstrap.sh)"`
 1. Check limitations section
 1. In tmux, prefix+I to install plugins.
+1. `~/.vim/update`
 
 ## Subsequent runs
 1. `run.sh`

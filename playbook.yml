@@ -45,5 +45,9 @@
     - xclip
     - zsh
 
+  - git: repo=https://github.com/luan/vimfiles dest=~/.vim
+
+  - git: repo=https://github.com/tmux-plugins/tpm dest=~/.tmux/plugins/tpm
+
   - command: updatedb
     become: true
