@@ -16,6 +16,7 @@
     - git
     - gnome-tweak-tool
     - go
+    - gparted
     - hdparm
     - htop
     - jq
@@ -24,6 +25,7 @@
     - linux-headers
     - lshw
     - mlocate
+    - mtools
     - neovim
     - networkmanager-openvpn
     - openssh
