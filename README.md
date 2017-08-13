@@ -9,7 +9,7 @@ Currently moving from Ubuntu to Arch.
 ## To do
 
 1. AUR packages
-1. Config: zsh, vim
+1. Rust
 
 ## First run
 1. `bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bootstrap.sh)"`

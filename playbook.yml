@@ -45,9 +45,23 @@
     - xclip
     - zsh
 
+  - git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+
   - git: repo=https://github.com/luan/vimfiles dest=~/.vim
 
   - git: repo=https://github.com/tmux-plugins/tpm dest=~/.tmux/plugins/tpm
 
+  - file: src={{item.src}} dest={{item.dest}} state=link force=true
+    with_items:
+    - {src: "{{ansible_env.PWD}}/config/zshrc", dest: ~/.zshrc}
+    - {src: "{{ansible_env.PWD}}/config/tmux.conf", dest: ~/.tmux.conf}
+    - {src: "{{ansible_env.PWD}}/config/gitconfig", dest: ~/.gitconfig}
+    - {src: "{{ansible_env.PWD}}/config/vimrc.local.plugins", dest: ~/.vimrc.local.plugins}
+
   - command: updatedb
     become: true
+
+- tags: [desktop]
+  hosts: all
+  tasks:
+  - file: src={{ansible_env.PWD}}/config/zshrc_desktop dest=~/.zshrc_machine_specific state=link force=true
