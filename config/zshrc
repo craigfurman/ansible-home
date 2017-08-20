@@ -89,16 +89,15 @@ alias clip='xclip -sel clip'
 
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
+export GIT_DUET_ROTATE_AUTHOR=1
+export PATH=$HOME/bin:$PATH
 
 alias vim=nvim
 export EDITOR=vim
 
-export PATH=$HOME/bin:$PATH
 
 source $HOME/.cargo/env
-
 eval "$(direnv hook zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -f ~/.zshrc_machine_specific ] && source ~/.zshrc_machine_specific
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
