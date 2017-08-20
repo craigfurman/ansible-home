@@ -76,6 +76,7 @@
   - pacaur: name={{item}} state=present
     become: yes
     with_items:
+    - aurvote
     - bosh-cli
     - caffeine-ng
     - chruby
