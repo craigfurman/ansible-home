@@ -95,9 +95,8 @@ export PATH=$HOME/bin:$PATH
 alias vim=nvim
 export EDITOR=vim
 
+[ -f ~/.zshrc_machine_specific ] && source ~/.zshrc_machine_specific
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $HOME/.cargo/env
 eval "$(direnv hook zsh)"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-[ -f ~/.zshrc_machine_specific ] && source ~/.zshrc_machine_specific
