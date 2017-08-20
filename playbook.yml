@@ -66,7 +66,31 @@
   - command: updatedb
     become: true
 
+  - file: path=~/aur state=directory mode=0755
+
+  - aur: name={{item}} user={{ansible_env.USER}}
+    with_items:
+    - cower
+    - pacaur
+
+  - pacaur: name={{item}} state=present
+    become: yes
+    with_items:
+    - bosh-cli
+    - caffeine-ng
+    - chruby
+    - clipit
+    - direnv
+    - dropbox
+    - gnome-shell-extension-topicons-plus-git
+    - google-chrome
+    - ruby-install
+    - ttf-google-fonts-git
+
 - tags: [desktop]
   hosts: all
   tasks:
   - file: src={{ansible_env.PWD}}/config/zshrc_desktop dest=~/.zshrc_machine_specific state=link force=true
+
+  - pacaur: name=plex-media-server state=present
+    become: yes
