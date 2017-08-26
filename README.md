@@ -8,6 +8,7 @@ Currently moving from Ubuntu to Arch.
 
 ## TODO
 
+1. Font config
 1. Rust
 
 ## First run
