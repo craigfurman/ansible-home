@@ -89,6 +89,11 @@
     - ruby-install
     - ttf-google-fonts-git
 
+  - command: pacman -Sc
+    become: yes
+
+  - command: "{{ansible_env.PWD}}/scripts/clean-pacaur-cache.sh"
+
 - tags: [desktop]
   hosts: all
   tasks:
