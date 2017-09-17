@@ -8,6 +8,7 @@
     with_items:
     - ack
     - ansible
+    - asp
     - atom
     - ctags
     - deluge
