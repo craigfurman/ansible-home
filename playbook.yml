@@ -36,6 +36,7 @@
     - python-neovim
     - python2-neovim
     - qt4
+    - ripgrep
     - ruby
     - shellcheck
     - smartmontools
