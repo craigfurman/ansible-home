@@ -89,7 +89,7 @@ alias clip='xclip -sel clip'
 
 export GIT_DUET_ROTATE_AUTHOR=1
 export PATH=$HOME/bin:$PATH
-export MAKEFLAGS="-j8"
+export MAKEFLAGS="-j$(nproc)"
 
 alias vim=nvim
 export EDITOR=vim
