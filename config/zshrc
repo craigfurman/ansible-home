@@ -102,6 +102,7 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 
 # Ruby
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 [ -f ~/.zshrc_machine_specific ] && source ~/.zshrc_machine_specific
