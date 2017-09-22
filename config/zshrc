@@ -84,18 +84,25 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Aliases
 alias ll='ls -alhH'
 alias clip='xclip -sel clip'
 
+# Environment variables
 export GIT_DUET_ROTATE_AUTHOR=1
 export PATH=$HOME/bin:$PATH
 export MAKEFLAGS="-j$(nproc)"
 
+# Vim
 alias vim=nvim
 export EDITOR=vim
 
+# Go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
+
+# Ruby
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 [ -f ~/.zshrc_machine_specific ] && source ~/.zshrc_machine_specific
 
