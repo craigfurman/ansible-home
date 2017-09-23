@@ -7,4 +7,4 @@ do
   git -C "$aur_pkg" clean -fd
 done
 
-rm -f "$cache_dir"/**/*.z
+rm -f "$cache_dir"/**/*.*z
