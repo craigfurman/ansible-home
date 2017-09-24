@@ -85,6 +85,7 @@
     - caffeine-ng
     - chruby
     - clipit
+    - cloudfoundry-cli
     - direnv
     - dropbox
     - gnome-shell-extension-topicons-plus-git
