@@ -10,6 +10,7 @@ Currently moving from Ubuntu to Arch.
 
 1. Font config
 1. Rust
+1. ngrok
 
 ## First run
 1. `bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bootstrap.sh)"`
