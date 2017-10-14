@@ -70,6 +70,9 @@
   - command: updatedb
     become: true
 
+  - shell: sed -i "s/COMPRESSXZ=.*$/COMPRESSXZ=(xz -c -z --threads $(nproc) -)/g" /etc/makepkg.conf
+    become: true
+
   - file: path=~/aur state=directory mode=0755
 
   - aur: name={{item}} user={{ansible_env.USER}}
