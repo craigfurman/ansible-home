@@ -1,6 +1,6 @@
 # ansible-home
 
-Currently moving from Ubuntu to Arch.
+My Arch Linux config.
 
 ## Known limitations
 
