@@ -26,6 +26,7 @@
     - libreoffice-still
     - linux-headers
     - lshw
+    - lsof
     - mlocate
     - mtools
     - neovim
