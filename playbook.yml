@@ -92,6 +92,7 @@
     - cloudfoundry-cli
     - direnv
     - dropbox
+    - gnome-shell-extension-pixel-saver
     - gnome-shell-extension-topicons-plus-git
     - google-chrome
     - ruby-install
