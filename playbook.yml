@@ -95,6 +95,7 @@
     - gnome-shell-extension-pixel-saver
     - gnome-shell-extension-topicons-plus-git
     - google-chrome
+    - nautilus-dropbox # GNOME/Files integration
     - ruby-install
     - ttf-google-fonts-git
 
