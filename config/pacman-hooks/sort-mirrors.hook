@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = pacman-mirrorlist
+
+[Action]
+Description = Updating and sorting pacman mirrors with reflector
+When = PostTransaction
+Depends = reflector
+Exec = /usr/bin/reflector --latest 100 --sort rate --protocol https -c GB -c FR -c IE -c DE -c BE -c NL -c DK -c CZ -c AT --save /etc/pacman.d/mirrorlist

@@ -37,6 +37,7 @@
     - python-neovim
     - python2-neovim
     - qt4
+    - reflector
     - ripgrep
     - ruby
     - shellcheck
@@ -98,6 +99,14 @@
     - nautilus-dropbox # GNOME/Files integration
     - ruby-install
     - ttf-google-fonts-git
+
+  - file: path=/etc/pacman.d/hooks state=directory mode=0755
+    become: true
+
+  - copy: src={{item.src}} dest={{item.dest}} force=true mode=0644
+    become: true
+    with_items:
+    - {src: "{{ansible_env.PWD}}/config/pacman-hooks/sort-mirrors.hook", dest: /etc/pacman.d/hooks/sort-mirrors.hook}
 
   - command: pacman -Sc
     become: yes
