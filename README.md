@@ -2,10 +2,6 @@
 
 My Arch Linux config.
 
-## Known limitations
-
-1. Didn't attempt to install google-musicmanager from AUR due to having to build qtwebkit in a clean chroot, which takes over an hour. Leaving this as a manual step.
-
 ## TODO
 
 1. Font config
@@ -20,3 +16,5 @@ My Arch Linux config.
 
 ## Subsequent runs
 1. `run.sh`
+1. In tmux, prefix+U to update plugins.
+1. `vim-update`
