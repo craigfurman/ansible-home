@@ -69,9 +69,6 @@
     - {src: "{{ansible_env.PWD}}/config/gitconfig", dest: ~/.gitconfig}
     - {src: "{{ansible_env.PWD}}/config/vimrc.local.plugins", dest: ~/.vimrc.local.plugins}
 
-  - command: updatedb
-    become: true
-
   - shell: sed -i "s/COMPRESSXZ=.*$/COMPRESSXZ=(xz -c -z --threads $(nproc) -)/g" /etc/makepkg.conf
     become: true
 
