@@ -87,6 +87,7 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias ll='ls -alhH'
 alias clip='xclip -sel clip'
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 # Environment variables
 export GIT_DUET_ROTATE_AUTHOR=1
