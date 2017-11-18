@@ -115,6 +115,8 @@
   tasks:
   - file: src={{ansible_env.PWD}}/config/zshrc_desktop dest=~/.zshrc_machine_specific state=link force=true
 
+  - command: VBoxManage setproperty machinefolder /media/morty/virtualboxen
+
   - pacaur: name={{item}} state=present
     become: yes
     with_items:
