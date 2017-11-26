@@ -109,5 +109,4 @@ export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 [ -f ~/.zshrc_machine_specific ] && source ~/.zshrc_machine_specific
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source $HOME/.cargo/env
 eval "$(direnv hook zsh)"

@@ -42,6 +42,7 @@
     - reflector
     - ripgrep
     - ruby
+    - rustup
     - shellcheck
     - smartmontools
     - terraform
@@ -54,6 +55,9 @@
     - wget
     - xclip
     - zsh
+
+  - command: rustup toolchain install stable
+  - command: rustup default stable
 
   - user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
     become: true

@@ -5,7 +5,6 @@ My Arch Linux config.
 ## TODO
 
 1. Font config
-1. Rust
 1. ngrok
 
 ## First run
