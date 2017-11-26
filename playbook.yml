@@ -106,7 +106,7 @@
     with_items:
     - {src: "{{ansible_env.PWD}}/config/pacman-hooks/sort-mirrors.hook", dest: /etc/pacman.d/hooks/sort-mirrors.hook}
 
-  - command: pacman -Sc
+    - command: pacman -Sc --noconfirm
     become: yes
 
   - command: "{{ansible_env.PWD}}/scripts/clean-pacaur-cache.sh"
