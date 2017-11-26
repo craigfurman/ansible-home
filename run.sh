@@ -2,6 +2,11 @@
 set -euo pipefail
 
 tags() {
+  if [ -n "${DEBUG:-}" ]; then
+    echo "debug"
+    return 0
+  fi
+
   if [[ "$(hostname)" == *desktop* ]]; then
     echo "desktop"
     return 0
