@@ -51,6 +51,7 @@
     - tree
     - vagrant
     - virtualbox
+    - virtualbox-host-dkms
     - vlc
     - wget
     - xclip
