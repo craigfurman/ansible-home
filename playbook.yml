@@ -10,10 +10,14 @@
     - ansible
     - asp
     - atom
+    - bind-tools
     - crda
     - ctags
+    - curl
     - deluge
     - devtools
+    - docker
+    - docker-machine
     - firefox
     - git
     - gnome-tweak-tool
@@ -21,6 +25,7 @@
     - go
     - gparted
     - hdparm
+    - hexedit
     - htop
     - jq
     - lastpass-cli
@@ -54,6 +59,7 @@
     - virtualbox-host-dkms
     - vlc
     - wget
+    - whois
     - xclip
     - zsh
 
@@ -100,19 +106,24 @@
     - gnome-shell-extension-pixel-saver
     - gnome-shell-extension-topicons-plus-git
     - google-chrome
+    - gotty
     - nautilus-dropbox # GNOME/Files integration
+    - ngrok
     - ruby-install
+    - slack-desktop
+    - tmate
     - ttf-google-fonts-git
+    - zoom
 
   - file: path=/etc/pacman.d/hooks state=directory mode=0755
     become: true
 
-  - copy: src={{item.src}} dest={{item.dest}} force=true mode=0644
+  - copy: src="{{item.src}}" dest="{{item.dest}}" force=true mode=0644
     become: true
     with_items:
     - {src: "{{ansible_env.PWD}}/config/pacman-hooks/sort-mirrors.hook", dest: /etc/pacman.d/hooks/sort-mirrors.hook}
 
-    - command: pacman -Sc --noconfirm
+  - command: pacman -Sc --noconfirm
     become: yes
 
   - command: "{{ansible_env.PWD}}/scripts/clean-pacaur-cache.sh"
@@ -120,7 +131,7 @@
 - tags: [desktop]
   hosts: all
   tasks:
-  - file: src={{ansible_env.PWD}}/config/zshrc_desktop dest=~/.zshrc_machine_specific state=link force=true
+  - file: src="{{ansible_env.PWD}}/config/zshrc_desktop" dest=~/.zshrc_machine_specific state=link force=true
 
   - command: VBoxManage setproperty machinefolder /media/morty/virtualboxen
 
