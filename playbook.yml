@@ -49,6 +49,7 @@
     - ripgrep
     - ruby
     - rustup
+    - seahorse
     - shellcheck
     - smartmontools
     - terraform
