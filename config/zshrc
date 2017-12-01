@@ -106,6 +106,9 @@ export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
+# Rust
+export PATH=$HOME/.cargo/bin:$PATH
+
 [ -f ~/.zshrc_machine_specific ] && source ~/.zshrc_machine_specific
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
