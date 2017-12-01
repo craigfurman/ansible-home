@@ -95,7 +95,7 @@
     - pacaur
 
   - pacaur: name={{item}} state=present
-    become: yes
+    become: true
     with_items:
     - aurvote
     - bosh-cli
@@ -126,8 +126,16 @@
     with_items:
     - {src: "{{ansible_env.PWD}}/config/pacman-hooks/sort-mirrors.hook", dest: /etc/pacman.d/hooks/sort-mirrors.hook}
 
+  - command: pacman -Qtdq
+    ignore_errors: true
+    register: orphans
+
+  - shell: pacman -Rns --noconfirm $(pacman -Qtdq)
+    become: true
+    when: orphans|succeeded
+
   - command: pacman -Sc --noconfirm
-    become: yes
+    become: true
 
   - command: "{{ansible_env.PWD}}/scripts/clean-pacaur-cache.sh"
 
@@ -139,7 +147,7 @@
   - command: VBoxManage setproperty machinefolder /media/morty/virtualboxen
 
   - pacaur: name={{item}} state=present
-    become: yes
+    become: true
     with_items:
     - plex-media-server
     - google-musicmanager
