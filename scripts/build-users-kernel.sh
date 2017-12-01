@@ -6,6 +6,7 @@ rm -rf "$abs_linux"
 asp update
 
 (
+mkdir -p "$(dirname "$abs_linux")"
 cd "$(dirname "$abs_linux")"
 asp checkout linux
 (
