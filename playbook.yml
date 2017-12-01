@@ -143,3 +143,11 @@
     with_items:
     - plex-media-server
     - google-musicmanager
+
+- tags: [laptop]
+  hosts: all
+  vars:
+    vbox_dir: ~/virtualbox_vms
+  tasks:
+  - file: path="{{vbox_dir}}" state=directory mode=0755 attributes=C
+  - command: VBoxManage setproperty machinefolder {{vbox_dir}}
