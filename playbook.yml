@@ -112,6 +112,7 @@
     - nautilus-dropbox # GNOME/Files integration
     - ngrok
     - ruby-install
+    - skypeforlinux-bin
     - slack-desktop
     - tmate
     - ttf-google-fonts-git
