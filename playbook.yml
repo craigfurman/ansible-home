@@ -37,9 +37,11 @@
     - mtools
     - neovim
     - networkmanager-openvpn
+    - nfs-utils
     - openssh
     - openvpn
     - postfix
+    - powertop
     - pygtk
     - python-neovim
     - python-pip

@@ -85,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Aliases
-alias ll='ls -alhH'
+alias ll='ls -alh'
 alias clip='xclip -sel clip'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
