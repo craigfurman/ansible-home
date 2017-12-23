@@ -8,5 +8,5 @@ mkdir -p ~/workspace
 cd ~/workspace
 git clone --recursive https://github.com/craigfurman/ansible-home.git
 cd ansible-home
-./run.sh
+MAKEFLAGS="-j$(nproc)" ./run.sh
 )
