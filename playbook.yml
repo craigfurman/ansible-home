@@ -2,6 +2,8 @@
 - tags: [desktop, laptop]
   hosts: all
   become_method: sudo
+  vars:
+    vbox_dir: ~/virtualbox_vms
   tasks:
   - pacman: name={{item}}
     become: true
@@ -142,23 +144,14 @@
 
   - command: "{{ansible_env.PWD}}/scripts/clean-pacaur-cache.sh"
 
+  - file: path="{{vbox_dir}}" state=directory mode=0755 attributes=C
+  - command: VBoxManage setproperty machinefolder {{vbox_dir}}
+
 - tags: [desktop]
   hosts: all
   tasks:
-  - file: src="{{ansible_env.PWD}}/config/zshrc_desktop" dest=~/.zshrc_machine_specific state=link force=true
-
-  - command: VBoxManage setproperty machinefolder /media/morty/virtualboxen
-
   - pacaur: name={{item}} state=present
     become: true
     with_items:
     - plex-media-server
     - google-musicmanager
-
-- tags: [laptop]
-  hosts: all
-  vars:
-    vbox_dir: ~/virtualbox_vms
-  tasks:
-  - file: path="{{vbox_dir}}" state=directory mode=0755 attributes=C
-  - command: VBoxManage setproperty machinefolder {{vbox_dir}}
