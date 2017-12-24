@@ -121,7 +121,7 @@
     - slack-desktop
     - tmate
     - ttf-google-fonts-git
-    - visual-studio-code
+    - visual-studio-code-bin
     - zoom
 
   - file: path=/etc/pacman.d/hooks state=directory mode=0755
