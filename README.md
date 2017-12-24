@@ -5,7 +5,6 @@ My Arch Linux config.
 ## TODO
 
 1. Font config
-1. ngrok
 
 ## First run
 1. `bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bootstrap.sh)"`
