@@ -146,6 +146,8 @@
   - command: "{{ansible_env.PWD}}/scripts/clean-pacaur-cache.sh"
 
   - file: path="{{vbox_dir}}" state=directory mode=0755 attributes=C
+  - file: path="~/.docker/machine/machines" state=directory mode=0700 attributes=C
+
   - command: VBoxManage setproperty machinefolder {{vbox_dir}}
 
 - tags: [desktop]
