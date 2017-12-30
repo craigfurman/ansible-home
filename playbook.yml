@@ -150,6 +150,13 @@
 
   - command: VBoxManage setproperty machinefolder {{vbox_dir}}
 
+  - command: docker-machine status docker
+    ignore_errors: true
+    register: docker_machine_exists
+
+  - command: docker-machine create --virtualbox-share-folder {{ansible_env.HOME}}:{{ansible_env.HOME}} docker
+    when: docker_machine_exists|failed
+
 - tags: [desktop]
   hosts: all
   tasks:

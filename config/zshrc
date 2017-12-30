@@ -110,5 +110,10 @@ export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 # Rust
 export PATH=$HOME/.cargo/bin:$PATH
 
+# Docker
+if [ "$(docker-machine status docker 2>/dev/null)" = Running ]; then
+  eval "$(docker-machine env docker)"
+fi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
