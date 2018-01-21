@@ -7,4 +7,4 @@ Target = pacman-mirrorlist
 Description = Updating and sorting pacman mirrors with reflector
 When = PostTransaction
 Depends = reflector
-Exec = /usr/bin/reflector --latest 50 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
+Exec = /usr/bin/reflector -c GB -c IE -c FR -c BE -c NL -c DE -c DK --latest 50 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
