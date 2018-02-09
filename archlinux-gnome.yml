@@ -1,0 +1,68 @@
+---
+- tags: [archlinux-gnome]
+  hosts: all
+  become_method: sudo
+  vars:
+    vbox_dir: ~/virtualbox_vms
+  tasks:
+  - pacman: name={{item}}
+    become: true
+    with_items:
+    - atom
+    - crda
+    - deluge
+    - docker
+    - docker-machine
+    - firefox
+    - gnome-tweak-tool
+    - gparted
+    - libreoffice-still
+    - networkmanager-openvpn
+    - powertop
+    - pygtk
+    - qt4
+    - seahorse
+    - vagrant
+    - virtualbox
+    - virtualbox-host-dkms
+    - vlc
+
+  # TODO get rid of pacaur in favour of aurutils workflow
+  - pacaur: name={{item}} state=present
+    become: true
+    with_items:
+    - aurvote
+    - bosh-cli
+    - caffeine-ng
+    - chruby
+    - clipit
+    - cloudfoundry-cli
+    - direnv
+    - dropbox
+    - gnome-shell-extension-pixel-saver
+    - gnome-shell-extension-topicons-plus-git
+    - google-chrome
+    - gotty
+    - nautilus-dropbox # GNOME/Files integration
+    - ngrok
+    - ruby-install
+    - skypeforlinux-bin
+    - slack-desktop
+    - tmate
+    - ttf-google-fonts-git
+    - visual-studio-code-bin
+    - zoom
+
+  - command: "{{ansible_env.PWD}}/scripts/clean-pacaur-cache.sh"
+
+  - file: path="{{vbox_dir}}" state=directory mode=0755 attributes=C
+  - file: path="~/.docker/machine/machines" state=directory mode=0700 attributes=C
+
+  - command: VBoxManage setproperty machinefolder {{vbox_dir}}
+
+  - command: docker-machine status docker
+    ignore_errors: true
+    register: docker_machine_exists
+
+  - command: docker-machine create --virtualbox-share-folder {{ansible_env.HOME}}:{{ansible_env.HOME}} docker
+    when: docker_machine_exists|failed

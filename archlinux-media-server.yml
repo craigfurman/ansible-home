@@ -1,0 +1,11 @@
+---
+- tags: [archlinux-media-server]
+  hosts: all
+  become_method: sudo
+  tasks:
+  # TODO get rid of pacaur in favour of aurutils workflow
+  - pacaur: name={{item}} state=present
+    become: true
+    with_items:
+    - plex-media-server
+    - google-musicmanager

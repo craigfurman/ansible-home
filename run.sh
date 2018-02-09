@@ -1,25 +1,60 @@
 #!/bin/bash
 set -euo pipefail
 
+supplied_tags="${1:-}"
+
+main() {
+  install_python
+
+  cd "$(dirname "$0")"
+
+  MAKEFLAGS="-j$(nproc)"
+  export MAKEFLAGS
+  tags=$(tags)
+
+  cmd="ansible-playbook"
+  if [ -z "${PASSWORDLESS_SUDO:-}" ]; then
+    cmd="$cmd --ask-become-pass"
+  fi
+  $cmd -i localhost, --con local --tags "$tags" playbook.yml
+}
+
 tags() {
   if [ -n "${DEBUG:-}" ]; then
     echo "debug"
     return 0
   fi
 
-  if [[ "$(hostname)" == *desktop* ]]; then
-    echo "desktop"
+  if [ -n "${supplied_tags:-}" ]; then
+    echo "$supplied_tags"
     return 0
-  elif [[ "$(hostname)" == *laptop* ]]; then
-    echo "laptop"
+  fi
+
+  if [[ "$(hostname)" == "craig-desktop" ]]; then
+    echo "archlinux-headless,archlinux-gnome,archlinix-media-server"
+    return 0
+  elif [[ "$(hostname)" == "craig-laptop" ]]; then
+    echo "common-headless,archlinux-headless,archlinux-gnome"
     return 0
   else
-    echo "unrecognised hostname: $(hostname)" >&2
+    echo "unrecognised hostname: $(hostname). Usage: run.sh <comma separated tags>. Supported tags: common-headless,archlinux-headless,archlinux-gnome,archlinux-media-server" >&2
+    return 1
+  fi
+}
+
+install_python() {
+  if which python > /dev/null 2>&1 ; then
+    return 0
+  fi
+
+  echo "installing python..."
+
+  if which pacman > /dev/null 2>&1 ; then
+    sudo pacman -S --needed --noconfirm python
+  else
+    echo "no supported package manager found"
     exit 1
   fi
 }
 
-(
-cd "$(dirname "$0")"
-ansible-playbook --ask-become-pass -i localhost, --con local --tags "$(tags)" playbook.yml
-)
+main
