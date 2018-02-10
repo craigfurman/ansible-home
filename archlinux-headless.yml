@@ -41,6 +41,7 @@
     - rustup
     - shellcheck
     - smartmontools
+    - stow
     - strace
     - tcpdump
     - terraform
@@ -56,10 +57,7 @@
     become: true
 
   - file: path=~/aur state=directory mode=0755
-  - aur: name={{item}} user={{ansible_env.USER}}
-    with_items:
-    - cower
-    - pacaur
+  - aur: name=aurutils user={{ansible_env.USER}}
 
   - file: path=/etc/pacman.d/hooks state=directory mode=0755
     become: true

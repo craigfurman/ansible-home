@@ -4,6 +4,7 @@ set -euo pipefail
 supplied_tags="${1:-}"
 
 main() {
+  check_zshrc
   install_python
 
   cd "$(dirname "$0")"
@@ -31,10 +32,10 @@ tags() {
   fi
 
   if [[ "$(hostname)" == "craig-desktop" ]]; then
-    echo "archlinux-headless,archlinux-gnome,archlinix-media-server"
+    echo "archlinux-headless,common-headless,archlinux-gnome,archlinix-media-server"
     return 0
   elif [[ "$(hostname)" == "craig-laptop" ]]; then
-    echo "common-headless,archlinux-headless,archlinux-gnome"
+    echo "archlinux-headless,common-headless,archlinux-gnome"
     return 0
   else
     echo "unrecognised hostname: $(hostname). Usage: run.sh <comma separated tags>. Supported tags: common-headless,archlinux-headless,archlinux-gnome,archlinux-media-server" >&2
@@ -54,6 +55,13 @@ install_python() {
   else
     echo "no supported package manager found"
     exit 1
+  fi
+}
+
+check_zshrc() {
+  if [ -e ~/.zshrc ] && [ ! -L ~/.zshrc ]; then
+    echo "$HOME/.zshrc is not a symlink, stowing dotfiles will fail later. try removing it for now."
+    return 1
   fi
 }
 

@@ -1,6 +1,3 @@
-[submodule "modules/ansible-pacaur"]
-	path = modules/ansible-pacaur
-	url = https://github.com/sanderboom/ansible-pacaur.git
 [submodule "modules/ansible-aur"]
 	path = modules/ansible-aur
 	url = https://github.com/pigmonkey/ansible-aur.git
