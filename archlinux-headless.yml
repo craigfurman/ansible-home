@@ -77,3 +77,9 @@
 
   - command: pacman -Sc --noconfirm
     become: true
+
+  - lineinfile:
+      line: 'kernel.unprivileged_userns_clone=1'
+      path: /etc/sysctl.d/99-custom.conf
+      create: true
+    become: true
