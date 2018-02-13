@@ -21,11 +21,6 @@ main() {
 }
 
 tags() {
-  if [ -n "${DEBUG:-}" ]; then
-    echo "debug"
-    return 0
-  fi
-
   if [ -n "${supplied_tags:-}" ]; then
     echo "$supplied_tags"
     return 0
