@@ -104,7 +104,7 @@ clean_outdated_aur_packages() {
 # Environment variables
 export GIT_DUET_GLOBAL=1
 export GIT_DUET_ROTATE_AUTHOR=1
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 export MAKEFLAGS="-j$(nproc)"
 
 # Vim
