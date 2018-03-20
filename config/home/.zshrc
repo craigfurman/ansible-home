@@ -105,7 +105,11 @@ clean_outdated_aur_packages() {
 export GIT_DUET_GLOBAL=1
 export GIT_DUET_ROTATE_AUTHOR=1
 export PATH=$HOME/bin:$HOME/.local/bin:$PATH
-export MAKEFLAGS="-j$(nproc)"
+
+# TODO make this work on macos
+if which nproc > /dev/null 2>&1 ; then
+  export MAKEFLAGS="-j$(nproc)"
+fi
 
 # Vim
 alias vim=nvim
@@ -125,6 +129,11 @@ export PATH=$HOME/.cargo/bin:$PATH
 # Docker
 if [ "$(docker-machine status docker 2>/dev/null)" = Running ]; then
   eval "$(docker-machine env docker)"
+fi
+
+# TODO ansible-ize
+if [ -f ~/.zshrc_machine_specific ]; then
+  source ~/.zshrc_machine_specific
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

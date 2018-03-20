@@ -9,7 +9,7 @@ main() {
 
   cd "$(dirname "$0")"
 
-  MAKEFLAGS="-j$(nproc)"
+  MAKEFLAGS="-j$(cpu_count)"
   export MAKEFLAGS
   tags=$(tags)
 
@@ -18,6 +18,15 @@ main() {
     cmd="$cmd --ask-become-pass"
   fi
   $cmd -i localhost, --con local --tags "$tags" playbook.yml
+}
+
+cpu_count() {
+  if which nproc > /dev/null 2>&1 ; then
+    nproc
+    return 0
+  fi
+
+  sysctl -n hw.ncpu
 }
 
 tags() {
