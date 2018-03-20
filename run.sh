@@ -27,7 +27,7 @@ tags() {
   fi
 
   if [[ "$(hostname)" == "craig-desktop" ]]; then
-    echo "archlinux-headless,common-headless,archlinux-gnome,archlinix-media-server"
+    echo "archlinux-headless,common-headless,archlinux-gnome,archlinux-media-server"
     return 0
   elif [[ "$(hostname)" == "craig-laptop" ]]; then
     echo "archlinux-headless,common-headless,archlinux-gnome"
