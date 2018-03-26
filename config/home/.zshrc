@@ -122,6 +122,7 @@ export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 # Ruby
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+alias be="bundle exec"
 
 # Rust
 export PATH=$HOME/.cargo/bin:$PATH
