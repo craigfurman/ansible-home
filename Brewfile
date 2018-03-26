@@ -33,6 +33,7 @@ brew 'jq'
 brew 'kubernetes-cli'
 brew 'mas'
 brew 'neovim'
+brew 'pinentry-mac' # for gpg-agent
 brew 'pv'
 brew 'ripgrep'
 brew 'ruby-install'

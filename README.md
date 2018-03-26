@@ -6,6 +6,7 @@ My Arch Linux config.
 
 1. Aurutils stuff
 1. Font config
+1. macos: gpg-agent.conf
 
 ## First run
 1. `bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bootstrap.sh)"`
