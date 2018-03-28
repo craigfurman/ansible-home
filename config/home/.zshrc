@@ -52,8 +52,7 @@ DISABLE_AUTO_TITLE=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-# TODO only use systemd plugin on Linux
-plugins=(git go man systemd)
+plugins=(git go)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,23 +87,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias ll='ls -alh'
-alias clip='xclip -sel clip'
-alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias pacnews='sudo locate --existing --regex "\.pac(new|save)$"'
-
-# TODO move to systemd service
-# I'm not sure whether to be proud of, or horrified by, this.
-clean_outdated_aur_packages() {
-  comm -3 \
-    <(tar -tvf *.db 2>/dev/null | awk '{print $6}' | grep -E '.+/$' | sed 's/\///g' | sort) \
-    <(ls | grep pkg.tar.xz | sed 's/\-any\.pkg\.tar\.xz//g' | sed 's/\-x86_64\.pkg\.tar\.xz//g' | sort) \
-    | xargs -L1 -I% bash -c 'rm %*'
-}
-
-# TODO make this work on macos
-if which nproc > /dev/null 2>&1 ; then
-  export MAKEFLAGS="-j$(nproc)"
-fi
 
 # Vim
 alias vim=nvim
@@ -115,8 +97,8 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 
 # Ruby
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 alias be="bundle exec"
 
 # Rust
@@ -140,7 +122,3 @@ export GIT_DUET_GLOBAL=1
 export GIT_DUET_ROTATE_AUTHOR=1
 # This one needs to be late in the PATH
 export PATH=$HOME/bin:$HOME/.local/bin:$PATH
-
-# TODO ansible-ize again
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh

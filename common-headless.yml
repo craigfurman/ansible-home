@@ -3,8 +3,7 @@
   hosts: all
   become_method: sudo
   tasks:
-  # TODO make macos-friendly
-  - user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
+  - user: name={{ ansible_env.USER }} shell=/usr/local/bin/zsh
     become: true
 
   - command: stow -t ~ home chdir={{ansible_env.PWD}}/config
