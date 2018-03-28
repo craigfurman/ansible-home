@@ -1,6 +1,7 @@
 tap 'caskroom/versions'
 tap 'caskroom/fonts'
 tap 'universal-ctags/universal-ctags'
+tap 'gocardless/homebrew-taps'
 
 cask 'aws-vault'
 cask 'dropbox'
@@ -14,6 +15,9 @@ cask 'shiftit'
 cask 'slack'
 cask 'vagrant'
 cask 'virtualbox'
+
+# TODO reenable with --HEAD
+# brew 'universal-ctags'
 
 brew 'ack'
 brew 'ansible'
@@ -29,6 +33,7 @@ brew 'git'
 brew 'go'
 brew 'gpg'
 brew 'htop'
+brew 'ipcalc'
 brew 'jq'
 brew 'kubernetes-cli'
 brew 'mas'
@@ -44,10 +49,10 @@ brew 'stow'
 brew 'terraform'
 brew 'the_silver_searcher'
 brew 'tmux'
-
-# TODO reenable with --HEAD
-# brew 'universal-ctags'
-
 brew 'vim'
+brew 'watch'
 brew 'wget'
 brew 'zsh'
+
+# GC
+brew 'anu'

@@ -101,11 +101,6 @@ clean_outdated_aur_packages() {
     | xargs -L1 -I% bash -c 'rm %*'
 }
 
-# Environment variables
-export GIT_DUET_GLOBAL=1
-export GIT_DUET_ROTATE_AUTHOR=1
-export PATH=$HOME/bin:$HOME/.local/bin:$PATH
-
 # TODO make this work on macos
 if which nproc > /dev/null 2>&1 ; then
   export MAKEFLAGS="-j$(nproc)"
@@ -139,3 +134,14 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
+
+# Other vars
+export GIT_DUET_GLOBAL=1
+export GIT_DUET_ROTATE_AUTHOR=1
+# This one needs to be late in the PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH
+
+
+# TODO ansible-ize again
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
