@@ -52,7 +52,6 @@ DISABLE_AUTO_TITLE=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-# TODO only use systemd plugin on Linux
 plugins=(git go man systemd)
 
 source $ZSH/oh-my-zsh.sh
@@ -101,10 +100,8 @@ clean_outdated_aur_packages() {
     | xargs -L1 -I% bash -c 'rm %*'
 }
 
-# TODO make this work on macos
-if which nproc > /dev/null 2>&1 ; then
-  export MAKEFLAGS="-j$(nproc)"
-fi
+# Linux only
+export MAKEFLAGS="-j$(nproc)"
 
 # Vim
 alias vim=nvim
@@ -140,7 +137,3 @@ export GIT_DUET_GLOBAL=1
 export GIT_DUET_ROTATE_AUTHOR=1
 # This one needs to be late in the PATH
 export PATH=$HOME/bin:$HOME/.local/bin:$PATH
-
-# TODO ansible-ize again
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh

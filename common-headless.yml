@@ -3,7 +3,6 @@
   hosts: all
   become_method: sudo
   tasks:
-  # TODO make macos-friendly
   - user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
     become: true
 
