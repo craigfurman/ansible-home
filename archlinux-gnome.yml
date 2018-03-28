@@ -14,7 +14,7 @@
     - docker
     - docker-machine
     - firefox
-    - gnome-tweak-tool
+    - gnome-tweaks
     - gparted
     - libreoffice-still
     - networkmanager-openvpn
