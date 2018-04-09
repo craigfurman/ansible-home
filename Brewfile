@@ -39,6 +39,7 @@ brew 'jq'
 brew 'mas'
 brew 'neovim'
 brew 'pinentry-mac' # for gpg-agent
+brew 'postgresql'
 brew 'pv'
 brew 'ripgrep'
 brew 'ruby-install'
@@ -53,7 +54,12 @@ brew 'tree'
 brew 'vim'
 brew 'watch'
 brew 'wget'
+brew 'ykpers'
 brew 'zsh'
 
 # GC
 brew 'anu'
+
+# Various libs needed to install gem native extensions
+brew 'icu4c'
+brew 'qt@5.5'
