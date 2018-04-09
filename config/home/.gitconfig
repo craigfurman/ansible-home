@@ -3,7 +3,7 @@
 	email = craig.furman89@gmail.com
 [alias]
 	br = branch
-	ci = commit -S
+	ci = commit -S -v
 	co = checkout
 	dci = duet-commit
 	di = diff
