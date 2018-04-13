@@ -52,7 +52,7 @@ DISABLE_AUTO_TITLE=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git go kubectl)
+plugins=(git go kubectl helm)
 
 source $ZSH/oh-my-zsh.sh
 
