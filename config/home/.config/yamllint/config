@@ -1,0 +1,17 @@
+# vi: syntax=yaml
+---
+rules:
+  comments:
+    require-starting-space: true
+    min-spaces-from-content: 2
+  comments-indentation: { }
+  indentation:
+    spaces: 2
+    indent-sequences: true
+    check-multi-line-strings: true
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+    max-spaces-inside-empty: 1
+    min-spaces-inside-empty: 1
+  document-start: {present: true}
