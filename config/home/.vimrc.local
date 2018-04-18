@@ -1,1 +1,2 @@
 let NERDTreeShowHidden=1
+let g:ale_linters.yaml = ['yamllint']

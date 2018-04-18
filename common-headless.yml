@@ -16,3 +16,7 @@
 
   - command: rustup toolchain install stable
   - command: rustup default stable
+
+  - pip:
+      name: yamllint
+      extra_args: --user
