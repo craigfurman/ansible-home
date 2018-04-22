@@ -73,7 +73,7 @@
 
   - shell: pacman -Rns --noconfirm $(pacman -Qtdq)
     become: true
-    when: orphans|succeeded
+    when: orphans is succeeded
 
   - command: pacman -Sc --noconfirm
     become: true

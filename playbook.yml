@@ -1,5 +1,5 @@
 ---
-- include: archlinux-headless.yml
-- include: common-headless.yml
-- include: archlinux-gnome.yml
-- include: archlinux-media-server.yml
+- import_playbook: archlinux-headless.yml
+- import_playbook: common-headless.yml
+- import_playbook: archlinux-gnome.yml
+- import_playbook: archlinux-media-server.yml
