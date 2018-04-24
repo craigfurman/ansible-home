@@ -41,6 +41,7 @@ brew 'neovim'
 brew 'pinentry-mac' # for gpg-agent
 brew 'postgresql'
 brew 'pv'
+brew 'pwgen'
 brew 'ripgrep'
 brew 'ruby-install'
 brew 'rustup'
