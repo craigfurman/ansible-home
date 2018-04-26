@@ -1,2 +1,10 @@
 let NERDTreeShowHidden=1
 let g:ale_linters.yaml = ['yamllint']
+au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.txt setlocal textwidth=80
+
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile *.sh 0r ~/vim-templates/skeleton.sh
+  augroup END
+endif
