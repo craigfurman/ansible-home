@@ -36,6 +36,7 @@
     - python-pip
     - python2-neovim
     - reflector
+    - restic
     - ripgrep
     - ruby
     - rustup
