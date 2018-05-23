@@ -116,6 +116,7 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
+alias da="direnv allow"
 
 # Other vars
 export GIT_DUET_GLOBAL=1
