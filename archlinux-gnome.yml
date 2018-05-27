@@ -37,4 +37,4 @@
     register: docker_machine_exists
 
   - command: docker-machine create --virtualbox-share-folder {{ansible_env.HOME}}:{{ansible_env.HOME}} docker
-    when: docker_machine_exists|failed
+    when: docker_machine_exists is failed
