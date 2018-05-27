@@ -24,7 +24,7 @@
     - seahorse
     - vagrant
     - virtualbox
-    - virtualbox-host-dkms
+    - virtualbox-host-modules-arch
     - vlc
 
   - file: path="{{vbox_dir}}" state=directory mode=0755 attributes=C
