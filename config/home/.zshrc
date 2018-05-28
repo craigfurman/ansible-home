@@ -112,8 +112,8 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 
 # Ruby
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh
 alias be="bundle exec"
 
 # Rust
