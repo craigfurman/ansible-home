@@ -91,16 +91,6 @@ alias clip='xclip -sel clip'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias pacnews='sudo locate --existing --regex "\.pac(new|save)$"'
 
-# TODO move to systemd service
-# I'm not sure whether to be proud of, or horrified by, this.
-clean_outdated_aur_packages() {
-  comm -3 \
-    <(tar -tvf *.db 2>/dev/null | awk '{print $6}' | grep -E '.+/$' | sed 's/\///g' | sort) \
-    <(ls | grep pkg.tar.xz | sed 's/\-any\.pkg\.tar\.xz//g' | sed 's/\-x86_64\.pkg\.tar\.xz//g' | sort) \
-    | xargs -L1 -I% bash -c 'rm %*'
-}
-
-# Linux only
 export MAKEFLAGS="-j$(nproc)"
 
 # Vim
@@ -119,11 +109,6 @@ alias be="bundle exec"
 # Rust
 export PATH=$HOME/.cargo/bin:$PATH
 
-# Docker
-if [ "$(docker-machine status docker 2>/dev/null)" = Running ]; then
-  eval "$(docker-machine env docker)"
-fi
-
 # TODO ansible-ize
 if [ -f ~/.zshrc_machine_specific ]; then
   source ~/.zshrc_machine_specific
@@ -136,4 +121,4 @@ eval "$(direnv hook zsh)"
 export GIT_DUET_GLOBAL=1
 export GIT_DUET_ROTATE_AUTHOR=1
 # This one needs to be late in the PATH
-export PATH=$HOME/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/go/bin:$PATH

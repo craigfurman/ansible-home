@@ -56,6 +56,12 @@
     - whois
     - zsh
 
+  - unarchive:
+      src: https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
+      dest: /usr/local
+      remote_src: true
+    become: true
+
   - shell: sed -i "s/COMPRESSXZ=.*$/COMPRESSXZ=(xz -c -z --threads $(nproc) -)/g" /etc/makepkg.conf
     become: true
 

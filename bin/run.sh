@@ -7,7 +7,7 @@ main() {
   check_zshrc
   install_python
 
-  cd "$(dirname "$0")"
+  cd "$(dirname "$0")/.."
 
   MAKEFLAGS="-j$(cpu_count)"
   export MAKEFLAGS
