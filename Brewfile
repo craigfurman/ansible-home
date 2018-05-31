@@ -4,6 +4,7 @@ tap 'universal-ctags/universal-ctags'
 tap 'gocardless/homebrew-taps'
 
 cask 'aws-vault'
+cask 'docker'
 cask 'dropbox'
 cask 'flycut'
 cask 'font-inconsolata'
