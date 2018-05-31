@@ -109,6 +109,8 @@ if [ "$(docker-machine status docker 2>/dev/null)" = Running ]; then
   eval "$(docker-machine env docker)"
 fi
 
+alias rm-all-containers="docker ps -q | xargs docker kill && docker ps -aq | xargs docker rm"
+
 # TODO ansible-ize
 if [ -f ~/.zshrc_machine_specific ]; then
   source ~/.zshrc_machine_specific
