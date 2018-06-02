@@ -31,6 +31,7 @@
     - openbsd-netcat
     - openssh
     - openvpn
+    - pacman-contrib
     - pigz
     - postfix
     - python-neovim
