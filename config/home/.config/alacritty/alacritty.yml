@@ -406,3 +406,9 @@ key_bindings:
   - {key: J, mods: Alt, chars: "\x1bj"}
   - {key: K, mods: Alt, chars: "\x1bk"}
   - {key: L, mods: Alt, chars: "\x1bl"}
+  # TODO: Tmux select-layout (meta-numbers). Some of these, e.g. 1, don't work
+  # - {key: Key1, mods: Alt, chars: "\x1bl"}
+  # - {key: Key2, mods: Alt, chars: "\x1b2"}
+  # - {key: Key3, mods: Alt, chars: "\x1b3"}
+  # - {key: Key4, mods: Alt, chars: "\x1b4"}
+  # - {key: Key5, mods: Alt, chars: "\x1b5"}
