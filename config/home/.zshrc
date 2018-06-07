@@ -102,7 +102,7 @@ source /usr/local/share/chruby/auto.sh
 alias be="bundle exec"
 
 # Rust
-export PATH=$HOME/.cargo/bin:$PATH
+source ~/.cargo/env
 
 # Docker
 alias rm-all-containers="docker ps -q | xargs docker kill && docker ps -aq | xargs docker rm"
