@@ -107,6 +107,10 @@ export PATH=$HOME/.cargo/bin:$PATH
 # Docker
 alias rm-all-containers="docker ps -q | xargs docker kill && docker ps -aq | xargs docker rm"
 
+# gcloud
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
 # TODO ansible-ize
 if [ -f ~/.zshrc_machine_specific ]; then
   source ~/.zshrc_machine_specific

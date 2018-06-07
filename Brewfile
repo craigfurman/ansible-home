@@ -65,6 +65,7 @@ brew 'watch'
 brew 'wget'
 brew 'ykpers'
 brew 'zsh'
+brew 'zsh-completions'
 
 # GC
 brew 'anu'
