@@ -18,6 +18,7 @@
     - hdparm
     - hexedit
     - htop
+    - hub
     - iotop
     - jq
     - lastpass-cli
