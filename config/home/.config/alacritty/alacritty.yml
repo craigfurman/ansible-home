@@ -61,21 +61,18 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Inconsolata # should be "Menlo" or something on macOS.
-    # Style can be specified to pick a specific face.
-    # style: Regular
+    family: Inconsolata
+    style: Regular
 
   # The bold font face
   bold:
-    family: Inconsolata # should be "Menlo" or something on macOS.
-    # Style can be specified to pick a specific face.
-    # style: Bold
+    family: Inconsolata
+    style: Bold
 
   # The italic font face
   italic:
-    family: Inconsolata # should be "Menlo" or something on macOS.
-    # Style can be specified to pick a specific face.
-    # style: Italic
+    family: Ubuntu Mono
+    style: Italic
 
   # Point size of the font
   size: 8.0
