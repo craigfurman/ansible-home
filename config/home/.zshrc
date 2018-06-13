@@ -106,6 +106,7 @@ source ~/.cargo/env
 
 # Docker
 alias rm-all-containers="docker ps -q | xargs docker kill && docker ps -aq | xargs docker rm"
+alias dockermacssh="docker run -it --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh"
 
 # gcloud
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
