@@ -3,6 +3,7 @@ tap 'caskroom/fonts'
 tap 'universal-ctags/universal-ctags'
 tap 'gocardless/homebrew-taps'
 
+cask 'apache-directory-studio'
 cask 'aws-vault'
 cask 'docker'
 cask 'dropbox'
