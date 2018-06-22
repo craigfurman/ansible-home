@@ -44,6 +44,7 @@ brew 'ipcalc'
 brew 'jq'
 brew 'mas'
 brew 'neovim'
+brew 'pidof'
 brew 'pinentry-mac' # for gpg-agent
 brew 'postgresql'
 brew 'pv'
