@@ -1,15 +1,15 @@
 " TODO
-" termguicolors!
+" termguicolors and those weird true colour codes
 " ,b shows buffers
 " vim-go works properly
 " rubocop linting
 " yamllint linting
 " tabstop and friends
+" syntax highlighting in git commit messages
 " multicursors?
 " undotree?
 " map Ack
 " continue vetting plugins from vim-limelight onwards
-" less hideous airline colorscheme
 
 " Plugins
 " TODO auto-install vim-plug
@@ -45,9 +45,36 @@ Plug 'morhetz/gruvbox'
 Plug 'w0ng/vim-hybrid'
 
 " Status bar
-" TODO vim-airline-themes?
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+
+" Bindings
+let g:mapleader=','
+" TODO localleader?
+
+" Misc
+set mouse=a
+set noshowmode "airline replaces showmode
+set nowrap
+set number
+
+" Tabs vs Spaces
+set expandtab
+set shiftwidth=2
+set tabstop=2
+
+" lower case search is case insensitive, mixed/upper case search is case
+" sensitive
+set ignorecase
+set smartcase
+
+" Ack.vim
+let g:ackprg='rg --vimgrep'
+cabbrev Ack Ack!
+cabbrev Rg Ack!
+cabbrev Ag Ack!
+nnoremap <Leader>a :Ack!<Space>
 
 " NERDTree
 nnoremap \ :NERDTreeToggle<CR>
@@ -55,9 +82,14 @@ nnoremap \| :NERDTreeFind<CR>
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
-" TODO needed?
-let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 1 " TODO needed?
 
 " Colours
 set background=dark
 colorscheme hybrid
+set termguicolors
+
+" Swap and backup
+set swapfile
+set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
+set nobackup
