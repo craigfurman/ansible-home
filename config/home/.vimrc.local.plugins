@@ -1,5 +1,0 @@
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'WolfgangMehner/c-support'
-Plug 'jiangmiao/auto-pairs'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'bkad/CamelCaseMotion'
