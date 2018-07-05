@@ -43,7 +43,7 @@ brew 'hub'
 brew 'ipcalc'
 brew 'jq'
 brew 'kube-ps1'
-brew 'kubectx'
+brew 'kubectx', args: ['with-short-names']
 brew 'mas'
 brew 'neovim'
 brew 'pidof'
