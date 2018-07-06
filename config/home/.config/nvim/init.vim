@@ -1,6 +1,6 @@
 " TODO
 " termguicolors and those weird true colour codes
-" ,b shows buffers
+" ,b shows buffers: does this come from fzf?
 " vim-go works properly
 " rubocop linting
 " yamllint linting
@@ -10,6 +10,8 @@
 " undotree?
 " map Ack
 " continue vetting plugins from vim-limelight onwards
+" ,. switch between test and prod code
+" ,, last tab (fzf?)
 
 " Plugins
 " TODO auto-install vim-plug
@@ -52,6 +54,8 @@ call plug#end()
 " Bindings
 let g:mapleader=','
 " TODO localleader?
+set pastetoggle=<F6>
+nnoremap <CR> :w<CR>
 
 " Misc
 set mouse=a
