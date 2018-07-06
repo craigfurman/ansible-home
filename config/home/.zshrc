@@ -89,8 +89,8 @@ source $ZSH/oh-my-zsh.sh
 alias ll='ls -alh'
 
 # Vim
+export EDITOR=nvim
 alias vim=nvim
-export EDITOR=vim
 
 # Go
 export GOPATH=$HOME/go
