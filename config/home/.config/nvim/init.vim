@@ -1,17 +1,14 @@
 " TODO
 " termguicolors and those weird true colour codes
-" ,b shows buffers: does this come from fzf?
 " vim-go works properly
 " rubocop linting
-" yamllint linting
-" tabstop and friends
 " syntax highlighting in git commit messages
 " multicursors?
 " undotree?
-" map Ack
 " continue vetting plugins from vim-limelight onwards
 " ,. switch between test and prod code
-" ,, last tab (fzf?)
+" visual: < and > do not go back to normal mode
+" visual: gc comments highlighted lines
 
 " Plugins
 " TODO auto-install vim-plug
@@ -38,9 +35,10 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'w0rp/ale'
 
 "  Project Navigation
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim' " TODO automate installation of fzf
 
 " Colour schemes
 Plug 'morhetz/gruvbox'
@@ -55,7 +53,9 @@ call plug#end()
 let g:mapleader=','
 " TODO localleader?
 set pastetoggle=<F6>
-nnoremap <CR> :w<CR>
+nnoremap <Leader>s :w<CR>
+nnoremap <Space> :noh<CR>
+nnoremap <Leader><Leader> <C-^>
 
 " Misc
 set mouse=a
@@ -83,15 +83,32 @@ nnoremap <Leader>a :Ack!<Space>
 " NERDTree
 nnoremap \ :NERDTreeToggle<CR>
 nnoremap \| :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1 " TODO needed?
 
+" ale
+let g:ale_linters = {
+  \ 'yaml': ['yamllint']
+\}
+
+" Hard wrapping in certain file types
+au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.txt setlocal textwidth=80
+
+" fzf
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f :Files<CR>
+
 " Colours
 set background=dark
 colorscheme hybrid
 set termguicolors
+" TODO spurious? only in tmux?
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Swap and backup
 set swapfile
