@@ -94,8 +94,8 @@ alias pacnews='sudo locate --existing --regex "\.pac(new|save)$"'
 export MAKEFLAGS="-j$(nproc)"
 
 # Vim
+export EDITOR=nvim
 alias vim=nvim
-export EDITOR=vim
 
 # Go
 export GOPATH=$HOME/go
