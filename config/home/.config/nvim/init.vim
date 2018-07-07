@@ -52,8 +52,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Completions
-Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'wellle/tmux-complete.vim'
 Plug 'sebastianmarkow/deoplete-rust' " TODO automate `cargo install racer`
 call plug#end()
