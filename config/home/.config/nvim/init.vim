@@ -27,11 +27,14 @@ Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jszakmeister/vim-togglecursor'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 
 " Languages
-Plug 'WolfgangMehner/c-support'
-Plug 'fatih/vim-go'
-Plug 'mustache/vim-mustache-handlebars'
+Plug 'WolfgangMehner/c-support', { 'for': 'c' }
+Plug 'fatih/vim-go', { 'for': 'go' } " TODO automate GoInstallBinaries
+Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' } " TODO does this work?
+Plug 'rust-lang/rust.vim', { 'for': 'rust' } " TODO automate `cargo install rustfmt`
+
 Plug 'w0rp/ale'
 
 "  Project Navigation
@@ -47,6 +50,12 @@ Plug 'w0ng/vim-hybrid'
 " Status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" Completions
+Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'wellle/tmux-complete.vim'
+Plug 'sebastianmarkow/deoplete-rust' " TODO automate `cargo install racer`
 call plug#end()
 
 " Bindings
@@ -56,6 +65,9 @@ set pastetoggle=<F6>
 nnoremap <Leader>s :w<CR>
 nnoremap <Space> :noh<CR>
 nnoremap <Leader><Leader> <C-^>
+" Stay in visual mode after changing indentation
+vnoremap < <gv
+vnoremap > >gv
 
 " Misc
 set mouse=a
@@ -91,8 +103,23 @@ let g:airline#extensions#ale#enabled = 1 " TODO needed?
 
 " ale
 let g:ale_linters = {
-  \ 'yaml': ['yamllint']
+  \ 'go': ['go build', 'gometalinter'],
+  \ 'yaml': ['yamllint'],
 \}
+let g:ale_go_gometalinter_options = '--tests --fast --exclude="should have comment"'
+
+" go
+let g:go_fmt_command = 'goimports'
+let g:go_highlight_functions = 1
+
+" rust
+let g:rustfmt_autosave = 1
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+" tab completion
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+set completeopt-=preview " never open scratch window
 
 " Hard wrapping in certain file types
 au BufRead,BufNewFile *.md setlocal textwidth=80
