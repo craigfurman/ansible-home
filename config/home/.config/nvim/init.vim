@@ -1,4 +1,6 @@
 " TODO
+" ultisnips
+" tagbar
 " rubocop linting
 " continue vetting plugins from vim-limelight onwards
 " ,. switch between test and prod code
