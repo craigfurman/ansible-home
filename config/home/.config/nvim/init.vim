@@ -1,14 +1,10 @@
 " TODO
-" termguicolors and those weird true colour codes
-" vim-go works properly
 " rubocop linting
-" syntax highlighting in git commit messages
-" multicursors?
-" undotree?
 " continue vetting plugins from vim-limelight onwards
 " ,. switch between test and prod code
-" visual: < and > do not go back to normal mode
-" visual: gc comments highlighted lines
+" those weird true colour codes?
+" multicursors?
+" undotree?
 
 " Plugins
 " TODO auto-install vim-plug
@@ -30,10 +26,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Languages
-Plug 'WolfgangMehner/c-support', { 'for': 'c' }
 Plug 'fatih/vim-go', { 'for': 'go' } " TODO automate GoInstallBinaries
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' } " TODO does this work?
 Plug 'rust-lang/rust.vim', { 'for': 'rust' } " TODO automate `cargo install rustfmt`
+Plug 'WolfgangMehner/c-support', { 'for': 'c' }
 
 Plug 'w0rp/ale'
 
@@ -65,6 +61,11 @@ set pastetoggle=<F6>
 nnoremap <Leader>s :w<CR>
 nnoremap <Space> :noh<CR>
 nnoremap <Leader><Leader> <C-^>
+
+" edit and reload config file
+nnoremap <Leader>e :vsplit<CR>:edit ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>r :source ~/.config/nvim/init.vim<CR>
+
 " Stay in visual mode after changing indentation
 vnoremap < <gv
 vnoremap > >gv
@@ -74,6 +75,10 @@ set mouse=a
 set noshowmode "airline replaces showmode
 set nowrap
 set number
+
+" Ensure cursor ends up in what I percieve to be the new split
+set splitright
+set splitbelow
 
 " Tabs vs Spaces
 set expandtab
@@ -107,6 +112,7 @@ let g:ale_linters = {
   \ 'yaml': ['yamllint'],
 \}
 let g:ale_go_gometalinter_options = '--tests --fast --exclude="should have comment"'
+let g:ale_sign_warning = "⚠️"
 
 " go
 let g:go_fmt_command = 'goimports'
