@@ -114,7 +114,7 @@ let g:ale_linters = {
   \ 'yaml': ['yamllint'],
 \}
 let g:ale_go_gometalinter_options = '--tests --fast --exclude="should have comment"'
-let g:ale_sign_warning = "⚠️"
+let g:ale_sign_warning = '⚠'
 
 " go
 let g:go_fmt_command = 'goimports'
