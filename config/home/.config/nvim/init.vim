@@ -1,4 +1,5 @@
 " TODO
+" fzf searches hidden files
 " ultisnips
 " tagbar
 " rubocop linting
