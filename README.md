@@ -17,9 +17,9 @@ My Arch Linux config.
    happy to import the key.
 1. Check limitations and TODO sections
 1. In tmux, prefix+I to install plugins.
-1. `~/.vim/update`
+1. vim: :PlugInstall
 
 ## Subsequent runs
 1. `run.sh`
 1. In tmux, prefix+U to update plugins.
-1. `vim-update`
+1. vim: :PlugUpdate
