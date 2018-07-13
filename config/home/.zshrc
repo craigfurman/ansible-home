@@ -112,6 +112,10 @@ alias dockermacssh="docker run -it --privileged --pid=host debian nsenter -t 1 -
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
+# kube-ps1
+source /usr/local/share/kube-ps1.sh
+PROMPT='$(kube_ps1)'$PROMPT
+
 # TODO ansible-ize
 if [ -f ~/.zshrc_machine_specific ]; then
   source ~/.zshrc_machine_specific
