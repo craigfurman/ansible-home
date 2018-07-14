@@ -120,6 +120,10 @@ let g:ale_sign_warning = '⚠'
 " go
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_generate_tags = 1
 
 " rust
 let g:rustfmt_autosave = 1
