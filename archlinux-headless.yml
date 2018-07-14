@@ -12,6 +12,7 @@
     - bind-tools
     - ctags
     - curl
+    - dep
     - devtools
     - git
     - go-pie
