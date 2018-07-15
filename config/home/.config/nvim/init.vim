@@ -1,4 +1,6 @@
 " TODO
+" spellcheck for txt and md
+" register * is system clipboard
 " fzf searches hidden files
 " ultisnips
 " tagbar
