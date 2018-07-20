@@ -1,8 +1,9 @@
 " TODO
-" spellcheck for txt and md
+" restore templates
 " register * is system clipboard
 " fzf searches hidden files
 " ultisnips
+" better spellfile
 " tagbar
 " rubocop linting
 " continue vetting plugins from vim-limelight onwards
@@ -20,6 +21,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-eunuch' " SudoWrite and friends
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-endwise'
 
 " Editing and Movement
 Plug 'bkad/CamelCaseMotion' " TODO configure motions or delete
@@ -41,8 +43,7 @@ Plug 'w0rp/ale'
 "  Project Navigation
 Plug 'scrooloose/nerdtree'
 Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim' " TODO automate installation of fzf
+Plug 'junegunn/fzf.vim'
 
 " Colour schemes
 Plug 'morhetz/gruvbox'
@@ -137,8 +138,9 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 set completeopt-=preview " never open scratch window
 
 " Hard wrapping in certain file types
-au BufRead,BufNewFile *.md setlocal textwidth=80
-au BufRead,BufNewFile *.txt setlocal textwidth=80
+" Spelling
+au BufRead,BufNewFile *.md setlocal textwidth=80 | setlocal spell
+au BufRead,BufNewFile *.txt setlocal textwidth=80 | setlocal spell
 
 " fzf
 nnoremap <Leader>b :Buffers<CR>

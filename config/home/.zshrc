@@ -114,7 +114,10 @@ if [ -f ~/.zshrc_machine_specific ]; then
   source ~/.zshrc_machine_specific
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+export FZF_DEFAULT_COMMAND='rg --hidden --files --ignore-file .git --glob !.git --glob ""'
+
 eval "$(direnv hook zsh)"
 
 # Other vars
