@@ -1,7 +1,5 @@
 " TODO
 " restore templates
-" register * is system clipboard
-" fzf searches hidden files
 " ultisnips
 " better spellfile
 " tagbar
@@ -67,6 +65,7 @@ set pastetoggle=<F6>
 nnoremap <Leader>s :w<CR>
 nnoremap <Space> :noh<CR>
 nnoremap <Leader><Leader> <C-^>
+vnoremap Y "+y
 
 " edit and reload config file
 nnoremap <Leader>e :vsplit<CR>:edit ~/.config/nvim/init.vim<CR>
