@@ -35,6 +35,7 @@ Plug 'fatih/vim-go', { 'for': 'go' } " TODO automate GoInstallBinaries
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' } " TODO does this work?
 Plug 'rust-lang/rust.vim', { 'for': 'rust' } " TODO automate `cargo install rustfmt`
 Plug 'WolfgangMehner/c-support', { 'for': 'c' }
+Plug 'hashivim/vim-terraform'
 
 Plug 'w0rp/ale'
 
