@@ -91,6 +91,7 @@ alias ll='ls -alh'
 # Vim
 export EDITOR=nvim
 alias vim=nvim
+alias vimdiff="nvim -d"
 
 # Go
 export GOPATH=$HOME/go
