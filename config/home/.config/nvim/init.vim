@@ -82,6 +82,7 @@ set mouse=a
 set noshowmode "airline replaces showmode
 set nowrap
 set number
+set textwidth=90
 
 " Ensure cursor ends up in what I percieve to be the new split
 set splitright
@@ -140,8 +141,8 @@ set completeopt-=preview " never open scratch window
 
 " Hard wrapping in certain file types
 " Spelling
-au BufRead,BufNewFile *.md setlocal textwidth=80 | setlocal spell
-au BufRead,BufNewFile *.txt setlocal textwidth=80 | setlocal spell
+au BufRead,BufNewFile *.md setlocal textwidth=90 | setlocal spell
+au BufRead,BufNewFile *.txt setlocal textwidth=90 | setlocal spell
 
 " fzf
 nnoremap <Leader>b :Buffers<CR>
