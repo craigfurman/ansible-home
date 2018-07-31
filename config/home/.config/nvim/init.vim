@@ -100,7 +100,7 @@ set ignorecase
 set smartcase
 
 " Ack.vim
-let g:ackprg='rg --hidden --vimgrep'
+let g:ackprg='rg --hidden --vimgrep --glob !.git'
 cabbrev Ack Ack!
 cabbrev Rg Ack!
 cabbrev Ag Ack!
