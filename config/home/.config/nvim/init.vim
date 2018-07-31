@@ -9,6 +9,7 @@
 " those weird true colour codes?
 " multicursors?
 " undotree?
+" Ruby autoformatting - editorconfig plugin?
 
 " Plugins
 " TODO auto-install vim-plug
