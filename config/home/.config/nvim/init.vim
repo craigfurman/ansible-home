@@ -30,6 +30,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'jszakmeister/vim-togglecursor'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'sjl/gundo.vim'
 
 " Languages
 Plug 'fatih/vim-go', { 'for': 'go' } " TODO automate GoInstallBinaries
@@ -99,6 +100,14 @@ set tabstop=2
 set ignorecase
 set smartcase
 
+" auto-reload files when changed on disk
+set autoread
+au FocusGained,BufEnter * :checktime
+
+" auto-save files on focus lost
+" silent! to squash errors, e.g. when buffer doesn't refer to a file
+au FocusLost,WinLeave * :silent! w
+
 " Ack.vim
 let g:ackprg='rg --hidden --vimgrep --glob !.git'
 cabbrev Ack Ack!
@@ -148,6 +157,9 @@ au BufRead,BufNewFile *.txt setlocal textwidth=90 | setlocal spell
 " fzf
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
+
+" gundo (undo graph)
+nnoremap <Leader>u :GundoToggle<CR>
 
 " Colours
 set background=dark
