@@ -142,3 +142,8 @@ spork_promote() {
   bundle exec knife spork upload "$1"
   echo "lab-staging lab-production prd-staging prd-production" | xargs -n1 -I% bundle exec knife spork promote % "$1"
 }
+
+git_cleanup_branches() {
+  git fetch -p
+  git branch --merged | grep -v master | xargs git branch -d
+}
