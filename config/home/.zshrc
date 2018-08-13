@@ -122,10 +122,13 @@ if [ -f ~/.zshrc_machine_specific ]; then
   source ~/.zshrc_machine_specific
 fi
 
+# rg
+export RIPGREP_CONFIG_PATH=~/.ripgreprc
+
 # fzf
 source /usr/local/opt/fzf/shell/completion.zsh
 source /usr/local/opt/fzf/shell/key-bindings.zsh
-export FZF_DEFAULT_COMMAND='rg --hidden --files --ignore-file .git --glob !.git --glob ""'
+export FZF_DEFAULT_COMMAND='rg --smart-case --hidden --files --glob !.git --glob ""'
 
 # direnv
 eval "$(direnv hook zsh)"
