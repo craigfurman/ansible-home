@@ -8,7 +8,8 @@
 " ,. switch between test and prod code
 " those weird true colour codes?
 " multicursors?
-" undotree?
+" Ruby autoformatting - editorconfig plugin?
+" SudoWrite fix: https://github.com/neovim/neovim/issues/8678
 
 " Plugins
 " TODO auto-install vim-plug
