@@ -18,5 +18,7 @@
 	st = status
 [push]
 	default = simple
+[pull]
+	ff = only
 [transfer]
-	fsckobjects = false # TODO re-enable?
+	fsckObjects = true
