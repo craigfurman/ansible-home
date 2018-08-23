@@ -145,3 +145,15 @@ git_cleanup_branches() {
   git fetch -p
   git branch --merged | grep -v master | xargs git branch -d
 }
+
+glabssh() {
+  gcpssh "$1" gc-lab-1eb1
+}
+
+gprdssh() {
+  gcpssh "$1" gc-prd-effc
+}
+
+gcpssh() {
+  ssh "$1.c.$2.internal"
+}
