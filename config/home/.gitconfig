@@ -1,3 +1,4 @@
+# vim: noexpandtab
 [include]
 	path = ~/.gitconfig_machine_specific
 [user]
