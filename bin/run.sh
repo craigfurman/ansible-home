@@ -35,6 +35,11 @@ cpu_count() {
 }
 
 tags() {
+  if [ -n "${ANSIBLE_TAGS:-}" ]; then
+    echo "$ANSIBLE_TAGS"
+    return 0
+  fi
+
   jq -r ".[\"$(hostname)\"] | join(\",\")" "$(dirname "$0")/../machines.json"
 }
 
