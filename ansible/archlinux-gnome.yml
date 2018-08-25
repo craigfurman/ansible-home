@@ -13,7 +13,6 @@
         - atom
         - crda
         - deluge
-        - docker
         - docker-machine
         - firefox
         - gnome-tweaks

@@ -16,6 +16,7 @@
       - curl
       - dep
       - devtools
+      - docker
       - fzf
       - git
       - go-pie
