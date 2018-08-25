@@ -12,6 +12,9 @@ main() {
   export MAKEFLAGS
 
   cmd="ansible-playbook"
+  if [ -n "${ANSIBLE_FLAGS:-}" ]; then
+    cmd="$cmd $ANSIBLE_FLAGS"
+  fi
   if [ -z "${PASSWORDLESS_SUDO:-}" ]; then
     cmd="$cmd --ask-become-pass"
   fi
@@ -32,7 +35,7 @@ cpu_count() {
 }
 
 tags() {
-  jq ".[\"$(hostname)\"] | join(\",\")" "$(dirname "$0")/../machines.json"
+  jq -r ".[\"$(hostname)\"] | join(\",\")" "$(dirname "$0")/../machines.json"
 }
 
 install_bootstrap_packages() {
