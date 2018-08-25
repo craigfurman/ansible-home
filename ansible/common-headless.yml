@@ -1,20 +1,29 @@
 ---
-- tags: [common-headless]
+- name: common-headless
+  tags: [common-headless]
   hosts: all
   become_method: sudo
   tasks:
-  - user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
+  - name: Change shell to zsh
+    user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
     become: true
 
-  - command: stow -t ~ home chdir={{ansible_env.PWD}}/../config
+  - name: Install config symlinks
+    command: stow -t ~ home chdir={{ansible_env.PWD}}/../config
 
-  - git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+  - name: Install oh-my-zsh
+    git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
 
-  - git: repo=https://github.com/tmux-plugins/tpm dest=~/.tmux/plugins/tpm
+  - name: Install tmux plugin manager
+    git: repo=https://github.com/tmux-plugins/tpm dest=~/.tmux/plugins/tpm
 
-  - command: rustup toolchain install stable
-  - command: rustup default stable
+  - name: Install Stable Rust
+    command: rustup toolchain install stable
 
-  - pip:
+  - name: Set default rust to stable
+    command: rustup default stable
+
+  - name: Install yamllint
+    pip:
       name: yamllint
       extra_args: --user

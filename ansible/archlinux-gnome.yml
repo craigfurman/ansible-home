@@ -1,33 +1,43 @@
 ---
-- tags: [archlinux-gnome]
+- name: archlinux-gnome
+  tags: [archlinux-gnome]
   hosts: all
   become_method: sudo
   vars:
     vbox_dir: ~/virtualbox_vms
   tasks:
-  - pacman: name={{item}}
-    become: true
-    with_items:
-    - atom
-    - crda
-    - deluge
-    - docker
-    - docker-machine
-    - firefox
-    - gnome-tweaks
-    - gparted
-    - libreoffice-still
-    - networkmanager-openvpn
-    - powertop
-    - pygtk
-    - qt4
-    - seahorse
-    - vagrant
-    - virtualbox
-    - virtualbox-host-modules-arch
-    - vlc
+    - name: Install pacman packages
+      pacman: name={{item}}
+      become: true
+      with_items:
+        - atom
+        - crda
+        - deluge
+        - docker
+        - docker-machine
+        - firefox
+        - gnome-tweaks
+        - gparted
+        - libreoffice-still
+        - networkmanager-openvpn
+        - powertop
+        - pygtk
+        - qt4
+        - seahorse
+        - vagrant
+        - virtualbox
+        - virtualbox-host-modules-arch
+        - vlc
 
-  - file: path="{{vbox_dir}}" state=directory mode=0755 attributes=C
-  - file: path="~/.docker/machine/machines" state=directory mode=0700 attributes=C
+    - name: Create Virtualbox images directory with No_COW
+      file: path="{{vbox_dir}}" state=directory mode=0755 attributes=C
 
-  - command: VBoxManage setproperty machinefolder {{vbox_dir}}
+    - name: Create docker-machine images directory with No_COW
+      file:
+        path: "~/.docker/machine/machines"
+        state: directory
+        mode: 0700
+        attributes: C
+
+    - name: Set virtualbox images directory
+      command: VBoxManage setproperty machinefolder {{vbox_dir}}

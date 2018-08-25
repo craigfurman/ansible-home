@@ -1,9 +1,11 @@
 ---
-- tags: [archlinux-headless]
+- name: archlinux-headless
+  tags: [archlinux-headless]
   hosts: all
   become_method: sudo
   tasks:
-  - pacman: name={{item}}
+  - name: Install pacman packages
+    pacman: name={{item}}
     become: true
     with_items:
       - ack
@@ -61,38 +63,46 @@
       - zsh
       - zsh-completions
 
-  - unarchive:
+  - name: Install Go
+    unarchive:
       src: https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz
       dest: /usr/local
       remote_src: true
     become: true
 
-  - shell: |
+  - name: Configure makepkg to use all cores
+    shell: |
       sed -i "s/COMPRESSXZ=.*$/COMPRESSXZ=(xz -c -z --threads $(nproc) -)/g" \
         /etc/makepkg.conf
     become: true
 
-  - file: path=/etc/pacman.d/hooks state=directory mode=0755
+  - name: Create pacman hooks directory
+    file: path=/etc/pacman.d/hooks state=directory mode=0755
     become: true
 
-  - copy: src="{{item.src}}" dest="{{item.dest}}" force=true mode=0644
+  - name: Install sort-mirrors pacman hook
+    copy: src="{{item.src}}" dest="{{item.dest}}" force=true mode=0644
     become: true
     with_items:
       - src: "{{ansible_env.PWD}}/../config/pacman-hooks/sort-mirrors.hook"
         dest: /etc/pacman.d/hooks/sort-mirrors.hook}
 
-  - command: pacman -Qtdq
+  - name: List unused dependency packages
+    command: pacman -Qtdq
     ignore_errors: true
     register: orphans
 
-  - shell: pacman -Rns --noconfirm $(pacman -Qtdq)
+  - name: Remove unused dependency packages
+    shell: pacman -Rns --noconfirm $(pacman -Qtdq)
     become: true
     when: orphans is succeeded
 
-  - command: pacman -Sc --noconfirm
+  - name: Clear pacman cache
+    command: pacman -Sc --noconfirm
     become: true
 
-  - lineinfile:
+  - name: Enable unprivileged user namespaces
+    lineinfile:
       line: 'kernel.unprivileged_userns_clone=1'
       path: /etc/sysctl.d/99-custom.conf
       create: true

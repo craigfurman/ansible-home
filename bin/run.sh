@@ -16,8 +16,10 @@ main() {
     cmd="$cmd --ask-become-pass"
   fi
 
-  log "Running Ansible"
-  $cmd -i localhost, --con local --tags "$(tags)" "$(dirname "$0")/../ansible/playbook.yml"
+  tags="$(tags)"
+
+  log "Running Ansible with tags $tags"
+  $cmd -i localhost, --con local --tags "$tags" "$(dirname "$0")/../ansible/playbook.yml"
 }
 
 cpu_count() {
