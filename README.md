@@ -8,6 +8,8 @@ Supports Arch Linux. macOS support in macos branch.
 
 ## TODO
 
+1. Split zshrc into common and os-specific parts
+1. Unify mac and Linux config
 1. Automate installation of AUR packages on Arch machines
 1. Split Arch package host into own role
 1. macos: gpg-agent.conf

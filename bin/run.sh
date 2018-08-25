@@ -20,6 +20,8 @@ main() {
   fi
 
   tags="$(tags)"
+  ANSIBLE_HOME_OS=$(uname)
+  export ANSIBLE_HOME_OS
 
   log "Running Ansible with tags $tags"
   $cmd -i localhost, --con local --tags "$tags" "$(dirname "$0")/../ansible/playbook.yml"
