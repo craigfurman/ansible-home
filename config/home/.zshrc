@@ -99,8 +99,8 @@ alias vim=nvim
 alias vimdiff="nvim -d"
 
 # Go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
+export GOPATH=$HOME/workspace/go
+export PATH=$GOPATH/bin:$HOME/languages/go/1.11/go/bin:$PATH
 
 # Ruby
 source /usr/share/chruby/chruby.sh

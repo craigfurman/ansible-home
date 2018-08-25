@@ -8,6 +8,16 @@
     user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
     become: true
 
+  - name: Create Go directory
+    file: path=~/languages/go/1.11 state=directory mode=0755
+
+  - name: Install Go
+    unarchive:
+      src: https://dl.google.com/go/go1.11.linux-amd64.tar.gz
+      dest: ~/languages/go/1.11
+      creates: ~/languages/go/1.11/go
+      remote_src: true
+
   - name: Install config symlinks
     command: stow -t ~ home chdir={{ansible_env.PWD}}/../config
 
