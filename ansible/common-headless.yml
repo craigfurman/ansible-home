@@ -32,8 +32,3 @@
 
   - name: Set default rust to stable
     command: rustup default stable
-
-  - name: Install yamllint
-    pip:
-      name: yamllint
-      extra_args: --user

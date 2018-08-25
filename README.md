@@ -13,8 +13,6 @@ Supports Arch Linux. macOS support in macos branch.
 1. Automate installation of AUR packages on Arch machines
 1. Split Arch package host into own role
 1. macos: gpg-agent.conf
-1. Review non-pacman packages, e.g. yamllint. Move to repo/aur versions if
-   possible.
 
 ## First run
 
