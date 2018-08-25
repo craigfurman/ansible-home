@@ -8,7 +8,6 @@
 " ,. switch between test and prod code
 " those weird true colour codes?
 " multicursors?
-" undotree?
 " Ruby autoformatting - editorconfig plugin?
 " SudoWrite fix: https://github.com/neovim/neovim/issues/8678
 
@@ -45,7 +44,6 @@ Plug 'w0rp/ale'
 "  Project Navigation
 Plug 'scrooloose/nerdtree'
 Plug 'mileszs/ack.vim'
-Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Colour schemes

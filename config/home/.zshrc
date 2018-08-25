@@ -135,8 +135,6 @@ eval "$(direnv hook zsh)"
 alias da="direnv allow"
 
 # Other vars
-export GIT_DUET_GLOBAL=1
-export GIT_DUET_ROTATE_AUTHOR=1
 # This one needs to be late in the PATH
 export PATH=$HOME/bin:$HOME/.local/bin:$HOME/Library/Python/2.7/bin:$PATH
 
