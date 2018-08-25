@@ -15,6 +15,7 @@
 	flog = log --pretty=fuller --decorate
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	prnotes = log --reverse --format='%h: %B' origin/master..HEAD
 	pullsubs = submodule update --init --recursive
 	st = status
 [push]
