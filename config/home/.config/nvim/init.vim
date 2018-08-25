@@ -154,6 +154,7 @@ set completeopt-=preview " never open scratch window
 " Spelling
 au BufRead,BufNewFile *.md setlocal textwidth=90 | setlocal spell
 au BufRead,BufNewFile *.txt setlocal textwidth=90 | setlocal spell
+au FileType gitcommit setlocal spell
 
 " fzf
 nnoremap <Leader>b :Buffers<CR>
