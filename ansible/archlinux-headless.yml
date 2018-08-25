@@ -64,6 +64,24 @@
       - zsh
       - zsh-completions
 
+  - name: Install AUR packages
+    pacman: name={{item}}
+    become: true
+    with_items:
+      - aurutils
+      - aurvote
+      - chruby
+      - cower
+      - direnv
+      - google-drive-ocamlfuse
+      - gotty
+      - kubectl-bin
+      - kubernetes-helm-bin
+      - ngrok
+      - ruby-install
+      - tmate
+      - yamllint
+
   - name: Configure makepkg to use all cores
     shell: |
       sed -i "s/COMPRESSXZ=.*$/COMPRESSXZ=(xz -c -z --threads $(nproc) -)/g" \

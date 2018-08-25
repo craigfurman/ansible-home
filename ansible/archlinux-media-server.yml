@@ -2,4 +2,17 @@
 - tags: [archlinux-media-server]
   hosts: all
   become_method: sudo
-  tasks: []
+  tasks:
+    - name: Install pacman packages
+      pacman: name={{item}}
+      become: true
+      with_items:
+        - transmission-cli
+
+    - name: Install AUR packages
+      pacman: name={{item}}
+      become: true
+      with_items:
+        - canon-pixma-mg2500-complete  # Hardware-specific
+        - networkmanager-vpn-web-ui
+        - plex-media-server

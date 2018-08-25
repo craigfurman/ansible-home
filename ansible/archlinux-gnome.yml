@@ -28,6 +28,30 @@
         - virtualbox-host-modules-arch
         - vlc
 
+    - name: Install AUR packages
+      pacman: name={{item}}
+      become: true
+      with_items:
+        - alacritty-git
+        - caffeine-ng
+        - clipit
+        - dropbox
+        - gnome-shell-extension-pixel-saver
+        - gnome-shell-extension-topicons-plus-git
+        - google-musicmanager
+        - google-chrome
+        - google-drive-ocamlfuse
+        - keybase-bin
+        - minikube-bin
+        - nautilus-dropbox
+        - popcorntime
+        - qtwebkit-bin  # Dependency of google-musicmanager. provides qtwebkit, which takes hours to compile
+        - skypeforlinux-preview-bin
+        - slack-desktop
+        - ttf-google-fonts-git
+        - visual-studio-code-bin
+        - zoom
+
     - name: Create Virtualbox images directory with No_COW
       file: path="{{vbox_dir}}" state=directory mode=0755 attributes=C
 
