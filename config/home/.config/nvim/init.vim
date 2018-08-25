@@ -12,7 +12,6 @@
 " SudoWrite fix: https://github.com/neovim/neovim/issues/8678
 
 " Plugins
-" TODO auto-install vim-plug
 call plug#begin()
 " TODO vim-rhubarb?
 Plug 'mhinz/vim-signify'

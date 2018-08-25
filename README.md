@@ -4,9 +4,7 @@ Supports Arch Linux. macOS support in macos branch.
 
 ## Usage
 
-1. `make`
-1. In tmux, prefix+U to update plugins.
-1. Run PlugUpdate in vim
+`make`
 
 ## TODO
 
@@ -16,11 +14,8 @@ Supports Arch Linux. macOS support in macos branch.
 
 ## First run
 
-1. `bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bin/bootstrap.sh)"`
-1. This might fail the first time due to PGP signatures for an AUR package not
-   being verified. I didn't want to automate the receiving of PGP keys, as this
-   feels like it would defeat the point of PGP. Use `gpg --recv-keys <key>` if
-   happy to import the key.
-1. Check limitations and TODO sections
-1. In tmux, prefix+I to install plugins.
-1. Run PlugInstall in vim
+`bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bin/bootstrap.sh)"`
+
+This might fail the first time due to PGP signatures for an AUR package not being
+verified. I didn't want to automate the receiving of PGP keys, as this feels like it would
+defeat the point of PGP. Use `gpg --recv-keys <key>` if happy to import the key.
