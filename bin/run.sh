@@ -36,7 +36,7 @@ tags() {
 install_bootstrap_packages() {
   log "Installing bootstrap packages"
 
-  install_package python
+  install_package ansible
   install_package jq
 }
 
