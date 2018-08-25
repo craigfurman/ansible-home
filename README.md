@@ -1,15 +1,21 @@
 # ansible-home
 
-My Arch Linux config.
+Supports Arch Linux. macOS support in macos branch.
+
+## Usage
+
+1. `make`
+1. In tmux, prefix+U to update plugins.
+1. Run PlugUpdate in vim
 
 ## TODO
 
-1. Aurutils stuff
-1. Font config
+1. Automate installation of AUR packages on Arch machines
+1. Split Arch package host into own role
 1. macos: gpg-agent.conf
-1. Automate ~/bin symlinkery?
 
 ## First run
+
 1. `bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bin/bootstrap.sh)"`
 1. This might fail the first time due to PGP signatures for an AUR package not
    being verified. I didn't want to automate the receiving of PGP keys, as this
@@ -17,9 +23,4 @@ My Arch Linux config.
    happy to import the key.
 1. Check limitations and TODO sections
 1. In tmux, prefix+I to install plugins.
-1. vim: :PlugInstall
-
-## Subsequent runs
-1. `run.sh`
-1. In tmux, prefix+U to update plugins.
-1. vim: :PlugUpdate
+1. Run PlugInstall in vim

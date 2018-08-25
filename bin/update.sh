@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-log() {
-  echo "----------------------------------"
-  echo "$1"
-  echo "----------------------------------"
-  echo
-}
+# shellcheck source=../lib/shell-helpers.sh
+source "$(dirname "$0")/../lib/shell-helpers.sh"
 
 log "Updating pacman packages"
 sudo pacman -Syu

@@ -1,6 +1,8 @@
-.PHONY: all update
+.PHONY: default run update
 
-all:
+default: run
+
+run:
 	./bin/run.sh
 
 update:

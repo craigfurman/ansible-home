@@ -6,7 +6,7 @@
   - user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
     become: true
 
-  - command: stow -t ~ home chdir={{ansible_env.PWD}}/config
+  - command: stow -t ~ home chdir={{ansible_env.PWD}}/../config
 
   - git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
 
