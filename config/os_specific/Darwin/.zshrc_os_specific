@@ -1,0 +1,37 @@
+# oh-my-zsh
+plugins=(git go kubectl helm)
+
+# Ruby
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+
+# Docker
+alias rm-all-containers="docker ps -q | xargs docker kill && docker ps -aq | xargs docker rm"
+alias dockermacssh="docker run -it --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh"
+
+# gcloud
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+# kube-ps1
+# TODO move to machine specific
+source /usr/local/share/kube-ps1.sh
+PROMPT='$(kube_ps1)'$PROMPT
+
+# Function junk drawer
+git_cleanup_branches() {
+  git fetch -p
+  git branch --merged | grep -v master | xargs git branch -d
+}
+
+glabssh() {
+  gcpssh "$1" gc-lab-1eb1
+}
+
+gprdssh() {
+  gcpssh "$1" gc-prd-effc
+}
+
+gcpssh() {
+  ssh "$1.c.$2.internal"
+}

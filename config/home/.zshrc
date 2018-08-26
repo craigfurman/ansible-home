@@ -52,7 +52,8 @@ DISABLE_AUTO_TITLE=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git go man systemd)
+# Plugins, among other things, defined in here
+source ~/.zshrc_os_specific
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,11 +88,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias ll='ls -alh'
-alias clip='xclip -sel clip'
-alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias pacnews='sudo locate --existing --regex "\.pac(new|save)$"'
 
-export MAKEFLAGS="-j$(nproc)"
+# Env vars
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 
 # Vim
 export EDITOR=nvim
@@ -103,30 +102,25 @@ export GOPATH=$HOME/workspace/go
 export PATH=$GOPATH/bin:$HOME/languages/go/1.11/go/bin:$PATH
 
 # Ruby
-source /usr/share/chruby/chruby.sh
-source /usr/share/chruby/auto.sh
 alias be="bundle exec"
 
 # Rust
 export PATH=$HOME/.cargo/bin:$PATH
 
-# TODO ansible-ize
-if [ -f ~/.zshrc_machine_specific ]; then
-  source ~/.zshrc_machine_specific
-fi
-
 # rg
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
 # fzf
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
 export FZF_DEFAULT_COMMAND='rg --smart-case --hidden --files --glob !.git --glob ""'
 
 # direnv
 eval "$(direnv hook zsh)"
 alias da="direnv allow"
 
-# Other vars
-# This one needs to be late in the PATH
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/go/bin:$PATH
+if [ -f ~/.zshrc_machine_specific ]; then
+  source ~/.zshrc_machine_specific
+fi
+
+if [ -f ~/.zshrc_secrets ]; then
+  source ~/.zshrc_secrets
+fi

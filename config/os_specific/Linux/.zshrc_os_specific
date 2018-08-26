@@ -1,0 +1,18 @@
+# oh-my-zsh
+plugins=(git go man systemd)
+
+# Aliases
+alias clip='xclip -sel clip'
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias pacnews='sudo locate --existing --regex "\.pac(new|save)$"'
+
+# Env vars
+export MAKEFLAGS="-j$(nproc)"
+
+# Ruby
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh
+
+# fzf
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
