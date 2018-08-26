@@ -8,8 +8,12 @@
     user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
     become: true
 
-  - name: Create Go directory
-    file: path=~/languages/go/1.11 state=directory mode=0755
+  - name: Create Directories
+    file: path={{item}} state=directory mode=0755
+    with_items:
+      - ~/languages/go/1.11
+      - ~/.local/share/nvim/site/autoload
+      - ~/.config/alacritty
 
   - name: Install Go
     unarchive:
@@ -30,6 +34,14 @@
       - .tmux_os_specific.conf
       - .zshrc_os_specific
 
+  - name: Install machine-specific config
+    file:
+      src: "{{ansible_env.PWD}}/../config/machine_specific/{{ansible_env.ANSIBLE_HOME_MACHINE}}/{{item.name}}"
+      dest: "{{item.dest}}"
+      state: link
+    with_items:
+      - {name: alacritty.yml, dest: ~/.config/alacritty/alacritty.yml}
+
   - name: Install oh-my-zsh
     git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
 
@@ -43,9 +55,6 @@
 
   - name: Update tmux plugins
     command: ~/.tmux/plugins/tpm/bin/update_plugins all
-
-  - name: Create vim autoload directory
-    file: path=~/.local/share/nvim/site/autoload state=directory mode=0755
 
   - name: Install vim-plug
     get_url:
