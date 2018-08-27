@@ -64,6 +64,8 @@ install_package() {
 
   if command -v pacman > /dev/null 2>&1 ; then
     sudo pacman -S --needed --noconfirm "$package"
+  elif command -v brew > /dev/null 2>&1; then
+    brew install "$package"
   else
     echo "no supported package manager found"
     return 1
