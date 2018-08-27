@@ -18,6 +18,9 @@ Supports Arch Linux. macOS support in macos branch.
 
 `bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bin/bootstrap.sh)"`
 
+Note: this script only works on Linux. On macOS, you'll have to clone the repo and run
+`make`.
+
 This might fail the first time due to PGP signatures for an AUR package not being
 verified. I didn't want to automate the receiving of PGP keys, as this feels like it would
 defeat the point of PGP. Use `gpg --recv-keys <key>` if happy to import the key.
