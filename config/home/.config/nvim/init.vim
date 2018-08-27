@@ -32,6 +32,9 @@ Plug 'tpope/vim-commentary'
 Plug 'sjl/gundo.vim'
 
 " Languages
+" TODO I'm currently manually installing github.com/mdempsky/gocode over nsf/gocode to fix
+" issues that began when I upgraded to go 1.11.
+" Can remove this comment after https://github.com/fatih/vim-go/pull/1853 merged
 Plug 'fatih/vim-go', { 'for': 'go' } " TODO automate GoInstallBinaries
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' } " TODO does this work?
 Plug 'rust-lang/rust.vim', { 'for': 'rust' } " TODO automate `cargo install rustfmt`
