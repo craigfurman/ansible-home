@@ -5,5 +5,5 @@ default: run
 run:
 	./bin/run.sh
 
-update:
+update: run
 	./bin/update.sh
