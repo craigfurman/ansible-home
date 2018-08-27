@@ -1,6 +1,3 @@
-# oh-my-zsh
-plugins=(git go man systemd)
-
 # Aliases
 alias clip='xclip -sel clip'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'

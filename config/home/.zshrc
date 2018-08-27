@@ -52,8 +52,12 @@ DISABLE_AUTO_TITLE=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-# Plugins, among other things, defined in here
-source ~/.zshrc_os_specific
+# oh-my-zsh
+if [ "$(uname)" = "Linux" ]; then
+  plugins=(git go man systemd)
+else
+  plugins=(git go kubectl helm)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,6 +120,8 @@ export FZF_DEFAULT_COMMAND='rg --smart-case --hidden --files --glob !.git --glob
 # direnv
 eval "$(direnv hook zsh)"
 alias da="direnv allow"
+
+source ~/.zshrc_os_specific
 
 if [ -f ~/.zshrc_machine_specific ]; then
   source ~/.zshrc_machine_specific
