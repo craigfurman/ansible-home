@@ -10,13 +10,17 @@ alias dockermacssh="docker run -it --privileged --pid=host debian nsenter -t 1 -
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
+# fzf
+source /usr/local/opt/fzf/shell/completion.zsh
+source /usr/local/opt/fzf/shell/key-bindings.zsh
+
 # kube-ps1
 # TODO move to machine specific
 source /usr/local/share/kube-ps1.sh
 PROMPT='$(kube_ps1)'$PROMPT
 
 # This one needs to be late in the PATH
-export PATH=$HOME/bin:$HOME/Library/Python/2.7/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 # Function junk drawer
 git_cleanup_branches() {

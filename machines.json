@@ -9,5 +9,8 @@
     "archlinux-headless",
     "common-headless",
     "archlinux-gnome"
+  ],
+  "L332": [
+    "common-headless"
   ]
 }

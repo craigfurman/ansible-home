@@ -9,6 +9,7 @@ Supports Arch Linux. macOS support in macos branch.
 ## TODO
 
 1. Unify mac and Linux config
+1. Proper ansible tasks for macos
 1. Ansible-ize pacman.conf
 1. Split Arch package host into own role
 1. macos: gpg-agent.conf

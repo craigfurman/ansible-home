@@ -4,10 +4,6 @@
   hosts: all
   become_method: sudo
   tasks:
-  - name: Change shell to zsh
-    user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
-    become: true
-
   - name: Create Directories
     file: path={{item}} state=directory mode=0755
     with_items:
@@ -18,7 +14,7 @@
 
   - name: Install Go
     unarchive:
-      src: https://dl.google.com/go/go1.11.linux-amd64.tar.gz
+      src: https://dl.google.com/go/go1.11.{{ ansible_env.ANSIBLE_HOME_OS.lower() }}-amd64.tar.gz
       dest: ~/languages/go/1.11
       creates: ~/languages/go/1.11/go
       remote_src: true
