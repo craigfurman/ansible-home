@@ -39,3 +39,30 @@ gprdssh() {
 gcpssh() {
   ssh "$1.c.$2.internal"
 }
+
+# SL aliases
+export GC_OPSCODE_USER="craig"
+export KNIFE_ENV="lab"
+
+alias lknife="KNIFE_ENV=lab bundle exec knife"
+alias sknife="KNIFE_ENV=staging bundle exec knife"
+alias pknife="KNIFE_ENV=production bundle exec knife"
+
+alias lberks="KNIFE_ENV=lab berks"
+alias sberks="KNIFE_ENV=staging berks"
+alias pberks="KNIFE_ENV=production berks"
+
+alias lkitchen="KNIFE_ENV=lab bundle exec kitchen"
+alias skitchen="KNIFE_ENV=staging bundle exec kitchen"
+alias pkitchen="KNIFE_ENV=production bundle exec kitchen"
+
+alias lssh="lknife ssh -C 15 -x ${GC_OPSCODE_USER} -a softlayer.private_ip --ssh-port 61315"
+alias sssh="sknife ssh -C 15 -x ${GC_OPSCODE_USER} -a softlayer.private_ip --ssh-port 61315"
+alias pssh="pknife ssh -C 15 -x ${GC_OPSCODE_USER} -a softlayer.private_ip --ssh-port 61315"
+
+alias ldatabag="lknife data bag"
+alias sdatabag="sknife data bag"
+alias pdatabag="pknife data bag"
+
+# Anu
+alias anu="anu --disable-sentry"
