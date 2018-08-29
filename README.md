@@ -1,6 +1,6 @@
 # ansible-home
 
-Supports Arch Linux. macOS support in macos branch.
+Supports Arch Linux and macOS, although Linux has had more attention than macOS here.
 
 ## Usage
 
