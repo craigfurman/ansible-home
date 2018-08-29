@@ -4,6 +4,12 @@
   hosts: all
   become_method: sudo
   tasks:
+  - name: Change shell to zsh
+    user: name={{ ansible_env.USER }} shell={{ zsh_path }}
+    become: true
+    vars:
+      zsh_path: "{{ (ansible_env.ANSIBLE_HOME_OS == 'Darwin') | ternary('/usr/local/bin/zsh', '/usr/bin/zsh') }}"
+
   - name: Create Directories
     file: path={{item}} state=directory mode=0755
     with_items:

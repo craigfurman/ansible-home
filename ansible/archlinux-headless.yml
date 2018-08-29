@@ -82,10 +82,6 @@
       - tmate
       - yamllint
 
-  - name: Change shell to zsh
-    user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
-    become: true
-
   - name: Configure makepkg to use all cores
     shell: |
       sed -i "s/COMPRESSXZ=.*$/COMPRESSXZ=(xz -c -z --threads $(nproc) -)/g" \
