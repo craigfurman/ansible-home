@@ -6,4 +6,4 @@ run:
 	./bin/run.sh
 
 update: run
-	./bin/update.sh
+	./bin/update__$$(uname).sh
