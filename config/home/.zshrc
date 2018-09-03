@@ -56,7 +56,7 @@ DISABLE_AUTO_TITLE=true
 if [ "$(uname)" = "Linux" ]; then
   plugins=(git go man systemd)
 else
-  plugins=(git go kubectl helm)
+  plugins=(docker git go kubectl helm)
 fi
 
 source $ZSH/oh-my-zsh.sh
