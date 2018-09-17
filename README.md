@@ -10,6 +10,7 @@ See "First run" section if this is the first run on a particular machine.
 
 ## TODO
 
+1. chromium-vaapi-bin, chromium-widevine everywhere, libva-intel-driver on laptop
 1. Ansible-ize pacman.conf
 1. Split Arch package host into own role
 1. macos: gpg-agent.conf
