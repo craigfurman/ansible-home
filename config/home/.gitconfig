@@ -5,14 +5,15 @@
 	name = Craig Furman
 	email = craig.furman89@gmail.com
 [alias]
+	amend = commit -S -v --amend
 	br = branch
 	ci = commit -S -v
-	amend = commit -S -v --amend
 	co = checkout
 	dci = duet-commit
 	di = diff
 	ds = diff --staged
 	flog = log --pretty=fuller --decorate
+	fpush = push --force-with-lease
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	prnotes = log --reverse --format='%h: %B' origin/master..HEAD

@@ -40,7 +40,7 @@ gprdssh() {
 }
 
 gcpssh() {
-  ssh "$1.c.$2.internal"
+  ssh -o StrictHostKeyChecking=no "$1.c.$2.internal"
 }
 
 # SL aliases

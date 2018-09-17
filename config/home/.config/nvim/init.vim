@@ -1,4 +1,5 @@
 " TODO
+" Stop annoying cursor color change when on bracket - auto-pairs fault?
 " restore templates
 " ultisnips
 " better spellfile
