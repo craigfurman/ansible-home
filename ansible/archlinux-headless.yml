@@ -73,8 +73,7 @@
       - chruby
       - cower
       - direnv
-      # TODO compilation for google-drive-ocamlfuse constantly breaks
-      # - google-drive-ocamlfuse
+      - google-drive-ocamlfuse
       - gotty
       - kubectl-bin
       - kubernetes-helm-bin
