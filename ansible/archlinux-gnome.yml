@@ -10,6 +10,7 @@
       pacman: name={{item}}
       become: true
       with_items:
+        - alacritty
         - atom
         - crda
         - deluge
@@ -32,7 +33,6 @@
       pacman: name={{item}}
       become: true
       with_items:
-        - alacritty-git
         - caffeine-ng
         - clipit
         - dropbox
