@@ -33,6 +33,7 @@
       pacman: name={{item}}
       become: true
       with_items:
+        # TODO caffeine won't start currently
         - caffeine-ng
         - clipit
         - dropbox
