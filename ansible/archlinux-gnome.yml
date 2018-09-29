@@ -36,11 +36,12 @@
         - caffeine-ng
         - clipit
         - dropbox
-        - gnome-shell-extension-pixel-saver
+        # TODO re-enable after https://github.com/deadalnix/pixel-saver/issues/177 merged.
+        # Manually delete /usr/share/gnome-shell/extensions/pixel-saver@deadalnix.me first
+        # - gnome-shell-extension-pixel-saver
         - gnome-shell-extension-topicons-plus-git
         - google-musicmanager
         - google-chrome
-        - google-drive-ocamlfuse
         - keybase-bin
         - minikube-bin
         - nautilus-dropbox
