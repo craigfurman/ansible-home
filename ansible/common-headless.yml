@@ -18,6 +18,11 @@
       - ~/.config/alacritty
       - ~/.config/nvim
 
+  - name: Create restricted directories
+    file: path={{item}} state=directory mode=0700
+    with_items:
+      - ~/.gdfuse/default
+
   - name: Install Go
     unarchive:
       src: https://dl.google.com/go/go1.11.{{ ansible_env.ANSIBLE_HOME_OS.lower() }}-amd64.tar.gz
@@ -29,21 +34,10 @@
     command: stow -t ~ home chdir={{ansible_env.PWD}}/../config
 
   - name: Install OS-specific config
-    file:
-      src: "{{ansible_env.PWD}}/../config/os_specific/{{ansible_env.ANSIBLE_HOME_OS}}/{{item}}"
-      dest: "~/{{item}}"
-      state: link
-    with_items:
-      - .tmux_os_specific.conf
-      - .zshrc_os_specific
+    command: stow -t ~ home chdir={{ansible_env.PWD}}/../config/os_specific/{{ansible_env.ANSIBLE_HOME_OS}}
 
   - name: Install machine-specific config
-    file:
-      src: "{{ansible_env.PWD}}/../config/machine_specific/{{ansible_env.ANSIBLE_HOME_MACHINE}}/{{item.name}}"
-      dest: "{{item.dest}}"
-      state: link
-    with_items:
-      - {name: alacritty.yml, dest: ~/.config/alacritty/alacritty.yml}
+    command: stow -t ~ home chdir={{ansible_env.PWD}}/../config/machine_specific/{{ansible_env.ANSIBLE_HOME_MACHINE}}
 
   - name: Install oh-my-zsh
     git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
