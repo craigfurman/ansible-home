@@ -92,12 +92,16 @@
     file: path=/etc/pacman.d/hooks state=directory mode=0755
     become: true
 
-  - name: Install sort-mirrors pacman hook
-    copy: src="{{item.src}}" dest="{{item.dest}}" force=true mode=0644
+  - name: Install pacman hooks
+    copy:
+      src: "{{ansible_env.PWD}}/../config/pacman-hooks/{{item}}.hook"
+      dest: "/etc/pacman.d/hooks/{{item}}.hook"
+      force: true
+      mode: 0644
     become: true
     with_items:
-      - src: "{{ansible_env.PWD}}/../config/pacman-hooks/sort-mirrors.hook"
-        dest: /etc/pacman.d/hooks/sort-mirrors.hook}
+      - alacritty-config-upgrade
+      - sort-mirrors
 
   - name: List unused dependency packages
     command: pacman -Qtdq
