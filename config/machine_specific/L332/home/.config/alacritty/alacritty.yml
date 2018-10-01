@@ -31,6 +31,29 @@ window:
   # Setting this to false will result in window without borders and title bar.
   decorations: true
 
+scrolling:
+  # How many lines of scrollback to keep,
+  # '0' will disable scrolling.
+  history: 0
+
+  # Number of lines the viewport will move for every line
+  # scrolled when scrollback is enabled (history > 0).
+  multiplier: 3
+
+  # Faux Scrolling
+  #
+  # The `faux_multiplier` setting controls the number
+  # of lines the terminal should scroll when the alternate
+  # screen buffer is active. This is used to allow mouse
+  # scrolling for applications like `man`.
+  #
+  # To disable this completely, set `faux_multiplier` to 0.
+  faux_multiplier: 3
+
+  # Automatically scroll to the bottom when new text is written
+  # to the terminal.
+  auto_scroll: false
+
 # Display tabs using this many cells (changes require restart)
 tabspaces: 8
 
@@ -42,17 +65,20 @@ font:
   # The normal (roman) font face to use.
   normal:
     family: Inconsolata
-    style: Regular
+    # Style can be specified to pick a specific face.
+    # style: Regular
 
   # The bold font face
   bold:
     family: Inconsolata
-    style: Bold
+    # Style can be specified to pick a specific face.
+    # style: Bold
 
   # The italic font face
   italic:
     family: Menlo
-    style: Italic
+    # Style can be specified to pick a specific face.
+    # style: Italic
 
   # Point size of the font
   size: 14.0
@@ -86,9 +112,8 @@ render_timer: false
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: false
 
-# Colors (One Dark)
+# Colors (Tomorrow Night Bright)
 colors:
-  # Default colors
   primary:
     background: '0x282c34'
     foreground: '0xabb2bf'
@@ -103,11 +128,10 @@ colors:
     # bright_foreground: '0xffffff'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x000000'
-    cursor: '0xffffff'
+  # cursor:
+  #   text: '0x000000'
+  #   cursor: '0xffffff'
 
-  # Normal colors
   normal:
     # NOTE: Use '0x131613' for the `black` color if you'd like to see
     # black text on the background.
@@ -120,7 +144,6 @@ colors:
     cyan:    '0x56b6c2'
     white:   '0xabb2bf'
 
-  # Bright colors
   bright:
     black:   '0x5c6370'
     red:     '0xe06c75'
@@ -132,6 +155,7 @@ colors:
     white:   '0xffffff'
 
   # Dim colors (Optional)
+  # TODO
   # dim:
   #   black:   '0x333333'
   #   red:     '0xf2777a'
@@ -141,6 +165,7 @@ colors:
   #   magenta: '0xcc99cc'
   #   cyan:    '0x66cccc'
   #   white:   '0xdddddd'
+
 
 # Visual Bell
 #
@@ -197,16 +222,6 @@ mouse:
   # or triple click.
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
-
-  # Faux Scrollback
-  #
-  # The `faux_scrollback_lines` setting controls the number
-  # of lines the terminal should scroll when the alternate
-  # screen buffer is active. This is used to allow mouse
-  # scrolling for applications like `man`.
-  #
-  # To disable this completely, set `faux_scrollback_lines` to 0.
-  faux_scrollback_lines: 1
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
@@ -267,7 +282,18 @@ shell:
 # around them.
 #
 # Either an `action`, `chars`, or `command` field must be present.
-#   `action` must be one of `Paste`, `PasteSelection`, `Copy`, or `Quit`.
+#   `action` must be one of the following:
+#       - `Paste`
+#       - `PasteSelection`
+#       - `Copy`
+#       - `IncreaseFontSize`
+#       - `DecreaseFontSize`
+#       - `ResetFontSize`
+#       - `ScrollPageUp`
+#       - `ScrollPageDown`
+#       - `ScrollToTop`
+#       - `ScrollToBottom`
+#       - `Quit`
 #   `chars` writes the specified string every time that binding is activated.
 #     These should generally be escape sequences, but they can be configured to
 #     send arbitrary strings of bytes.
@@ -289,6 +315,8 @@ key_bindings:
   - { key: Key0,     mods: Command, action: ResetFontSize                }
   - { key: Equals,   mods: Command, action: IncreaseFontSize             }
   - { key: Minus,    mods: Command, action: DecreaseFontSize             }
+  - { key: K,        mods: Command, action: ClearHistory                 }
+  - { key: K,        mods: Command, chars: "\x0c"                        }
   - { key: PageUp,   mods: Shift,   chars: "\x1b[5;2~"                   }
   - { key: PageUp,   mods: Control, chars: "\x1b[5;5~"                   }
   - { key: PageUp,                  chars: "\x1b[5~"                     }
@@ -381,6 +409,7 @@ key_bindings:
   - { key: F11,      mods: Command, chars: "\x1b[23;3~"                  }
   - { key: F12,      mods: Command, chars: "\x1b[24;3~"                  }
   - { key: NumpadEnter,             chars: "\n"                          }
+
   # My keybindings here
   # Alt-as-meta replacements
   # Delete fordward word (delete backward word already supported)
