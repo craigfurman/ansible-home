@@ -5,5 +5,5 @@ default: run
 run:
 	./bin/run.sh
 
-update: run
-	./bin/update__$$(uname).sh
+upgrade: run
+	./bin/upgrade__$$(uname).sh
