@@ -5,82 +5,82 @@
   become_method: sudo
   tasks:
   - name: Install pacman packages
-    pacman: name={{item}}
     become: true
-    with_items:
-      - ack
-      - ansible
-      - asp
-      - bind-tools
-      - ctags
-      - curl
-      - dep
-      - devtools
-      - docker
-      - fzf
-      - git
-      - go-pie
-      - hdparm
-      - hexedit
-      - htop
-      - hub
-      - iotop
-      - jq
-      - lastpass-cli
-      - linux-headers
-      - lshw
-      - lsof
-      - mlocate
-      - mtools
-      - neovim
-      - nfs-utils
-      - openbsd-netcat
-      - openssh
-      - openvpn
-      - pacman-contrib
-      - pigz
-      - postfix
-      - python-neovim
-      - python-pip
-      - python2-neovim
-      - reflector
-      - restic
-      - ripgrep
-      - ruby
-      - rustup
-      - shellcheck
-      - smartmontools
-      - sshuttle
-      - stow
-      - strace
-      - tcpdump
-      - terraform
-      - the_silver_searcher
-      - tmux
-      - tree
-      - vim
-      - wget
-      - whois
-      - zsh
-      - zsh-completions
+    pacman:
+      name:
+        - ack
+        - ansible
+        - asp
+        - bind-tools
+        - ctags
+        - curl
+        - dep
+        - devtools
+        - docker
+        - fzf
+        - git
+        - go-pie
+        - hdparm
+        - hexedit
+        - htop
+        - hub
+        - iotop
+        - jq
+        - lastpass-cli
+        - linux-headers
+        - lshw
+        - lsof
+        - mlocate
+        - mtools
+        - neovim
+        - nfs-utils
+        - openbsd-netcat
+        - openssh
+        - openvpn
+        - pacman-contrib
+        - pigz
+        - postfix
+        - python-neovim
+        - python-pip
+        - python2-neovim
+        - reflector
+        - restic
+        - ripgrep
+        - ruby
+        - rustup
+        - shellcheck
+        - smartmontools
+        - sshuttle
+        - stow
+        - strace
+        - tcpdump
+        - terraform
+        - the_silver_searcher
+        - tmux
+        - tree
+        - vim
+        - wget
+        - whois
+        - zsh
+        - zsh-completions
 
   - name: Install AUR packages
-    pacman: name={{item}}
     become: true
-    with_items:
-      - aurutils
-      - aurvote
-      - chruby
-      - cower
-      - direnv
-      - google-drive-ocamlfuse
-      - gotty
-      - kubectl-bin
-      - kubernetes-helm-bin
-      - ngrok
-      - ruby-install
-      - tmate
-      - yamllint
+    pacman:
+      name:
+        - aurutils
+        - aurvote
+        - chruby
+        - cower
+        - direnv
+        - google-drive-ocamlfuse
+        - gotty
+        - kubectl-bin
+        - kubernetes-helm-bin
+        - ngrok
+        - ruby-install
+        - tmate
+        - yamllint
 
   - name: Configure makepkg to use all cores
     shell: |

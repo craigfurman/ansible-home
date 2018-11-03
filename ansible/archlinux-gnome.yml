@@ -7,52 +7,52 @@
     vbox_dir: ~/virtualbox_vms
   tasks:
     - name: Install pacman packages
-      pacman: name={{item}}
       become: true
-      with_items:
-        - alacritty
-        - atom
-        - crda
-        - deluge
-        - docker-machine
-        - firefox
-        - gnome-tweaks
-        - gparted
-        - libreoffice-still
-        - networkmanager-openvpn
-        - powertop
-        - pygtk
-        - qt4
-        - seahorse
-        - vagrant
-        - virtualbox
-        - virtualbox-host-modules-arch
-        - vlc
+      pacman:
+        name:
+          - alacritty
+          - atom
+          - crda
+          - deluge
+          - docker-machine
+          - firefox
+          - gnome-tweaks
+          - gparted
+          - libreoffice-still
+          - networkmanager-openvpn
+          - powertop
+          - pygtk
+          - qt4
+          - seahorse
+          - vagrant
+          - virtualbox
+          - virtualbox-host-modules-arch
+          - vlc
 
     - name: Install AUR packages
-      pacman: name={{item}}
       become: true
-      with_items:
-        # TODO caffeine won't start currently
-        - caffeine-ng
-        - clipit
-        - dropbox
-        # TODO re-enable after https://github.com/deadalnix/pixel-saver/issues/177 merged.
-        # Manually delete /usr/share/gnome-shell/extensions/pixel-saver@deadalnix.me first
-        # - gnome-shell-extension-pixel-saver
-        - gnome-shell-extension-topicons-plus-git
-        - google-musicmanager
-        - google-chrome
-        - keybase-bin
-        - minikube-bin
-        - nautilus-dropbox
-        - popcorntime
-        - qtwebkit-bin  # Dependency of google-musicmanager. provides qtwebkit, which takes hours to compile
-        - skypeforlinux-preview-bin
-        - slack-desktop
-        - ttf-google-fonts-git
-        - visual-studio-code-bin
-        - zoom
+      pacman:
+        name:
+          # TODO caffeine won't start currently
+          - caffeine-ng
+          - clipit
+          - dropbox
+          # TODO re-enable after https://github.com/deadalnix/pixel-saver/issues/177 merged.
+          # Manually delete /usr/share/gnome-shell/extensions/pixel-saver@deadalnix.me first
+          # - gnome-shell-extension-pixel-saver
+          - gnome-shell-extension-topicons-plus-git
+          - google-musicmanager
+          - google-chrome
+          - keybase-bin
+          - minikube-bin
+          - nautilus-dropbox
+          - popcorntime
+          - qtwebkit-bin  # Dependency of google-musicmanager. provides qtwebkit, which takes hours to compile
+          - skypeforlinux-preview-bin
+          - slack-desktop
+          - ttf-google-fonts-git
+          - visual-studio-code-bin
+          - zoom
 
     - name: Create Virtualbox images directory with No_COW
       file: path="{{vbox_dir}}" state=directory mode=0755 attributes=C
