@@ -9,7 +9,7 @@ clean_outdated_aur_packages() {
     | xargs -L1 -I% bash -c 'rm %*'
 }
 
-auroot=$HOME/Dropbox/aur-packages
+auroot=$HOME/aur-packages
 cd "$auroot"
 aursync --repo craig --root "$auroot" --no-confirm --no-view -u
 clean_outdated_aur_packages

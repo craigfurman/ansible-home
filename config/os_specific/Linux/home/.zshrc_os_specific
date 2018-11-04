@@ -13,3 +13,34 @@ source /usr/share/chruby/auto.sh
 # fzf
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
+
+# Pacman
+packages_explicity_installed() {
+  if [ -z "$1" ]; then
+    echo "usage: packages_explicity_installed <repo>"
+    return 1
+  fi
+
+  pacman -Sl "$1" | awk '{print $2}' | xargs -I% bash -c 'pacman -Qe | grep %'
+}
+
+remove_aur_package() {
+  if [ -z "$1" ]; then
+    echo "usage: remove_aur_package <package>"
+    return 1
+  fi
+
+  pkg=$1
+
+  sudo pacman -Rns "$pkg"
+  (
+  cd ~/aur-packages
+  repose -d craig "$pkg"
+
+  if [ $(ls "$pkg"-* | wc -l) -ne 1 ]; then
+    echo "refusing to delete multiple packages: \n$(ls "$pkg"-*). \nDelete $pkg manually"
+    return 1
+  fi
+  rm "$1"-* #
+  )
+}
