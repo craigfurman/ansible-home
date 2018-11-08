@@ -3,6 +3,7 @@
 # TODO replace taps that are only used once with `brew 'tap/formula'`?
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
+tap 'garethr/kubeval'
 tap 'gocardless/homebrew-taps'
 tap 'universal-ctags/universal-ctags'
 
@@ -27,6 +28,7 @@ cask 'virtualbox'
 brew 'ack'
 brew 'ansible'
 brew 'awscli'
+brew 'awsebcli'
 brew 'bash'
 brew 'bash-completion2'
 brew 'chruby'
@@ -47,6 +49,7 @@ brew 'ipcalc'
 brew 'jq'
 brew 'kube-ps1'
 brew 'kubectx', args: ['with-short-names']
+brew 'kubeval'
 brew 'mas'
 brew 'neovim'
 brew 'pidof'
