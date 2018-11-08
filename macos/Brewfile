@@ -1,5 +1,6 @@
 # vim: syntax=ruby
 
+# TODO replace taps that are only used once with `brew 'tap/formula'`?
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'gocardless/homebrew-taps'
