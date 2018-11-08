@@ -49,7 +49,7 @@ brew 'ipcalc'
 brew 'jq'
 brew 'kube-ps1'
 brew 'kubectx', args: ['with-short-names']
-brew 'kubeval'
+brew 'kubeval' # Not used in practice. I need the version latest development version, built from master.
 brew 'mas'
 brew 'neovim'
 brew 'pidof'
