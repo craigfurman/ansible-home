@@ -145,6 +145,9 @@ let g:go_highlight_generate_tags = 1
 " rust
 let g:rustfmt_autosave = 1
 
+" terraform
+let g:terraform_fmt_on_save=1
+
 " deoplete
 let g:deoplete#enable_at_startup = 1
 " tab completion
