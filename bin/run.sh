@@ -7,7 +7,6 @@ source "$(dirname "$0")/../lib/shell-helpers.sh"
 main() {
   check_symlinks
   install_bootstrap_packages
-  run_pre_ansible_hook
 
   MAKEFLAGS="-j$(cpu_count)"
   export MAKEFLAGS
@@ -79,14 +78,6 @@ check_symlinks() {
   if [ -e ~/.zshrc ] && [ ! -L ~/.zshrc ]; then
     echo "$HOME/.zshrc is not a symlink, stowing dotfiles will fail later. try removing it for now."
     return 1
-  fi
-}
-
-run_pre_ansible_hook() {
-  hook_exe="$(dirname "$0")/run__$(uname)"
-  if [ -x "$hook_exe" ]; then
-    log "Running $hook_exe"
-    $hook_exe
   fi
 }
 
