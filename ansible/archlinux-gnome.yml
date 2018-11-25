@@ -36,7 +36,6 @@
           # TODO caffeine won't start currently
           - caffeine-ng
           - clipit
-          - dropbox
           # TODO re-enable after https://github.com/deadalnix/pixel-saver/issues/177 merged.
           # Manually delete /usr/share/gnome-shell/extensions/pixel-saver@deadalnix.me first
           # - gnome-shell-extension-pixel-saver
@@ -45,7 +44,6 @@
           - google-chrome
           - keybase-bin
           - minikube-bin
-          - nautilus-dropbox
           - popcorntime
           - qtwebkit-bin  # Dependency of google-musicmanager. provides qtwebkit, which takes hours to compile
           - skypeforlinux-preview-bin
