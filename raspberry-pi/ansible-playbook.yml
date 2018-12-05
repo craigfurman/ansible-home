@@ -1,0 +1,32 @@
+---
+- name: raspberry-pi
+  hosts: all
+  remote_user: &user pi
+  become_method: sudo
+
+  tasks:
+    - name: Install apt packages
+      apt:
+        name: "{{packages}}"
+        update_cache: true
+      become: true
+      vars:
+        packages:
+          - git
+          - vim-tiny
+          - zsh
+
+    - name: Install zshrc
+      copy:
+        src: config/.zshrc
+        dest: ~/.zshrc
+        mode: 0644
+
+    - name: Install oh-my-zsh
+      git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+
+    - name: chsh to zsh
+      user:
+        name: *user
+        shell: /usr/bin/zsh
+      become: true
