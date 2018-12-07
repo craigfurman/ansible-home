@@ -45,7 +45,7 @@ gcpssh() {
 
 # Only run after inspecting the output of `knife status` first.
 chef_nodes_cleanup() {
-  bundle exec knife status | grep 'hours ago' | awk '{print $4}' | sed 's/,//' \
+  bundle exec knife status | egrep 'hours?\s+ago' | awk '{print $4}' | sed 's/,//' \
     | xargs -I% sh -c 'bundle exec knife node delete -y % && bundle exec knife client delete -y %'
   bundle exec knife status | grep 'not yet converged' | awk '{print $2}' \
     | xargs -I% sh -c 'bundle exec knife node delete -y % &&  bundle exec knife client delete -y %'
