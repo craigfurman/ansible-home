@@ -18,9 +18,10 @@
     file: path={{item}} state=directory mode=0755
     with_items:
       - "~/languages/go/{{ go_version }}"
-      - ~/.local/share/nvim/site/autoload
       - ~/.config/alacritty
+      - ~/.config/kitty
       - ~/.config/nvim
+      - ~/.local/share/nvim/site/autoload
 
   - name: Create restricted directories
     file: path={{item}} state=directory mode=0700
