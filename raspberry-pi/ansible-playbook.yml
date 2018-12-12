@@ -14,8 +14,14 @@
         packages:
           - dnsutils
           - git
+          - python-pip
           - vim-tiny
           - zsh
+
+    - name: Install docker module for docker_image task
+      pip:
+        name: docker
+      become: true
 
     - name: Install zshrc
       copy:
@@ -48,3 +54,30 @@
       command: /tmp/get-docker.sh
       become: true
       when: docker_installed is failed
+
+    - name: pull pi-hole image
+      docker_image:
+        name: pihole/pihole:latest
+      become: true
+      register: pi_hole_image
+
+    - name: Install pi-hole service
+      copy:
+        src: config/pi-hole.service
+        dest: /lib/systemd/system/pi-hole.service
+      become: true
+      register: pi_hole_service
+
+    - name: start and enable pi-hole service
+      service:
+        name: pi-hole.service
+        state: started
+        enabled: true
+      become: true
+
+    - name: restart pi-hole service
+      service:
+        name: pi-hole.service
+        state: restarted
+      become: true
+      when: pi_hole_image is changed or pi_hole_service is changed
