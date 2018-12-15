@@ -55,6 +55,13 @@
       become: true
       when: docker_installed is failed
 
+    - name: Create config directories
+      file: path={{item}} state=directory mode=0755
+      with_items:
+        - /etc/dnsmasq.d
+        - /etc/pihole
+      become: true
+
     - name: pull pi-hole image
       docker_image:
         name: pihole/pihole:latest
@@ -77,13 +84,24 @@
     - include_vars: admin-dashboard-password.yml
       no_log: true
 
-    - name: Install pi-hole config
+    - name: Install pi-hole environment file
       template:
         src: config/pi-hole.env.j2
         dest: /etc/default/pi-hole
         mode: 0600
       become: true
+      register: pi_hole_environment
+
+    - name: Install pi-hole and dnsmasq config
+      template:
+        src: "{{item.src}}"
+        dest: "{{item.dest}}"
+        mode: 0644
+      become: true
       register: pi_hole_config
+      with_items:
+        - {src: config/dnsmasq-02-local-hosts.conf, dest: /etc/dnsmasq.d/02-local-hosts.conf}
+        - {src: config/local-hosts.conf, dest: /etc/pihole/local-hosts.conf}
 
     - name: start and enable pi-hole service
       service:
@@ -100,4 +118,5 @@
       when: >-
         pi_hole_image is changed
         or pi_hole_service is changed
+        or pi_hole_environment is changed
         or pi_hole_config is changed
