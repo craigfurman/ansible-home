@@ -14,14 +14,16 @@
     vars:
       zsh_path: "{{ (ansible_env.ANSIBLE_HOME_OS == 'Darwin') | ternary('/usr/local/bin/zsh', '/usr/bin/zsh') }}"
 
+  # Some of these are pre-reqs for later steps, and some are just there to stop GNU Stow
+  # from creating a symlink for the directory, forcing it to create ones for individual
+  # files instead.
   - name: Create Directories
     file: path={{item}} state=directory mode=0755
     with_items:
       - "~/languages/go/{{ go_version }}"
-      - ~/.config/alacritty
-      - ~/.config/kitty
       - ~/.config/nvim
       - ~/.local/share/nvim/site/autoload
+      - ~/bin
 
   - name: Create restricted directories
     file: path={{item}} state=directory mode=0700
