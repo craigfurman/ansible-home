@@ -5,7 +5,7 @@
   become_method: sudo
 
   vars:
-    go_version: 1.11.2
+    go_version: 1.11.4
 
   tasks:
   - name: Change shell to zsh
