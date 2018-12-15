@@ -68,6 +68,23 @@
       become: true
       register: pi_hole_service
 
+    - name: systemd daemon-reload
+      systemd:
+        daemon_reload: true
+      become: true
+      when: pi_hole_service is changed
+
+    - include_vars: admin-dashboard-password.yml
+      no_log: true
+
+    - name: Install pi-hole config
+      template:
+        src: config/pi-hole.env.j2
+        dest: /etc/default/pi-hole
+        mode: 0600
+      become: true
+      register: pi_hole_config
+
     - name: start and enable pi-hole service
       service:
         name: pi-hole.service
@@ -80,4 +97,7 @@
         name: pi-hole.service
         state: restarted
       become: true
-      when: pi_hole_image is changed or pi_hole_service is changed
+      when: >-
+        pi_hole_image is changed
+        or pi_hole_service is changed
+        or pi_hole_config is changed

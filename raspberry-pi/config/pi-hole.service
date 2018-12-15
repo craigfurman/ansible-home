@@ -6,6 +6,8 @@ Requires=docker.service
 [Service]
 TimeoutStartSec=0
 Restart=always
+
+EnvironmentFile=/etc/default/pi-hole
 ExecStart=/usr/bin/docker run --rm --name %n \
   -p 53:53/tcp -p 53:53/udp \
   -p 67:67/udp \
@@ -13,10 +15,13 @@ ExecStart=/usr/bin/docker run --rm --name %n \
   -p 443:443 \
   -v "/etc/pihole:/etc/pihole" \
   -v "/etc/dnsmasq.d:/etc/dnsmasq.d" \
-  -e ServerIP="192.168.0.105" \
+  -e ServerIP="${ServerIP}" \
+  -e TZ="${TZ}" \
+  -e WEBPASSWORD="${WEBPASSWORD}" \
   --cap-add=NET_ADMIN \
   --dns=127.0.0.1 --dns=8.8.8.8 --dns=8.8.4.4 \
   pihole/pihole:latest
+
 ExecStop=/usr/bin/docker stop %n
 
 [Install]
