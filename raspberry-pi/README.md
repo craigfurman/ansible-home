@@ -4,6 +4,7 @@ Everything related to my raspberry pi goes here (for now).
 
 ## TODO
 
+1. WireGuard VPN to use pi-hole when out and about
 1. Unattended upgrades (with a way to know when the pi needs a reboot). Ensure Docker is
    upgraded with unattended upgrades.
 1. Harden ssh config - disable password authentication, root login

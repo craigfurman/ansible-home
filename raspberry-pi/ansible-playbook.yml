@@ -4,6 +4,10 @@
   remote_user: &user pi
   become_method: sudo
 
+  vars:
+    # TODO subscribe to the WireGuard mailing list to get snapshot/release announcements.
+    wireguard_version: 0.0.20181119
+
   tasks:
     - name: Install apt packages
       apt:
@@ -15,6 +19,7 @@
           - dnsutils
           - git
           - python-pip
+          - raspberrypi-kernel-headers  # For compiling wireguard
           - vim-tiny
           - zsh
 
@@ -120,3 +125,28 @@
         or pi_hole_service is changed
         or pi_hole_environment is changed
         or pi_hole_config is changed
+
+    # WireGuard
+    - name: Create src directory
+      file: path=~/src state=directory mode=0755
+
+    - name: Download WireGuard source
+      unarchive:
+        src: https://git.zx2c4.com/WireGuard/snapshot/WireGuard-{{wireguard_version}}.tar.xz
+        dest: ~/src
+        creates: ~/src/WireGuard-{{wireguard_version}}
+        remote_src: true
+      register: wireguard_src
+
+    - name: Compile WireGuard
+      command: make -j3  # Leave 1 core unused
+      args:
+        chdir: ~/src/WireGuard-{{wireguard_version}}/src
+      when: wireguard_src is changed
+
+    - name: Install WireGuard
+      command: make install
+      args:
+        chdir: ~pi/src/WireGuard-{{wireguard_version}}/src
+      become: true
+      when: wireguard_src is changed
