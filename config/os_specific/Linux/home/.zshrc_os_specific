@@ -41,6 +41,6 @@ remove_aur_package() {
     echo "refusing to delete multiple packages: \n$(ls "$pkg"-*). \nDelete $pkg manually"
     return 1
   fi
-  rm "$1"-* #
+  rm "$1"-*
   )
 }
