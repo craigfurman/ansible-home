@@ -17,7 +17,7 @@ main() {
 
 remove_top_level_ocaml_packages() {
   # Currently, the only ocaml package that I actually want is google-drive-ocamlfuse
-  sudo pacman -Rns --noconfirm google-drive-ocamlfuse
+  sudo pacman -Rns --noconfirm google-drive-ocamlfuse || true
 }
 
 remove_ocaml_aur_packages() {
