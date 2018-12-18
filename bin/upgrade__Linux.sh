@@ -5,7 +5,7 @@ set -euo pipefail
 source "$(dirname "$0")/../lib/shell-helpers.sh"
 
 log "Updating pacman packages"
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm
 
 # Usually, desktop builds AUR packages, laptop just pulls them from Google Drive
 if [ -n "${AUR_BUILDER:-}" ]; then
@@ -16,7 +16,7 @@ else
 fi
 
 log "Cleaning pacman cache"
-sudo pacman -Sc
+sudo pacman -Sc --noconfirm
 
 log "Locating pacnew files"
 sudo updatedb
