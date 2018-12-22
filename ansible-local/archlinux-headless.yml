@@ -73,7 +73,7 @@
         - chruby
         - cower
         - direnv
-        - google-drive-ocamlfuse
+        # - google-drive-ocamlfuse  # TODO re-enable when compilation fixed
         - gotty
         - kubectl-bin
         - kubernetes-helm-bin

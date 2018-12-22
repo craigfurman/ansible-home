@@ -26,7 +26,7 @@ main() {
   export ANSIBLE_HOME_MACHINE
 
   log "Running Ansible with tags $tags"
-  $cmd -i localhost, --con local --tags "$tags" "$(dirname "$0")/../ansible/playbook.yml"
+  $cmd -i localhost, --con local --tags "$tags" "$(dirname "$0")/../ansible-local/playbook.yml"
 }
 
 cpu_count() {
