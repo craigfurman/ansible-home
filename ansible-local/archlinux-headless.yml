@@ -80,6 +80,7 @@
         - ngrok
         - ruby-install
         - tmate
+        - wireguard-tools
         - yamllint
 
   - name: Configure makepkg to use all cores

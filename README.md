@@ -12,7 +12,7 @@ See "First run" section if this is the first run on a particular machine.
 
 1. Kitty Linux: text matches background in certain circumstances: e.g. tmux + ssh to
    raspberry pi + htop.
-1. omz arrow doesn't display properly using Inconsolata on macOS
+1. Kitty: omz arrow doesn't display properly using Inconsolata on macOS
 1. autokbisw from homebrew
 1. global rubocop (macos only)
 1. chromium-vaapi-bin, chromium-widevine everywhere, libva-intel-driver on laptop

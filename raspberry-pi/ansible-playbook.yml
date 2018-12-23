@@ -6,7 +6,7 @@
 
   vars:
     # TODO subscribe to the WireGuard mailing list to get snapshot/release announcements.
-    wireguard_version: 0.0.20181119
+    wireguard_version: 0.0.20181218
 
   tasks:
     - name: Install apt packages
@@ -70,6 +70,7 @@
     - name: pull pi-hole image
       docker_image:
         name: pihole/pihole:latest
+        force: true
       become: true
       register: pi_hole_image
 
