@@ -1,7 +1,5 @@
 # raspberry-pi
 
-Everything related to my raspberry pi goes here (for now).
-
 ## TODO
 
 1. WireGuard VPN to use pi-hole when out and about

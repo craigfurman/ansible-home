@@ -1,0 +1,10 @@
+---
+- hosts: raspberry-pi
+  roles:
+    - raspberry-preamble
+- hosts: all
+  roles:
+    - server-common
+- hosts: raspberry-pi
+  roles:
+    - pi-hole

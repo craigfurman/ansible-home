@@ -1,0 +1,30 @@
+---
+- name: Install common base packages
+  package: name="{{packages}}" state=latest
+  become: true
+  vars:
+    packages:
+      - git
+      - python-pip  # For docker module
+      - vim
+      - zsh
+
+- name: Install docker module for docker_image task
+  pip:
+    name: docker
+  become: true
+
+- name: Install zshrc
+  copy:
+    src: .zshrc
+    dest: ~/.zshrc
+    mode: 0644
+
+- name: Install oh-my-zsh
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+
+- name: chsh to zsh
+  user:
+    name: "{{ansible_user}}"
+    shell: /usr/bin/zsh
+  become: true

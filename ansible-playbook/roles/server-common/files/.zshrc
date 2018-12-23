@@ -86,9 +86,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Vars
+export EDITOR=vim
+
 # Aliases
 alias ll='ls -alh'
-
-# Vim
-export EDITOR=vim.tiny
-alias vim=vim.tiny
