@@ -21,6 +21,12 @@ To configure servers over ssh:
 ansible-playbook -i servers --vault-password-file <vault_password_file> servers.yml
 ```
 
+### Upgrading
+
+Laptops, desktops etc: `bin/upgrade.sh`.
+
+Servers - no automation yet.
+
 ## TODO
 
 1. Kitty Linux: text matches background in certain circumstances: e.g. tmux + ssh to
@@ -36,8 +42,8 @@ ansible-playbook -i servers --vault-password-file <vault_password_file> servers.
 ## First run
 
 Like any automation around personal laptops, snowflakes can be hard to avoid compared to
-servers. Since I last rearranged all the code, its almost inevitable that a branch new
-machine will fail to converge somehow.
+servers. Since I last rearranged all the code, it's almost inevitable that a new machine
+will fail to converge somehow.
 
 ### Arch Linux
 
