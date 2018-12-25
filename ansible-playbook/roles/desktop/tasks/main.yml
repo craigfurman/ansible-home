@@ -1,0 +1,10 @@
+---
+- name: Install AUR packages
+  become: true
+  package:
+    name:
+      - canon-pixma-mg2500-complete  # Hardware-specific
+    state: present
+
+# TODO sshd_config
+# TODO enable services

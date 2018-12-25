@@ -1,0 +1,13 @@
+---
+- hosts: archlinux-pcs
+  roles:
+    - archlinux-pc
+- hosts: all
+  roles:
+    - common
+- hosts: desktops
+  roles:
+    - desktop
+- hosts: media-servers
+  roles:
+    - media-server

@@ -1,0 +1,77 @@
+---
+- name: Install packages
+  package:
+    name: "{{packages}}"
+    state: present
+  become: true
+
+- name: Add local repository for AUR packages
+  blockinfile:
+    path: /etc/pacman.conf
+    block: |
+      [craig]
+      SigLevel = Optional TrustAll
+      Server = file://{{ansible_facts['user_dir']}}/aur-packages
+  become: true
+
+- name: Install AUR packages
+  package:
+    name: "{{aur_packages}}"
+    state: present
+  become: true
+
+- name: Configure makepkg to use all cores
+  shell: |
+    sed -i "s/COMPRESSXZ=.*$/COMPRESSXZ=(xz -c -z --threads $(nproc) -)/g" \
+      /etc/makepkg.conf
+  become: true
+
+- name: Create pacman hooks directory
+  file: path=/etc/pacman.d/hooks state=directory mode=0755
+  become: true
+
+- name: Install pacman hooks
+  copy:
+    src: "{{item}}.hook"
+    dest: "/etc/pacman.d/hooks/{{item}}.hook"
+    force: true
+    mode: 0644
+  become: true
+  with_items:
+    - sort-mirrors
+
+- name: List unused dependency packages
+  command: pacman -Qtdq
+  ignore_errors: true
+  register: orphans
+
+  # TODO sysctl module?
+  # TODO enable now, don't wait for reboot
+- name: Enable unprivileged user namespaces
+  lineinfile:
+    line: 'kernel.unprivileged_userns_clone=1'
+    path: /etc/sysctl.d/99-custom.conf
+    create: true
+  become: true
+
+- name: Create Virtualbox images directory with No_COW
+  file: path="{{vbox_dir}}" state=directory mode=0755 attributes=C
+
+- name: Create docker-machine images directory with No_COW
+  file:
+    path: "~/.docker/machine/machines"
+    state: directory
+    mode: 0700
+    attributes: C
+
+- name: Set virtualbox images directory
+  command: VBoxManage setproperty machinefolder {{vbox_dir}}
+
+- name: Remove unused dependency packages
+  shell: pacman -Rns --noconfirm $(pacman -Qtdq)
+  become: true
+  when: orphans is succeeded
+
+- name: Clear pacman cache
+  command: pacman -Sc --noconfirm
+  become: true

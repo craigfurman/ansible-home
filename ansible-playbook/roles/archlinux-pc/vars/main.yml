@@ -1,0 +1,111 @@
+---
+packages:
+  - ack
+  - alacritty
+  - ansible
+  - asp
+  - atom
+  - bind-tools
+  - crda
+  - ctags
+  - curl
+  - deluge
+  - dep
+  - devtools
+  - docker
+  - docker-machine
+  - firefox
+  - fzf
+  - git
+  - gnome-tweaks
+  - go-pie
+  - gparted
+  - hdparm
+  - hexedit
+  - htop
+  - hub
+  - iotop
+  - jq
+  - kitty
+  - lastpass-cli
+  - libreoffice-still
+  - linux-headers
+  - lshw
+  - lsof
+  - mlocate
+  - mtools
+  - neovim
+  - networkmanager-openvpn
+  - nfs-utils
+  - openbsd-netcat
+  - openssh
+  - openvpn
+  - pacman-contrib
+  - pigz
+  - postfix
+  - powertop
+  - pygtk
+  - python-neovim
+  - python-pip
+  - python2-neovim
+  - qt4
+  - reflector
+  - restic
+  - ripgrep
+  - ruby
+  - rustup
+  - seahorse
+  - shellcheck
+  - smartmontools
+  - sshuttle
+  - stow
+  - strace
+  - tcpdump
+  - terraform
+  - the_silver_searcher
+  - tmux
+  - tree
+  - vagrant
+  - vim
+  - virtualbox
+  - virtualbox-host-modules-arch
+  - vlc
+  - wget
+  - whois
+  - zsh
+  - zsh-completions
+
+aur_packages:
+  - aurutils
+  - aurvote
+  - caffeine-ng  # TODO caffeine won't start currently
+  - chruby
+  - clipit
+  - cower
+  - direnv
+  # TODO re-enable after https://github.com/deadalnix/pixel-saver/issues/177 merged.
+  # Manually delete /usr/share/gnome-shell/extensions/pixel-saver@deadalnix.me first
+  # - gnome-shell-extension-pixel-saver
+  - gnome-shell-extension-topicons-plus-git
+  - google-chrome
+  # - google-drive-ocamlfuse  # TODO re-enable when compilation fixed
+  - google-musicmanager
+  - gotty
+  - keybase-bin
+  - kubectl-bin
+  - kubernetes-helm-bin
+  - minikube-bin
+  - ngrok
+  - popcorntime
+  - qtwebkit-bin  # Dependency of google-musicmanager. provides qtwebkit, which takes hours to compile
+  - ruby-install
+  - skypeforlinux-preview-bin
+  - slack-desktop
+  - tmate
+  - ttf-google-fonts-git
+  - visual-studio-code-bin
+  - wireguard-tools
+  - yamllint
+  - zoom
+
+vbox_dir: ~/virtualbox_vms

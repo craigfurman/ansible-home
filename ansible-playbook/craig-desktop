@@ -1,0 +1,8 @@
+[archlinux-pcs]
+craig-desktop ansible_connection=local ansible_user=craig
+
+[desktops]
+craig-desktop ansible_connection=local ansible_user=craig
+
+[media-servers]
+craig-desktop ansible_connection=local ansible_user=craig

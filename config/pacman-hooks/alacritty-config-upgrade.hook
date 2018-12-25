@@ -1,8 +1,0 @@
-[Trigger]
-Operation = Upgrade
-Type = Package
-Target = alacritty
-
-[Action]
-When = PostTransaction
-Exec = /usr/bin/echo "Alacritty has been upgraded - diff your config file with the new version"
