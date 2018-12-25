@@ -29,13 +29,13 @@
     remote_src: true
 
 - name: Install config
-  command: stow -t ~ home chdir={{ansible_env.PWD}}/../config
+  command: stow -t ~ home chdir={{ansible_env.PWD}}/config
 
 - name: Install OS-specific config
-  command: stow -t ~ home chdir={{ansible_env.PWD}}/../config/os_specific/{{ansible_facts['system']}}
+  command: stow -t ~ home chdir={{ansible_env.PWD}}/config/os_specific/{{ansible_facts['system']}}
 
 - name: Install machine-specific config
-  command: stow -t ~ home chdir={{ansible_env.PWD}}/../config/machine_specific/{{ansible_facts['hostname']}}
+  command: stow -t ~ home chdir={{ansible_env.PWD}}/config/machine_specific/{{ansible_facts['hostname']}}
 
 - name: Install oh-my-zsh
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh

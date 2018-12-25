@@ -1,5 +1,0 @@
----
-- import_playbook: archlinux-headless.yml
-- import_playbook: common-headless.yml
-- import_playbook: archlinux-gnome.yml
-- import_playbook: archlinux-media-server.yml

@@ -1,12 +1,25 @@
 # ansible-home
 
-Supports Arch Linux and macOS, although Linux has had more attention than macOS here.
+Configures my laptop / desktop / media server, which all run Arch Linux, my macOS laptop,
+and my raspberry pi.
 
 ## Usage
 
-`make`
+For laptops, desktops etc, where ansible will be run locally after cloning this
+repository:
 
-See "First run" section if this is the first run on a particular machine.
+```
+ansible-playbook -i $(hostname) --vault-password-file <vault_password_file> pcs.yml
+```
+
+This basically abuses the ansible inventory file to switch configuration on hostname. I
+used to use tags for this.
+
+To configure servers over ssh:
+
+```
+ansible-playbook -i servers --vault-password-file <vault_password_file> servers.yml
+```
 
 ## TODO
 
@@ -22,18 +35,22 @@ See "First run" section if this is the first run on a particular machine.
 
 ## First run
 
+Like any automation around personal laptops, snowflakes can be hard to avoid compared to
+servers. Since I last rearranged all the code, its almost inevitable that a branch new
+machine will fail to converge somehow.
+
 ### Arch Linux
 
-`bash -c "$(curl -sSL https://raw.githubusercontent.com/craigfurman/ansible-home/master/bin/bootstrap.sh)"`
-
-Note: this script only works on Linux. On macOS, you'll have to clone the repo and run
-`make`.
-
-This might fail the first time due to PGP signatures for an AUR package not being
-verified. I didn't want to automate the receiving of PGP keys, as this feels like it would
-defeat the point of PGP. Use `gpg --recv-keys <key>` if happy to import the key.
+Unless `~/aur-packages` has been bootstrapped from another Arch machine, you'll have to
+comment out all the AUR packages sections. There is no flag to do this, as I'd expect not
+to lose all of my Arch package caches on my various machines at once.
 
 ### macos
+
+Before running ansible (which won't even be installed):
+
+1. Install Homebrew
+1. `cd macos && brew bundle`
 
 Ensure that `/etc/ansible/ansible.cfg` exists and has the following contents:
 
@@ -45,3 +62,7 @@ gather_subset = !facter
 
 I haven't investigated deeply, but this might only be necessary due to a clash with the
 way puppet/munki are installed.
+
+### Raspberry pi
+
+See [first setup instructions](docs/raspberry-pi.md).
