@@ -72,6 +72,7 @@ packages:
   - vlc
   - wget
   - whois
+  - wireguard-tools
   - zsh
   - zsh-completions
 
@@ -104,7 +105,6 @@ aur_packages:
   - tmate
   - ttf-google-fonts-git
   - visual-studio-code-bin
-  - wireguard-tools
   - yamllint
   - zoom
 
