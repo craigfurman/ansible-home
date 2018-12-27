@@ -10,9 +10,8 @@
   become: true
   package:
     name:
-      - canon-pixma-mg2500-complete  # Hardware-specific
       - networkmanager-vpn-web-ui
       - plex-media-server
     state: present
 
-# TODO enable services
+# TODO services and config for: nfs, samba, transmission, plex, nm-vpn-webui

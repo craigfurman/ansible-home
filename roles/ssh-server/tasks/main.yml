@@ -1,0 +1,29 @@
+---
+- include_vars: file=vault
+  no_log: true
+
+- name: Start and enable sshd
+  service: name=sshd.service state=started enabled=true
+  become: true
+
+- name: Configure sshd
+  copy:
+    src: sshd_config
+    dest: /etc/ssh/sshd_config
+    mode: 0644
+  become: true
+  register: sshd_config
+
+- name: Create .ssh dir
+  file: path=~/.ssh state=directory mode=0700
+
+- name: Install authorized keys
+  copy:
+    content: "{{authorized_keys}}"
+    dest: ~/.ssh/authorized_keys
+    mode: 0600
+
+- name: Restart sshd
+  service: name=sshd.service state=restarted
+  become: true
+  when: sshd_config is changed

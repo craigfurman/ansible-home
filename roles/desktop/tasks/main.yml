@@ -1,10 +1,11 @@
 ---
 - name: Install AUR packages
-  become: true
   package:
     name:
       - canon-pixma-mg2500-complete  # Hardware-specific
     state: present
+  become: true
 
-# TODO sshd_config
-# TODO enable services
+- name: Start printer service
+  service: name=org.cups.cupsd.service state=started enabled=true
+  become: true

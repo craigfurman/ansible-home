@@ -11,3 +11,6 @@
 - hosts: media-servers
   roles:
     - media-server
+- hosts: [media-servers, desktops]
+  roles:
+    - ssh-server
