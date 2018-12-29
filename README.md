@@ -9,7 +9,7 @@ For laptops, desktops etc, where ansible will be run locally after cloning this
 repository:
 
 ```
-ansible-playbook -i $(hostname) --vault-password-file <vault_password_file> pcs.yml
+ansible-playbook -i $(hostname) pcs.yml
 ```
 
 This basically abuses the ansible inventory file to switch configuration on hostname. I
@@ -18,7 +18,7 @@ used to use tags for this.
 To configure servers over ssh:
 
 ```
-ansible-playbook -i servers --vault-password-file <vault_password_file> servers.yml
+ansible-playbook -i servers servers.yml
 ```
 
 ### Upgrading
@@ -44,6 +44,10 @@ Servers - no automation yet.
 Like any automation around personal laptops, snowflakes can be hard to avoid compared to
 servers. Since I last rearranged all the code, it's almost inevitable that a new machine
 will fail to converge somehow.
+
+Some variables are encrypted with Ansible Vault, so you'll need to supply the vault
+password, either by `--ask-vault-pass`, `--vault-password-file`, or by setting
+`vault_password_file` in `/etc/ansible/ansible.cfg`.
 
 ### Arch Linux
 
