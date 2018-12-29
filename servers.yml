@@ -5,6 +5,7 @@
 - hosts: all
   roles:
     - server-common
+    - ssh-server
 - hosts: raspberry-pi
   roles:
     - pi-hole

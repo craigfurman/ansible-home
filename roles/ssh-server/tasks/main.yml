@@ -3,7 +3,7 @@
   no_log: true
 
 - name: Start and enable sshd
-  service: name=sshd.service state=started enabled=true
+  service: "name={{sshd_service_name}} state=started enabled=true"
   become: true
 
 - name: Configure sshd
@@ -24,6 +24,6 @@
     mode: 0600
 
 - name: Restart sshd
-  service: name=sshd.service state=restarted
+  service: "name={{sshd_service_name}} state=restarted"
   become: true
   when: sshd_config is changed

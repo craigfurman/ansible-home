@@ -8,9 +8,7 @@
 - hosts: desktops
   roles:
     - desktop
+    - ssh-server
 - hosts: media-servers
   roles:
     - media-server
-- hosts: [media-servers, desktops]
-  roles:
-    - ssh-server

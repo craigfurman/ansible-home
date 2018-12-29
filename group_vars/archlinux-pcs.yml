@@ -1,2 +1,3 @@
 ---
 zsh_path: /usr/bin/zsh
+sshd_service_name: sshd.service
