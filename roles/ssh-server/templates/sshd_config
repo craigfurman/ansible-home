@@ -106,7 +106,7 @@ PrintMotd no # pam does that
 #Banner none
 
 # override default of no subsystems
-Subsystem	sftp	/usr/lib/ssh/sftp-server
+Subsystem	sftp {{sftp_server_path}}
 
 # Example of overriding settings on a per-user basis
 #Match User anoncvs

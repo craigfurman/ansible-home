@@ -1,3 +1,4 @@
 ---
 zsh_path: /usr/bin/zsh
 sshd_service_name: sshd.service
+sftp_server_path: /usr/lib/ssh/sftp-server
