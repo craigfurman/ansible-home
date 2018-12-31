@@ -9,7 +9,10 @@ Restart=always
 
 EnvironmentFile=/etc/default/pi-hole
 ExecStart=/usr/bin/docker run --rm --name %n \
-  --net=host \
+  -p 53:53/tcp -p 53:53/udp \
+  -p 67:67/udp \
+  -p 80:80 \
+  -p 443:443 \
   -v "/etc/pihole:/etc/pihole" \
   -v "/etc/dnsmasq.d:/etc/dnsmasq.d" \
   -e ServerIP="${ServerIP}" \
