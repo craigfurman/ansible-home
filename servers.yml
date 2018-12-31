@@ -6,6 +6,7 @@
   roles:
     - server-common
     - ssh-server
+    - wireguard-peer
 - hosts: raspberry-pi
   roles:
     - pi-hole
