@@ -14,6 +14,9 @@ source /usr/share/chruby/auto.sh
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
+# opam, only for google-drive-ocamlfuse
+export PATH=$PATH:$HOME/.opam/default/bin
+
 # Pacman
 packages_explicity_installed() {
   if [ -z "$1" ]; then

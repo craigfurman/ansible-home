@@ -51,3 +51,4 @@ stream_large_files=true
 team_drive_id=
 umask=0o022
 verification_code=
+write_buffers=false
