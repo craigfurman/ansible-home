@@ -5,6 +5,7 @@ alias pacnews='sudo locate --existing --regex "\.pac(new|save)$"'
 
 # Env vars
 export MAKEFLAGS="-j$(nproc)"
+export XZ_OPT="--threads $(nproc)"
 
 # Ruby
 source /usr/share/chruby/chruby.sh
