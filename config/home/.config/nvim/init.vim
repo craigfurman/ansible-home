@@ -10,17 +10,17 @@
 " those weird true colour codes?
 " multicursors?
 " Ruby autoformatting - editorconfig plugin?
-" SudoWrite fix: https://github.com/neovim/neovim/issues/8678
 
 " Plugins
 call plug#begin()
 " TODO vim-rhubarb?
+Plug 'lambdalisue/suda.vim' " While SudoWrite is broken: https://github.com/neovim/neovim/issues/8678
 Plug 'mhinz/vim-signify'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch' " SudoWrite and friends
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-endwise'
 
 " Editing and Movement
 Plug 'bkad/CamelCaseMotion' " TODO configure motions or delete
