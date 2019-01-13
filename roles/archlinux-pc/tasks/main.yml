@@ -74,6 +74,10 @@
     mode: 0600
   become: true
 
+- name: Start nordvpn service
+  service: name=nordvpnd.service state=started enabled=true
+  become: true
+
 #######################################
 # Cleanup                             #
 #######################################
