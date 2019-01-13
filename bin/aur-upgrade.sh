@@ -11,5 +11,5 @@ clean_outdated_aur_packages() {
 
 auroot=$HOME/aur-packages
 cd "$auroot"
-aursync --repo craig --root "$auroot" --no-confirm --no-view -u
+aur sync --database craig --root "$auroot" --no-confirm --no-view -u
 clean_outdated_aur_packages
