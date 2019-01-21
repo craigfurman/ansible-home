@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Aliases
+# General aliases
 alias ll='ls -alh'
 
 # Env vars
@@ -120,6 +120,9 @@ export FZF_DEFAULT_COMMAND='rg --smart-case --hidden --files --glob !.git --glob
 # direnv
 eval "$(direnv hook zsh)"
 alias da="direnv allow"
+
+# Github
+alias mkpr="hub pull-request"
 
 # functions
 test_terminal_colors_fonts() {

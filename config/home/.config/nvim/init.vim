@@ -6,7 +6,7 @@
 " tagbar
 " rubocop linting
 " continue vetting plugins from vim-limelight onwards
-" ,. switch between test and prod code
+" ,. switch between test and prod code (turns out tpope/vim-rails was doing this)
 " those weird true colour codes?
 " multicursors?
 " Ruby autoformatting - editorconfig plugin?
@@ -131,7 +131,7 @@ let g:ale_linters = {
   \ 'go': ['go build', 'gometalinter'],
   \ 'yaml': ['yamllint'],
 \}
-let g:ale_go_gometalinter_options = '--tests --fast -D gotype -D gotypex -D gosec --exclude="should have comment"'
+let g:ale_go_gometalinter_options = '--tests --fast -D gotype -D gotypex -D gosec --exclude="should have comment" --exclude "comment on exported type"'
 let g:ale_sign_warning = '⚠'
 
 " go
