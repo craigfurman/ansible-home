@@ -74,6 +74,7 @@ packages:
   - whois
   - wireguard-arch  # Module for standard kernel - optional dependency of wireguard-tools
   - wireguard-tools
+  - yamllint
   - zsh
   - zsh-completions
 
@@ -107,7 +108,6 @@ aur_packages:
   - tmate
   - ttf-google-fonts-git
   - visual-studio-code-bin
-  - yamllint
   - zoom
 
 vbox_dir: ~/virtualbox_vms
