@@ -131,7 +131,7 @@ let g:ale_linters = {
   \ 'go': ['go build', 'gometalinter'],
   \ 'yaml': ['yamllint'],
 \}
-let g:ale_go_gometalinter_options = '--tests --fast -D gotype -D gotypex -D gosec --exclude="should have comment" --exclude "comment on exported type"'
+let g:ale_go_gometalinter_options = '--tests --fast -D gotype -D gotypex -D gosec --exclude="should have comment" --exclude "comment on exported"'
 let g:ale_sign_warning = '⚠'
 
 " go
