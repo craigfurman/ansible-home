@@ -17,8 +17,11 @@ source /usr/local/opt/fzf/shell/key-bindings.zsh
 # homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+# kubectx
+alias kctx=kubectx
+alias kns=kubens
+
 # kube-ps1
-# TODO move to machine specific
 source /usr/local/share/kube-ps1.sh
 PROMPT='$(kube_ps1)'$PROMPT
 

@@ -50,7 +50,7 @@ brew 'hub'
 brew 'ipcalc'
 brew 'jq'
 brew 'kube-ps1'
-brew 'kubectx', args: ['with-short-names']
+brew 'kubectx'
 brew 'kubeval' # Not used in practice. I need the version latest development version, built from master.
 brew 'libyaml'
 brew 'mas'
