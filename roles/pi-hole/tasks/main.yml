@@ -45,6 +45,7 @@
   with_items:
     - {src: dnsmasq-02-local-hosts.conf, dest: /etc/dnsmasq.d/02-local-hosts.conf}
     - {src: local-hosts.conf, dest: /etc/pihole/local-hosts.conf}
+    - {src: whitelist.txt, dest: /etc/pihole/whitelist.txt}
 
 - name: start and enable pi-hole service
   service:
