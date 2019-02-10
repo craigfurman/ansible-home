@@ -34,7 +34,7 @@ Servers - no automation yet.
 1. Kitty: omz arrow doesn't display properly using Inconsolata on macOS
 1. autokbisw from homebrew
 1. global rubocop (macos only)
-1. chromium-vaapi-bin, chromium-widevine everywhere, libva-intel-driver on laptop
+1. libva-intel-driver on laptop
 1. Split Arch package host into own role
 1. macos: gpg-agent.conf
 1. When alacritty supports DRY config, split config file into parts

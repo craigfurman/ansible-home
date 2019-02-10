@@ -6,6 +6,7 @@ packages:
   - asp
   - atom
   - bind-tools
+  - chromium  # Includes vaapi patch
   - crda
   - ctags
   - curl
@@ -82,6 +83,7 @@ aur_packages:
   - aurutils
   - aurvote
   - caffeine-ng  # TODO caffeine won't start currently
+  - chromium-widevine  # DRM video such as Netflix
   - chruby
   - clipit
   - cower
