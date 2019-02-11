@@ -46,6 +46,15 @@ gcpssh() {
   ssh -o StrictHostKeyChecking=no "$1.c.$2.internal"
 }
 
+kindctx() {
+  if [ -z "${1:-}" ]; then
+    unset KUBECONFIG
+    return
+  fi
+
+  export KUBECONFIG="$(kind get kubeconfig-path --name "$1")"
+}
+
 # Only run after inspecting the output of `knife status` first.
 chef_nodes_cleanup() {
   bundle exec knife status | egrep 'hours?\s+ago' | awk '{print $4}' | sed 's/,//' \
