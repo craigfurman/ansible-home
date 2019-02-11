@@ -89,7 +89,7 @@ set mouse=a
 set noshowmode "airline replaces showmode
 set nowrap
 set number
-set textwidth=90
+set textwidth=80
 
 " Ensure cursor ends up in what I percieve to be the new split
 set splitright
@@ -157,10 +157,9 @@ let g:deoplete#enable_at_startup = 1
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 set completeopt-=preview " never open scratch window
 
-" Hard wrapping in certain file types
-" Spelling
-au BufRead,BufNewFile *.md setlocal textwidth=90 | setlocal spell
-au BufRead,BufNewFile *.txt setlocal textwidth=90 | setlocal spell
+" FileType-specific settings
+au BufRead,BufNewFile *.md,*.txt setlocal spell
+au BufRead,BufNewFile *.rb,*.yml,*.yaml setlocal textwidth=90
 au FileType gitcommit setlocal spell
 
 " fzf
