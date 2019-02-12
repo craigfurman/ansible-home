@@ -2,3 +2,5 @@
 --hidden
 --glob
   !.git
+--glob
+  !vendor

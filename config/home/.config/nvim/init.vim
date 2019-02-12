@@ -114,7 +114,7 @@ au FocusGained,BufEnter * :checktime
 au FocusLost,WinLeave * :silent! w
 
 " Ack.vim
-let g:ackprg='rg --smart-case --hidden --vimgrep --glob !.git'
+let g:ackprg='rg --smart-case --hidden --vimgrep --glob !.git --glob !vendor'
 cabbrev Ack Ack!
 cabbrev Rg Ack!
 cabbrev Ag Ack!
