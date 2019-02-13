@@ -115,7 +115,7 @@ export PATH=$HOME/.cargo/bin:$PATH
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
 # fzf
-export FZF_DEFAULT_COMMAND=rg
+export FZF_DEFAULT_COMMAND='rg --smart-case --hidden --files --glob !.git --glob !vendor'
 
 # direnv
 eval "$(direnv hook zsh)"
