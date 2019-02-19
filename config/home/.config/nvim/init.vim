@@ -1,7 +1,6 @@
 " TODO
 " Stop annoying cursor color change when on bracket - auto-pairs fault?
 " restore templates
-" ultisnips
 " better spellfile
 " tagbar
 " rubocop linting
@@ -65,6 +64,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'wellle/tmux-complete.vim'
 Plug 'sebastianmarkow/deoplete-rust' " TODO automate `cargo install racer`
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 " Bindings
@@ -181,3 +184,6 @@ set termguicolors
 set swapfile
 set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 set nobackup
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<C-j>"
