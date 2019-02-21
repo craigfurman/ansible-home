@@ -1,5 +1,6 @@
 --smart-case
 --hidden
+--no-ignore-vcs
 --glob
   !.git
 --glob
