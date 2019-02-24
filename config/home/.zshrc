@@ -95,6 +95,7 @@ alias ll='ls -alh'
 
 # Env vars
 export PATH=$HOME/bin:$HOME/.local/bin:$PATH
+export XZ_OPT="-T0 -0"
 
 # Vim
 export EDITOR=nvim
