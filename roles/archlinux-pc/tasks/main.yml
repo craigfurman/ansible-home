@@ -20,11 +20,11 @@
     state: present
   become: true
 
-- name: Configure makepkg to use all cores
-  shell: |
-    sed -i "s/COMPRESSXZ=.*$/COMPRESSXZ=(xz -c -z --threads $(nproc) -)/g" \
-      /etc/makepkg.conf
+- name: Install system config
+  copy: src="{{item.src}}" dest="{{item.dest}}" mode=0644 force=true
   become: true
+  with_items:
+    - {src: makepkg.conf, dest: /etc/makepkg.conf}
 
 - name: Create pacman hooks directory
   file: path=/etc/pacman.d/hooks state=directory mode=0755
