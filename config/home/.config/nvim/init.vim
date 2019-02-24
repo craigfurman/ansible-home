@@ -45,6 +45,7 @@ Plug 'w0rp/ale'
 
 "  Project Navigation
 Plug 'scrooloose/nerdtree'
+" TODO replace :Ack! with :Rg (from fzf.vim)?
 Plug 'mileszs/ack.vim'
 if system('uname') =~# 'Darwin'
   Plug '/usr/local/opt/fzf'
@@ -118,9 +119,6 @@ au FocusLost,WinLeave * :silent! w
 
 " Ack.vim
 let g:ackprg='rg --smart-case --hidden --vimgrep --no-ignore-vcs --glob !.git --glob !vendor'
-cabbrev Ack Ack!
-cabbrev Rg Ack!
-cabbrev Ag Ack!
 nnoremap <Leader>a :Ack!<Space>
 
 " NERDTree
@@ -168,6 +166,7 @@ au FileType gitcommit setlocal spell
 " fzf
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>g :Rg<CR>
 
 " gundo (undo graph)
 nnoremap <Leader>u :GundoToggle<CR>
