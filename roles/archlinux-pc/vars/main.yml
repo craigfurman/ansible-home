@@ -105,6 +105,7 @@ aur_packages:
   - popcorntime
   - qtwebkit-bin  # Dependency of google-musicmanager. provides qtwebkit, which takes hours to compile
   - ruby-install
+  - signal-desktop-bin
   - skypeforlinux-preview-bin
   - slack-desktop
   - tmate
