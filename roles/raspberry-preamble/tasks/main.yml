@@ -60,3 +60,10 @@
     chdir: ~pi/src/WireGuard-{{wireguard_version}}/src
   become: true
   when: wireguard_src is changed
+
+- name: Restart WireGuard interface
+  service:
+    name: wg-quick@wg0
+    state: restarted
+  become: true
+  when: wireguard_src is changed
