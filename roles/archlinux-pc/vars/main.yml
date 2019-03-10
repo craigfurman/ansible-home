@@ -48,7 +48,6 @@ packages:
   - pygtk
   - python-neovim
   - python-pip
-  - python2-neovim
   - qt4
   - reflector
   - restic
