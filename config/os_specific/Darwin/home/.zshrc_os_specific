@@ -25,6 +25,12 @@ alias kns=kubens
 source /usr/local/share/kube-ps1.sh
 PROMPT='$(kube_ps1)'$PROMPT
 
+# GNUtils
+for gnutil in coreutils grep gnu-tar gnu-sed gawk findutils ; do
+  export PATH=/usr/local/opt/$gnutil/libexec/gnubin:$PATH
+  export MANPATH=/usr/local/opt/$gnutil/libexec/gnuman:$MANPATH
+done
+
 # This one needs to be late in the PATH
 export PATH=$HOME/bin:$PATH
 
