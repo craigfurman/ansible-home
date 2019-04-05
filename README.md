@@ -45,9 +45,11 @@ Like any automation around personal laptops, snowflakes can be hard to avoid com
 servers. Since I last rearranged all the code, it's almost inevitable that a new machine
 will fail to converge somehow.
 
-Some variables are encrypted with Ansible Vault, so you'll need to supply the vault
-password, either by `--ask-vault-pass`, `--vault-password-file`, or by setting
-`vault_password_file` in `/etc/ansible/ansible.cfg`.
+Secrets are encrypted with ansible-vault, and are kept in a private repository.
+Clone the secrets repository into the checkout of this repository.
+
+Some variables are encrypted with Ansible Vault, so you'll need to supply the
+vault password, either by `--ask-vault-pass`, or `--vault-password-file`.
 
 ### Arch Linux
 
