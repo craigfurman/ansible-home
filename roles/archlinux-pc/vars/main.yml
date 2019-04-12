@@ -9,6 +9,7 @@ packages:
   - chromium  # Includes vaapi patch
   - crda
   - ctags
+  - cups
   - curl
   - deluge
   - dep
@@ -54,12 +55,15 @@ packages:
   - ripgrep
   - ruby
   - rustup
+  - sane
   - seahorse
   - shellcheck
+  - simple-scan
   - smartmontools
   - sshuttle
   - stow
   - strace
+  - system-config-printer
   - tcpdump
   - terraform
   - the_silver_searcher

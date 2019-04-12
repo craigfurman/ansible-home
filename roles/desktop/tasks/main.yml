@@ -1,4 +1,5 @@
 ---
+# TODO move printer to all Arch PCs
 - name: Install AUR packages
   package:
     name:
@@ -6,6 +7,7 @@
     state: present
   become: true
 
+# TODO all Arch PCs
 - name: Start printer service
   service: name=org.cups.cupsd.service state=started enabled=true
   become: true
