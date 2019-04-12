@@ -78,6 +78,38 @@
   service: name=nordvpnd.service state=started enabled=true
   become: true
 
+- name: Mark directories to be ignored by backup
+  file: path=~/{{item}}/.backupignore state=touch
+  ignore_errors: true
+  with_items:
+    - .android
+    - .ansible
+    - .atom
+    - .bosh
+    - .bundle
+    - .cache
+    - .cargo
+    - .cert
+    - .circleci
+    - .docker
+    - .fontconfig
+    - .gem
+    - .glide
+    - .gnome
+    - .local
+    - .minikube
+    - .mozilla
+    - .npm
+    - .pki
+    - .rubies
+    - .rustup
+    - .subversion
+    - .terraform.d
+    - .vagrant.d
+    - .vscode
+    - src  # ruby-install
+    - virtualbox_vms
+
 #######################################
 # Cleanup                             #
 #######################################
