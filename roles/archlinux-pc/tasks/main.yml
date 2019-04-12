@@ -78,6 +78,26 @@
   service: name=nordvpnd.service state=started enabled=true
   become: true
 
+#######################################
+# Backup                              #
+#######################################
+
+# /etc/backup would be too generic. Couldn't be bothered to think of a better name.
+- name: Create backup config directory
+  file:
+    path: /etc/craig-backup
+    state: directory
+    owner: "{{ansible_user}}"
+    group: "{{ansible_user}}"
+    mode: 0700
+  become: true
+
+- name: Write backup config file
+  copy:
+    dest: /etc/craig-backup/env
+    content: "{{restic_env}}"
+    mode: 0600
+
 - name: Mark directories to be ignored by backup
   file: path=~/{{item}}/.backupignore state=touch
   ignore_errors: true
@@ -109,6 +129,22 @@
     - .vscode
     - src  # ruby-install
     - virtualbox_vms
+
+- name: Install craig-backup systemd units
+  template:
+    src: "craig-backup.{{item}}.j2"
+    dest: "/lib/systemd/system/craig-backup.{{item}}"
+  become: true
+  with_items:
+    - service
+    - timer
+
+- name: Start craig-backup.timer
+  service:
+    name: craig-backup.timer
+    enabled: true
+    state: started
+  become: true
 
 #######################################
 # Cleanup                             #
