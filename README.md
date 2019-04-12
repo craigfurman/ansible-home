@@ -9,16 +9,13 @@ For laptops, desktops etc, where ansible will be run locally after cloning this
 repository:
 
 ```
-ansible-playbook -i $(hostname) pcs.yml
+ansible-playbook -i -pcs --vault-password-file <vault-password-file> pcs.yml
 ```
-
-This basically abuses the ansible inventory file to switch configuration on hostname. I
-used to use tags for this.
 
 To configure servers over ssh:
 
 ```
-ansible-playbook -i servers servers.yml
+ansible-playbook -i servers --vault-password-file <vault-password-file> servers.yml
 ```
 
 ### Upgrading
@@ -47,9 +44,6 @@ will fail to converge somehow.
 
 Secrets are encrypted with ansible-vault, and are kept in a private repository.
 Clone the secrets repository into the checkout of this repository.
-
-Some variables are encrypted with Ansible Vault, so you'll need to supply the
-vault password, either by `--ask-vault-pass`, or `--vault-password-file`.
 
 ### Arch Linux
 
