@@ -107,6 +107,7 @@ aur_packages:
   - kubernetes-helm-bin
   - minikube-bin
   - ngrok
+  - nordnm
   - nordvpn-bin
   - popcorntime
   - qtwebkit-bin  # Dependency of google-musicmanager. provides qtwebkit, which takes hours to compile
