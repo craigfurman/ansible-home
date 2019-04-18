@@ -1,5 +1,7 @@
 # ansible-home
 
+**Moved:** https://gitlab.com/craigfurman/ansible-home
+
 Configures my laptop / desktop / media server, which all run Arch Linux, my macOS laptop,
 and my raspberry pi.
 
