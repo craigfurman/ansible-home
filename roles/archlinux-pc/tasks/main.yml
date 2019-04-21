@@ -74,8 +74,9 @@
     mode: 0600
   become: true
 
+  # TODO: As non-root user, must also run `systemctl start --user nordvpnud.service`
 - name: Start nordvpn service
-  service: name=nordvpnd.service state=started enabled=true
+  service: name=nordvpnsd.service state=started enabled=true
   become: true
 
 #######################################
