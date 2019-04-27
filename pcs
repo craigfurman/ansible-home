@@ -10,11 +10,7 @@ host = Socket.gethostname
 
 groups = {
   "craig-laptop" => ["archlinux-pcs"],
-  "craig-desktop" => [
-    "archlinux-pcs",
-    "desktops",
-    "media-servers",
-  ],
+  "craig-desktop" => ["archlinux-pcs"],
 }
 
 hosts = groups.fetch(host).map do |group|

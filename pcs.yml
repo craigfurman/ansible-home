@@ -5,10 +5,3 @@
 - hosts: all
   roles:
     - common
-- hosts: desktops
-  roles:
-    - desktop
-    - ssh-server
-- hosts: media-servers
-  roles:
-    - media-server

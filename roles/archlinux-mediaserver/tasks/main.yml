@@ -1,0 +1,122 @@
+---
+- name: Add local repository for AUR packages
+  blockinfile:
+    path: /etc/pacman.conf
+    block: |
+      [craig]
+      SigLevel = Optional TrustAll
+      Server = file:///media/data/aur-packages
+  become: true
+
+- name: Install packages
+  package:
+    name: "{{item}}"
+    state: present
+  become: true
+  with_items:
+    - hdparm
+    - htop
+    - iftop
+    - iotop
+    - networkmanager-openvpn
+    - nfs-utils
+    - rsync
+    - samba
+    - sysstat
+    - transmission-cli
+
+- name: Install AUR packages
+  package:
+    name: "{{item}}"
+    state: present
+  become: true
+  with_items:
+    - networkmanager-vpn-web-ui
+    - nordnm
+    - plex-media-server
+
+- name: Create persistent plex metadata directory
+  file: path=/media/data/plex state=directory mode=0755 owner=plex group=plex
+  become: true
+
+- name: Symlink plex metadata directory to persistent disk
+  file:
+    src: /media/data/plex
+    dest: /var/lib/plex
+    state: link
+    force: true
+  become: true
+
+- name: Install suspend systemd units
+  copy:
+    src: "sc-suspend.{{item}}"
+    dest: "/lib/systemd/system/sc-suspend.{{item}}"
+  become: true
+  with_items:
+    - service
+    - timer
+
+- name: Configure NFS
+  lineinfile:
+    path: /etc/exports
+    line: "/media/data 192.168.0.0/24(rw,sync,crossmnt,no_subtree_check)"
+  become: true
+
+- name: Configure Samba
+  copy:
+    src: smb.conf
+    dest: /etc/samba/smb.conf
+  become: true
+
+- name: Configure Transmission
+  copy:
+    src: transmission.json
+    dest: /var/lib/transmission/.config/transmission-daemon/settings.json
+  become: true
+
+- name: Start services
+  service: name={{item}} enabled=true state=started
+  become: true
+  with_items:
+    - networkmanager-vpn-web-ui.service
+    - nfs-server.service
+    - plexmediaserver.service
+    - sc-suspend.timer
+    - smb.service
+    - transmission.service
+
+- name: Create pacman hooks directory
+  file: path=/etc/pacman.d/hooks state=directory mode=0755
+  become: true
+
+- name: Install pacman hooks
+  copy:
+    src: "{{item}}.hook"
+    dest: "/etc/pacman.d/hooks/{{item}}.hook"
+    force: true
+    mode: 0644
+  become: true
+  with_items:
+    - sort-mirrors
+
+- name: Create sharing group
+  group:
+    name: share
+    gid: 2000
+  become: true
+
+- name: Add users to sharing group
+  user:
+    name: "{{item}}"
+    append: true
+    groups: share
+  become: true
+  with_items:
+    - "{{ansible_user}}"
+    - plex
+    - transmission
+
+# Will hang on first run! Run manually over ssh if this is a fresh root filesystem.
+- name: Configure VPN connections
+  command: nordnm sync -u
+  become: true

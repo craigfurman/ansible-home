@@ -81,6 +81,17 @@
 - name: Start nordvpn user service
   systemd: name=nordvpnud.service scope=user state=started enabled=true
 
+- name: Install hardware-specific AUR packages
+  package:
+    name:
+      - canon-pixma-mg2500-complete
+    state: present
+  become: true
+
+- name: Start printer service
+  service: name=org.cups.cupsd.service state=started enabled=true
+  become: true
+
 #######################################
 # Backup                              #
 #######################################
