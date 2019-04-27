@@ -45,9 +45,7 @@ Clone the secrets repository into the checkout of this repository.
 
 ### Arch Linux
 
-Unless `~/aur-packages` has been bootstrapped from another Arch machine, you'll have to
-comment out all the AUR packages sections. There is no flag to do this, as I'd expect not
-to lose all of my Arch package caches on my various machines at once.
+AUR packages are kept on a network share, which must be mounted. See Google doc.
 
 ### macos
 

@@ -11,7 +11,7 @@
     block: |
       [craig]
       SigLevel = Optional TrustAll
-      Server = file://{{ansible_facts['user_dir']}}/aur-packages
+      Server = file:///media/morty/aur-packages
   become: true
 
 - name: Install AUR packages

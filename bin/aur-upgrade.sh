@@ -9,7 +9,7 @@ clean_outdated_aur_packages() {
     | xargs -L1 -I% bash -c 'rm %*'
 }
 
-auroot=$HOME/aur-packages
+auroot=/media/morty/aur-packages
 cd "$auroot"
 aur sync --database craig --root "$auroot" --no-confirm --no-view -u
 clean_outdated_aur_packages
