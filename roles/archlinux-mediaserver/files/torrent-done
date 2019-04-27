@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# vi: syntax=sh
+
+torrent="${TR_TORRENT_DIR}/${TR_TORRENT_NAME}"
+chown -R transmission:share "$torrent"
+find "$torrent" -type d -exec chmod 775 {} \;
+find "$torrent" -type f -exec chmod 664 {} \;

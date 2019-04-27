@@ -74,6 +74,13 @@
     dest: /var/lib/transmission/.config/transmission-daemon/settings.json
   become: true
 
+- name: Install torrent done script
+  copy:
+    src: torrent-done
+    dest: /usr/bin/torrent-done
+    mode: 0755
+  become: true
+
 - name: Start services
   service: name={{item}} enabled=true state=started
   become: true
