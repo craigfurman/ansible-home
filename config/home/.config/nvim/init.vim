@@ -1,5 +1,4 @@
 " TODO
-" Stop annoying cursor color change when on bracket - auto-pairs fault?
 " restore templates
 " better spellfile
 " tagbar
@@ -69,6 +68,8 @@ Plug 'sebastianmarkow/deoplete-rust' " TODO automate `cargo install racer`
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 " Bindings
@@ -118,7 +119,7 @@ au FocusGained,BufEnter * :checktime
 au FocusLost,WinLeave * :silent! w
 
 " Ack.vim
-let g:ackprg='rg --smart-case --hidden --vimgrep --no-ignore-vcs --glob !.git --glob !vendor'
+let g:ackprg='rg --smart-case --hidden --vimgrep --no-ignore-vcs --glob !.git --glob !vendor --glob !tags'
 nnoremap <Leader>a :Ack!<Space>
 
 " NERDTree
@@ -160,7 +161,6 @@ set completeopt-=preview " never open scratch window
 
 " FileType-specific settings
 au BufRead,BufNewFile *.md,*.txt setlocal spell
-au BufRead,BufNewFile *.rb,*.yml,*.yaml setlocal textwidth=90
 au FileType gitcommit setlocal spell
 
 " fzf

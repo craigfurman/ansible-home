@@ -2,6 +2,9 @@
 - hosts: archlinux-pcs
   roles:
     - archlinux-pc
+- hosts: macs
+  roles:
+    - mac
 - hosts: all
   roles:
     - common

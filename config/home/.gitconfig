@@ -1,9 +1,8 @@
-# vim: noexpandtab
+# vi: syntax=gitconfig
 [include]
 	path = ~/.gitconfig_machine_specific
-[user]
-	name = Craig Furman
-	email = craig.furman89@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
 [alias]
 	amend = commit -S -v --amend
 	br = branch
@@ -24,4 +23,4 @@
 [pull]
 	ff = only
 [transfer]
-	fsckObjects = true
+	fsckObjects = false  # TODO couldn't clone oh-my-zsh

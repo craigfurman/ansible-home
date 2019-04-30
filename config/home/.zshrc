@@ -56,7 +56,8 @@ DISABLE_AUTO_TITLE=true
 if [ "$(uname)" = "Linux" ]; then
   plugins=(git go man systemd)
 else
-  plugins=(docker git go kubectl helm)
+  # TODO macos plugins?
+  plugins=(docker git go)
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -104,7 +105,7 @@ alias vimdiff="nvim -d"
 
 # Go
 export GOPATH=$HOME/workspace/go
-export PATH=$GOPATH/bin:$HOME/languages/go/1.12.1/go/bin:$PATH
+export PATH=$GOPATH/bin:$HOME/languages/go/1.12.4/go/bin:$PATH
 
 # Ruby
 alias be="bundle exec"

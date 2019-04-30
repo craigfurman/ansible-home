@@ -1,0 +1,6 @@
+---
+- name: Allow zsh to be used as a login shell
+  lineinfile:
+    path: /etc/shells
+    line: /usr/local/bin/zsh
+  become: true

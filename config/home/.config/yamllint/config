@@ -2,6 +2,6 @@
 ---
 rules:
   line-length:
-    max: 90
+    max: 80
     allow-non-breakable-words: true
     allow-non-breakable-inline-mappings: true
