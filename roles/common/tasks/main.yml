@@ -12,6 +12,7 @@
   file: path={{item}} state=directory mode=0755
   with_items:
     - "~/languages/go/{{go_version}}"
+    - ~/.bundle
     - ~/.config/kitty
     - ~/.config/nvim
     - ~/.local/share/nvim/site/autoload
@@ -40,6 +41,11 @@
 
 - name: Install oh-my-zsh
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+
+- name: Install custom oh-my-zsh plugins
+  git: repo="{{item.repo}}" dest="~/.oh-my-zsh/custom/plugins/{{item.name}}"
+  with_items:
+    - {name: zsh-nvm, repo: "https://github.com/lukechilds/zsh-nvm"}
 
 - name: Install tmux plugin manager
   git: repo=https://github.com/tmux-plugins/tpm dest=~/.tmux/plugins/tpm

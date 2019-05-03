@@ -53,11 +53,9 @@ DISABLE_AUTO_TITLE=true
 # Add wisely, as too many plugins slow down shell startup.
 
 # oh-my-zsh
+plugins=(git go zsh-nvm)
 if [ "$(uname)" = "Linux" ]; then
-  plugins=(git go man systemd)
-else
-  # TODO macos plugins?
-  plugins=(docker git go)
+  plugins+=(man systemd)
 fi
 
 source $ZSH/oh-my-zsh.sh
