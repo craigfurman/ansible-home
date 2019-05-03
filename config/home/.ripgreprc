@@ -5,3 +5,5 @@
   !.git
 --glob
   !vendor
+--glob
+  !tags
