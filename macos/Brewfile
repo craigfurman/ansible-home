@@ -1,6 +1,7 @@
 # vi: syntax=ruby
 
 brew 'ansible'
+brew 'azure-cli'
 brew 'bash'
 brew 'curl'
 brew 'direnv'
@@ -23,6 +24,7 @@ brew 'tree'
 brew 'vim'
 brew 'watch'
 brew 'wget'
+brew 'yamllint'
 brew 'zsh'
 brew 'zsh-completions'  # TODO used?
 
@@ -45,6 +47,7 @@ brew 'ruby-install'
 cask '1password'
 cask 'flycut'
 cask 'google-chrome'
+cask 'google-cloud-sdk'
 cask 'gpg-suite'
 cask 'karabiner-elements'
 cask 'shiftit'
