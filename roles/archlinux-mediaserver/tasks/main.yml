@@ -10,30 +10,32 @@
 
 - name: Install packages
   package:
-    name: "{{item}}"
+    name: "{{packages}}"
     state: present
   become: true
-  with_items:
-    - hdparm
-    - htop
-    - iftop
-    - iotop
-    - networkmanager-openvpn
-    - nfs-utils
-    - rsync
-    - samba
-    - sysstat
-    - transmission-cli
+  vars:
+    packages:
+      - hdparm
+      - htop
+      - iftop
+      - iotop
+      - networkmanager-openvpn
+      - nfs-utils
+      - rsync
+      - samba
+      - sysstat
+      - transmission-cli
 
 - name: Install AUR packages
   package:
-    name: "{{item}}"
+    name: "{{packages}}"
     state: present
   become: true
-  with_items:
-    - networkmanager-vpn-web-ui
-    - nordnm
-    - plex-media-server
+  vars:
+    packages:
+      - networkmanager-vpn-web-ui
+      - nordnm
+      - plex-media-server
 
 - name: Create persistent plex metadata directory
   file: path=/media/data/plex state=directory mode=0755 owner=plex group=plex
