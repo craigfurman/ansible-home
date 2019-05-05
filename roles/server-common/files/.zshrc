@@ -91,3 +91,5 @@ export EDITOR=vim
 
 # Aliases
 alias ll='ls -alh'
+
+systemctl list-units --all --no-pager --no-legend --failed
