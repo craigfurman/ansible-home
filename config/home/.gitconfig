@@ -1,4 +1,4 @@
-# vi: syntax=gitconfig
+# vi: syntax=gitconfig noexpandtab
 [include]
 	path = ~/.gitconfig_machine_specific
 [core]
