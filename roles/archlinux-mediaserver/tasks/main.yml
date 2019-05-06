@@ -21,9 +21,11 @@
       - iotop
       - networkmanager-openvpn
       - nfs-utils
+      - restic
       - rsync
       - samba
       - sysstat
+      - tmux
       - transmission-cli
 
 - name: Install AUR packages
