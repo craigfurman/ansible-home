@@ -27,7 +27,6 @@ Servers - no automation yet.
 ## TODO
 
 1. Kitty: omz arrow doesn't display properly using Inconsolata on macOS
-1. autokbisw from homebrew
 1. global rubocop (macos only)
 1. libva-intel-driver on laptop
 1. Split Arch package host into own role

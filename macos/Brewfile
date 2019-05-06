@@ -41,6 +41,9 @@ brew 'zsh-completions'  # TODO used?
 tap 'universal-ctags/universal-ctags'
 brew 'universal-ctags', args: ['HEAD']
 
+tap 'jeantil/autokbisw'
+brew 'autokbisw', restart_service: true
+
 # gnutils
 brew 'coreutils'
 brew 'findutils'
