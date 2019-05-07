@@ -16,7 +16,7 @@ export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 
 # GNUtils
-for gnutil in coreutils grep gnu-tar gnu-sed gawk findutils ; do
+for gnutil in coreutils grep gnu-tar gnu-sed gawk findutils make ; do
   export PATH=/usr/local/opt/$gnutil/libexec/gnubin:$PATH
   export MANPATH=/usr/local/opt/$gnutil/libexec/gnuman:$MANPATH
 done
