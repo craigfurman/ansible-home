@@ -21,6 +21,9 @@ for gnutil in coreutils grep gnu-tar gnu-sed gawk findutils make ; do
   export MANPATH=/usr/local/opt/$gnutil/libexec/gnuman:$MANPATH
 done
 
+# ssh authentication via gpg
+export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+
 # # kubectx
 # alias kctx=kubectx
 # alias kns=kubens
