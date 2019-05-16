@@ -160,7 +160,7 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 set completeopt-=preview " never open scratch window
 
 " FileType-specific settings
-au BufRead,BufNewFile *.md,*.txt setlocal spell
+au BufRead,BufNewFile *.md,*.txt setlocal spell wrap
 au FileType gitcommit setlocal spell
 
 " fzf
