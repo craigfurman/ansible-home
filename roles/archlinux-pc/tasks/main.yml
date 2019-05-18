@@ -74,10 +74,6 @@
     mode: 0600
   become: true
 
-- name: Start nordvpn service
-  service: name=nordvpnsd.service state=started enabled=true
-  become: true
-
 - name: Start nordvpn user service
   systemd: name=nordvpnud.service scope=user state=started enabled=true
 
@@ -86,10 +82,6 @@
     name:
       - canon-pixma-mg2500-complete
     state: present
-  become: true
-
-- name: Start printer service
-  service: name=org.cups.cupsd.service state=started enabled=true
   become: true
 
 #######################################
@@ -153,12 +145,14 @@
     - service
     - timer
 
-- name: Start craig-backup.timer
-  service:
-    name: craig-backup.timer
-    enabled: true
-    state: started
+- name: Start services
+  service: name={{item}} state=started enabled=true
   become: true
+  with_items:
+    - craig-backup.timer
+    - nordvpnsd.service
+    - org.cups.cupsd.service
+    - pcscd.service
 
 #######################################
 # Cleanup                             #
