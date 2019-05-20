@@ -68,6 +68,7 @@ cask 'google-chrome'
 cask 'google-cloud-sdk'
 # cask 'gswitch'  # TODO doesn't behave properly on wake. Apparently unsafe mode fixes
 cask 'karabiner-elements'
+cask 'keybase'
 cask 'shiftit'
 cask 'signal'
 cask 'slack'
