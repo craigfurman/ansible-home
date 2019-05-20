@@ -69,7 +69,8 @@ Plug 'sebastianmarkow/deoplete-rust' " TODO automate `cargo install racer`
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'ludovicchabant/vim-gutentags'
+" TODO desirable? Most repos I work in don't need ctags
+" Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 " Bindings
@@ -169,6 +170,9 @@ nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>g :Rg<CR>
 
 " gundo (undo graph)
+if has('python3')
+  let g:gundo_prefer_python3 = 1
+endif
 nnoremap <Leader>u :GundoToggle<CR>
 
 " Colours
