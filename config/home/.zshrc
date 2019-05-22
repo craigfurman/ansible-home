@@ -147,6 +147,11 @@ test_terminal_colors_fonts() {
   }'
 }
 
+gclone() {
+  local loc="$(echo "$1" | sed 's/^git@//g' | sed 's/^https:\/\///g' | sed 's/\.git$//g' | sed 's/:/\//g')"
+  git clone "$1" "$loc"
+}
+
 source ~/.zshrc_os_specific
 
 if [ -f ~/.zshrc_machine_specific ]; then
