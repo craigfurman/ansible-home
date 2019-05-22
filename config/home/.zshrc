@@ -149,7 +149,14 @@ test_terminal_colors_fonts() {
 
 gclone() {
   local loc="$(echo "$1" | sed 's/^git@//g' | sed 's/^https:\/\///g' | sed 's/\.git$//g' | sed 's/:/\//g')"
+  cd ~/workspace
   git clone "$1" "$loc"
+  cd "$loc"
+}
+
+killp() {
+  local sig="${1:--TERM}"
+  kill "${sig}" "$(ps -ef | fzf | awk '{print $2}')"
 }
 
 source ~/.zshrc_os_specific

@@ -18,6 +18,7 @@ brew 'libiconv'
 brew 'make'
 brew 'neovim'
 brew 'openssl'
+brew 'pidof'
 brew 'pinentry-mac'
 brew 'pkg-config'
 brew 'postgresql@9.6'  # TODO: Manual: `brew pin postgresql@9.6`
