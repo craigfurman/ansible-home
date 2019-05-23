@@ -96,9 +96,7 @@ aur_packages:
   # Manually delete /usr/share/gnome-shell/extensions/pixel-saver@deadalnix.me first
   # 2019-03-24: even this doesn't work in gnome 3.32.
   # - gnome-shell-extension-pixel-saver
-  # TODO causes high CPU usage on gnome 3.32:
-  # https://bbs.archlinux.org/viewtopic.php?id=244990
-  # - gnome-shell-extension-topicons-plus-git
+  - gnome-shell-extension-topicons-plus-git
   - google-chrome
   # - google-drive-ocamlfuse  # TODO re-enable when compilation fixed
   - google-musicmanager
