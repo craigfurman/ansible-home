@@ -1,0 +1,14 @@
+[Unit]
+Description=Back up photos
+After=network-online.target
+
+[Service]
+Type=oneshot
+User={{ansible_user}}
+EnvironmentFile=/etc/craig-backup/env
+ExecStart=sh -c 'restic --cleanup-cache backup \
+  --exclude-if-present .backupignore --one-file-system /media/data/Photos \
+  && restic forget --keep-last 3'
+
+[Install]
+WantedBy=multi-user.target

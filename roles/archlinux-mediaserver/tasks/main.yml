@@ -51,14 +51,29 @@
     force: true
   become: true
 
-- name: Install suspend systemd units
+- name: Create backup config directory
+  file:
+    path: /etc/craig-backup
+    state: directory
+    owner: "{{ansible_user}}"
+    group: "{{ansible_user}}"
+    mode: 0700
+  become: true
+
+- name: Write backup config file
   copy:
-    src: "sc-suspend.{{item}}"
-    dest: "/lib/systemd/system/sc-suspend.{{item}}"
+    dest: /etc/craig-backup/env
+    content: "{{restic_env}}"
+    mode: 0600
+
+- name: Install systemd units
+  template: src="{{item}}.j2" dest="/lib/systemd/system/{{item}}"
   become: true
   with_items:
-    - service
-    - timer
+    - sc-suspend.service
+    - sc-suspend.timer
+    - backup-photos.service
+    - backup-photos.timer
 
 - name: Configure NFS
   lineinfile:
@@ -89,6 +104,7 @@
   service: name={{item}} enabled=true state=started
   become: true
   with_items:
+    - backup-photos.timer
     - networkmanager-vpn-web-ui.service
     - nfs-server.service
     - plexmediaserver.service
