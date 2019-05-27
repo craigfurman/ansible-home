@@ -147,3 +147,4 @@
 - name: Configure VPN connections
   command: nordnm sync -u
   become: true
+  tags: [slow]
