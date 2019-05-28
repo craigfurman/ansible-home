@@ -81,5 +81,9 @@ cask 'zoomus'
 tap 'homebrew/cask-fonts'
 cask 'font-inconsolata'
 
+# TODO device not recognised
+# tap 'homebrew/cask-drivers'
+# cask 'logitech-control-center'
+
 # App store - TODO automate with mas when that works
 # Todoist

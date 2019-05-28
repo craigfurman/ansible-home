@@ -26,12 +26,10 @@ Servers - no automation yet.
 
 ## TODO
 
-1. Kitty: omz arrow doesn't display properly using Inconsolata on macOS
-1. global rubocop (macos only)
 1. libva-intel-driver on laptop
 1. Split Arch package host into own role
-1. macos: gpg-agent.conf
-1. When alacritty supports DRY config, split config file into parts
+1. gpg-agent.conf
+1. ssh config
 
 ## First run
 
