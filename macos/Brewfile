@@ -11,6 +11,7 @@ brew 'docker-machine'
 brew 'fzf'
 brew 'git'
 brew 'gpg'
+brew 'gpgme' # GDK
 brew 'graphicsmagick' # GDK
 brew 'htop'
 brew 'jq'
