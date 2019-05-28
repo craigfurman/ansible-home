@@ -3,7 +3,7 @@
 brew 'ansible'
 brew 'azure-cli'
 brew 'bash'
-brew 'cmake'
+brew 'cmake' # GDK
 brew 'curl'
 brew 'direnv'
 brew 'docker'
@@ -11,24 +11,24 @@ brew 'docker-machine'
 brew 'fzf'
 brew 'git'
 brew 'gpg'
-brew 'graphicsmagick'
+brew 'graphicsmagick' # GDK
 brew 'htop'
 brew 'jq'
-brew 'libiconv'
+brew 'libiconv' # GDK
 brew 'make'
 brew 'neovim'
-brew 'openssl'
+brew 'openssl' # GDK
 brew 'pidof'
 brew 'pinentry-mac'
-brew 'pkg-config'
-brew 'postgresql@9.6'  # TODO: Manual: `brew pin postgresql@9.6`
+brew 'pkg-config' # GDK
+brew 'postgresql@9.6' # GDK # TODO: Manual: `brew pin postgresql@9.6`
 brew 'pwgen'
 brew 'python'
-brew 're2'
-brew 'redis'
+brew 're2' # GDK
+brew 'redis' # GDK
 brew 'restic'
 brew 'ripgrep'
-brew 'runit'
+brew 'runit' # GDK
 brew 'shellcheck'
 brew 'stow'
 brew 'tfenv'
@@ -38,7 +38,7 @@ brew 'vim'
 brew 'watch'
 brew 'wget'
 brew 'yamllint'
-brew 'yarn', args: ['ignore-dependencies']
+brew 'yarn', args: ['ignore-dependencies'] # GDK
 brew 'ykman'
 brew 'zsh'
 brew 'zsh-completions'  # TODO used?
@@ -63,7 +63,7 @@ brew 'ruby-install'
 
 # casks
 cask '1password'
-cask 'chromedriver'
+cask 'chromedriver' # GDK
 cask 'flycut'
 cask 'google-chrome'
 cask 'google-cloud-sdk'
