@@ -65,6 +65,7 @@ brew 'ruby-install'
 # casks
 cask '1password'
 cask 'chromedriver' # GDK
+cask 'firefox'
 cask 'flycut'
 cask 'google-chrome'
 cask 'google-cloud-sdk'
@@ -85,6 +86,7 @@ cask 'font-inconsolata'
 # TODO device not recognised
 # tap 'homebrew/cask-drivers'
 # cask 'logitech-control-center'
+# cask 'logitech-options'
 
 # App store - TODO automate with mas when that works
 # Todoist
