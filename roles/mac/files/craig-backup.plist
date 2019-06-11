@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>craig-backup</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/bash</string>
+    <string>-c</string>
+    <string>source ~/.backup_env; /usr/local/bin/restic --cleanup-cache backup --exclude-if-present .backupignore --one-file-system ~ &amp;&amp; /usr/local/bin/restic forget --keep-last 3</string>
+  </array>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/restic.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/tmp/restic.log</string>
+
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>10</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+</dict>
+</plist>

@@ -4,3 +4,36 @@
     path: /etc/shells
     line: /usr/local/bin/zsh
   become: true
+
+- name: Write backup config file
+  copy:
+    dest: ~/.backup_env
+    content: "{{restic_env}}"
+    mode: 0600
+
+- name: Mark directories to be ignored by backup
+  file: path=~/{{item}}/.backupignore state=touch
+  ignore_errors: true
+  with_items:
+    - 'Virtualbox VMs'
+    - .ansible
+    - .azure
+    - .berkshelf
+    - .bundle
+    - .cache
+    - .docker
+    - .gem
+    - .kitchen
+    - .rubies
+    - .vagrant.d
+    - .zoomus
+    - Applications
+    - Library
+    - languages
+    - src
+
+- name: Install backup launchd service
+  copy: src=craig-backup.plist dest=~/Library/LaunchAgents/craig-backup.plist
+
+- name: Start backup service
+  command: launchctl load -w ~/Library/LaunchAgents/craig-backup.plist
