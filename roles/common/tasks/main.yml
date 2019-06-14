@@ -5,12 +5,13 @@
     shell: "{{zsh_path}}"
   become: true
 
-# Some of these are pre-reqs for later steps, and some are just there to stop GNU Stow
-# from creating a symlink for the directory, forcing it to create ones for individual
-# files instead.
+# Some of these are pre-reqs for later steps, and some are just there to stop
+# GNU Stow from creating a symlink for the directory, forcing it to create ones
+# for individual files instead.
 - name: Create Directories
   file: path={{item}} state=directory mode=0755
   with_items:
+      ~/.ssh
     - "~/languages/go/{{go_version}}"
     - ~/.bundle
     - ~/.config/kitty

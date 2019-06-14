@@ -29,7 +29,7 @@ Servers - no automation yet.
 1. libva-intel-driver on laptop
 1. Split Arch package host into own role
 1. gpg-agent.conf
-1. ssh config
+1. ssh client config for Linux
 
 ## First run
 
