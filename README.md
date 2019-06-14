@@ -51,17 +51,6 @@ Before running ansible (which won't even be installed):
 1. Install Homebrew
 1. `cd macos && brew bundle`
 
-Ensure that `/etc/ansible/ansible.cfg` exists and has the following contents:
-
-```
-[defaults]
-
-gather_subset = !facter
-```
-
-I haven't investigated deeply, but this might only be necessary due to a clash with the
-way puppet/munki are installed.
-
 ### Raspberry pi
 
 See [first setup instructions](docs/raspberry-pi.md).
