@@ -44,12 +44,19 @@ Clone the secrets repository into the checkout of this repository.
 
 AUR packages are kept on a network share, which must be mounted. See Google doc.
 
-### macos
+### macOS
+
+I only use macOS for my work at GitLab, and the config and instructions are
+specific to that.
 
 Before running ansible (which won't even be installed):
 
 1. Install Homebrew
 1. `cd macos && brew bundle`
+
+After running ansible:
+
+1. [Set up gpg-agent with YubiKey and ssh](https://gitlab.com/gitlab-com/runbooks/blob/master/howto/yubikey.md)
 
 ### Raspberry pi
 

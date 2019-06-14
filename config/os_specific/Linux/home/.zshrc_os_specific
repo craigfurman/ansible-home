@@ -16,8 +16,6 @@ export PATH=$PATH:$HOME/.opam/default/bin
 
 systemctl list-units --all --no-pager --no-legend --failed
 
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-
 # Pacman
 packages_explicity_installed() {
   if [ -z "$1" ]; then
