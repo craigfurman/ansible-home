@@ -10,6 +10,6 @@
 - hosts: raspberry_pi
   roles:
     - pi-hole
-- hosts: media-servers
+- hosts: media_servers
   roles:
     - archlinux-mediaserver
