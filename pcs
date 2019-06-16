@@ -9,8 +9,8 @@ require "socket"
 host = Socket.gethostname
 
 groups = {
-  "craig-laptop" => ["archlinux-pcs"],
-  "craig-desktop" => ["archlinux-pcs"],
+  "craig-laptop" => ["archlinux_pcs"],
+  "craig-desktop" => ["archlinux_pcs"],
   "craigf-gitlab.local" => ["macs"],
 }
 

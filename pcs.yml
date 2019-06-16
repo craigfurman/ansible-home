@@ -1,5 +1,5 @@
 ---
-- hosts: archlinux-pcs
+- hosts: archlinux_pcs
   roles:
     - archlinux-pc
 - hosts: macs

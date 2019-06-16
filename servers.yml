@@ -1,5 +1,5 @@
 ---
-- hosts: raspberry-pi
+- hosts: raspberry_pi
   roles:
     - raspberry-preamble
     - wireguard-peer
@@ -7,7 +7,7 @@
   roles:
     - server-common
     - ssh-server
-- hosts: raspberry-pi
+- hosts: raspberry_pi
   roles:
     - pi-hole
 - hosts: media-servers
