@@ -1,5 +1,5 @@
 [raspberry-pi]
-192.168.0.105 ansible_user=pi
+tiny-rick ansible_user=pi
 
 [media-servers]
-192.168.0.198 ansible_user=craig
+morty ansible_user=craig
