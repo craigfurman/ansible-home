@@ -11,7 +11,7 @@
 
 # TODO extract most of this file into a docker_service module.
 - name: pull pi-hole image
-  docker_image: name=pihole/pihole:latest force=true
+  docker_image: name=pihole/pihole:latest source=pull force_source=true
   become: true
   register: pi_hole_image
 
