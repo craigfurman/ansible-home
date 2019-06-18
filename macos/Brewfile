@@ -52,6 +52,7 @@ brew 'autokbisw' # restart_service: true  # TODO not yet working properly - keep
 
 # gnutils
 brew 'coreutils'
+brew 'diffutils'
 brew 'findutils'
 brew 'gawk'
 brew 'gnu-sed'
@@ -70,8 +71,8 @@ cask 'flycut'
 cask 'google-chrome'
 cask 'google-cloud-sdk'
 # cask 'gswitch'  # TODO doesn't behave properly on wake. Apparently unsafe mode fixes
-cask 'karabiner-elements'
 cask 'keybase'
+cask 'sensiblesidebuttons'
 cask 'shiftit'
 cask 'signal'
 cask 'simplenote'
