@@ -11,13 +11,13 @@
 - name: Create Directories
   file: path={{item}} state=directory mode=0755
   with_items:
-      ~/.ssh
-    - "~/languages/go/{{go_version}}"
+    - ~/.ssh
     - ~/.bundle
     - ~/.config/kitty
     - ~/.config/nvim
     - ~/.local/share/nvim/site/autoload
     - ~/bin
+    - ~/languages/go/{{go_version}}
 
 - name: Create restricted directories
   file: path={{item}} state=directory mode=0700

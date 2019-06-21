@@ -103,7 +103,7 @@ alias vimdiff="nvim -d"
 
 # Go
 export GOPATH=$HOME/workspace/go
-export PATH=$GOPATH/bin:$HOME/languages/go/1.12.4/go/bin:$PATH
+export PATH=$GOPATH/bin:$HOME/languages/go/1.12.6/go/bin:$PATH
 
 # Ruby
 alias be="bundle exec"
