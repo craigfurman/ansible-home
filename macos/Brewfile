@@ -39,7 +39,7 @@ brew 'vim'
 brew 'watch'
 brew 'wget'
 brew 'yamllint'
-brew 'yarn', args: ['ignore-dependencies'] # GDK
+brew 'yarn', args: ['ignore-dependencies'] # GDK. ignore-dependencies is ignored on `brew upgrade`.
 brew 'ykman'
 brew 'zsh'
 brew 'zsh-completions'  # TODO used?

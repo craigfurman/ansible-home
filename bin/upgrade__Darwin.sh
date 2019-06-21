@@ -3,5 +3,5 @@ set -euo pipefail
 
 brew update
 brew upgrade --ignore-pinned
-brew cask upgrade
+brew cask upgrade --greedy
 brew cleanup
