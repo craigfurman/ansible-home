@@ -134,11 +134,11 @@ let g:airline#extensions#ale#enabled = 1 " TODO needed?
 
 " ale
 let g:ale_linters = {
-  \ 'go': ['go build', 'gometalinter'],
+  \ 'go': ['go build', 'golangci-lint'],
   \ 'yaml': ['yamllint'],
 \}
-let g:ale_go_gometalinter_options = '--tests --fast -D gotype -D gotypex -D gosec --exclude="should have comment" --exclude "comment on exported"'
 let g:ale_sign_warning = '⚠'
+let g:ale_go_golangci_lint_options = ''
 
 " go
 let g:go_fmt_command = 'goimports'
