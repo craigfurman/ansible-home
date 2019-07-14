@@ -98,6 +98,7 @@ aur_packages:
   # - gnome-shell-extension-pixel-saver
   - gnome-shell-extension-topicons-plus-git
   - google-chrome
+  - google-cloud-sdk
   # - google-drive-ocamlfuse  # TODO re-enable when compilation fixed
   - google-musicmanager
   - gotty
