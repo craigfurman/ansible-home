@@ -1,4 +1,5 @@
 " TODO
+" Organise plugin config by plugin
 " gundo breaks after navigating away from file (,,)
 " restore templates
 " better spellfile
@@ -175,6 +176,9 @@ if has('python3')
   let g:gundo_prefer_python3 = 1
 endif
 nnoremap <Leader>u :GundoToggle<CR>
+
+" jsonnet
+let g:jsonnet_fmt_on_save = 0
 
 " Colours
 set background=dark
