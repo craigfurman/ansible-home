@@ -15,6 +15,7 @@ brew 'gpgme' # GDK
 brew 'graphicsmagick' # GDK
 brew 'htop'
 brew 'jq'
+brew 'jsonnet'
 brew 'libiconv' # GDK
 brew 'make'
 brew 'neovim'
