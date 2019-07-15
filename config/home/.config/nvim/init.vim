@@ -1,4 +1,5 @@
 " TODO
+" gundo breaks after navigating away from file (,,)
 " restore templates
 " better spellfile
 " tagbar
