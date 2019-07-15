@@ -33,13 +33,13 @@ Plug 'sjl/gundo.vim'
 
 " Languages
 Plug 'fatih/vim-go', { 'for': 'go' } " TODO automate GoInstallBinaries
+Plug 'google/vim-jsonnet'
+Plug 'hashivim/vim-terraform'
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' } " TODO does this work?
 Plug 'rust-lang/rust.vim', { 'for': 'rust' } " TODO automate `cargo install rustfmt`
 
 "" TODO messes with NERDTree and vim-tmux-navigator
 " Plug 'WolfgangMehner/c-support', { 'for': 'c' }
-
-Plug 'hashivim/vim-terraform'
 
 Plug 'w0rp/ale'
 
