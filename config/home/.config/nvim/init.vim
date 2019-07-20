@@ -141,6 +141,7 @@ let g:ale_linters = {
 \}
 let g:ale_sign_warning = '⚠'
 let g:ale_go_golangci_lint_options = ''
+let g:ale_go_golangci_lint_package = 1
 
 " go
 let g:go_fmt_command = 'goimports'
