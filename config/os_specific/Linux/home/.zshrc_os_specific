@@ -11,6 +11,10 @@ source /usr/share/chruby/auto.sh
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
+# terraform
+# TODO ansible-ise installation
+export PATH=~/.tfenv/bin:$PATH
+
 # opam, only for google-drive-ocamlfuse
 export PATH=$PATH:$HOME/.opam/default/bin
 

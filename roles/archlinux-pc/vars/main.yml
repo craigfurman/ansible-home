@@ -65,7 +65,6 @@ packages:
   - strace
   - system-config-printer
   - tcpdump
-  - terraform
   - the_silver_searcher
   - tmux
   - tree
@@ -114,6 +113,7 @@ aur_packages:
   - signal-desktop-bin
   - skypeforlinux-preview-bin
   - slack-desktop
+  # - tfenv # TODO manually installed from https://github.com/shihanng/tfenv for now
   - tmate
   - ttf-google-fonts-git
   - visual-studio-code-bin
