@@ -14,6 +14,7 @@ source /usr/local/opt/fzf/shell/key-bindings.zsh
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # GNUtils
 for gnutil in coreutils grep gnu-tar gnu-sed gawk findutils make ; do
