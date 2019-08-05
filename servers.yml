@@ -3,6 +3,7 @@
   roles:
     - raspberry-preamble
     - wireguard-peer
+    - network_monitor
 - hosts: all
   roles:
     - server-common

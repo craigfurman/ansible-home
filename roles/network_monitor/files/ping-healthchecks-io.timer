@@ -1,0 +1,8 @@
+[Unit]
+Description=Ping healthchecks.io
+
+[Timer]
+OnCalendar=*:0/4
+
+[Install]
+WantedBy=multi-user.target

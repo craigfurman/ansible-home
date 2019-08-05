@@ -1,0 +1,36 @@
+---
+- include_vars: file=vault
+  no_log: true
+
+- name: Install curl
+  package: name=curl state=latest
+  become: true
+
+- name: Install ping-healthchecks-io config
+  template:
+    src: ping-healthchecks-io.j2
+    dest: /etc/default/ping-healthchecks-io
+    mode: 0600
+  become: true
+
+- name: Install ping-healthchecks-io cronjob
+  copy:
+    src: "ping-healthchecks-io.{{item}}"
+    dest: "/lib/systemd/system/ping-healthchecks-io.{{item}}"
+  become: true
+  with_items: [service, timer]
+  register: ping_healthchecks_io_cronjob
+
+- name: Start and enable ping-healthchecks-io cronjob
+  service:
+    name: ping-healthchecks-io.timer
+    state: started
+    enabled: true
+  become: true
+
+- name: Restart ping-healthchecks-io cronjob
+  service:
+    name: ping-healthchecks-io.timer
+    state: restarted
+  become: true
+  when: ping_healthchecks_io_cronjob is changed
