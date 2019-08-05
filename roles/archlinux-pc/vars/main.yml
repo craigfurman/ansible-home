@@ -91,10 +91,7 @@ aur_packages:
   - clipit
   - cower
   - direnv
-  # TODO re-enable after https://github.com/deadalnix/pixel-saver/issues/177 merged.
-  # Manually delete /usr/share/gnome-shell/extensions/pixel-saver@deadalnix.me first
-  # 2019-03-24: even this doesn't work in gnome 3.32.
-  # - gnome-shell-extension-pixel-saver
+  - gnome-shell-extension-gtktitlebar-git
   - gnome-shell-extension-topicons-plus-git
   - google-chrome
   - google-cloud-sdk
