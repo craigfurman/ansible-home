@@ -10,7 +10,6 @@ host = Socket.gethostname
 
 groups = {
   "craig-laptop" => ["archlinux_pcs"],
-  "craig-desktop" => ["archlinux_pcs"],
   "craigf-gitlab.local" => ["macs"],
 }
 
