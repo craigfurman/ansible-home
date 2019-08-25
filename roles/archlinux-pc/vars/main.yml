@@ -66,6 +66,7 @@ packages:
   - system-config-printer
   - tcpdump
   - the_silver_searcher
+  - tmate
   - tmux
   - tree
   - vagrant
@@ -111,7 +112,6 @@ aur_packages:
   - skypeforlinux-preview-bin
   - slack-desktop
   # - tfenv # TODO manually installed from https://github.com/shihanng/tfenv for now
-  - tmate
   - ttf-google-fonts-git
   - visual-studio-code-bin
   - zoom
