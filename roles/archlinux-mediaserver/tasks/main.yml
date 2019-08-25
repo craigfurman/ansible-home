@@ -21,6 +21,7 @@
       - iotop
       - networkmanager-openvpn
       - nfs-utils
+      - reflector
       - restic
       - rsync
       - samba
