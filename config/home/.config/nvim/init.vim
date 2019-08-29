@@ -13,14 +13,17 @@
 
 " Plugins
 call plug#begin()
-" TODO vim-rhubarb?
 Plug 'lambdalisue/suda.vim' " While SudoWrite is broken: https://github.com/neovim/neovim/issues/8678
 Plug 'mhinz/vim-signify'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch' " SudoWrite and friends
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
+
+" Git
+Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " Editing and Movement
 Plug 'bkad/CamelCaseMotion' " TODO configure motions or delete
@@ -180,6 +183,9 @@ nnoremap <Leader>u :GundoToggle<CR>
 
 " jsonnet
 let g:jsonnet_fmt_on_save = 0
+
+" shumphrey/fugitive-gitlab.vim
+let g:fugitive_gitlab_domains = ['https://ops.gitlab.net', 'https://dev.gitlab.org']
 
 " Colours
 set background=dark
