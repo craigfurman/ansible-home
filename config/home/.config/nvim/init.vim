@@ -4,8 +4,6 @@
 " restore templates
 " better spellfile
 " tagbar
-" rubocop linting
-" continue vetting plugins from vim-limelight onwards
 " ,. switch between test and prod code (turns out tpope/vim-rails was doing this)
 " those weird true colour codes?
 " multicursors?
