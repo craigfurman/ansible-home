@@ -24,14 +24,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Editing and Movement
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'AndrewRadev/switch.vim'
 Plug 'bkad/CamelCaseMotion' " TODO configure motions or delete
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jszakmeister/vim-togglecursor'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
 Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 " Languages
 Plug 'fatih/vim-go', { 'for': 'go' } " TODO automate GoInstallBinaries
@@ -184,6 +186,13 @@ let g:jsonnet_fmt_on_save = 0
 
 " shumphrey/fugitive-gitlab.vim
 let g:fugitive_gitlab_domains = ['https://ops.gitlab.net', 'https://dev.gitlab.org']
+
+" AndrewRadev/switch.vim
+nnoremap <Leader>c :Switch<CR>
+" let g:switch_custom_definitions =
+"   \ [
+"   \   ['foo', 'bar', 'baz'],
+"   \ ]
 
 " Colours
 set background=dark
