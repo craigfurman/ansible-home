@@ -66,6 +66,7 @@ brew 'ruby-install'
 
 # casks
 cask '1password'
+cask '1password-cli'
 cask 'chromedriver' # GDK
 cask 'firefox'
 cask 'flycut'
