@@ -1,6 +1,7 @@
 # vi: syntax=ruby
 
 brew 'ansible'
+brew 'awscli'
 brew 'azure-cli'
 brew 'bash'
 brew 'cmake' # GDK
