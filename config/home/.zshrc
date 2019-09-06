@@ -91,6 +91,7 @@ source $ZSH/oh-my-zsh.sh
 
 # General aliases
 alias ll='ls -alh'
+alias diff='diff --color=auto'
 alias viknownhosts='vim ~/.ssh/known_hosts'
 
 # Env vars
