@@ -1,4 +1,4 @@
 ---
 # TODO subscribe to the WireGuard mailing list to get snapshot/release announcements.
 # Latest snapshot available on https://git.zx2c4.com/WireGuard
-wireguard_version: 0.0.20190702
+wireguard_version: 0.0.20190905
