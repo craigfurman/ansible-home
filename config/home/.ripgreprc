@@ -7,3 +7,5 @@
   !vendor
 --glob
   !tags
+--glob
+  !.terraform
