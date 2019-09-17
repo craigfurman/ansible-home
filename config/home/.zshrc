@@ -53,7 +53,7 @@ DISABLE_AUTO_TITLE=true
 # Add wisely, as too many plugins slow down shell startup.
 
 # oh-my-zsh
-plugins=(git go zsh-nvm)
+plugins=(git go kubectl zsh-nvm)
 if [ "$(uname)" = "Linux" ]; then
   plugins+=(man systemd)
 fi
