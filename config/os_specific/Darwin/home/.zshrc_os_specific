@@ -27,6 +27,9 @@ done
 # are shadowed by brew tools.
 export MANPATH=/usr/local/share/man:$MANPATH
 
+# More brew PATH
+export PATH=/usr/local/opt/curl/bin:$PATH
+
 # kubectx
 alias kctx=kubectx
 alias kns=kubens
