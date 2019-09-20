@@ -49,7 +49,6 @@ packages:
   - pygtk
   - python-neovim
   - python-pip
-  - qt4
   - reflector
   - restic
   - ripgrep
