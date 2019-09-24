@@ -15,7 +15,7 @@
 	fpush = push --force-with-lease
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	mrnotes = log --reverse --format='Changelog:%n%n**%s**%n%n%b' origin/master..HEAD
+	mrnotes = log --reverse --format='%n%n**%s**%n%n%b' origin/master..HEAD
 	pullsubs = submodule update --init --recursive
 	st = status
 [push]
