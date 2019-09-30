@@ -1,6 +1,6 @@
 ---
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
+Style/PerlBackrefs:
+  Enabled: false
 
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: consistent_comma
