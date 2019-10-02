@@ -77,6 +77,7 @@ cask 'google-chrome'
 cask 'google-cloud-sdk'
 # cask 'gswitch'  # TODO doesn't behave properly on wake. Apparently unsafe mode fixes
 cask 'keybase'
+cask 'marshallofsound-google-play-music-player'
 cask 'sensiblesidebuttons'
 cask 'shiftit'
 cask 'signal'
