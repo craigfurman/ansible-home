@@ -22,6 +22,7 @@ packages:
   - gnome-tweaks
   - go-pie
   - gparted
+  - hcloud
   - hdparm
   - hexedit
   - htop
@@ -92,10 +93,10 @@ aur_packages:
   - cower
   - direnv
   - gnome-shell-extension-gtktitlebar-git
-  - gnome-shell-extension-topicons-plus-git
+  # TODO gnome-shell-extension-appindicator?
+  # - gnome-shell-extension-topicons-plus-git
   - google-chrome
   - google-cloud-sdk
-  # - google-drive-ocamlfuse  # TODO re-enable when compilation fixed
   - google-musicmanager
   - gotty
   - keybase-bin
