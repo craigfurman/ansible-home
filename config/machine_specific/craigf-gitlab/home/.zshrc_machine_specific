@@ -8,5 +8,7 @@ lschefnodes() {
 }
 
 sshchefnode() {
-  ssh "$(lschefnodes | fzf)"
+  cmd="ssh $(lschefnodes | fzf)"
+  print -s "$cmd"
+  ${=cmd}
 }
