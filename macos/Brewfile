@@ -19,6 +19,7 @@ brew 'jq'
 brew 'jsonnet'
 brew 'kube-ps1'
 brew 'kubectx'
+brew 'lastpass-cli'
 brew 'libiconv' # GDK
 brew 'make'
 brew 'neovim'
