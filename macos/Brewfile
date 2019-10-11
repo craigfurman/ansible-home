@@ -36,6 +36,7 @@ brew 'restic'
 brew 'ripgrep'
 brew 'runit' # GDK
 brew 'shellcheck'
+brew 'shfmt'
 brew 'stow'
 brew 'tfenv'
 brew 'tmux'
@@ -54,6 +55,9 @@ brew 'universal-ctags', args: ['HEAD']
 
 tap 'jeantil/autokbisw'
 brew 'autokbisw' # restart_service: true  # TODO not yet working properly - keeps switching back to US
+
+tap 'golangci/tap'
+brew 'golangci-lint'
 
 # gnutils
 brew 'coreutils'

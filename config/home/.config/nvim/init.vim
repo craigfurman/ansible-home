@@ -45,7 +45,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' } " TODO automate `cargo install rust
 "" TODO messes with NERDTree and vim-tmux-navigator
 " Plug 'WolfgangMehner/c-support', { 'for': 'c' }
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 "  Project Navigation
 Plug 'scrooloose/nerdtree'
@@ -142,9 +142,17 @@ let g:ale_linters = {
   \ 'go': ['go build', 'golangci-lint'],
   \ 'yaml': ['yamllint'],
 \}
+let g:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'sh': ['shfmt'],
+\}
 let g:ale_sign_warning = '⚠'
+let g:ale_fix_on_save = 1
+
 let g:ale_go_golangci_lint_options = ''
 let g:ale_go_golangci_lint_package = 1
+
+let g:ale_sh_shfmt_options="-i 2 -ci"
 
 " go
 let g:go_fmt_command = 'goimports'
