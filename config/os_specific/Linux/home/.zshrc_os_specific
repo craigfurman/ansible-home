@@ -28,3 +28,9 @@ packages_explicity_installed() {
 
   pacman -Sl "$1" | awk '{print $2}' | xargs -I% bash -c 'pacman -Qe | grep %'
 }
+
+rm_pkg_from_repo() {
+  sudo pacman -Rns --noconfirm "$1"
+  rm -f ${1}-*.pkg.tar.xz
+  repo-remove *.db.tar "$1"
+}

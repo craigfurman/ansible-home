@@ -58,6 +58,7 @@ packages:
   - sane
   - seahorse
   - shellcheck
+  - shfmt
   - simple-scan
   - smartmontools
   - sshuttle
@@ -86,19 +87,15 @@ packages:
 aur_packages:
   - aurutils
   - aurvote
-  - caffeine-ng  # TODO caffeine won't start currently
   - chromium-widevine  # DRM video such as Netflix
   - chruby
   - clipit
   - cower
   - direnv
   - gnome-shell-extension-gtktitlebar-git
-  # TODO gnome-shell-extension-appindicator?
-  # - gnome-shell-extension-topicons-plus-git
-  - google-chrome
+  - gnome-shell-extension-topicons-plus-git # TODO doesn't work after Gnome 3.34
   - google-cloud-sdk
   - google-musicmanager
-  - gotty
   - keybase-bin
   - kubectl-bin
   - kubernetes-helm-bin
@@ -109,6 +106,7 @@ aur_packages:
   - popcorntime
   - ruby-install
   - signal-desktop-bin
+  - simgplenote-electron-bin
   - skypeforlinux-preview-bin
   - slack-desktop
   - ttf-google-fonts-git
