@@ -170,11 +170,12 @@
     - service
     - timer
 
-- name: Start services
+- name: Start units
   service: name={{item}} state=started enabled=true
   become: true
   with_items:
     - craig-backup.timer
+    - logrotate.timer
     - nordvpnsd.service
     - org.cups.cupsd.service
     - pcscd.service
