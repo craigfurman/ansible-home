@@ -96,6 +96,7 @@ aur_packages:
   - gnome-shell-extension-topicons-plus-git # TODO doesn't work after Gnome 3.34
   - google-cloud-sdk
   - google-musicmanager
+  - gpmdp # Google Music desktop player
   - keybase-bin
   - kubectl-bin
   - kubernetes-helm-bin
