@@ -2,6 +2,7 @@
 packages:
   - ack
   - alacritty
+  - alsa-utils
   - ansible
   - asp
   - atom
