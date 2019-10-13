@@ -9,13 +9,13 @@ For laptops, desktops etc, where ansible will be run locally after cloning this
 repository:
 
 ```
-ansible-playbook -i -pcs --vault-password-file <vault-password-file> pcs.yml
+ansible-playbook -i inventory/pcs --vault-password-file <vault-password-file> pcs.yml
 ```
 
 To configure servers over ssh:
 
 ```
-ansible-playbook -i servers --vault-password-file <vault-password-file> servers.yml
+ansible-playbook -i inventory/servers --vault-password-file <vault-password-file> servers.yml
 ```
 
 ### Upgrading
