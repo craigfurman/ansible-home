@@ -31,6 +31,6 @@ packages_explicity_installed() {
 
 rm_pkg_from_repo() {
   sudo pacman -Rns --noconfirm "$1"
-  rm -f ${1}-*.pkg.tar.xz
+  rm -f ${1}-*.pkg.tar.*
   repo-remove *.db.tar "$1"
 }

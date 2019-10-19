@@ -5,7 +5,7 @@ set -euo pipefail
 clean_outdated_aur_packages() {
   comm -3 \
     <(tar -tvf *.db 2>/dev/null | awk '{print $6}' | grep -E '.+/$' | sed 's/\///g' | sort) \
-    <(ls | grep pkg.tar.xz | sed 's/\-any\.pkg\.tar\.xz//g' | sed 's/\-x86_64\.pkg\.tar\.xz//g' | sort) \
+    <(ls | grep pkg.tar. | sed 's/\-any\.pkg\.tar\..*//g' | sed 's/\-x86_64\.pkg\.tar\..*//g' | sort) \
     | xargs -L1 -I% bash -c 'rm %*'
 }
 
