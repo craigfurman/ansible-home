@@ -91,7 +91,6 @@ aur_packages:
   - chromium-widevine  # DRM video such as Netflix
   - chruby
   - clipit
-  - cower
   - direnv
   - gnome-shell-extension-gtktitlebar-git
   - gnome-shell-extension-topicons-plus-git # TODO doesn't work after Gnome 3.34
@@ -108,7 +107,7 @@ aur_packages:
   - popcorntime
   - ruby-install
   - signal-desktop-bin
-  - simgplenote-electron-bin
+  - simplenote-electron-bin
   - skypeforlinux-preview-bin
   - slack-desktop
   - ttf-google-fonts-git
