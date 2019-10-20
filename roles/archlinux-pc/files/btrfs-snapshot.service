@@ -1,0 +1,11 @@
+[Unit]
+Description=btrfs snapshot
+
+[Service]
+Type=oneshot
+User=root
+EnvironmentFile=/etc/craig-backup/env
+ExecStart=/usr/bin/btrfs-snapshot
+
+[Install]
+WantedBy=multi-user.target

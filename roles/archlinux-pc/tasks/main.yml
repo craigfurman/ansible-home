@@ -161,6 +161,17 @@
     - src  # ruby-install
     - virtualbox_vms
 
+- name: Install btrfs-snapshot files
+  copy:
+    src: "{{item.src}}"
+    dest: "{{item.dest}}"
+    mode: "{{item.mode}}"
+  with_items:
+    - {src: btrfs-snapshot.sh, dest: /usr/bin/btrfs-snapshot, mode: "0755"}
+    - {src: btrfs-snapshot.service, dest: /lib/systemd/system/btrfs-snapshot.service, mode: "0644"}
+    - {src: btrfs-snapshot.timer, dest: /lib/systemd/system/btrfs-snapshot.timer, mode: "0644"}
+  become: true
+
 - name: Install craig-backup systemd units
   template:
     src: "craig-backup.{{item}}.j2"
@@ -174,6 +185,7 @@
   service: name={{item}} state=started enabled=true
   become: true
   with_items:
+    - btrfs-snapshot.timer
     - craig-backup.timer
     - logrotate.timer
     - nordvpnsd.service
