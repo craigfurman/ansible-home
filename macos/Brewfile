@@ -6,6 +6,7 @@ brew 'azure-cli'
 brew 'bash'
 brew 'cmake' # GDK
 brew 'curl'
+brew 'dep'
 brew 'direnv'
 brew 'docker'
 brew 'docker-machine'
