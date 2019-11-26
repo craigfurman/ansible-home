@@ -165,6 +165,10 @@ killp() {
   kill "${sig}" "$(ps -ef | fzf | awk '{print $2}')"
 }
 
+rmknownhost() {
+  sed -i "${1}d" ~/.ssh/known_hosts
+}
+
 source ~/.zshrc_os_specific
 
 if [ -f ~/.zshrc_machine_specific ]; then
