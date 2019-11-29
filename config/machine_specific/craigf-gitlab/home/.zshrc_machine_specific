@@ -1,11 +1,13 @@
 # GitLab
 
-lschefnodes() {
+pknife() {
   (
   cd ~/workspace/ops.gitlab.net/gitlab-cookbooks/chef-repo
-  bundle exec knife node list
+  bundle exec knife $@
   )
 }
+
+alias lschefnodes="pknife node list"
 
 sshchefnode() {
   cmd="ssh $(lschefnodes | fzf)"
