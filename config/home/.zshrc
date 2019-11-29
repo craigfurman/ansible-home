@@ -169,6 +169,29 @@ rmknownhost() {
   sed -i "${1}d" ~/.ssh/known_hosts
 }
 
+gitpulldir() {
+  local should_exit=0
+
+  for repo in $(ls); do
+    if ! git -C "${repo}" diff --exit-code > /dev/null ; then
+      echo "diff found in ${repo}"
+      should_exit=1
+    fi
+
+    local current_branch="$(git -C "${repo}" rev-parse --abbrev-ref HEAD)"
+    if [ "${current_branch}" != "master" ]; then
+      echo "${repo} is on ${current_branch}, not master"
+      should_exit=1
+    fi
+  done
+
+  if [ "${should_exit}" -ne 0 ]; then
+    return 1
+  fi
+
+  ls | xargs -P0 -I% git -C % pull
+}
+
 source ~/.zshrc_os_specific
 
 if [ -f ~/.zshrc_machine_specific ]; then
