@@ -49,7 +49,7 @@ packages:
   - postfix
   - powertop
   - pygtk
-  - python-neovim
+  - python-pynvim
   - python-pip
   - reflector
   - restic
