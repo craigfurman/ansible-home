@@ -23,6 +23,7 @@
   file: path={{item}} state=directory mode=0700
   with_items:
     - ~/.gdfuse/default
+    - ~/.ssh/master-sockets
 
 - name: Install Go
   unarchive:
@@ -70,6 +71,6 @@
 # TODO: re-enable rust when rustup itself is bootstrapped by ansible
 # - name: Install Stable Rust
 #   command: rustup toolchain install stable
-# 
+#
 # - name: Set default rust to stable
 #   command: rustup default stable
