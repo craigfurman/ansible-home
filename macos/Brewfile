@@ -55,7 +55,7 @@ tap 'universal-ctags/universal-ctags'
 brew 'universal-ctags', args: ['HEAD']
 
 tap 'jeantil/autokbisw'
-brew 'autokbisw' # restart_service: true  # TODO not yet working properly - keeps switching back to US
+brew 'autokbisw', restart_service: :changed
 
 tap 'golangci/tap'
 brew 'golangci-lint'
