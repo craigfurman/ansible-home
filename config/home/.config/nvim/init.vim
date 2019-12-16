@@ -85,6 +85,7 @@ set pastetoggle=<F6>
 nnoremap <Leader>s :w<CR>
 nnoremap <Space> :noh<CR>
 nnoremap <Leader><Leader> <C-^>
+nnoremap <Leader>! :qa!<CR>
 vnoremap Y "+y
 
 " edit and reload config file
