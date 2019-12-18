@@ -80,17 +80,19 @@
     mode: 0600
   become: true
 
-  # prevent_headphone_hissing is specific to the Dell XPS 13
-  # (https://wiki.archlinux.org/index.php/Dell_XPS_13_(9360)#Continuous_hissing_sound_with_headphones)
-  #
-  # Check the Arch wiki and try removing it on new laptops to see if it's
-  # actually needed.
-- name: Install user units
-  copy:
-    src: "{{item}}"
-    dest: "~/.config/systemd/user/{{item}}"
-  with_items:
-    - prevent_headphone_hissing.service
+# prevent_headphone_hissing is specific to the Dell XPS 13
+# (https://wiki.archlinux.org/index.php/Dell_XPS_13_(9360)#Continuous_hissing_sound_with_headphones)
+#
+# Check the Arch wiki and try removing it on new laptops to see if it's actually
+# needed.
+#
+# Update Dec 2019: not needed.
+# - name: Install user units
+#   copy:
+#     src: "{{item}}"
+#     dest: "~/.config/systemd/user/{{item}}"
+#   with_items:
+#     - prevent_headphone_hissing.service
 
 - name: Start user units
   systemd:
@@ -100,7 +102,7 @@
     enabled: true
   with_items:
     - nordvpnud.service
-    - prevent_headphone_hissing.service
+    # - prevent_headphone_hissing.service
 
 - name: Install hardware-specific AUR packages
   package:

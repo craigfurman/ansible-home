@@ -145,7 +145,7 @@
     - transmission
 
 # Will hang on first run! Run manually over ssh if this is a fresh root filesystem.
-- name: Configure VPN connections
-  command: nordnm sync -u
-  become: true
-  tags: [slow]
+# - name: Configure VPN connections
+#   command: nordnm sync -u
+#   become: true
+#   tags: [slow]
