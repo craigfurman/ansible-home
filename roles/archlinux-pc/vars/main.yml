@@ -7,6 +7,7 @@ packages:
   - asp
   - atom
   - bind-tools
+  - chrome-gnome-shell # Needed even for firefox to install gnome extensions
   - chromium  # Includes vaapi patch
   - crda
   - ctags
@@ -92,8 +93,6 @@ aur_packages:
   - chruby
   - clipit
   - direnv
-  - gnome-shell-extension-gtktitlebar-git
-  - gnome-shell-extension-topicons-plus-git # TODO doesn't work after Gnome 3.34
   - google-cloud-sdk
   - google-musicmanager
   - gpmdp # Google Music desktop player
