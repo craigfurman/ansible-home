@@ -69,10 +69,6 @@ brew 'gnu-sed'
 brew 'gnu-tar'
 brew 'grep'
 
-# Ruby
-brew 'chruby'
-brew 'ruby-install'
-
 # casks
 cask '1password'
 cask '1password-cli'

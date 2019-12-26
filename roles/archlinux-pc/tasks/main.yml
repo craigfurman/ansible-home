@@ -20,12 +20,6 @@
     state: present
   become: true
 
-- name: Install tfenv
-  git:
-    repo: https://github.com/tfutils/tfenv.git
-    dest: ~/.tfenv
-    version: v1.0.1
-
 - name: Install system config
   copy: src="{{item.src}}" dest="{{item.dest}}" mode=0644 force=true
   become: true
@@ -160,7 +154,6 @@
     - .terraform.d
     - .vagrant.d
     - .vscode
-    - src  # ruby-install
     - virtualbox_vms
 
 - name: Install btrfs-snapshot files

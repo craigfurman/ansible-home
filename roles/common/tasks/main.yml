@@ -17,20 +17,12 @@
     - ~/.config/nvim
     - ~/.local/share/nvim/site/autoload
     - ~/bin
-    - ~/languages/go/{{go_version}}
 
 - name: Create restricted directories
   file: path={{item}} state=directory mode=0700
   with_items:
     - ~/.gdfuse/default
     - ~/.ssh/master-sockets
-
-- name: Install Go
-  unarchive:
-    src: https://dl.google.com/go/go{{go_version}}.{{ansible_facts['system'].lower()}}-amd64.tar.gz
-    dest: "~/languages/go/{{go_version}}"
-    creates: ~/languages/go/{{go_version}}/go
-    remote_src: true
 
 - name: Install config
   command: stow -t ~ home chdir={{ansible_env.PWD}}/config
@@ -43,11 +35,6 @@
 
 - name: Install oh-my-zsh
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
-
-- name: Install custom oh-my-zsh plugins
-  git: repo="{{item.repo}}" dest="~/.oh-my-zsh/custom/plugins/{{item.name}}"
-  with_items:
-    - {name: zsh-nvm, repo: "https://github.com/lukechilds/zsh-nvm"}
 
 - name: Install tmux plugin manager
   git: repo=https://github.com/tmux-plugins/tpm dest=~/.tmux/plugins/tpm
@@ -67,6 +54,12 @@
 
 - name: Install vim plugins
   command: nvim +PlugClean! +PlugUpdate +qa
+
+- name: Install asdf-vm
+  git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: ~/.asdf
+    version: v0.7.6
 
 # TODO: re-enable rust when rustup itself is bootstrapped by ansible
 # - name: Install Stable Rust

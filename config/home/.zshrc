@@ -53,7 +53,7 @@ DISABLE_AUTO_TITLE=true
 # Add wisely, as too many plugins slow down shell startup.
 
 # oh-my-zsh
-plugins=(git go kubectl zsh-nvm)
+plugins=(git go kubectl)
 if [ "$(uname)" = "Linux" ]; then
   plugins+=(man systemd)
 fi
@@ -89,6 +89,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# asdf-vm
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
 # General aliases
 alias ll='ls -alh'
 alias diff='diff --color=auto'
@@ -106,7 +110,7 @@ alias vimdiff="nvim -d"
 
 # Go
 export GOPATH=$HOME/workspace/go
-export PATH=$GOPATH/bin:$HOME/languages/go/1.13.5/go/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 
 # Ruby
 alias be="bundle exec"

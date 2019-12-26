@@ -1,0 +1,7 @@
+golang 1.13.5
+ruby 2.6.5
+terraform 0.12.18
+kubectl 1.17.0
+helm 3.0.2
+minikube 1.6.2
+nodejs 13.5.0

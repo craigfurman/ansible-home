@@ -29,7 +29,6 @@
     - .zoomus
     - Applications
     - Library
-    - languages
     - src
 
 - name: Install backup launchd service
