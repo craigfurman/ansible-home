@@ -20,12 +20,6 @@
     state: present
   become: true
 
-- name: Install system config
-  copy: src="{{item.src}}" dest="{{item.dest}}" mode=0644 force=true
-  become: true
-  with_items:
-    - {src: makepkg.conf, dest: /etc/makepkg.conf}
-
 - name: Create pacman hooks directory
   file: path=/etc/pacman.d/hooks state=directory mode=0755
   become: true
