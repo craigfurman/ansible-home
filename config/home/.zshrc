@@ -196,6 +196,10 @@ gitpulldir() {
   ls | xargs -P0 -I% git -C % pull
 }
 
+viewcert() {
+  yes | openssl s_client -connect "${1}:${2:-443}" | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509  -text -noout
+}
+
 source ~/.zshrc_os_specific
 
 if [ -f ~/.zshrc_machine_specific ]; then
