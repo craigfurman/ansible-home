@@ -192,7 +192,6 @@ endif
 nnoremap <Leader>u :GundoToggle<CR>
 
 " jsonnet
-let g:jsonnet_fmt_on_save = 0
 
 " shumphrey/fugitive-gitlab.vim
 let g:fugitive_gitlab_domains = ['https://ops.gitlab.net', 'https://dev.gitlab.org']
