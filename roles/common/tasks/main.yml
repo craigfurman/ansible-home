@@ -53,7 +53,7 @@
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 - name: Install vim plugins
-  command: nvim +PlugClean! +PlugUpdate +qa
+  command: nvim +PlugClean! +PlugUpdate! +qa
 
 - name: Install asdf-vm
   git:
