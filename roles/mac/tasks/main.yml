@@ -17,6 +17,7 @@
   with_items:
     - 'Virtualbox VMs'
     - .ansible
+    - .asdf
     - .azure
     - .berkshelf
     - .bundle

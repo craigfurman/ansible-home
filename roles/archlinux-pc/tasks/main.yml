@@ -125,6 +125,7 @@
   with_items:
     - .android
     - .ansible
+    - .asdf
     - .atom
     - .bosh
     - .bundle
