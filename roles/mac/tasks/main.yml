@@ -37,3 +37,6 @@
 
 - name: Start backup service
   command: launchctl load -w ~/Library/LaunchAgents/craig-backup.plist
+
+- pip:
+    name: pynvim
