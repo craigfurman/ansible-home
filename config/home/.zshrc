@@ -176,7 +176,7 @@ rmknownhost() {
 gitpulldir() {
   local should_exit=0
 
-  for repo in $(ls); do
+  for repo in $(find -maxdepth 1 -mindepth 1 -type d); do
     if ! git -C "${repo}" diff --exit-code > /dev/null ; then
       echo "diff found in ${repo}"
       should_exit=1
@@ -193,7 +193,7 @@ gitpulldir() {
     return 1
   fi
 
-  ls | xargs -P0 -I% git -C % pull
+  find . -maxdepth 1 -mindepth 1 -type d -exec git -C {} pull \;
 }
 
 viewcert() {
