@@ -1,7 +1,7 @@
 golang 1.14
 ruby 2.6.5
 terraform 0.12.18
-kubectl 1.17.3
+kubectl 1.18.1
 helm 3.1.0
-minikube 1.7.2
+minikube 1.9.2
 nodejs 13.5.0
