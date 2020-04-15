@@ -174,26 +174,22 @@ rmknownhost() {
 }
 
 gitpulldir() {
-  local should_exit=0
-
   for repo in $(find -maxdepth 1 -mindepth 1 -type d); do
     if ! git -C "${repo}" diff --exit-code > /dev/null ; then
-      echo "diff found in ${repo}"
-      should_exit=1
+      echo "warning: diff found in ${repo}"
+      continue
     fi
 
     local current_branch="$(git -C "${repo}" rev-parse --abbrev-ref HEAD)"
     if [ "${current_branch}" != "master" ]; then
-      echo "${repo} is on ${current_branch}, not master"
-      should_exit=1
+      echo "warning: ${repo} is on ${current_branch}, not master"
+      continue
     fi
+
+    git -C "${repo}" pull &
   done
 
-  if [ "${should_exit}" -ne 0 ]; then
-    return 1
-  fi
-
-  find . -maxdepth 1 -mindepth 1 -type d -exec git -C {} pull \;
+  wait
 }
 
 viewcert() {
