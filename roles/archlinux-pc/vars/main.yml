@@ -80,7 +80,6 @@ packages:
   - vlc
   - wget
   - whois
-  - wireguard-arch  # Module for standard kernel - optional dependency of wireguard-tools
   - wireguard-tools
   - yamllint
   - yubikey-manager
