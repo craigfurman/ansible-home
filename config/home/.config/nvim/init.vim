@@ -85,6 +85,7 @@ set pastetoggle=<F6>
 nnoremap <Leader>s :w<CR>
 nnoremap <Space> :noh<CR>
 nnoremap <Leader><Leader> <C-^>
+nnoremap <Leader>q :bdelete<CR>
 nnoremap <Leader>! :qa!<CR>
 vnoremap Y "+y
 
