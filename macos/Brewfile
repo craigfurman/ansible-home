@@ -76,10 +76,10 @@ cask '1password-cli'
 cask 'chromedriver' # GDK
 cask 'firefox'
 cask 'flycut'
+cask 'font-source-code-pro'
 cask 'google-chrome'
 cask 'google-cloud-sdk'
 cask 'graphiql'
-# cask 'gswitch'  # TODO doesn't behave properly on wake. Apparently unsafe mode fixes
 cask 'keybase'
 cask 'marshallofsound-google-play-music-player'
 cask 'minikube'
@@ -93,6 +93,8 @@ cask 'virtualbox'
 cask 'whatsapp'
 cask 'zoomus'
 
+# cask 'gswitch'  # TODO doesn't behave properly on wake. Apparently unsafe mode fixes
+
 tap 'homebrew/cask-fonts'
 cask 'font-inconsolata'
 
@@ -104,3 +106,4 @@ cask 'font-inconsolata'
 # App store - TODO automate with mas when that works
 # Todoist
 # Status Clock
+# Be Focussed

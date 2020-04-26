@@ -13,7 +13,7 @@ Configure keyboards and mouse:
 1. All keyboards: remap caps lock to escape
 1. Windows keyboards: swap super (cmd) and option (alt).
 
-Install Homebrew. `cd macps && brew bundle`.
+Install Homebrew. `cd macos && brew bundle`.
 
 Run ansible:
 
