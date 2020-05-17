@@ -186,7 +186,10 @@ gitpulldir() {
       continue
     fi
 
-    git -C "${repo}" pull &
+    (
+      echo "${repo}"
+      git -C "${repo}" pull
+    ) &
   done
 
   wait
