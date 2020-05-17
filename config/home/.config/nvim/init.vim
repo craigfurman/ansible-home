@@ -72,6 +72,7 @@ Plug 'sebastianmarkow/deoplete-rust' " TODO automate `cargo install racer`
 
 " Snippets
 Plug 'SirVer/ultisnips'
+" TODO are these even working?
 Plug 'honza/vim-snippets'
 
 " TODO desirable? Most repos I work in don't need ctags
