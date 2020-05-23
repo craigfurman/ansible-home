@@ -5,3 +5,4 @@ kubectl 1.18.1
 helm 3.1.0
 minikube 1.9.2
 nodejs 13.5.0
+go-jsonnet 0.16.0
