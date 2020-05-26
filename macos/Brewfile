@@ -18,7 +18,6 @@ brew 'gpgme' # GDK
 brew 'graphicsmagick' # GDK
 brew 'htop'
 brew 'jq'
-brew 'jsonnet'
 brew 'kube-ps1'
 brew 'kubectx'
 brew 'lastpass-cli'
