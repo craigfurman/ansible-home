@@ -2,7 +2,7 @@ golang 1.14.3
 ruby 2.6.5
 terraform 0.12.18
 kubectl 1.18.3
-helm 3.1.0
+helm 2.16.5
 minikube 1.10.1
 nodejs 13.5.0
 go-jsonnet 0.16.0
