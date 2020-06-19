@@ -128,7 +128,7 @@ au FocusGained,BufEnter * :checktime
 au FocusLost,WinLeave * :silent! w
 
 " Ack.vim
-let g:ackprg='rg --smart-case --hidden --vimgrep --no-ignore-vcs --glob !.git --glob !vendor --glob !tags --glob !.terraform'
+let g:ackprg='rg --smart-case --hidden --vimgrep --glob !.git'
 nnoremap <Leader>a :Ack!<Space>
 
 " NERDTree

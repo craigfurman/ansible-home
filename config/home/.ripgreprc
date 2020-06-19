@@ -1,11 +1,4 @@
 --smart-case
 --hidden
---no-ignore-vcs
 --glob
   !.git
---glob
-  !vendor
---glob
-  !tags
---glob
-  !.terraform
