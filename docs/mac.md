@@ -21,3 +21,7 @@ Run ansible:
 ansible-playbook --vault-password-file=ansible-home-secrets/ansible_vault_password \
   -i inventory/pcs pcs.yml
 ```
+
+## Settings
+
+General -> Disable font smoothing
