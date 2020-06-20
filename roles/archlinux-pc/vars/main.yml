@@ -5,7 +5,6 @@ packages:
   - alsa-utils
   - ansible
   - asp
-  - atom
   - bind-tools
   - chrome-gnome-shell # Needed even for firefox to install gnome extensions
   - chromium  # Includes vaapi patch
