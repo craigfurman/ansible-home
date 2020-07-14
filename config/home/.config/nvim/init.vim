@@ -180,6 +180,7 @@ set completeopt-=preview " never open scratch window
 
 " FileType-specific settings
 au BufRead,BufNewFile *.md,*.txt setlocal spell wrap
+au BufRead,BufNewFile *.yaml.gotmpl, setlocal tw=500 wrap ft=yaml
 au FileType gitcommit setlocal spell
 
 " fzf
