@@ -1,2 +1,3 @@
 s.youtube.com
 app.adjust.com
+launches.appsflyer.com
