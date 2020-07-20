@@ -99,6 +99,7 @@ aur_packages:
   - nordnm
   - nordvpn-bin
   - popcorntime
+  - rancher-k3d-bin
   - skypeforlinux-preview-bin
   - slack-desktop
   - ttf-google-fonts-git
