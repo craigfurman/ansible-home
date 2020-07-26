@@ -105,5 +105,6 @@ aur_packages:
   - ttf-google-fonts-git
   - visual-studio-code-bin
   - zoom
+  - zstd
 
 vbox_dir: ~/virtualbox_vms
