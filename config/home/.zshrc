@@ -53,7 +53,7 @@ DISABLE_AUTO_TITLE=true
 # Add wisely, as too many plugins slow down shell startup.
 
 # oh-my-zsh
-plugins=(git golang kubectl helm)
+plugins=(docker git golang kubectl helm)
 if [ "$(uname)" = "Linux" ]; then
   plugins+=(man systemd)
 fi
