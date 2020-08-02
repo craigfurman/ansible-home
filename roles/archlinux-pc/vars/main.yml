@@ -45,6 +45,7 @@ packages:
   - openssh
   - openvpn
   - pacman-contrib
+  - parcellite
   - pigz
   - postfix
   - powertop
@@ -89,7 +90,6 @@ aur_packages:
   - aurutils
   - aurvote
   - chromium-widevine  # DRM video such as Netflix
-  - clipit
   - direnv
   - google-cloud-sdk
   - google-musicmanager
