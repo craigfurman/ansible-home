@@ -102,6 +102,7 @@ aur_packages:
   - rancher-k3d-bin
   - skypeforlinux-preview-bin
   - slack-desktop
+  - tanka-bin
   - ttf-google-fonts-git
   - visual-studio-code-bin
   - zoom
