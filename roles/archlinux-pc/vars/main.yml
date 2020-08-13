@@ -91,6 +91,7 @@ aur_packages:
   - aurvote
   - chromium-widevine  # DRM video such as Netflix
   - direnv
+  - git-trim
   - google-cloud-sdk
   - google-musicmanager
   - gpmdp # Google Music desktop player
