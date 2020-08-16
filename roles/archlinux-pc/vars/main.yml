@@ -93,8 +93,6 @@ aur_packages:
   - direnv
   - git-trim
   - google-cloud-sdk
-  - google-musicmanager
-  - gpmdp # Google Music desktop player
   - keybase-bin
   - ngrok
   - nordnm
