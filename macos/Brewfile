@@ -11,6 +11,7 @@ brew 'direnv'
 brew 'docker'
 brew 'fzf'
 brew 'git'
+brew 'git-trim'
 brew 'goreleaser'
 brew 'gpg'
 brew 'gpgme' # GDK
