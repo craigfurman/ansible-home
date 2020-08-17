@@ -134,6 +134,10 @@ export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 # Github
 alias mkpr="hub pull-request"
 
+# tanka
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C $(which tk) tk
+
 # functions
 test_terminal_colors_fonts() {
   echo -e "\e[1mbold\e[0m"
