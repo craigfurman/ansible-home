@@ -92,6 +92,7 @@ aur_packages:
   - chromium-widevine  # DRM video such as Netflix
   - direnv
   - git-trim
+  - golangci-lint-bin
   - google-cloud-sdk
   - keybase-bin
   - ngrok
