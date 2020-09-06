@@ -39,7 +39,6 @@ brew 'runit' # GDK
 brew 'shellcheck'
 brew 'shfmt'
 brew 'stow'
-brew 'tanka'
 brew 'tfenv'
 brew 'tmux'
 brew 'tree'
