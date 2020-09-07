@@ -135,7 +135,6 @@ export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 alias mkpr="hub pull-request"
 
 # tanka
-autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C $(which tk) tk
 
 # functions
