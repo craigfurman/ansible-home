@@ -7,3 +7,4 @@ minikube 1.11.0
 nodejs 14.5.0
 go-jsonnet 0.16.0
 jsonnet-bundler 0.4.0
+tanka 0.11.1
