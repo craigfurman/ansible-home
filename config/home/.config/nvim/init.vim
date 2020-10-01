@@ -174,6 +174,13 @@ let g:terraform_fmt_on_save=1
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('omni_patterns', {
+\ 'go': '[^. *\t]\.\w*',
+\})
+
+" TODO this doesn't do anything
+" let g:deoplete#sources#go#gocode_binary = 'gopls'
+
 " tab completion
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 set completeopt-=preview " never open scratch window
