@@ -137,6 +137,10 @@ alias mkpr="hub pull-request"
 # tanka
 complete -o nospace -C $(which tk) tk
 
+# krew
+# See https://krew.sigs.k8s.io/docs/user-guide/setup/install/ for installation
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # functions
 test_terminal_colors_fonts() {
   echo -e "\e[1mbold\e[0m"
