@@ -8,7 +8,7 @@ log "Updating pacman packages"
 sudo pacman -Syu --noconfirm
 
 log "Updating AUR packages"
-"$(dirname "$0")/aur-upgrade.sh"
+"$(dirname "$0")/aur-upgrade"
 
 log "Cleaning pacman cache"
 sudo pacman -Sc --noconfirm

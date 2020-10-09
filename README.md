@@ -20,7 +20,7 @@ ansible-playbook -i inventory/servers --vault-password-file <vault-password-file
 
 ### Upgrading
 
-Laptops, desktops etc: `bin/upgrade.sh`.
+Laptops, desktops etc: `bin/upgrade`.
 
 Servers - no automation yet.
 
