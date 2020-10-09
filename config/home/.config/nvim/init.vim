@@ -189,6 +189,7 @@ set completeopt-=preview " never open scratch window
 au BufRead,BufNewFile *.md,*.txt setlocal spell wrap
 au BufRead,BufNewFile *.yaml.gotmpl, setlocal tw=500 wrap ft=yaml
 au FileType gitcommit setlocal spell
+au BufRead,BufNewFile .envrc setlocal ft=sh
 
 " fzf
 nnoremap <Leader>b :Buffers<CR>
