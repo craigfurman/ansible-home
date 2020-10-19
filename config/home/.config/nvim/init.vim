@@ -31,6 +31,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jszakmeister/vim-togglecursor'
+Plug 'junegunn/vim-easy-align'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -41,6 +42,7 @@ Plug 'google/vim-jsonnet'
 Plug 'hashivim/vim-terraform'
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' } " TODO does this work?
 Plug 'rust-lang/rust.vim', { 'for': 'rust' } " TODO automate `cargo install rustfmt`
+Plug 'skanehira/preview-markdown.vim'
 
 "" TODO messes with NERDTree and vim-tmux-navigator
 " Plug 'WolfgangMehner/c-support', { 'for': 'c' }
@@ -177,6 +179,10 @@ let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('omni_patterns', {
 \ 'go': '[^. *\t]\.\w*',
 \})
+
+" skanehira/preview-markdown.vim
+let g:preview_markdown_parser = 'mdcat'
+let g:preview_markdown_vertical = 1
 
 " TODO this doesn't do anything
 " let g:deoplete#sources#go#gocode_binary = 'gopls'
