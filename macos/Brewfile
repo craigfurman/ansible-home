@@ -23,6 +23,7 @@ brew 'kubectx'
 brew 'lastpass-cli'
 brew 'libiconv' # GDK
 brew 'make'
+brew 'mdcat'
 brew 'neovim'
 brew 'openssl' # GDK
 brew 'pidof'
