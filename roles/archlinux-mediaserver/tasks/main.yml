@@ -36,8 +36,7 @@
   become: true
   vars:
     packages:
-      - networkmanager-vpn-web-ui
-      - nordnm
+      - nordvpn-bin
       - plex-media-server
 
 - name: Create persistent plex metadata directory
@@ -106,8 +105,8 @@
   become: true
   with_items:
     - backup-photos.timer
-    - networkmanager-vpn-web-ui.service
     - nfs-server.service
+    - nordvpnd.service
     - plexmediaserver.service
     - sc-suspend.timer
     - smb.service
@@ -143,9 +142,3 @@
     - "{{ansible_user}}"
     - plex
     - transmission
-
-# Will hang on first run! Run manually over ssh if this is a fresh root filesystem.
-# - name: Configure VPN connections
-#   command: nordnm sync -u
-#   become: true
-#   tags: [slow]
