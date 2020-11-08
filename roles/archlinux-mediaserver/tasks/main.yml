@@ -5,7 +5,7 @@
     block: |
       [craig]
       SigLevel = Optional TrustAll
-      Server = file:///media/data/aur-packages
+      Server = {{package_repo_url}}
   become: true
 
 - name: Install packages

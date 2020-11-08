@@ -9,9 +9,9 @@
   blockinfile:
     path: /etc/pacman.conf
     block: |
-      [craig]
+      [craig-gcloud]
       SigLevel = Optional TrustAll
-      Server = file:///media/morty/aur-packages
+      Server = {{package_repo_url}}
   become: true
 
 - name: Install AUR packages
@@ -82,15 +82,14 @@
 #   with_items:
 #     - prevent_headphone_hissing.service
 
-- name: Start user units
-  systemd:
-    name: "{{item}}"
-    scope: user
-    state: started
-    enabled: true
-  with_items:
-    - nordvpnud.service
-    # - prevent_headphone_hissing.service
+# - name: Start user units
+#   systemd:
+#     name: "{{item}}"
+#     scope: user
+#     state: started
+#     enabled: true
+#   with_items:
+#     - prevent_headphone_hissing.service
 
 - name: Install hardware-specific AUR packages
   package:
@@ -177,7 +176,7 @@
     - btrfs-snapshot.timer
     - craig-backup.timer
     - logrotate.timer
-    - nordvpnsd.service
+    - nordvpnd.service
     - org.cups.cupsd.service
     - pcscd.service
 

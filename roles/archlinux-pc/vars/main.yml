@@ -49,7 +49,6 @@ packages:
   - pigz
   - postfix
   - powertop
-  - pygtk
   - python-pynvim
   - python-pip
   - reflector
