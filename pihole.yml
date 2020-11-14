@@ -1,0 +1,9 @@
+---
+- hosts: all
+  roles:
+    - raspberry-preamble
+    - wireguard-peer
+    - network_monitor
+    - server-common
+    - ssh-server
+    - pi-hole

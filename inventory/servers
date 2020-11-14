@@ -1,5 +1,0 @@
-[raspberry_pi]
-tiny-rick ansible_user=pi
-
-[media_servers]
-morty ansible_user=craig
