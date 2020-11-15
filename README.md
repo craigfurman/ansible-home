@@ -5,17 +5,10 @@ and my raspberry pi.
 
 ## Usage
 
-For laptops, desktops etc, where ansible will be run locally after cloning this
-repository:
+Laptop example:
 
 ```
-ansible-playbook -i inventory/pcs --vault-password-file <vault-password-file> pcs.yml
-```
-
-To configure servers over ssh:
-
-```
-ansible-playbook -i inventory/servers --vault-password-file <vault-password-file> servers.yml
+ansible-playbook -i inventory/craig-laptop --vault-password-file <vault-password-file> craig-laptop.yml
 ```
 
 ### Upgrading

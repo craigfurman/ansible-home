@@ -1,0 +1,2 @@
+[archlinux_pcs]
+craig-laptop ansible_user=craig ansible_connection=local

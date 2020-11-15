@@ -59,7 +59,7 @@
   git:
     repo: https://github.com/asdf-vm/asdf.git
     dest: ~/.asdf
-    version: v0.7.8
+    version: v0.8.0
 
 # TODO: re-enable rust when rustup itself is bootstrapped by ansible
 # - name: Install Stable Rust

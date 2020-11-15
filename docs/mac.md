@@ -19,7 +19,7 @@ Run ansible:
 
 ```
 ansible-playbook --vault-password-file=ansible-home-secrets/ansible_vault_password \
-  -i inventory/pcs pcs.yml
+  -i inventory/mac mac.yml
 ```
 
 ## Settings
