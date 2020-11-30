@@ -92,7 +92,7 @@ cask 'slack'
 cask 'vagrant'
 cask 'virtualbox'
 cask 'whatsapp'
-cask 'zoomus'
+cask 'zoom'
 
 # cask 'gswitch'  # TODO doesn't behave properly on wake. Apparently unsafe mode fixes
 
