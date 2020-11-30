@@ -3,7 +3,7 @@
   blockinfile:
     path: /etc/pacman.conf
     block: |
-      [craig]
+      [craig-gcloud]
       SigLevel = Optional TrustAll
       Server = {{package_repo_url}}
   become: true

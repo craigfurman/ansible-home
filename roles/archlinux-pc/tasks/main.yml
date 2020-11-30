@@ -177,7 +177,7 @@
     - craig-backup.timer
     - logrotate.timer
     - nordvpnd.service
-    - org.cups.cupsd.service
+    - cups.service
     - pcscd.service
 
 #######################################
