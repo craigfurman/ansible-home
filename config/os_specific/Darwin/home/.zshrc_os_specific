@@ -32,7 +32,7 @@ alias kns=kubens
 
 # kube-ps1
 source /usr/local/share/kube-ps1.sh
-PROMPT=$PROMPT'$(kube_ps1)'
+PROMPT=$(echo $PROMPT | sed -E '1 s/$/$(kube_ps1)/')
 
 # This one needs to be late in the PATH
 export PATH=$HOME/bin:$PATH
