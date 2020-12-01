@@ -16,8 +16,13 @@ sshchefnode() {
 }
 
 kproxy() {
+  context="${1:-}"
+  if [ -z "${context:-}" ]; then
+    context=$(kubectl config get-contexts --no-headers -o name | fzf)
+  fi
+
   old_context=$(kubectl config current-context)
-  kubectl config use-context "$1"
+  kubectl config use-context "$context"
   # TODO at the time of writing, not every environment has a console, not every
   # environment's bastion has access to its clusters' control planes, and ops is
   # only accessible via the gstg console. This should all change soon.
@@ -36,8 +41,8 @@ kproxy() {
     ["org-ci"]="bastion-01-inf-org-ci.c.gitlab-org-ci-0d24e2.internal"
   )
 
-  ssh -o ControlPersist=no -D 26443 -N "${bastions[$1]}" & ssh_pid=$!
-  echo "Opening a new shell targetting ${1}"
+  ssh -o ControlPersist=no -D 26443 -N "${bastions[$context]}" & ssh_pid=$!
+  echo "Opening a new shell targetting ${context}"
   HTTP_PROXY=socks5://localhost:26443 $SHELL
   echo "Closing tunnel"
   kill "${ssh_pid}"
