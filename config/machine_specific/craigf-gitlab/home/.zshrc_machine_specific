@@ -23,9 +23,6 @@ kproxy() {
 
   old_context=$(kubectl config current-context)
   kubectl config use-context "$context"
-  # TODO at the time of writing, not every environment has a console, not every
-  # environment's bastion has access to its clusters' control planes, and ops is
-  # only accessible via the gstg console. This should all change soon.
   declare -A bastions=(
     ["gstg"]="console-01-sv-gstg.c.gitlab-staging-1.internal"
     ["gstg-us-east1-b"]="console-01-sv-gstg.c.gitlab-staging-1.internal"
@@ -37,7 +34,7 @@ kproxy() {
     ["gprd-us-east1-c"]="console-01-sv-gprd.c.gitlab-production.internal"
     ["gprd-us-east1-d"]="console-01-sv-gprd.c.gitlab-production.internal"
 
-    ["ops"]="console-01-sv-gstg.c.gitlab-staging-1.internal"
+    ["ops"]="console-01-sv-ops.c.gitlab-ops.internal"
     ["org-ci"]="bastion-01-inf-org-ci.c.gitlab-org-ci-0d24e2.internal"
   )
 
