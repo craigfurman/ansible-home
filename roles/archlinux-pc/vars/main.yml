@@ -95,6 +95,7 @@ aur_packages:
   - golangci-lint-bin
   - google-cloud-sdk
   - keybase-bin
+  - kube-ps1
   - ngrok-bin
   - nordvpn-bin
   - popcorntime

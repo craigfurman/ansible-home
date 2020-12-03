@@ -7,8 +7,9 @@ alias pacnews='sudo locate --existing --regex "\.pac(new|save)$"'
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
-# opam, only for google-drive-ocamlfuse
-export PATH=$PATH:$HOME/.opam/default/bin
+# kube-ps1
+source /opt/kube-ps1/kube-ps1.sh
+PROMPT=$(echo $PROMPT | sed -E '1 s/$/$(kube_ps1)/')
 
 systemctl list-units --all --no-pager --no-legend --failed
 
