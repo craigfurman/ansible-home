@@ -61,6 +61,9 @@
     dest: ~/.asdf
     version: v0.8.0
 
+- name: Install asdf plugins and tools
+  command: ./bin/asdf_install
+
 # TODO: re-enable rust when rustup itself is bootstrapped by ansible
 # - name: Install Stable Rust
 #   command: rustup toolchain install stable

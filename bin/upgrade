@@ -2,3 +2,4 @@
 set -euo pipefail
 
 "$(dirname "$0")/upgrade__$(uname)"
+"$(dirname "$0")/asdf_upgrade"

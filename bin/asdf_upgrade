@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd ~
+
+asdf plugin update --all
+
+while read -r line; do
+  tool="$(echo "$line" | awk '{print $1}')"
+  latest_version="$(asdf latest "${tool}")"
+  asdf install "${tool}" "${latest_version}"
+  asdf local "${tool}" "${latest_version}"
+done <~/.tool-versions
