@@ -6,6 +6,7 @@ packages:
   - ansible
   - asp
   - bind-tools
+  - bluez
   - chrome-gnome-shell # Needed even for firefox to install gnome extensions
   - chromium  # Includes vaapi patch
   - crda

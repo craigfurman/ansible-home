@@ -173,6 +173,7 @@
   service: name={{item}} state=started enabled=true
   become: true
   with_items:
+    - bluetooth.service
     - btrfs-snapshot.timer
     - craig-backup.timer
     - logrotate.timer
