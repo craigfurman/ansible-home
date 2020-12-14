@@ -2,7 +2,7 @@
 set -euo pipefail
 
 declare -A custom_plugins=(
-  ["go-jsonnet"]="https://gitlab.com/craigfurman/asdf-go-jsonnet.git"
+  ["jsonnet-bundler"]="https://github.com/trotttrotttrott/asdf-jsonnet-bundler.git"
 )
 
 while read -r line; do
