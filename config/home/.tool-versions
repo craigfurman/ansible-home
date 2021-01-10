@@ -1,9 +1,9 @@
 ruby 3.0.0
-terraform 0.14.3
+terraform 0.14.4
 kubectl 1.20.1
 helm 3.4.2
 minikube 1.16.0
-nodejs 15.5.0
+nodejs 15.5.1
 go-jsonnet 0.17.0
 tanka 0.13.0
 golang 1.15.6
