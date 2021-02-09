@@ -6,7 +6,7 @@
 [alias]
 	amend = commit -S -v --amend
 	br = branch
-	ci = commit -S -v
+	ci = commit -s -S -v
 	co = checkout
 	dci = duet-commit
 	di = diff
