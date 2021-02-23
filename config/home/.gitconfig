@@ -4,9 +4,9 @@
 [core]
 	excludesfile = ~/.gitignore_global
 [alias]
-	amend = commit -S -v --amend
+	amend = ci --amend
 	br = branch
-	ci = commit -s -S -v
+	ci = commit -v
 	co = checkout
 	dci = duet-commit
 	di = diff
@@ -16,6 +16,7 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	mrnotes = log --reverse --format='%n%n**%s**%n%n%b' origin/master..HEAD
+	prnotes = mrnotes
 	pullsubs = submodule update --init --recursive
 	st = status
 [push]
