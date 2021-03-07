@@ -90,7 +90,6 @@ packages:
 aur_packages:
   - aurutils
   - aurvote
-  - chromium-widevine  # DRM video such as Netflix
   - direnv
   - git-trim
   - golangci-lint-bin
