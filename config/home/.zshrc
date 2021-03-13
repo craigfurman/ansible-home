@@ -128,9 +128,6 @@ export FZF_DEFAULT_COMMAND='rg --smart-case --hidden --files --glob !.git'
 eval "$(direnv hook zsh)"
 alias da="direnv allow"
 
-# ssh authentication via gpg
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-
 # Github
 alias mkpr="hub pull-request"
 

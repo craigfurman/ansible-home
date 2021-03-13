@@ -1,5 +1,8 @@
 # GitLab
 
+# ssh authentication via gpg
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
 pknife() {
   (
   cd ~/workspace/ops.gitlab.net/gitlab-cookbooks/chef-repo
