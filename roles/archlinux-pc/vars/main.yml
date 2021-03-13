@@ -42,6 +42,7 @@ packages:
   - neovim
   - networkmanager-openvpn
   - nfs-utils
+  - noto-fonts-emoji
   - openbsd-netcat
   - openssh
   - openvpn
