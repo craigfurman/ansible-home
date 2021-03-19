@@ -15,13 +15,7 @@ ansible-playbook -i inventory/craig-laptop --vault-password-file <vault-password
 
 Laptops, desktops etc: `bin/upgrade`.
 
-Servers - no automation yet.
-
-## TODO
-
-1. libva-intel-driver on laptop
-1. Split Arch package host into own role
-1. gpg-agent.conf
+Servers - no upgrade automation yet.
 
 ## First run
 

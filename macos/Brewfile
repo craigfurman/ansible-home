@@ -99,6 +99,8 @@ cask 'zoom'
 tap 'homebrew/cask-fonts'
 cask 'font-inconsolata'
 
+# cask or don't bother - Brave?
+
 # TODO device not recognised
 # tap 'homebrew/cask-drivers'
 # cask 'logitech-control-center'
@@ -108,4 +110,4 @@ cask 'font-inconsolata'
 # Todoist
 # Status Clock
 # Be Focussed
-# # NordVPN
+# NordVPN
