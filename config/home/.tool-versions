@@ -1,7 +1,7 @@
 ruby 3.0.1
-terraform 0.14.10
+terraform 0.15.0
 kubectl 1.21.0
-helm 3.5.3
+helm 3.5.4
 minikube 1.19.0
 nodejs 15.14.0
 go-jsonnet 0.17.0
