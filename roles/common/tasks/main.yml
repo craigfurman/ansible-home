@@ -18,11 +18,10 @@
     - ~/.local/share/nvim/site/autoload
     - ~/bin
 
-- name: Create restricted directories
-  file: path={{item}} state=directory mode=0700
-  with_items:
-    - ~/.gdfuse/default
-    - ~/.ssh/master-sockets
+# - name: Create restricted directories
+#   file: path={{item}} state=directory mode=0700
+#   with_items:
+#     - ~/.ssh/master-sockets
 
 - name: Install config
   command: stow -t ~ home chdir={{ansible_env.PWD}}/config
