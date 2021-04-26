@@ -1,7 +1,0 @@
-[Unit]
-Description=Update pi-hole block lists
-After=pi-hole.service
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/docker exec pi-hole.service pihole updateGravity

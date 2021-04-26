@@ -1,7 +1,0 @@
-[Unit]
-Description=Ping healthchecks.io
-
-[Service]
-Type=oneshot
-EnvironmentFile=/etc/default/ping-healthchecks-io
-ExecStart=/usr/bin/curl $HEALTHCHECKS_IO_PING
