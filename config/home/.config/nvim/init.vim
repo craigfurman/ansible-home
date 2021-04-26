@@ -211,9 +211,6 @@ nnoremap <Leader>u :GundoToggle<CR>
 
 " jsonnet
 
-" shumphrey/fugitive-gitlab.vim
-let g:fugitive_gitlab_domains = ['https://ops.gitlab.net', 'https://dev.gitlab.org']
-
 " AndrewRadev/switch.vim
 nnoremap <Leader>c :Switch<CR>
 " let g:switch_custom_definitions =

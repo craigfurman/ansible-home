@@ -1,49 +1,37 @@
 # ansible-home
 
-Configures my laptop / desktop / media server, which all run Arch Linux, my macOS laptop,
-and my raspberry pi.
+Configuration and automation for my various personal computers.
 
 ## Usage
-
-Laptop example:
 
 ```
 ansible-playbook -i inventory/craig-laptop --vault-password-file <vault-password-file> craig-laptop.yml
 ```
 
-### Upgrading
+Replace inventory and playbook as appropriate.
 
-Laptops, desktops etc: `bin/upgrade`.
+### Upgrading laptops
 
-Servers - no upgrade automation yet.
+1. `bin/upgrade`
+1. Run ansible as normal.
+
+### Upgrading morty
+
+1. As root: `pacman -Syu --noconfirm && pacman -Sc --noconfirm`
+1. Run ansible against morty over ssh.
 
 ## First run
-
-Like any automation around personal laptops, snowflakes can be hard to avoid compared to
-servers. Since I last rearranged all the code, it's almost inevitable that a new machine
-will fail to converge somehow.
 
 Secrets are encrypted with ansible-vault, and are kept in a private repository.
 Clone the secrets repository into the checkout of this repository.
 
 ### Arch Linux
 
-AUR packages are kept on a network share, which must be mounted. See Google doc.
+1. `sudo pacman -S ansible`
+1. Run ansible as normal.
 
 ### macOS
 
-I only use macOS for my work at GitLab, and the config and instructions are
-specific to that.
-
-Before running ansible (which won't even be installed):
-
 1. Install Homebrew
 1. `cd macos && brew bundle`
-
-After running ansible:
-
-1. [Set up gpg-agent with YubiKey and ssh](https://gitlab.com/gitlab-com/runbooks/blob/master/howto/yubikey.md)
-
-### Raspberry pi
-
-See [first setup instructions](docs/raspberry-pi.md).
+1. Run ansible as normal.

@@ -4,7 +4,6 @@ brew 'ansible'
 brew 'awscli'
 brew 'azure-cli'
 brew 'bash'
-brew 'cmake' # GDK
 brew 'curl'
 brew 'dep'
 brew 'direnv'
@@ -12,31 +11,21 @@ brew 'docker'
 brew 'fzf'
 brew 'git'
 brew 'git-trim'
-brew 'gpg'
-brew 'gpgme' # GDK
-brew 'graphicsmagick' # GDK
 brew 'htop'
 brew 'jq'
 brew 'k3d'
 brew 'kube-ps1'
 brew 'kubectx'
 brew 'lastpass-cli'
-brew 'libiconv' # GDK
 brew 'make'
 brew 'mdcat'
 brew 'neovim'
-brew 'openssl' # GDK
 brew 'pidof'
 brew 'pinentry-mac'
-brew 'pkg-config' # GDK
-brew 'postgresql@9.6' # GDK # TODO: Manual: `brew pin postgresql@9.6`
 brew 'pwgen'
 brew 'python'
-brew 're2' # GDK
-brew 'redis' # GDK
 brew 'restic'
 brew 'ripgrep'
-brew 'runit' # GDK
 brew 'shellcheck'
 brew 'shfmt'
 brew 'stow'
@@ -47,7 +36,6 @@ brew 'vim'
 brew 'watch'
 brew 'wget'
 brew 'yamllint'
-brew 'yarn', args: ['ignore-dependencies'] # GDK. ignore-dependencies is ignored on `brew upgrade`.
 brew 'ykman'
 brew 'zsh'
 brew 'zsh-completions'  # TODO used?
@@ -73,7 +61,6 @@ brew 'grep'
 # casks
 cask '1password'
 cask '1password-cli'
-cask 'chromedriver' # GDK
 cask 'docker'
 cask 'firefox'
 cask 'flycut'
@@ -93,8 +80,6 @@ cask 'vagrant'
 cask 'virtualbox'
 cask 'whatsapp'
 cask 'zoom'
-
-# cask 'gswitch'  # TODO doesn't behave properly on wake. Apparently unsafe mode fixes
 
 tap 'homebrew/cask-fonts'
 cask 'font-inconsolata'

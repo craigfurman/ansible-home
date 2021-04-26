@@ -1,2 +1,0 @@
-[macs]
-craigf-gitlab.local ansible_user=craig ansible_connection=local
