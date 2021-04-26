@@ -47,7 +47,6 @@ packages:
   - openssh
   - openvpn
   - pacman-contrib
-  - parcellite
   - pigz
   - postfix
   - powertop
