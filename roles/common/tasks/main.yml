@@ -11,16 +11,16 @@
 - name: Create Directories
   file: path={{item}} state=directory mode=0755
   with_items:
-    - ~/.ssh
+    - ~/.ssh/config.d
     - ~/.config/kitty
     - ~/.config/nvim
     - ~/.local/share/nvim/site/autoload
     - ~/bin
 
-# - name: Create restricted directories
-#   file: path={{item}} state=directory mode=0700
-#   with_items:
-#     - ~/.ssh/master-sockets
+- name: Create restricted directories
+  file: path={{item}} state=directory mode=0700
+  with_items:
+    - ~/.gnupg
 
 - name: Install config
   command: stow -t ~ home chdir={{ansible_env.PWD}}/config

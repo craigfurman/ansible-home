@@ -1,53 +1,36 @@
 # vi: syntax=ruby
 
 brew 'ansible'
-brew 'awscli'
-brew 'azure-cli'
 brew 'bash'
 brew 'curl'
-brew 'dep'
 brew 'direnv'
-brew 'docker'
 brew 'fzf'
 brew 'git'
 brew 'git-trim'
+brew 'gnupg'
+brew 'golangci-lint'
 brew 'htop'
 brew 'jq'
-brew 'k3d'
-brew 'kube-ps1'
-brew 'kubectx'
-brew 'lastpass-cli'
 brew 'make'
-brew 'mdcat'
 brew 'neovim'
 brew 'pidof'
 brew 'pinentry-mac'
+brew 'postgresql@9.6', link: true, restart_service: :changed # brew pin postgresql@9.6
 brew 'pwgen'
 brew 'python'
+brew 'redis', restart_service: :changed
 brew 'restic'
 brew 'ripgrep'
 brew 'shellcheck'
 brew 'shfmt'
 brew 'stow'
-brew 'tfenv'
 brew 'tmux'
 brew 'tree'
 brew 'vim'
 brew 'watch'
 brew 'wget'
-brew 'yamllint'
-brew 'ykman'
 brew 'zsh'
-brew 'zsh-completions'  # TODO used?
-
-tap 'universal-ctags/universal-ctags'
-brew 'universal-ctags', args: ['HEAD']
-
-tap 'jeantil/autokbisw'
-brew 'autokbisw', restart_service: :changed
-
-tap 'golangci/tap'
-brew 'golangci-lint'
+brew 'zsh-completions'
 
 # gnutils
 brew 'coreutils'
@@ -58,41 +41,15 @@ brew 'gnu-sed'
 brew 'gnu-tar'
 brew 'grep'
 
+tap 'universal-ctags/universal-ctags'
+brew 'universal-ctags', args: ['HEAD']
+
 # casks
-cask '1password'
-cask '1password-cli'
-cask 'docker'
-cask 'firefox'
 cask 'flycut'
-cask 'font-source-code-pro'
-cask 'google-chrome'
-cask 'google-cloud-sdk'
-cask 'graphiql'
-cask 'keybase'
-cask 'minikube'
-cask 'ngrok'
-cask 'postman'
-cask 'sensiblesidebuttons'
+cask 'kitty'
 cask 'shiftit'
-cask 'signal'
-cask 'slack'
-cask 'vagrant'
-cask 'virtualbox'
-cask 'whatsapp'
-cask 'zoom'
+cask 'simplenote'
+cask 'visual-studio-code'
 
 tap 'homebrew/cask-fonts'
 cask 'font-inconsolata'
-
-# cask or don't bother - Brave?
-
-# TODO device not recognised
-# tap 'homebrew/cask-drivers'
-# cask 'logitech-control-center'
-# cask 'logitech-options'
-
-# App store - TODO automate with mas when that works
-# Todoist
-# Status Clock
-# Be Focussed
-# NordVPN

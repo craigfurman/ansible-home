@@ -1,0 +1,22 @@
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# GNUtils
+for gnutil in coreutils grep gnu-tar gnu-sed gawk findutils make ; do
+  export PATH=/usr/local/opt/$gnutil/libexec/gnubin:$PATH
+  export MANPATH=/usr/local/opt/$gnutil/libexec/gnuman:$MANPATH
+done
+
+# Contains man pages from tools installed by brew. Already on MANPATH, but lower
+# than /usr/share/man, which contains man pages for system tools, some of which
+# are shadowed by brew tools.
+export MANPATH=/usr/local/share/man:$MANPATH
+
+# More brew PATH
+export PATH=/usr/local/opt/curl/bin:$PATH
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
+
+# fzf
+source /usr/local/opt/fzf/shell/completion.zsh
+source /usr/local/opt/fzf/shell/key-bindings.zsh
+
+export GPG_TTY=$(tty)

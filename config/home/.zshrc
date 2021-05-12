@@ -58,6 +58,7 @@ if [ "$(uname)" = "Linux" ]; then
   plugins+=(man systemd)
 fi
 
+ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
