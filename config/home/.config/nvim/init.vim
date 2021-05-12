@@ -1,6 +1,5 @@
 " TODO
 " Organise plugin config by plugin
-" gundo breaks after navigating away from file (,,)
 " restore templates
 " better spellfile
 " tagbar
@@ -32,7 +31,7 @@ Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jszakmeister/vim-togglecursor'
 Plug 'junegunn/vim-easy-align'
-Plug 'sjl/gundo.vim'
+Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
@@ -203,11 +202,10 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>g :Rg<CR>
 
-" gundo (undo graph)
-if has('python3')
-  let g:gundo_prefer_python3 = 1
-endif
-nnoremap <Leader>u :GundoToggle<CR>
+" mundo (undo graph)
+set undofile
+set undodir=~/.vim/undo
+nnoremap <Leader>u :MundoToggle<CR>
 
 " jsonnet
 
