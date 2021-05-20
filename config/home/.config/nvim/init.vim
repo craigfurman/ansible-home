@@ -1,12 +1,10 @@
 " TODO
-" Organise plugin config by plugin
 " restore templates
 " better spellfile
 " tagbar
 " ,. switch between test and prod code (turns out tpope/vim-rails was doing this)
 " those weird true colour codes?
 " multicursors?
-" Ruby autoformatting - editorconfig plugin?
 
 " Plugins
 call plug#begin()
@@ -184,8 +182,8 @@ call deoplete#custom#option('omni_patterns', {
 let g:preview_markdown_parser = 'mdcat'
 let g:preview_markdown_vertical = 1
 
-" TODO this doesn't do anything
-" let g:deoplete#sources#go#gocode_binary = 'gopls'
+" TODO this doesn't do anything - or does it?
+let g:deoplete#sources#go#gocode_binary = 'gopls'
 
 " tab completion
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"

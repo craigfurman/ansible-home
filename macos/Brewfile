@@ -1,6 +1,7 @@
 # vi: syntax=ruby
 
 brew 'ansible'
+brew 'awscli'
 brew 'bash'
 brew 'curl'
 brew 'direnv'
@@ -11,6 +12,7 @@ brew 'gnupg'
 brew 'golangci-lint'
 brew 'htop'
 brew 'jq'
+brew 'kube-ps1'
 brew 'make'
 brew 'neovim'
 brew 'pidof'
@@ -45,7 +47,10 @@ tap 'universal-ctags/universal-ctags'
 brew 'universal-ctags', args: ['HEAD']
 
 # casks
+cask 'aws-vault'
+cask 'docker'
 cask 'flycut'
+cask 'google-cloud-sdk'
 cask 'kitty'
 cask 'shiftit'
 cask 'simplenote'

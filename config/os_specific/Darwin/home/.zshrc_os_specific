@@ -20,3 +20,20 @@ source /usr/local/opt/fzf/shell/completion.zsh
 source /usr/local/opt/fzf/shell/key-bindings.zsh
 
 export GPG_TTY=$(tty)
+
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+
+# kube-ps1
+source /usr/local/share/kube-ps1.sh
+PROMPT=$(echo $PROMPT | sed -E '1 s/$/$(kube_ps1)/')
+
+# snyk
+# TODO perhaps move to machine specific?
+snyk-dev() {
+  (
+    cd ~/workspace/github.com/snyk/snyk
+    npm run build
+  )
+  node ~/workspace/github.com/snyk/snyk/dist/cli "$@"
+}
