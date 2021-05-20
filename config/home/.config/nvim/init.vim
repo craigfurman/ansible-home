@@ -8,6 +8,7 @@
 
 " Plugins
 call plug#begin()
+
 Plug 'lambdalisue/suda.vim' " While SudoWrite is broken: https://github.com/neovim/neovim/issues/8678
 Plug 'mhinz/vim-signify'
 Plug 'ntpeters/vim-better-whitespace'
@@ -33,18 +34,61 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
-" Languages
-Plug 'fatih/vim-go', { 'for': 'go' } " TODO automate GoInstallBinaries
+" Go
+" TODO automate GoInstallBinaries
+Plug 'fatih/vim-go'
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_generate_tags = 1
+
+let g:go_rename_command = 'gopls'
+
+" We only want vim-go's tools (:GoUpdateBinaries) and syntax highlighting. We'll
+" use an LSP client (ale) for everything else.
+let g:go_def_mapping_enabled = 0
+let g:go_gopls_enabled = 0
+let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 0
+let g:go_imports_autosave = 0
+let g:go_mod_fmt_autosave = 0
+
+" Assorted languages
 Plug 'google/vim-jsonnet'
 Plug 'hashivim/vim-terraform'
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' } " TODO does this work?
-Plug 'rust-lang/rust.vim', { 'for': 'rust' } " TODO automate `cargo install rustfmt`
 Plug 'skanehira/preview-markdown.vim'
 
-"" TODO messes with NERDTree and vim-tmux-navigator
-" Plug 'WolfgangMehner/c-support', { 'for': 'c' }
-
+" Ale: linting, formatting on save, LSP
+" Integrates with LSP completions via deoplete.
+" Integrates with airline automatically.
+" TODO fix ALERename for go
 Plug 'dense-analysis/ale'
+let g:ale_linters = {
+  \ 'go': ['go build', 'go vet', 'golangci-lint', 'gopls'],
+\}
+let g:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'sh': ['shfmt'],
+  \ 'go': ['goimports'],
+\}
+let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '✘'
+let g:ale_fix_on_save = 1
+
+let g:ale_go_golangci_lint_options = ''
+let g:ale_go_golangci_lint_package = 1
+
+let g:ale_sh_shfmt_options="-i 2 -ci"
+
+nnoremap gd :ALEGoToDefinition<CR>
+
+" Deoplete: autocompletion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
+" deoplete sources
+Plug 'wellle/tmux-complete.vim'
 
 "  Project Navigation
 Plug 'scrooloose/nerdtree'
@@ -62,20 +106,15 @@ Plug 'w0ng/vim-hybrid'
 " Status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 1
 
-" Completions
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make' }
-Plug 'wellle/tmux-complete.vim'
-Plug 'sebastianmarkow/deoplete-rust' " TODO automate `cargo install racer`
 
 " Snippets
-Plug 'SirVer/ultisnips'
-" TODO are these even working?
-Plug 'honza/vim-snippets'
+" TODO bring back
+" Plug 'SirVer/ultisnips'
+" " TODO are these even working?
+" Plug 'honza/vim-snippets'
 
-" TODO desirable? Most repos I work in don't need ctags
-" Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 " Bindings
@@ -135,57 +174,12 @@ nnoremap \ :NERDTreeToggle<CR>
 nnoremap \| :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 
-" airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ale#enabled = 1 " TODO needed?
-
-" ale
-let g:ale_linters = {
-  \ 'go': ['go build', 'golangci-lint'],
-  \ 'yaml': ['yamllint'],
-\}
-let g:ale_fixers = {
-  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \ 'sh': ['shfmt'],
-\}
-let g:ale_sign_warning = '⚠'
-let g:ale_sign_error = '✘'
-let g:ale_fix_on_save = 1
-
-let g:ale_go_golangci_lint_options = ''
-let g:ale_go_golangci_lint_package = 1
-
-let g:ale_sh_shfmt_options="-i 2 -ci"
-
-" go
-let g:go_fmt_command = 'goimports'
-let g:go_rename_command = 'gopls'
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_generate_tags = 1
-
-" rust
-let g:rustfmt_autosave = 1
-
-" terraform
-let g:terraform_fmt_on_save=1
-
-" deoplete
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('omni_patterns', {
-\ 'go': '[^. *\t]\.\w*',
-\})
-
 " skanehira/preview-markdown.vim
 let g:preview_markdown_parser = 'mdcat'
 let g:preview_markdown_vertical = 1
 
-" TODO this doesn't do anything - or does it?
-let g:deoplete#sources#go#gocode_binary = 'gopls'
-
 " tab completion
+" TODO this is bad, improve it
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 set completeopt-=preview " never open scratch window
 
@@ -218,9 +212,6 @@ nnoremap <Leader>c :Switch<CR>
 set background=dark
 colorscheme hybrid
 set termguicolors
-" TODO spurious? only in tmux?
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Swap and backup
 set swapfile
@@ -228,4 +219,5 @@ set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 set nobackup
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger="<C-j>"
+" TODO bring back
+" let g:UltiSnipsExpandTrigger="<C-j>"
