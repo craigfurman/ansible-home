@@ -1,9 +1,0 @@
----
-linters:
-  enable:
-    - golint
-  disable:
-    - typecheck
-linters-settings:
-  errcheck:
-    exclude: ~/golang_errcheck_excludes.txt
