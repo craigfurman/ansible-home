@@ -52,7 +52,7 @@ let g:go_gopls_enabled = 0
 let g:go_fmt_autosave = 0
 let g:go_fmt_autosave = 0
 let g:go_imports_autosave = 0
-let g:go_mod_fmt_autosave = 0
+let g:go_mod_fmt_autosave = 1 " Ale doesn't have a fixer for this
 
 " Assorted languages
 Plug 'google/vim-jsonnet'
@@ -64,6 +64,7 @@ Plug 'skanehira/preview-markdown.vim'
 " Integrates with LSP completions via deoplete.
 " Integrates with airline automatically.
 " TODO fix ALERename for go
+" TODO fix go mod fmt. Maybe with vim-go?
 Plug 'dense-analysis/ale'
 let g:ale_linters = {
   \ 'go': ['go build', 'go vet', 'golangci-lint', 'gopls'],
@@ -76,13 +77,16 @@ let g:ale_fixers = {
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '✘'
 let g:ale_fix_on_save = 1
+let g:ale_floating_preview = 1
 
 let g:ale_go_golangci_lint_options = ''
-let g:ale_go_golangci_lint_package = 1
+let g:ale_go_golangci_lint_package = 0
 
 let g:ale_sh_shfmt_options="-i 2 -ci"
 
 nnoremap gd :ALEGoToDefinition<CR>
+nnoremap <Leader>h :ALEHover<CR>
+nnoremap <Leader>d :ALEDetail<CR>
 
 " Deoplete: autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -108,7 +112,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
 
-
 " Snippets
 " TODO bring back
 " Plug 'SirVer/ultisnips'
@@ -116,6 +119,11 @@ let g:airline#extensions#tabline#enabled = 1
 " Plug 'honza/vim-snippets'
 
 call plug#end()
+
+" deoplete
+call deoplete#custom#option('sources', {
+\ '_': ['ale', 'tmux-complete'],
+\})
 
 " Bindings
 let g:mapleader=','
@@ -179,9 +187,8 @@ let g:preview_markdown_parser = 'mdcat'
 let g:preview_markdown_vertical = 1
 
 " tab completion
-" TODO this is bad, improve it
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-set completeopt-=preview " never open scratch window
+set completeopt=longest,menuone
 
 " FileType-specific settings
 au BufRead,BufNewFile *.md,*.txt setlocal spell wrap
