@@ -6,6 +6,8 @@
 " those weird true colour codes?
 " multicursors?
 
+let g:mapleader=','
+
 " Plugins
 call plug#begin()
 
@@ -54,6 +56,10 @@ let g:go_fmt_autosave = 0
 let g:go_imports_autosave = 0
 let g:go_mod_fmt_autosave = 1 " Ale doesn't have a fixer for this
 
+" TypeScript & JavaScript
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+
 " Assorted languages
 Plug 'google/vim-jsonnet'
 Plug 'hashivim/vim-terraform'
@@ -64,15 +70,18 @@ Plug 'skanehira/preview-markdown.vim'
 " Integrates with LSP completions via deoplete.
 " Integrates with airline automatically.
 " TODO fix ALERename for go
-" TODO fix go mod fmt. Maybe with vim-go?
 Plug 'dense-analysis/ale'
 let g:ale_linters = {
   \ 'go': ['go build', 'go vet', 'golangci-lint', 'gopls'],
+  \ 'typescript': ['eslint', 'tsserver'],
+  \ 'javascript': ['eslint', 'tsserver'],
 \}
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
   \ 'sh': ['shfmt'],
   \ 'go': ['goimports'],
+  \ 'typescript': ['prettier'],
+  \ 'javascript': ['prettier'],
 \}
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '✘'
@@ -126,7 +135,6 @@ call deoplete#custom#option('sources', {
 \})
 
 " Bindings
-let g:mapleader=','
 " TODO localleader?
 set pastetoggle=<F6>
 nnoremap <Leader>s :w<CR>

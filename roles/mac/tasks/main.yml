@@ -39,8 +39,8 @@
 #   command: launchctl load -w ~/Library/LaunchAgents/craig-backup.plist
 
 - pip:
-    name: {{item}}
+    name: "{{item}}"
     state: latest
     executable: pip3
-    with_items:
-      - pynvim
+  with_items:
+    - pynvim
