@@ -80,7 +80,7 @@ let g:ale_fix_on_save = 1
 let g:ale_floating_preview = 1
 
 let g:ale_go_golangci_lint_options = ''
-let g:ale_go_golangci_lint_package = 0
+let g:ale_go_golangci_lint_package = 1
 
 let g:ale_sh_shfmt_options="-i 2 -ci"
 
