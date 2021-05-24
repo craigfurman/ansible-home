@@ -58,7 +58,8 @@ let g:go_mod_fmt_autosave = 1 " Ale doesn't have a fixer for this
 
 " TypeScript & JavaScript
 Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
+" TODO seemingly causes typescript files to be recognised as javascript
+" Plug 'pangloss/vim-javascript'
 
 " Assorted languages
 Plug 'google/vim-jsonnet'
