@@ -73,7 +73,7 @@ Plug 'skanehira/preview-markdown.vim'
 " TODO fix ALERename for go
 Plug 'dense-analysis/ale'
 let g:ale_linters = {
-  \ 'go': ['golangci-lint', 'gopls'],
+  \ 'go': ['gopls'],
   \ 'typescript': ['eslint', 'tsserver'],
   \ 'javascript': ['eslint', 'tsserver'],
 \}
@@ -88,9 +88,6 @@ let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '✘'
 let g:ale_fix_on_save = 1
 let g:ale_floating_preview = 1
-
-let g:ale_go_golangci_lint_options = ''
-let g:ale_go_golangci_lint_package = 1
 
 let g:ale_sh_shfmt_options="-i 2 -ci"
 

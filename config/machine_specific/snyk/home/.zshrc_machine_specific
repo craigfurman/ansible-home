@@ -1,0 +1,7 @@
+snyk-dev() {
+  (
+    cd ~/workspace/github.com/snyk/snyk
+    npm run build
+    node ./dist/cli "$@"
+  )
+}
