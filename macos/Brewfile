@@ -56,6 +56,8 @@ cask 'istat-menus'
 cask 'kitty'
 cask 'shiftit'
 cask 'simplenote'
+cask 'vagrant'
+cask 'virtualbox'
 cask 'visual-studio-code'
 
 tap 'homebrew/cask-fonts'

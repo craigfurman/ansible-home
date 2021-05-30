@@ -13,4 +13,8 @@ while read -r line; do
 done <~/.tool-versions
 
 asdf plugin update --all
+
+# Custom branches
+git -C ~/.asdf/plugins/golang checkout legacy-highest-minor-version
+
 (cd ~ && asdf install)
