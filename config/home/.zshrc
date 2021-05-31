@@ -1,3 +1,6 @@
+# Uncomment this and the bottom line to enable profiling
+# zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -53,7 +56,7 @@ DISABLE_AUTO_TITLE=true
 # Add wisely, as too many plugins slow down shell startup.
 
 # oh-my-zsh
-plugins=(docker git golang kubectl helm)
+plugins=(docker git golang)
 if [ "$(uname)" = "Linux" ]; then
   plugins+=(man systemd)
 fi
@@ -213,3 +216,6 @@ fi
 if [ -f ~/.zshrc_secrets ]; then
   source ~/.zshrc_secrets
 fi
+
+# Uncomment this and the top line to enable profiling
+# zprof

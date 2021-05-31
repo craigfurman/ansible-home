@@ -159,6 +159,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Misc
+set lazyredraw
 set mouse=a
 set noshowmode "airline replaces showmode
 set nowrap
