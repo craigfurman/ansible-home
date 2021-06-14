@@ -41,6 +41,7 @@
 - pip:
     name: "{{item}}"
     state: latest
-    executable: pip3
+    executable: pip
   with_items:
     - pynvim
+    - requests

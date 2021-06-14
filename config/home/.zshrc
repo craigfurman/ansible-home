@@ -56,7 +56,7 @@ DISABLE_AUTO_TITLE=true
 # Add wisely, as too many plugins slow down shell startup.
 
 # oh-my-zsh
-plugins=(docker git golang)
+plugins=(docker git golang kubectl)
 if [ "$(uname)" = "Linux" ]; then
   plugins+=(man systemd)
 fi
@@ -205,6 +205,24 @@ gitpulldir() {
 
 viewcert() {
   yes | openssl s_client -connect "${1}:${2:-443}" | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509  -text -noout
+}
+
+kube_namespace() {
+  ns=$(kubectl config view --minify --output jsonpath='{..namespace}')
+  if [ "${ns:-}" = "" ]; then
+    ns="default"
+  fi
+  echo "$ns"
+}
+
+# A lot like kube-ps1, but not loaded with every shell. It was slowing down my
+# shell startup time too much, even with "kubeoff".
+kprompt() {
+  PREKUBE_PROMPT=$PROMPT
+  PROMPT=$(echo $PROMPT | sed -E '1 s/$/<⎈ $(kubectl config current-context)|$(kube_namespace)>/')
+}
+kunprompt() {
+  PROMPT=$PREKUBE_PROMPT
 }
 
 source ~/.zshrc_os_specific

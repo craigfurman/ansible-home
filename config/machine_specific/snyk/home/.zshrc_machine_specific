@@ -1,7 +1,12 @@
 snyk-dev() {
   (
     cd ~/workspace/github.com/snyk/snyk
-    npm run build
+    if [ -n "${SNYK_REBUILD:-}" ]; then
+      npm run build
+    fi
+    if [ -n "${SNYK_REGEN_HELP:-}" ]; then
+      NO_DOCKER=1 npm run generare-help
+    fi
     node ./dist/cli "$@"
   )
 }
