@@ -48,7 +48,7 @@
     "rpc-port": 9091,
     "rpc-url": "/transmission/",
     "rpc-username": "",
-    "rpc-whitelist": "127.0.0.1,192.168.0.*,morty",
+    "rpc-whitelist": "127.0.0.1,192.168.*.*,morty",
     "rpc-whitelist-enabled": true,
     "scrape-paused-torrents-enabled": true,
     "script-torrent-done-enabled": true,
