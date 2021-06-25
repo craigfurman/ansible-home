@@ -5,7 +5,7 @@ snyk-dev() {
       npm run build
     fi
     if [ -n "${SNYK_REGEN_HELP:-}" ]; then
-      NO_DOCKER=1 npm run generare-help
+      NO_DOCKER=1 npm run generate-help
     fi
     node ./dist/cli "$@"
   )

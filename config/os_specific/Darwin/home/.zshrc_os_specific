@@ -13,6 +13,7 @@ export MANPATH=/usr/local/share/man:$MANPATH
 
 # More brew PATH
 export PATH=/usr/local/opt/curl/bin:$PATH
+export MANPATH=/usr/local/opt/curl/share/man:$MANPATH
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 
 # fzf
