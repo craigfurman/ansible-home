@@ -1,4 +1,4 @@
 ruby 3.0.1
 nodejs 14.16.1
-golang 1.16.4
+golang 1.16.5
 kubectl 1.18.19
