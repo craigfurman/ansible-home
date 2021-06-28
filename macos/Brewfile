@@ -53,6 +53,7 @@ cask 'aws-vault'
 cask 'docker'
 cask 'flycut'
 cask 'google-cloud-sdk'
+cask 'intel-power-gadget' # for istat-menus CPU frequency monitoring
 cask 'istat-menus'
 cask 'kitty'
 cask 'obsidian'
