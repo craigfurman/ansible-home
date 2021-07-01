@@ -39,11 +39,14 @@ Plug 'tpope/vim-surround'
 " Go
 " TODO automate GoInstallBinaries
 Plug 'fatih/vim-go'
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_generate_tags = 1
+"
+" I used to have these on, but syntime indicated that they might be a little
+" slow
+let g:go_highlight_functions = 0
+let g:go_highlight_function_calls = 0
+let g:go_highlight_types = 0
+let g:go_highlight_fields = 0
+let g:go_highlight_generate_tags = 0
 
 let g:go_rename_command = 'gopls'
 
@@ -90,6 +93,9 @@ let g:ale_fix_on_save = 1
 let g:ale_floating_preview = 1
 let g:ale_sign_column_always = 1
 
+" TODO is this really increasing input latency, or is that just diagnostics?
+let g:ale_set_highlights = 0
+
 let g:ale_sh_shfmt_options="-i 2 -ci"
 
 " TODO re-enable if I can ever bring back golangci-lint
@@ -126,6 +132,8 @@ Plug 'w0ng/vim-hybrid'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 0
+let g:airline#extensions#fugitiveline#enabled = 0
 
 " Snippets
 " TODO bring back
