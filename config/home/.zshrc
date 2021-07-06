@@ -225,7 +225,9 @@ kunprompt() {
   PROMPT=$PREKUBE_PROMPT
 }
 
-source ~/.zshrc_os_specific
+if [ -f ~/.zshrc_os_specific ]; then
+  source ~/.zshrc_os_specific
+fi
 
 if [ -f ~/.zshrc_machine_specific ]; then
   source ~/.zshrc_machine_specific

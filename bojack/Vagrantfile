@@ -1,0 +1,25 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/focal64"
+  config.vm.box_check_update = false
+  config.vm.hostname = "bojack"
+  config.vm.synced_folder "~", "/host/home"
+
+  config.vm.network "forwarded_port", guest: 9000, host: 19000, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 9001, host: 19001, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 9002, host: 19002, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 9003, host: 19003, host_ip: "127.0.0.1"
+
+  config.vm.provider "virtualbox" do |vm|
+    vm.name = "bojack"
+    vm.memory = 2048
+    vm.cpus = 2
+    vm.customize ["modifyvm", :id, "--uartmode1", "file", "/tmp/bojack-console.log"]
+  end
+
+  config.vm.provision "shell", path: "provision.sh"
+
+  config.ssh.forward_agent = true
+end
