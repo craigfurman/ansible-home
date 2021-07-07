@@ -7,16 +7,17 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "bojack"
   config.vm.synced_folder "~", "/host/home"
 
-  config.vm.network "forwarded_port", guest: 9000, host: 19000, host_ip: "127.0.0.1"
-  config.vm.network "forwarded_port", guest: 9001, host: 19001, host_ip: "127.0.0.1"
-  config.vm.network "forwarded_port", guest: 9002, host: 19002, host_ip: "127.0.0.1"
-  config.vm.network "forwarded_port", guest: 9003, host: 19003, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 8000, host: 18000, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 8001, host: 18001, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 8002, host: 18002, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 8003, host: 18003, host_ip: "127.0.0.1"
 
   config.vm.provider "virtualbox" do |vm|
     vm.name = "bojack"
-    vm.memory = 2048
-    vm.cpus = 2
-    vm.customize ["modifyvm", :id, "--uartmode1", "file", "/tmp/bojack-console.log"]
+    vm.memory = 4096
+    vm.cpus = 4
+    # TODO does this work?
+    vm.customize ["modifyvm", :id, "--uartmode1", "file", "#{File.dirname(__FILE__)}/bojack-console.log"]
   end
 
   config.vm.provision "shell", path: "provision.sh"

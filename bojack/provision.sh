@@ -2,16 +2,19 @@
 set -euo pipefail
 
 sudo apt-get install -y \
+  apt-transport-https \
   build-essential \
   direnv \
   fzf \
   neovim \
+  postgresql-9.6 \
+  redis-server \
+  ripgrep \
   zsh
 
 # TODO
 #
-# - get fzf-vim working
-# - gpg
+# - gpg: document export/import keys, keychain for passphrase
 #
 # sudo dpkg-reconfigure --priority=low unattended-upgrades
 #
@@ -30,6 +33,8 @@ sudo apt-get install -y \
 #
 # git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
 # .asdfrc
+# go, node plugins
+# global .tool-versions with go
 #
 # ansible-ise ~/.zshrc_machine_specific
 #
@@ -38,5 +43,16 @@ sudo apt-get install -y \
 # curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 #
 # copy init.vim over and review changes
+#
+# gitconfig (and machine specific)
+#
+# ripgreprc
+#
+# sudo timedatectl set-ntp true
+#
+# postgres: https://www.postgresql.org/download/linux/ubuntu/
+#
+# docker: https://docs.docker.com/engine/install/ubuntu
+# sudo usermod -aG docker $(whoami)
 #
 # kitty +kitten ssh # to install terminfo?
