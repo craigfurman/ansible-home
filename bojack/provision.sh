@@ -6,6 +6,7 @@ sudo apt-get install -y \
   build-essential \
   direnv \
   fzf \
+  jq \
   neovim \
   postgresql-9.6 \
   redis-server \
