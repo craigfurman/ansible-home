@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |vm|
     vm.name = "bojack"
-    vm.memory = 4096
+    vm.memory = 8192
     vm.cpus = 4
     vm.customize ["modifyvm", :id, "--uartmode1", "file", "#{File.dirname(__FILE__)}/console.log"]
   end
