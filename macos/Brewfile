@@ -64,3 +64,6 @@ cask 'visual-studio-code'
 
 tap 'homebrew/cask-fonts'
 cask 'font-inconsolata'
+
+# mac app store
+# Be focused
