@@ -76,7 +76,7 @@ Plug 'skanehira/preview-markdown.vim'
 " TODO fix ALERename for go
 Plug 'dense-analysis/ale'
 let g:ale_linters = {
-  \ 'go': ['gopls'],
+  \ 'go': ['gopls', 'golangci-lint'],
   \ 'typescript': ['eslint', 'tsserver'],
   \ 'javascript': ['eslint', 'tsserver'],
 \}
@@ -99,8 +99,8 @@ let g:ale_set_highlights = 0
 let g:ale_sh_shfmt_options="-i 2 -ci"
 
 " TODO re-enable if I can ever bring back golangci-lint
-" let g:ale_go_golangci_lint_options = ''
-" let g:ale_go_golangci_lint_package = 1
+let g:ale_go_golangci_lint_options = ''
+let g:ale_go_golangci_lint_package = 1
 
 " This does nothing for now: https://github.com/dense-analysis/ale/issues/3555
 let g:ale_lint_on_text_changed = 'never'
