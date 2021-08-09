@@ -119,10 +119,8 @@ Plug 'wellle/tmux-complete.vim'
 Plug 'scrooloose/nerdtree'
 " TODO replace :Ack! with :Rg (from fzf.vim)?
 Plug 'mileszs/ack.vim'
-if system('uname') =~# 'Darwin'
-  Plug '/usr/local/opt/fzf'
-endif
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " Colour schemes
 Plug 'morhetz/gruvbox'
