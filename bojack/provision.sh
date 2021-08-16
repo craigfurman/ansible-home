@@ -15,7 +15,11 @@ sudo apt-get install -y \
 
 # TODO
 #
-# - gpg: document export/import keys, keychain for passphrase
+# - gpg: document export/import keys
+#
+# ╰─$ cat ~/.gnupg/gpg-agent.conf
+# default-cache-ttl 34560000
+# max-cache-ttl 34560000
 #
 # sudo dpkg-reconfigure --priority=low unattended-upgrades
 #
@@ -57,3 +61,5 @@ sudo apt-get install -y \
 # sudo usermod -aG docker $(whoami)
 #
 # kitty +kitten ssh # to install terminfo?
+#
+# Install gcloud: https://cloud.google.com/sdk/docs/install#deb
