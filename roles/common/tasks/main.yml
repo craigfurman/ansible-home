@@ -45,6 +45,11 @@
 - name: Update tmux plugins
   command: ~/.tmux/plugins/tpm/bin/update_plugins all
 
+- name: Install kitty-colorscheme
+  get_url:
+    dest: ~/.config/kitty/base16-ocean-256.conf
+    url: https://github.com/kdrag0n/base16-kitty/raw/master/colors/base16-ocean-256.conf
+
 - name: Install vim-plug
   get_url:
     dest: ~/.local/share/nvim/site/autoload
