@@ -142,6 +142,12 @@ complete -o nospace -C $(which tk) tk
 # See https://krew.sigs.k8s.io/docs/user-guide/setup/install/ for installation
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
 # functions
 test_terminal_colors_fonts() {
   echo -e "\e[1mbold\e[0m"

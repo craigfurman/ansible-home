@@ -125,7 +125,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Colour schemes
 Plug 'morhetz/gruvbox'
 Plug 'w0ng/vim-hybrid'
-Plug 'chriskempson/base16-vim'
+Plug 'fnune/base16-vim'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
@@ -240,8 +240,10 @@ nnoremap <Leader>c :Switch<CR>
 " Colours
 set background=dark
 set termguicolors
-let base16colorspace=256
-colorscheme base16-ocean
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Swap and backup
 set swapfile
