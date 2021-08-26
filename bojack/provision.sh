@@ -8,13 +8,12 @@ sudo apt-get install -y \
   fzf \
   jq \
   neovim \
-  postgresql-9.6 \
-  redis-server \
   ripgrep \
   zsh
 
 # TODO
 #
+# - ssh: (multipass only) copy ssh key over, so that we can use agent forwarding
 # - gpg: document export/import keys
 #
 # ╰─$ cat ~/.gnupg/gpg-agent.conf
@@ -29,7 +28,7 @@ sudo apt-get install -y \
 #   "o=*";
 # }
 #
-# sudo chsh -s $(which zsh) vagrant
+# sudo chsh -s $(which zsh) $(whoami)
 #
 # git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 #
@@ -43,8 +42,6 @@ sudo apt-get install -y \
 #
 # ansible-ise ~/.zshrc_machine_specific
 #
-# sudo dpkg-reconfigure tzdata
-#
 # curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 #
 # copy init.vim over and review changes
@@ -53,9 +50,14 @@ sudo apt-get install -y \
 #
 # ripgreprc
 #
+# Vagrant only, not needed for multipass
+# sudo dpkg-reconfigure tzdata
 # sudo timedatectl set-ntp true
 #
+# Databases:
 # postgres: https://www.postgresql.org/download/linux/ubuntu/
+# sudo apt-get installp postgresql-9.8
+# sudo apt-get install redis-server
 #
 # docker: https://docs.docker.com/engine/install/ubuntu
 # sudo usermod -aG docker $(whoami)
