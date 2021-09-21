@@ -106,6 +106,7 @@ alias viknownhosts='vim ~/.ssh/known_hosts'
 export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 export XZ_OPT="-T0 -0"
 export MAKEFLAGS="-j$(nproc)"
+export GPG_TTY=$(tty)
 
 # Vim
 export EDITOR=nvim
