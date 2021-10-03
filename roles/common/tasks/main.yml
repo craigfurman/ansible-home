@@ -70,6 +70,9 @@
 - name: Install asdf plugins and tools
   command: ./bin/asdf_install
 
+- name: Install dev tools
+  command: ./bin/install_dev_tools
+
 # TODO: re-enable rust when rustup itself is bootstrapped by ansible
 # - name: Install Stable Rust
 #   command: rustup toolchain install stable

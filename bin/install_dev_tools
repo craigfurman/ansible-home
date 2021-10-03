@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# This script installs dev tools that depend on tools installed via asdf. This
+# sort of thing should be minimised, and the package manager preferred wherever
+# possible.
+
+go get golang.org/x/tools/gopls@latest
+go get -u github.com/nametake/golangci-lint-langserver
+go get -u github.com/mattn/efm-langserver
+
+npm install -g typescript-language-server
