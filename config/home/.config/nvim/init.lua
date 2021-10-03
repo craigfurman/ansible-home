@@ -24,7 +24,7 @@ local Plug = fn['plug#']
 
 -- Newfangled
 Plug 'neovim/nvim-lspconfig'
-Plug 'tami5/lspsaga.nvim' -- TODO this is currently broken with neovim 0.5.1
+Plug 'rinx/lspsaga.nvim'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 Plug 'nvim-lua/completion-nvim'
 Plug 'albertoCaroM/completion-tmux'
@@ -147,11 +147,11 @@ require'lspconfig'.efm.setup{
 -- lsp keymaps: https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
 nmap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 nmap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-nmap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+nmap('K', '<cmd>Lspsaga hover_doc<CR>')
 nmap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 nmap('<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 nmap('<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-nmap('<Leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+nmap('<Leader>ca', '<cmd>Lspsaga code_action<CR>')
 nmap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 nmap('[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 nmap(']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
@@ -215,7 +215,7 @@ nmap('<Leader><Leader>', '<C-^>')
 nmap('<Leader>q', ':bdelete<CR>')
 
 -- edit and reload config file
-nmap('<Leader>gc', 'vsplit<CR>:edit ~/.config/nvim/init.lua')
+nmap('<Leader>gc', ':vsplit<CR>:edit ~/.config/nvim/init.lua<CR>')
 nmap('<Leader>r', ':source ~/.config/nvim/init.lua<CR>')
 
 -- Options
