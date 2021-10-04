@@ -28,6 +28,7 @@ Plug 'rinx/lspsaga.nvim'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 Plug 'nvim-lua/completion-nvim'
 Plug 'albertoCaroM/completion-tmux'
+Plug 'steelsojka/completion-buffers'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons' -- dependency of a few things
 Plug 'kyazdani42/nvim-tree.lua'
@@ -48,25 +49,30 @@ fn['plug#end']()
 -- lsp
 local lspconfig = require 'lspconfig'
 local configs = require 'lspconfig/configs'
-local lsp_on_attach = require('completion').on_attach
 
-lspconfig.gopls.setup{on_attach=lsp_on_attach}
+lspconfig.gopls.setup{}
 
 -- completion
 opt.completeopt = 'menuone,noinsert,noselect'
+opt.shortmess = opt.shortmess + 'c'
+g.completion_matching_smart_case = 1
+g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy', 'all'}
+g.completion_sorting = 'length'
+g.completion_auto_change_source = 1
 imap('<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr=true, noremap=true})
 imap('<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', {expr=true, noremap=true})
+cmd("autocmd BufEnter * lua require'completion'.on_attach()")
 
--- completion-tmux: TODO get working
--- cmd([[
--- let g.completion_chain_complete_list = {
---       \ 'default': {'comment': [],
---       \ 'default': [{'complete_items': [ 'lsp', 'tmux' ]},
---       \  {'mode': '<c-p>'}, {'mode': '<c-n>'}]}}
--- ]])
-
-
-opt.shortmess = opt.shortmess + 'c'
+-- TODO path completion
+g.completion_chain_complete_list = {
+  default = {
+    {complete_items = {'lsp'}},
+    {complete_items = {'snippet', 'buffers', 'tmux'}},
+    {mode = '<c-p>'},
+    {mode = '<c-n>'}
+  },
+  TelescopePrompt = {},
+}
 
 -- langserver configs
 -- TODO lsp_signature
@@ -88,7 +94,6 @@ lspconfig.golangcilsp.setup {
 require'lspconfig'.tsserver.setup{
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
-    lsp_on_attach(client)
   end,
 }
 
@@ -114,7 +119,6 @@ function lsp_imports_and_format(timeout_ms)
 end
 
 require'lspconfig'.efm.setup{
-  on_attach=lsp_on_attach,
   filetypes = {'typescript'},
 
   cmd = {'efm-langserver'},
@@ -159,7 +163,7 @@ nmap('<Leader>e', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
 
 -- golang
 
-cmd('autocmd! BufEnter *.go setlocal noexpandtab')
+cmd('autocmd BufEnter *.go setlocal noexpandtab')
 
 -- TODO slow
 cmd('autocmd BufWritePre *.go lua lsp_imports_and_format(1000)')
