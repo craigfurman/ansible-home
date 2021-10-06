@@ -75,7 +75,6 @@ g.completion_chain_complete_list = {
 }
 
 -- langserver configs
--- TODO lsp_signature
 if not lspconfig.golangcilsp then
  	configs.golangcilsp = {
 		default_config = {
