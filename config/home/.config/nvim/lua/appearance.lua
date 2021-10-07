@@ -1,5 +1,3 @@
--- TODO rainbow delimiters for treesitter
-
 -- colorscheme
 opt.termguicolors = true
 cmd([[

@@ -7,6 +7,7 @@ local Plug = fn['plug#']
 Plug 'neovim/nvim-lspconfig'
 Plug 'rinx/lspsaga.nvim'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
+Plug 'p00f/nvim-ts-rainbow'
 Plug 'nvim-lua/completion-nvim'
 Plug 'albertoCaroM/completion-tmux'
 Plug 'steelsojka/completion-buffers'
