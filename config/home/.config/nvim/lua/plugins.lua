@@ -8,7 +8,11 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'rinx/lspsaga.nvim'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 Plug 'p00f/nvim-ts-rainbow'
-Plug 'nvim-lua/completion-nvim'
+
+-- https://github.com/nvim-lua/completion-nvim/issues/399
+-- Plug 'nvim-lua/completion-nvim'
+Plug('rafaelsq/completion-nvim', {branch = 'changeHandlerSignature'})
+
 Plug 'albertoCaroM/completion-tmux'
 Plug 'steelsojka/completion-buffers'
 Plug 'hoob3rt/lualine.nvim'

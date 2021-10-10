@@ -72,6 +72,7 @@ packages:
   - tmate
   - tmux
   - tree
+  - ttf-inconsolata
   - vagrant
   - vim
   - virtualbox
@@ -95,13 +96,13 @@ aur_packages:
   - google-cloud-sdk
   - keybase-bin
   - kube-ps1
+  - nerd-fonts-complete
   - ngrok-bin
   - nordvpn-bin
   - popcorntime
   - rancher-k3d-bin
   - skypeforlinux-preview-bin
   - slack-desktop
-  - ttf-google-fonts-git
   - visual-studio-code-bin
   - zoom
 
