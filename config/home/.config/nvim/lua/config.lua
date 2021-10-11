@@ -1,5 +1,3 @@
-g.mapleader = ','
-
 -- Options
 opt.lazyredraw = true
 opt.mouse = 'a'

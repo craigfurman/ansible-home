@@ -21,7 +21,7 @@ return {
       formatStdin = true
     },
     {
-      lintCommand = "./node_modules/.bin/eslint -f visualstudio --stdin --stdin-filename ${INPUT}",
+      lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
       rootMarkers = {'package.json'},
       lintIgnoreExitCode = true,
       lintStdin = true,

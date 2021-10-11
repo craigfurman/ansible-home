@@ -24,6 +24,8 @@ function mapTable(tbl, func)
   return ret
 end
 
+-- map the leader before we call any mapping functions
+g.mapleader = ','
 
 -- Load language-specific config
 -- TODO list the files in the lang dir, and loop over that

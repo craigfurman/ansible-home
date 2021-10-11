@@ -9,4 +9,4 @@ go get golang.org/x/tools/gopls@latest
 go get -u github.com/nametake/golangci-lint-langserver
 go get -u github.com/mattn/efm-langserver
 
-npm install -g typescript-language-server
+npm install -g typescript-language-server eslint_d
