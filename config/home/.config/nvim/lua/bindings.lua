@@ -3,7 +3,7 @@ nmap('<Leader>s', ':w<CR>')
 nmap('<Leader>!', ':qa!<CR>')
 nmap('<Leader><Leader>', '<C-^>')
 nmap('<Leader>q', ':bdelete<CR>')
-vmap('Y', '"+y') -- TODO y u no work anymore
+vmap('Y', '"+y')
 
 -- edit and reload config file
 nmap('<Leader>gc', ':vsplit<CR>:edit ~/.config/nvim/init.lua<CR>')
