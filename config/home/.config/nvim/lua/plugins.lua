@@ -28,6 +28,6 @@ Plug 'fnune/base16-vim'
 Plug 'tpope/vim-fugitive' -- Git commands
 Plug 'tpope/vim-rhubarb' -- Gbrowse
 Plug 'mhinz/vim-signify' -- Git gutter
-Plug 'cohama/lexima.vim' -- auto close pairs
+Plug 'jiangmiao/auto-pairs'
 
 fn['plug#end']()
