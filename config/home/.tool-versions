@@ -1,5 +1,5 @@
 ruby 3.0.1
 nodejs 14.16.1
-golang 1.16.7
+golang 1.17.2
 kubectl 1.18.19
 helm 3.6.3
