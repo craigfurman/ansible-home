@@ -56,7 +56,7 @@ DISABLE_AUTO_TITLE=true
 # Add wisely, as too many plugins slow down shell startup.
 
 # oh-my-zsh
-plugins=(docker git golang kubectl)
+plugins=(docker git golang)
 if [ "$(uname)" = "Linux" ]; then
   plugins+=(man systemd)
 fi
@@ -231,6 +231,16 @@ kprompt() {
 kunprompt() {
   PROMPT=$PREKUBE_PROMPT
 }
+
+# https://github.com/kubernetes/kubernetes/issues/59078#issuecomment-363384825
+function kubectl() {
+  if ! type __start_kubectl >/dev/null 2>&1; then
+    source <(command kubectl completion zsh)
+  fi
+
+  command kubectl "$@"
+}
+alias k='kubectl'
 
 if [ -f ~/.zshrc_os_specific ]; then
   source ~/.zshrc_os_specific
