@@ -3,7 +3,6 @@ local ensureInstalled = {
   "comment",
   "css",
   "gomod",
-  "gomod",
   "hcl",
   "html",
   "json",
