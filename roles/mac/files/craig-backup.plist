@@ -9,7 +9,7 @@
   <array>
     <string>/usr/local/bin/bash</string>
     <string>-c</string>
-    <string>source ~/.backup_env; /usr/local/bin/restic --cleanup-cache backup --exclude-if-present .backupignore --one-file-system ~ &amp;&amp; /usr/local/bin/restic forget --keep-last 3</string>
+    <string>source ~/.backup_env; /usr/local/bin/restic --cleanup-cache backup --exclude-if-present .backupignore --one-file-system ~</string>
   </array>
 
   <key>StandardOutPath</key>
