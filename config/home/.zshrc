@@ -113,6 +113,9 @@ export EDITOR=nvim
 alias vim=nvim
 alias vimdiff="nvim -d"
 
+# git
+alias git443='GIT_SSH_COMMAND="ssh -F ~/.ssh/config_altssh" git'
+
 # Go
 export GOPATH=$HOME/workspace/go
 export PATH=$GOPATH/bin:$PATH
