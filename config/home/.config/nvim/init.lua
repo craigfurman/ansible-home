@@ -32,6 +32,7 @@ g.mapleader = ','
 langs = {
   go = {},
   typescript = {},
+  sh = {},
 }
 for name, lang in pairs(langs) do
   langs[name] = require('lang/' .. name)
@@ -63,3 +64,7 @@ for name, lang in pairs(langs) do
     cmd(string.format('autocmd BufWritePre %s %s', extensions, lang.preSaveCmds[j]))
   end
 end
+
+-- TODO clean up later: language-specific but outside lang/
+-- shell scripts often don't end in `.sh`
+cmd('autocmd FileType sh autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 2500)')
