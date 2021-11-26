@@ -7,7 +7,6 @@ vmap('Y', '"+y')
 
 -- edit and reload config file
 nmap('<Leader>gc', ':vsplit<CR>:edit ~/.config/nvim/init.lua<CR>')
--- TODO this doesn't do what I thought due to idempotent lua require()
 nmap('<Leader>r', ':source ~/.config/nvim/init.lua<CR>')
 
 -- Telescope

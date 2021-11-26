@@ -24,6 +24,12 @@ function mapTable(tbl, func)
   return ret
 end
 
+-- Require without caching
+function req(module)
+  require('plenary.reload').reload_module(module)
+  return require(module)
+end
+
 -- map the leader before we call any mapping functions
 g.mapleader = ','
 
@@ -40,14 +46,14 @@ end
 
 -- Most of the code
 require('plugins')
-require('lsp')
-require('efm')
-require('config-completion')
-require('treesitter')
-require('file-tree')
-require('config')
-require('bindings')
-require('appearance')
+req('lsp')
+req('efm')
+req('config-completion')
+req('treesitter')
+req('file-tree')
+req('config')
+req('bindings')
+req('appearance')
 
 -- Configure language-specific things
 for name, lang in pairs(langs) do
