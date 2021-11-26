@@ -27,6 +27,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'fnune/base16-vim'
 Plug 'tpope/vim-fugitive' -- Git commands
 Plug 'tpope/vim-rhubarb' -- Gbrowse
+Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-signify' -- Git gutter
 Plug 'jiangmiao/auto-pairs'
 
