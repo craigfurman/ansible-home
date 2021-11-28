@@ -6,7 +6,7 @@ After=network-online.target
 Type=oneshot
 User={{ansible_user}}
 EnvironmentFile=/etc/craig-backup/env
-ExecStart=sh -c 'restic --cleanup-cache backup \
+ExecStart=restic --cleanup-cache backup \
   --exclude-if-present .backupignore --one-file-system /media/data/Photos
 
 [Install]

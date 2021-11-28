@@ -6,8 +6,8 @@ After=network-online.target
 Type=oneshot
 User={{ansible_user}}
 EnvironmentFile=/etc/craig-backup/env
-ExecStart=sh -c 'restic --cleanup-cache backup \
-  --exclude-if-present .backupignore --one-file-system ~
+ExecStart=restic --cleanup-cache backup \
+  --exclude-if-present .backupignore --one-file-system /home/craig
 
 [Install]
 WantedBy=multi-user.target
