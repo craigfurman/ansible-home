@@ -58,7 +58,7 @@ DISABLE_AUTO_TITLE=true
 # oh-my-zsh
 plugins=(docker git golang)
 if [ "$(uname)" = "Linux" ]; then
-  plugins+=(man systemd)
+  plugins+=(systemd)
 fi
 
 ZSH_DISABLE_COMPFIX=true
