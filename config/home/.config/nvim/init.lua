@@ -39,6 +39,7 @@ langs = {
   go = {},
   typescript = {},
   sh = {},
+  terraform = {},
 }
 for name, lang in pairs(langs) do
   langs[name] = require('lang/' .. name)
