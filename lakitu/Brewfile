@@ -1,0 +1,57 @@
+# vi: syntax=ruby
+
+brew 'ansible'
+brew 'bash'
+brew 'curl'
+brew 'git'
+brew 'gnupg'
+brew 'golangci-lint'
+brew 'htop'
+brew 'jq'
+brew 'make'
+brew 'neovim'
+brew 'pidof'
+brew 'pwgen'
+brew 'restic'
+brew 'ripgrep'
+brew 'shellcheck'
+brew 'shfmt'
+brew 'stow'
+brew 'tmux'
+brew 'tree'
+brew 'watch'
+brew 'wget'
+brew 'zsh'
+brew 'zsh-completions'
+brew 'fzf'
+
+# gnutils
+brew 'coreutils'
+brew 'diffutils'
+brew 'findutils'
+brew 'gawk'
+brew 'gnu-sed'
+brew 'gnu-tar'
+brew 'grep'
+
+# tap 'universal-ctags/universal-ctags'
+# brew 'universal-ctags', args: ['HEAD']
+
+# casks
+cask 'discord'
+cask 'docker'
+cask 'flycut'
+cask 'istat-menus'
+cask 'kitty'
+cask 'obsidian'
+cask 'shiftit'
+cask 'slack'
+cask 'signal'
+cask 'whatsapp'
+cask 'keybase'
+
+# tap 'homebrew/cask-fonts'
+# cask 'font-inconsolata'
+
+# mac app store
+# Be focused

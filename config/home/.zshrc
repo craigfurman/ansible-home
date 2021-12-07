@@ -55,6 +55,10 @@ DISABLE_AUTO_TITLE=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
+# https://github.com/Homebrew/brew/issues/11883
+unset HOMEBREW_SHELLENV_PREFIX
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # oh-my-zsh
 plugins=(docker git golang)
 if [ "$(uname)" = "Linux" ]; then

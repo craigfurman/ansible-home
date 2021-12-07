@@ -21,32 +21,32 @@ crib from that in the future.
 Unless otherwise spelt out, start in "System Preferences"
 
 1. General
-  1. Appearance: auto
+   1. Appearance: auto
 1. Dock and menu bar
-  1. automatically hide the dock
+   1. automatically hide the dock
 1. Users and Groups
-  1. Login items: add flycut. Shiftit should have an option in its own settings
-     to do this.
+   1. Login items: add flycut. Shiftit should have an option in its own settings
+      to do this.
 1. Security and privacy
-  1. Filevault: yes
+   1. Filevault: yes
 1. Sound
-  1. Disable startup sound
+   1. Disable startup sound
 1. Keyboard
-  1. Key repeat fastest, delay until repeat shortest.
-  1. Turn off keyboard backlight after 5s
-  1. Remap caps lock to escape
-  1. Use standard function keys on external keyboards
-  1. Shortcuts -> Input sources -> disable ^-space for "previous input source" -
-     it's my tmux prefix.
+   1. Key repeat fastest, delay until repeat shortest.
+   1. Turn off keyboard backlight after 5s
+   1. Remap caps lock to escape
+   1. Use standard function keys on external keyboards
+   1. Shortcuts -> Input sources -> disable ^-space for "previous input source" -
+      it's my tmux prefix.
 1. Trackpad
-  1. Allow tap to click
-  1. Scroll and zoom: untick natural scroll
+   1. Allow tap to click
+   1. Scroll and zoom: untick natural scroll
 1. Displays
-  1. On the pro 16", default scaling seems sensible: looks like 1792x1120, on
-     the 3072x1920 screen.
-  1. Enable night shift
+   1. On the pro 16", default scaling seems sensible: looks like 1792x1120, on
+      the 3072x1920 screen.
+   1. Enable night shift
 1. Battery
-  1. Power adapter: prevent computer from sleeping automatically
+   1. Power adapter: prevent computer from sleeping automatically
 
 ## ssh
 
