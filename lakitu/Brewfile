@@ -50,8 +50,9 @@ cask 'signal'
 cask 'whatsapp'
 cask 'keybase'
 
-# tap 'homebrew/cask-fonts'
-# cask 'font-inconsolata'
+tap 'homebrew/cask-fonts'
+cask 'font-inconsolata'
+cask 'font-inconsolata-nerd-font'
 
 # mac app store
 # Be focused

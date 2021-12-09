@@ -56,15 +56,15 @@ DISABLE_AUTO_TITLE=true
 # Add wisely, as too many plugins slow down shell startup.
 
 # https://github.com/Homebrew/brew/issues/11883
+__brew_prefix_pre_shellenv=/usr/local
+if [ -d /opt/homebrew ]; then
+  __brew_prefix_pre_shellenv=/opt/homebrew
+fi
 unset HOMEBREW_SHELLENV_PREFIX
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$("$__brew_prefix_pre_shellenv/bin/brew" shellenv)"
 
 # oh-my-zsh
 plugins=(docker git golang)
-if [ "$(uname)" = "Linux" ]; then
-  plugins+=(systemd)
-fi
-
 ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
