@@ -5,7 +5,7 @@ Configuration and automation for my various personal computers.
 ## Usage
 
 ```
-ansible-playbook -i inventory/craig-laptop --vault-password-file <vault-password-file> craig-laptop.yml
+ansible-playbook -i inventory/lakitu --vault-password-file <vault-password-file> lakitu.yml
 ```
 
 Replace inventory and playbook as appropriate.

@@ -55,13 +55,17 @@ DISABLE_AUTO_TITLE=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-# https://github.com/Homebrew/brew/issues/11883
+# homebrew
 __brew_prefix_pre_shellenv=/usr/local
 if [ -d /opt/homebrew ]; then
   __brew_prefix_pre_shellenv=/opt/homebrew
 fi
+
+# https://github.com/Homebrew/brew/issues/11883
 unset HOMEBREW_SHELLENV_PREFIX
+
 eval "$("$__brew_prefix_pre_shellenv/bin/brew" shellenv)"
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # oh-my-zsh
 plugins=(docker git golang)
@@ -112,6 +116,20 @@ export XZ_OPT="-T0 -0"
 export MAKEFLAGS="-j$(nproc)"
 export GPG_TTY=$(tty)
 
+# GNUtils
+for gnutil in coreutils grep gnu-tar gnu-sed gawk findutils make ; do
+  export PATH="$HOMEBREW_PREFIX/opt/$gnutil/libexec/gnubin:$PATH"
+  export MANPATH="$HOMEBREW_PREFIX/opt/$gnutil/libexec/gnuman:$MANPATH"
+done
+
+# fzf
+source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
+source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
+
+# More brew PATH
+export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
+export MANPATH="$HOMEBREW_PREFIX/opt/curl/share/man:$MANPATH"
+
 # Vim
 export EDITOR=nvim
 alias vim=nvim
@@ -150,6 +168,11 @@ complete -o nospace -C $(which tk) tk
 # krew
 # See https://krew.sigs.k8s.io/docs/user-guide/setup/install/ for installation
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# gcloud
+# TODO bring back
+# source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+# source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -249,10 +272,6 @@ function kubectl() {
   command kubectl "$@"
 }
 alias k='kubectl'
-
-if [ -f ~/.zshrc_os_specific ]; then
-  source ~/.zshrc_os_specific
-fi
 
 if [ -f ~/.zshrc_machine_specific ]; then
   source ~/.zshrc_machine_specific

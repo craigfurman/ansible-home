@@ -1,7 +1,4 @@
 ---
-- include_vars: file=vault
-  no_log: true
-
 - name: Start and enable sshd
   service: "name={{sshd_service_name}} state=started enabled=true"
   become: true
@@ -17,6 +14,7 @@
 - name: Create .ssh dir
   file: path=~/.ssh state=directory mode=0700
 
+  # TODO get working
 - name: Install authorized keys
   copy:
     content: "{{authorized_keys}}"

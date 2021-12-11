@@ -38,6 +38,8 @@ brew 'grep'
 # brew 'universal-ctags', args: ['HEAD']
 
 # casks
+cask 'authy'
+cask 'lastpass'
 cask 'discord'
 cask 'docker'
 cask 'flycut'

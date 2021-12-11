@@ -25,9 +25,6 @@
 - name: Install config
   command: stow -t ~ home chdir={{ansible_env.PWD}}/config
 
-- name: Install OS-specific config
-  command: stow -t ~ home chdir={{ansible_env.PWD}}/config/os_specific/{{ansible_facts['system']}}
-
 - name: Install machine-specific config
   command: stow -t ~ home chdir={{ansible_env.PWD}}/config/machine_specific/{{inventory_hostname}}
 
@@ -72,10 +69,3 @@
 
 - name: Install dev tools
   command: ./bin/install_dev_tools
-
-# TODO: re-enable rust when rustup itself is bootstrapped by ansible
-# - name: Install Stable Rust
-#   command: rustup toolchain install stable
-#
-# - name: Set default rust to stable
-#   command: rustup default stable
