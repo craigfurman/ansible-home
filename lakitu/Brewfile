@@ -51,6 +51,7 @@ cask 'slack'
 cask 'signal'
 cask 'whatsapp'
 cask 'keybase'
+cask 'google-cloud-sdk'
 
 tap 'homebrew/cask-fonts'
 cask 'font-inconsolata'

@@ -170,9 +170,8 @@ complete -o nospace -C $(which tk) tk
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # gcloud
-# TODO bring back
-# source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-# source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
