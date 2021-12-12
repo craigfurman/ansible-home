@@ -1,0 +1,2 @@
+[macs]
+lakitu ansible_user=craig ansible_connection=local

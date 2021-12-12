@@ -2,7 +2,7 @@
 - name: Allow zsh to be used as a login shell
   lineinfile:
     path: /etc/shells
-    line: /usr/local/bin/zsh
+    line: "{{zsh_path}}"
   become: true
 
 # - name: Write backup config file
@@ -37,11 +37,3 @@
 
 # - name: Start backup service
 #   command: launchctl load -w ~/Library/LaunchAgents/craig-backup.plist
-
-- pip:
-    name: "{{item}}"
-    state: latest
-    executable: pip
-  with_items:
-    - pynvim
-    - requests
