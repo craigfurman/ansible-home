@@ -1,0 +1,17 @@
+- include_vars: file=secret.yml
+  no_log: true
+
+- name: Create directory
+  file: path=~/backup state=directory mode=0755
+
+- name: Write backup config file
+  copy:
+    dest: ~/backup/.envrc
+    content: "{{restic_env}}"
+    mode: 0600
+
+- name: Install backup launchd service
+  copy: src=backup-home.plist dest=~/Library/LaunchAgents/backup-home.plist
+
+- name: Start backup service
+  command: launchctl load -w ~/Library/LaunchAgents/backup-home.plist

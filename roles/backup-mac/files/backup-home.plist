@@ -3,25 +3,25 @@
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>craig-backup</string>
+  <string>backup-home</string>
 
   <key>ProgramArguments</key>
   <array>
-    <string>/usr/local/bin/bash</string>
+    <string>/opt/homebrew/bin/bash</string>
     <string>-c</string>
-    <string>source ~/.backup_env; /usr/local/bin/restic --cleanup-cache backup --exclude-if-present .backupignore --one-file-system ~</string>
+    <string>source ~/backup/.envrc; /opt/homebrew/bin/restic --cleanup-cache backup --exclude-file ~/workspace/ansible-home/roles/backup-mac/files/excludes.txt --one-file-system --host lakitu ~</string>
   </array>
 
   <key>StandardOutPath</key>
-  <string>/tmp/restic.log</string>
+  <string>/Users/craig/backup/restic.log</string>
 
   <key>StandardErrorPath</key>
-  <string>/tmp/restic.log</string>
+  <string>/Users/craig/backup/restic.log</string>
 
   <key>StartCalendarInterval</key>
   <dict>
     <key>Hour</key>
-    <integer>10</integer>
+    <integer>11</integer>
     <key>Minute</key>
     <integer>0</integer>
   </dict>

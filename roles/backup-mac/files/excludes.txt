@@ -1,0 +1,9 @@
+.Trash/**
+.ansible/**
+.asdf/**
+.cache/**
+.npm/**
+.oh-my-zsh/**
+Library/**
+workspace/go/bin/*
+workspace/go/pkg/**

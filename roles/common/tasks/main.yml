@@ -15,7 +15,6 @@
     - ~/.config/kitty
     - ~/.config/nvim
     - ~/.local/share/nvim/site/autoload
-    - ~/bin
 
 - name: Create restricted directories
   file: path={{item}} state=directory mode=0700
