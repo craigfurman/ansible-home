@@ -3,6 +3,7 @@
 brew 'ansible'
 brew 'bash'
 brew 'curl'
+brew 'fzf'
 brew 'git'
 brew 'gnupg'
 brew 'golangci-lint'
@@ -23,7 +24,6 @@ brew 'watch'
 brew 'wget'
 brew 'zsh'
 brew 'zsh-completions'
-brew 'fzf'
 
 # gnutils
 brew 'coreutils'
@@ -38,20 +38,22 @@ brew 'grep'
 # brew 'universal-ctags', args: ['HEAD']
 
 # casks
+# cask 'brave-browser' # Installed manually, uncomment if reinstalling
 cask 'authy'
-cask 'lastpass'
 cask 'discord'
 cask 'docker'
 cask 'flycut'
+cask 'google-chrome'
+cask 'google-cloud-sdk'
 cask 'istat-menus'
+cask 'keybase'
 cask 'kitty'
+cask 'lastpass'
 cask 'obsidian'
 cask 'shiftit'
-cask 'slack'
 cask 'signal'
+cask 'slack'
 cask 'whatsapp'
-cask 'keybase'
-cask 'google-cloud-sdk'
 
 tap 'homebrew/cask-fonts'
 cask 'font-inconsolata'
