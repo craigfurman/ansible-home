@@ -20,6 +20,7 @@ brew 'neovim'
 brew 'pidof'
 brew 'pinentry-mac'
 brew 'postgresql@9.6', link: true, restart_service: :changed # brew pin postgresql@9.6
+brew 'postico'
 brew 'pwgen'
 brew 'python'
 brew 'redis', restart_service: :changed
