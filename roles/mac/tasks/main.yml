@@ -4,3 +4,6 @@
     path: /etc/shells
     line: "{{zsh_path}}"
   become: true
+
+- command: brew bundle --no-lock --file macos/common.Brewfile
+- command: brew bundle --no-lock --file macos/{{inventory_hostname}}.Brewfile
