@@ -1,34 +1,21 @@
-# vi: syntax=ruby
+# vi: ft=ruby
 
 brew 'ansible'
-brew 'awscli'
 brew 'bash'
 brew 'curl'
-brew 'direnv'
 brew 'fzf'
 brew 'git'
-brew 'git-trim'
-brew 'gh'
 brew 'gnupg'
 brew 'golangci-lint'
-brew 'graphviz'
 brew 'htop'
 brew 'jq'
-brew 'kube-ps1'
-brew 'make'
 brew 'neovim'
 brew 'pidof'
-brew 'pinentry-mac'
-brew 'postgresql@9.6', link: true, restart_service: :changed # brew pin postgresql@9.6
-brew 'postico'
 brew 'pwgen'
-brew 'python'
-brew 'redis', restart_service: :changed
 brew 'restic'
 brew 'ripgrep'
 brew 'shellcheck'
 brew 'shfmt'
-brew 'stern'
 brew 'stow'
 brew 'tmux'
 brew 'tree'
@@ -45,27 +32,24 @@ brew 'gawk'
 brew 'gnu-sed'
 brew 'gnu-tar'
 brew 'grep'
-
-tap 'universal-ctags/universal-ctags'
-brew 'universal-ctags', args: ['HEAD']
+brew 'make'
 
 # casks
-cask 'aws-vault'
+# cask 'brave-browser' # Installed manually, uncomment if reinstalling
+cask 'discord'
 cask 'docker'
 cask 'flycut'
+cask 'google-chrome'
 cask 'google-cloud-sdk'
-cask 'intel-power-gadget' # for istat-menus CPU frequency monitoring
 cask 'istat-menus'
+cask 'keybase'
 cask 'kitty'
-cask 'notion'
 cask 'obsidian'
 cask 'shiftit'
-cask 'vagrant'
-cask 'virtualbox'
-cask 'visual-studio-code'
+cask 'signal'
+cask 'slack'
+cask 'whatsapp'
 
 tap 'homebrew/cask-fonts'
 cask 'font-inconsolata'
-
-# mac app store
-# Be focused
+cask 'font-inconsolata-nerd-font'
