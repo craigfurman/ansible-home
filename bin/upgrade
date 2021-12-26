@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# shellcheck source=../shell_helpers/shell-helpers.sh
-source "$(dirname "$0")/../shell_helpers/shell-helpers.sh"
-
-"$(dirname "$0")/upgrade__$(uname)"
+brew update
+brew upgrade --ignore-pinned
+brew upgrade --cask
+brew cleanup
