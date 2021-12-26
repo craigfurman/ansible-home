@@ -16,7 +16,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bira"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -237,24 +237,6 @@ viewcert() {
   yes | openssl s_client -connect "${1}:${2:-443}" | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509  -text -noout
 }
 
-kube_namespace() {
-  ns=$(kubectl config view --minify --output jsonpath='{..namespace}')
-  if [ "${ns:-}" = "" ]; then
-    ns="default"
-  fi
-  echo "$ns"
-}
-
-# A lot like kube-ps1, but not loaded with every shell. It was slowing down my
-# shell startup time too much, even with "kubeoff".
-kprompt() {
-  PREKUBE_PROMPT=$PROMPT
-  PROMPT=$(echo $PROMPT | sed -E '1 s/$/<⎈ $(kubectl config current-context)|$(kube_namespace)>/')
-}
-kunprompt() {
-  PROMPT=$PREKUBE_PROMPT
-}
-
 # https://github.com/kubernetes/kubernetes/issues/59078#issuecomment-363384825
 function kubectl() {
   if ! type __start_kubectl >/dev/null 2>&1; then
@@ -272,6 +254,9 @@ fi
 if [ -f ~/.zshrc_secrets ]; then
   source ~/.zshrc_secrets
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Uncomment this and the top line to enable profiling
 # zprof
