@@ -1,6 +1,12 @@
 # Uncomment this and the bottom line to enable profiling
 # zmodload zsh/zprof
 
+if [ -x /usr/libexec/path_helper ]; then
+  unset PATH
+  unset MANPATH
+  eval `/usr/libexec/path_helper -s`
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -61,9 +67,6 @@ if [ -d /opt/homebrew ]; then
   __brew_prefix_pre_shellenv=/opt/homebrew
 fi
 
-# https://github.com/Homebrew/brew/issues/11883
-unset HOMEBREW_SHELLENV_PREFIX
-
 eval "$("$__brew_prefix_pre_shellenv/bin/brew" shellenv)"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
@@ -111,10 +114,8 @@ alias diff='diff --color=auto'
 alias viknownhosts='vim ~/.ssh/known_hosts'
 
 # Env vars
-export PATH=$HOME/bin:$HOME/.local/bin:$PATH
-export XZ_OPT="-T0 -0"
 export MAKEFLAGS="-j$(nproc)"
-export GPG_TTY=$(tty)
+export GPG_TTY=$TTY
 
 # GNUtils
 for gnutil in coreutils grep gnu-tar gnu-sed gawk findutils make ; do
@@ -140,13 +141,10 @@ alias git443='GIT_SSH_COMMAND="ssh -F ~/.ssh/config_altssh" git'
 
 # Go
 export GOPATH=$HOME/workspace/go
-export PATH=$GOPATH/bin:$PATH
+export PATH=$PATH:$GOPATH/bin
 
 # Ruby
 alias be="bundle exec"
-
-# Rust
-export PATH=$HOME/.cargo/bin:$PATH
 
 # rg
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
@@ -165,13 +163,8 @@ alias mkpr="hub pull-request"
 # tanka
 complete -o nospace -C $(which tk) tk
 
-# krew
-# See https://krew.sigs.k8s.io/docs/user-guide/setup/install/ for installation
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
 # gcloud
 source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
