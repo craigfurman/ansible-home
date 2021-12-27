@@ -1,6 +1,6 @@
 # ansible-home
 
-Configuration and automation for my various personal computers.
+Configuration and automation for my various computers.
 
 ## Usage
 
@@ -9,6 +9,8 @@ ansible-playbook -i inventory/lakitu --vault-password-file <vault-password-file>
 ```
 
 Replace inventory and playbook as appropriate.
+
+Append `-K` when running tasks that require root.
 
 ### Upgrading laptops
 
@@ -25,13 +27,57 @@ Replace inventory and playbook as appropriate.
 Secrets are encrypted with ansible-vault, and are kept in a private repository.
 Clone the secrets repository into the checkout of this repository.
 
-### Arch Linux
-
-1. `sudo pacman -S ansible`
-1. Run ansible as normal.
-
 ### macOS
 
 1. Install Homebrew
-1. `cd macos && brew bundle`
+   1. This should install xcode command line tools automatically. If not, run
+      `xcode-select --install`.
+1. `brew install ansible`
 1. Run ansible as normal.
+
+## Manual setup
+
+Ironically for an automation repo, I currently configure a few things on my work
+Mac laptop via the GUI. I figure that if these settings move / change their
+options / and removed, it'll be easier to learn that through the GUI.
+
+A lot of this is automatable (<https://mths.be/macos> /
+<https://github.com/mathiasbynens/dotfiles/blob/master/.macos>), and I might
+crib from that in the future.
+
+Unless otherwise spelt out, start in "System Preferences":
+
+1. General
+   1. Appearance: auto
+1. Sharing
+   1. Change computer name
+1. Dock and menu bar
+   1. automatically hide the dock
+1. Users and Groups
+   1. Login items: add flycut.
+   1. Open Shiftit preferences and enable "Open at login".
+1. Security and privacy
+   1. General: require password immediately after sleep begins.
+   1. Filevault: yes
+1. Sound
+   1. Disable startup sound
+1. Keyboard
+   1. Key repeat fastest, delay until repeat shortest.
+   1. Turn off keyboard backlight after 5s
+   1. Remap caps lock to escape.
+   1. Extra maps for PC keyboard. Set to ISO, swap option and command
+   1. Use standard function keys on external keyboards
+   1. Shortcuts -> Input sources -> disable ^-space for "previous input source" -
+      it's my tmux prefix.
+1. Trackpad
+   1. Allow tap to click
+   1. Scroll and zoom: untick natural scroll
+1. Displays
+   1. On the pro 16", default scaling seems sensible: looks like 1792x1120, on
+      the 3072x1920 screen.
+   1. Enable night shift
+1. Battery
+   1. Power adapter: prevent computer from sleeping automatically
+1. Spotlight
+   1. Privacy: exclude ~/workspace to avoid mds_stores doing work every time I
+      compile things.
