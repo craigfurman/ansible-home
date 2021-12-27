@@ -1,4 +1,5 @@
 ---
+# This is arguably not strictly necessary, see `man 5 shells`
 - name: Allow zsh to be used as a login shell
   lineinfile:
     path: /etc/shells
