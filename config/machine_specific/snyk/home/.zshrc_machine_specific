@@ -1,3 +1,6 @@
+# Apparently intel only
+source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+
 snyk-dev() {
   (
     cd ~/workspace/github.com/snyk/snyk
