@@ -9,12 +9,13 @@ Plug('tami5/lspsaga.nvim', {branch = 'nvim6.0'})
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 Plug 'p00f/nvim-ts-rainbow'
 
--- https://github.com/nvim-lua/completion-nvim/issues/399
--- Plug 'nvim-lua/completion-nvim'
-Plug('rafaelsq/completion-nvim', {branch = 'changeHandlerSignature'})
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'andersevenrud/cmp-tmux'
 
-Plug 'albertoCaroM/completion-tmux'
-Plug 'steelsojka/completion-buffers'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons' -- dependency of a few things
 Plug 'kyazdani42/nvim-tree.lua'
