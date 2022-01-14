@@ -5,7 +5,7 @@ local Plug = fn['plug#']
 
 -- Newfangled
 Plug 'neovim/nvim-lspconfig'
-Plug 'rinx/lspsaga.nvim'
+Plug('tami5/lspsaga.nvim', {branch = 'nvim6.0'})
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 Plug 'p00f/nvim-ts-rainbow'
 
