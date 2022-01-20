@@ -23,17 +23,17 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.config.disable,
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
+        cmp.select_next_item({behavior = cmp.SelectBehavior.Insert})
       else
         fallback()
       end
     end,
     ['<S-Tab>'] = function(fallback)
       if cmp.visible() then
-        cmp.select_prev_item()
+        cmp.select_prev_item({behavior = cmp.SelectBehavior.Insert})
       else
         fallback()
       end
