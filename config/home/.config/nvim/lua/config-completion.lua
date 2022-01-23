@@ -1,4 +1,4 @@
-opt.completeopt = 'menuone,noinsert,noselect'
+opt.completeopt = 'menu,menuone,noinsert,noselect'
 opt.shortmess = opt.shortmess + 'c'
 
 -- Setup nvim-cmp.
@@ -23,7 +23,7 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<CR>'] = cmp.config.disable,
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item({behavior = cmp.SelectBehavior.Insert})
