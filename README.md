@@ -55,7 +55,6 @@ Unless otherwise spelt out, start in "System Preferences":
    1. automatically hide the dock
 1. Users and Groups
    1. Login items: add flycut.
-   1. Open Shiftit preferences and enable "Open at login".
 1. Security and privacy
    1. General: require password immediately after sleep begins.
    1. Filevault: yes
