@@ -5,8 +5,8 @@ set -euo pipefail
 # sort of thing should be minimised, and the package manager preferred wherever
 # possible.
 
-go get golang.org/x/tools/gopls@latest
-go get -u github.com/nametake/golangci-lint-langserver
-go get -u github.com/mattn/efm-langserver
+go install golang.org/x/tools/gopls@latest
+go install github.com/nametake/golangci-lint-langserver@latest
+go install github.com/mattn/efm-langserver@latest
 
 npm install -g typescript-language-server eslint_d
