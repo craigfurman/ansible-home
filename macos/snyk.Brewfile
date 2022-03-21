@@ -4,11 +4,14 @@ brew 'git-trim'
 brew 'gh'
 brew 'graphviz'
 brew 'pinentry-mac'
-brew 'postgresql@13', link: true, restart_service: :changed # brew pin postgresql@13
 brew 'postico'
 brew 'python'
 brew 'redis', restart_service: :changed
 brew 'stern'
+
+# TODO must manually pin icu4c to whatever gets installed by postgres. There are
+# no `@` versions for icu4c
+brew 'postgresql@13', link: true, restart_service: :changed # brew pin postgresql@13
 
 tap 'universal-ctags/universal-ctags'
 brew 'universal-ctags', args: ['HEAD']
