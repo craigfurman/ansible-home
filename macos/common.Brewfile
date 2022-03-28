@@ -1,6 +1,7 @@
 # vi: ft=ruby
 
 brew 'ansible'
+brew 'awscli'
 brew 'bash'
 brew 'curl'
 brew 'fzf'
