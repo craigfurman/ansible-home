@@ -153,8 +153,8 @@ export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export FZF_DEFAULT_COMMAND='rg --smart-case --hidden --files --glob !.git'
 
 # direnv
-eval "$(asdf exec direnv hook zsh)"
-direnv() { asdf exec direnv "$@"; }
+export ASDF_DIRENV_BIN="$(command -v direnv)" # or `$(command -v direnv)` for system managed.
+eval "$($ASDF_DIRENV_BIN hook zsh)"
 alias da="direnv allow"
 
 # Github
