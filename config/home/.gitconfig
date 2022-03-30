@@ -1,5 +1,6 @@
 # vi: syntax=gitconfig noexpandtab
 [include]
+	# work email and gpg signing key
 	path = ~/.gitconfig_machine_specific
 [core]
 	excludesfile = ~/.gitignore_global
@@ -27,3 +28,5 @@
 	fsckObjects = false  # TODO couldn't clone oh-my-zsh
 [init]
 	defaultBranch = main
+[url "git@github.com:snyk"]
+	insteadOf = https://github.com/snyk
