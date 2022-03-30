@@ -13,3 +13,5 @@ snyk-dev() {
     node ./dist/cli "$@"
   )
 }
+
+export GOPRIVATE=github.com/snyk
