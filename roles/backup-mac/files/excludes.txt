@@ -2,8 +2,10 @@
 .ansible/**
 .asdf/**
 .cache/**
+.cargo/**
 .npm/**
 .oh-my-zsh/**
+.rustup/**
 Library/**
 workspace/go/bin/*
 workspace/go/pkg/**

@@ -143,6 +143,9 @@ alias git443='GIT_SSH_COMMAND="ssh -F ~/.ssh/config_altssh" git'
 export GOPATH=$HOME/workspace/go
 export PATH=$PATH:$GOPATH/bin
 
+# rust
+[[ ! -f $HOME/.cargo/env ]] || source $HOME/.cargo/env
+
 # Ruby
 alias be="bundle exec"
 
