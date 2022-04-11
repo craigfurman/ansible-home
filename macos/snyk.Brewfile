@@ -1,5 +1,6 @@
 # vi: ft=ruby
 
+brew 'azure-cli'
 brew 'git-trim'
 brew 'gh'
 brew 'graphviz'
