@@ -112,6 +112,7 @@ source $ZSH/oh-my-zsh.sh
 alias ll='ls -alh'
 alias diff='diff --color=auto'
 alias viknownhosts='vim ~/.ssh/known_hosts'
+alias notify_command_done="osascript -e 'display notification \"is finished\" with title \"Shell Command\"'"
 
 # Env vars
 export MAKEFLAGS="-j$(nproc)"
