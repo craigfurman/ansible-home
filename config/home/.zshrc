@@ -208,7 +208,7 @@ gclone() {
 
 killp() {
   local sig="${1:--TERM}"
-  kill "${sig}" "$(ps -ef | fzf | awk '{print $2}')"
+  ps -ef | fzf --multi | awk '{print $2}' | xargs kill "${sig}"
 }
 
 rmknownhost() {
