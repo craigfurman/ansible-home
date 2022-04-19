@@ -5,12 +5,18 @@ function lsp_imports(timeout_ms)
   for _, res in pairs(result or {}) do
     for _, r in pairs(res.result or {}) do
       if r.edit then
-        vim.lsp.util.apply_workspace_edit(r.edit)
+        vim.lsp.util.apply_workspace_edit(r.edit, get_offset_encoding())
       else
         vim.lsp.buf.execute_command(r.command)
       end
     end
   end
+end
+
+function get_offset_encoding()
+  -- Just use the first client. In the future, perhaps parameterise this with
+  -- the desired client name.
+  return vim.lsp.buf_get_clients()[1].offset_encoding
 end
 
 function lsp_imports_and_format(timeout_ms)
