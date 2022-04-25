@@ -167,6 +167,9 @@ alias mkpr="hub pull-request"
 # tanka
 complete -o nospace -C $(which tk) tk
 
+# AWS
+complete -C '/usr/local/bin/aws_completer' aws
+
 # gcloud
 source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
