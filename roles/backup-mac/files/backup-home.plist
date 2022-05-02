@@ -9,7 +9,7 @@
   <array>
     <string>/opt/homebrew/bin/bash</string>
     <string>-c</string>
-    <string>source ~/backup/.envrc; /opt/homebrew/bin/restic --cleanup-cache backup --exclude-file ~/workspace/ansible-home/roles/backup-mac/files/excludes.txt --one-file-system --host lakitu ~</string>
+    <string>/opt/homebrew/opt/coreutils/libexec/gnubin/date --iso-8601=seconds; source ~/backup/.envrc; /opt/homebrew/bin/restic --cleanup-cache backup --exclude-file ~/workspace/ansible-home/roles/backup-mac/files/excludes.txt --one-file-system --host lakitu ~</string>
   </array>
 
   <key>StandardOutPath</key>
