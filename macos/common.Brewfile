@@ -1,5 +1,6 @@
 # vi: ft=ruby
 
+brew 'age'
 brew 'ansible'
 brew 'awscli'
 brew 'bash'
