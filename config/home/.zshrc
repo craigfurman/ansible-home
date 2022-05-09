@@ -240,6 +240,23 @@ gitpulldir() {
   wait
 }
 
+openproj() {
+  local proj=$1
+  local new_window_and_pane=$(tmux new-window -c "$proj" -P -F "#{window_id} #{pane_id}")
+  local window_id=$(echo "$new_window_and_pane" | awk '{print $1}')
+  local editor_pane=$(echo "$new_window_and_pane" | awk '{print $2}')
+  local name="$(basename "$proj")"
+  tmux rename-window -t "${window_id}" "$name"
+
+  # quick-and-dirty layout: open a pane only to kill it later, giving the editor
+  # pane the top 3/4 of the screen
+  local spacer_pane=$(tmux split-window -v -P -F "#{pane_id}")
+  local shell_pane=$(tmux split-window -c "$proj" -v -P -F "#{pane_id}")
+  tmux kill-pane -t "${spacer_pane}"
+  tmux send-keys -t "${editor_pane}" "vim" Enter
+  tmux select-pane -t "${editor_pane}"
+}
+
 viewcert() {
   yes | openssl s_client -connect "${1}:${2:-443}" | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509  -text -noout
 }
