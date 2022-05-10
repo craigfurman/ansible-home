@@ -70,6 +70,8 @@ fi
 eval "$("$__brew_prefix_pre_shellenv/bin/brew" shellenv)"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+FPATH=$HOMEBREW_PREFIX/share/zsh-completions:$FPATH
+
 # oh-my-zsh
 plugins=(docker git golang)
 ZSH_DISABLE_COMPFIX=true
