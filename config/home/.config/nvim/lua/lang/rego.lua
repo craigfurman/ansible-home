@@ -5,6 +5,9 @@ return {
   filetype = 'rego',
   extensions = {'rego'},
   setupLsp = setupLsp,
-  fileOpenCmds = {'setlocal noexpandtab'},
+  fileOpenCmds = {
+    'setlocal noexpandtab',
+    'setlocal commentstring=#\\ %s'
+  },
   preSaveCmds = {},
 }
