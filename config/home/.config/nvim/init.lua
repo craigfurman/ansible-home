@@ -74,7 +74,10 @@ for name, lang in pairs(langs) do
 end
 
 -- TODO clean up later: language-specific but outside lang/
+
 -- shell scripts often don't end in `.sh`
-cmd('autocmd FileType sh autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 2500)')
+-- but, running shfmt on every shell script creates unwanted diffs
+-- cmd('autocmd FileType sh autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 2500)')
+
 -- go.mod recognised incorrectly as lprolog
 cmd('autocmd BufEnter go.mod set ft=gomod')

@@ -1,9 +1,10 @@
 # vi: ft=ruby
 
 brew 'azure-cli'
-brew 'git-trim'
 brew 'gh'
+brew 'git-trim'
 brew 'graphviz'
+brew 'k3d'
 brew 'pinentry-mac'
 brew 'postico'
 brew 'python'

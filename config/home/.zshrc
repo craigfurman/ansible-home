@@ -263,6 +263,12 @@ viewcert() {
   yes | openssl s_client -connect "${1}:${2:-443}" | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509  -text -noout
 }
 
+runInDir() {
+  local dir=$1
+  shift
+  sh -c "cd $dir && $*"
+}
+
 # https://github.com/kubernetes/kubernetes/issues/59078#issuecomment-363384825
 function kubectl() {
   if ! type __start_kubectl >/dev/null 2>&1; then
