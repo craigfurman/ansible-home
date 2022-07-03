@@ -1,0 +1,19 @@
+snippet gotest "A Go test"
+  func Test$1(t *testing.T) {
+    $2
+  }
+
+snippet gotabletest "A Go table test"
+  func Test$1(t *testing.T) {
+    for _, tc := range []struct {
+      name string
+    }{
+      {
+        name: "$2",
+      },
+    } {
+      t.Run(tc.name, func(t *testing.T) {
+        $3
+      })
+    }
+  }
