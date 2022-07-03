@@ -1,7 +1,7 @@
 opt.completeopt = 'menu,menuone,noinsert,noselect'
 opt.shortmess = opt.shortmess + 'c'
 
-local luasnip = require('luasnip');
+local luasnip = require('luasnip')
 
 require('luasnip.loaders.from_snipmate').lazy_load()
 
