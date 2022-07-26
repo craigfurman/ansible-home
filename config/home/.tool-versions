@@ -1,3 +1,5 @@
 golang 1.18.4
 direnv system
 nodejs lts
+python 3.8.13
+kubectl 1.23.8
