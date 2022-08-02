@@ -1,3 +1,6 @@
+local lspconfig = require('lspconfig')
+local configs = require 'lspconfig.configs'
+
 function lsp_imports(timeout_ms)
   local params = vim.lsp.util.make_range_params()
   params.context = {only = {"source.organizeImports"}}
@@ -38,3 +41,21 @@ nmap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 nmap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 nmap('<Leader>e', '<cmd>lua vim.diagnostic.setloclist()<CR>')
 nmap('<Leader>F', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 2500)<CR>')
+
+if vim.fn.executable('snyk-ls') == 1 then
+  if not configs.snyk then
+    configs.snyk = {
+      default_config = {
+        cmd = {'snyk-ls'},
+        -- cmd = {'snyk-ls', '-l', 'debug', '-f', '/tmp/snyk-ls.log'},
+        root_dir = function(name)
+          return lspconfig.util.find_git_ancestor(name) or vim.loop.os_homedir()
+        end,
+        init_options = {
+        }
+      };
+    }
+  end
+  lspconfig.snyk.setup {
+  }
+end
