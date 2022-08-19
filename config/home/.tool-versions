@@ -1,5 +1,5 @@
 golang 1.19
 direnv system
 nodejs lts
-python 3.8.13
+python 3.10.6
 kubectl 1.23.8
