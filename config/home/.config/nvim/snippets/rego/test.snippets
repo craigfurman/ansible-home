@@ -1,0 +1,17 @@
+snippet snaptest "a rego snapshot test"
+	test_$1 {
+		snapshot_testing.match(
+			rule_tests.snapshot_deny_resources(deny, resources),
+			"snapshots/terraform/$1.config.json",
+		) with input as terraform.$1.config.mock_input
+
+		snapshot_testing.match(
+			rule_tests.snapshot_deny_resources(deny, resources),
+			"snapshots/terraform/$1.plan.json",
+		) with input as terraform.$1.plan.mock_input
+
+		snapshot_testing.match(
+			rule_tests.snapshot_deny_resources(deny, resources),
+			"snapshots/terraform/$1.state.json",
+		) with input as terraform.$1.state.mock_input
+	}
