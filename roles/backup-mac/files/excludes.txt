@@ -7,5 +7,6 @@
 .oh-my-zsh/**
 .rustup/**
 Library/**
+Movies/**
 workspace/go/bin/*
 workspace/go/pkg/**
