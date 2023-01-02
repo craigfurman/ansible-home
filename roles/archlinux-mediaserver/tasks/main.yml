@@ -60,20 +60,12 @@
     mode: 0700
   become: true
 
-- name: Write backup config file
-  copy:
-    dest: /etc/craig-backup/env
-    content: "{{restic_env}}"
-    mode: 0600
-
 - name: Install systemd units
   template: src="{{item}}.j2" dest="/lib/systemd/system/{{item}}"
   become: true
   with_items:
     - sc-suspend.service
     - sc-suspend.timer
-    - backup-photos.service
-    - backup-photos.timer
 
 - name: Configure NFS
   lineinfile:
@@ -104,7 +96,6 @@
   service: name={{item}} enabled=true state=started
   become: true
   with_items:
-    - backup-photos.timer
     - nfs-server.service
     - nordvpnd.service
     - plexmediaserver.service
