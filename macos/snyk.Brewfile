@@ -1,6 +1,7 @@
 # vi: ft=ruby
 
 brew 'azure-cli'
+brew 'cmake'
 brew 'gh'
 brew 'git-trim'
 brew 'graphviz'
@@ -10,6 +11,7 @@ brew 'postico'
 brew 'python'
 brew 'redis', restart_service: :changed
 brew 'stern'
+brew 'teleport'
 
 # TODO must manually pin icu4c to whatever gets installed by postgres. There are
 # no `@` versions for icu4c
@@ -25,6 +27,10 @@ cask 'notion'
 cask 'vagrant'
 cask 'virtualbox'
 cask 'visual-studio-code'
+
+# Came pre-installed on laptop, but after 1.5 years I had to remove and
+# reinstall it due to an un-applyable update, apparently...
+# cask 'zoom'
 
 # mac app store
 # Be focused
