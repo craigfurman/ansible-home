@@ -3,3 +3,4 @@ direnv system
 nodejs lts
 python 3.10.6
 kubectl 1.23.8
+helm 3.10.3

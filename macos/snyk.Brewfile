@@ -24,9 +24,11 @@ brew 'universal-ctags', args: ['HEAD']
 cask 'aws-vault'
 cask 'intel-power-gadget' # for istat-menus CPU frequency monitoring
 cask 'notion'
-cask 'vagrant'
-cask 'virtualbox'
 cask 'visual-studio-code'
+
+# This VM tooling is on the naughty step for a bit
+# cask 'vagrant'
+# cask 'virtualbox'
 
 # Came pre-installed on laptop, but after 1.5 years I had to remove and
 # reinstall it due to an un-applyable update, apparently...
