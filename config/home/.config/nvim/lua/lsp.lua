@@ -25,7 +25,7 @@ end
 function lsp_imports_and_format(timeout_ms)
   timeout_ms = timeous_ms or 1000
   lsp_imports(timeout_ms)
-  vim.lsp.buf.formatting_sync(nil, timeout_ms)
+  vim.lsp.buf.format({timeout_ms=timeout_ms})
 end
 
 -- keymaps: https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
@@ -40,7 +40,7 @@ nmap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 nmap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 nmap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 nmap('<Leader>e', '<cmd>lua vim.diagnostic.setloclist()<CR>')
-nmap('<Leader>F', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 2500)<CR>')
+nmap('<Leader>F', '<cmd>lua vim.lsp.buf.format({timeout_ms=2500})<CR>')
 
 if vim.fn.executable('snyk-ls') == 1 then
   if not configs.snyk then

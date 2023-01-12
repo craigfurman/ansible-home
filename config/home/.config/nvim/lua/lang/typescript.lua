@@ -1,11 +1,7 @@
 local filetype = 'typescript'
 
 local function setupLsp()
-  require('lspconfig').tsserver.setup{
-    on_attach = function(client)
-      client.resolved_capabilities.document_formatting = false
-    end,
-  }
+  require('lspconfig').tsserver.setup({})
 end
 
 return {
@@ -13,7 +9,7 @@ return {
   extensions = {'ts', 'js'},
   setupLsp = setupLsp,
   fileOpenCmds = {},
-  preSaveCmds = {'lua vim.lsp.buf.formatting_sync(nil, 2500)'},
+  preSaveCmds = {'lua vim.lsp.buf.format({client="efm", timeous_ms=2500})'},
   efmCfg = {
     {
       formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}",

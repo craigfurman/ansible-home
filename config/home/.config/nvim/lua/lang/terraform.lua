@@ -6,7 +6,7 @@ return {
   extensions = {'tf'},
   setupLsp = setupLsp,
   fileOpenCmds = {},
-  preSaveCmds = {'lua vim.lsp.buf.formatting_sync(nil, 2500)'},
+  preSaveCmds = {'lua vim.lsp.buf.format({timeout_ms=2500})'},
   efmCfg = {
     {
       formatCommand = 'terraform fmt -',
