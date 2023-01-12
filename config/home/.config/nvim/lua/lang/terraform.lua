@@ -12,6 +12,5 @@ return {
       formatCommand = 'terraform fmt -',
       formatStdin = true
     },
-  },
-  treesitterParsers = {'hcl'}
+  }
 }
