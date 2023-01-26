@@ -15,3 +15,15 @@ snyk-dev() {
 }
 
 export GOPRIVATE=github.com/snyk
+
+snykctl() {
+  if [ -z "${1:-}" ]; then
+    echo "usage: snykctl <sv-action> <service> (default: cwd)>"
+    return 1
+  fi
+
+  local service="${2:-"$(basename "$PWD")"}"
+  local sv_dir="$HOME/workspace/github.com/craigfurman/snykctl/sv"
+
+  sv "${1}" "${sv_dir}/${service}"
+}
