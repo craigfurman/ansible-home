@@ -27,3 +27,8 @@ snykctl() {
 
   sv "${1}" "${sv_dir}/${service}"
 }
+
+snyklogs() {
+  local service="${1:-"$(basename "$PWD")"}"
+  tail -F "$HOME/workspace/github.com/craigfurman/snykctl/sv/${service}/log/current"
+}
