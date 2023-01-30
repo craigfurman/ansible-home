@@ -30,5 +30,5 @@ snykctl() {
 
 snyklogs() {
   local service="${1:-"$(basename "$PWD")"}"
-  tail -F "$HOME/workspace/github.com/craigfurman/snykctl/sv/${service}/log/current"
+  less +F "$HOME/workspace/github.com/craigfurman/snykctl/sv/${service}/log/current"
 }
