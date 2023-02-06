@@ -4,13 +4,20 @@ local function setupLsp()
   local lspconfig = require('lspconfig')
   local configs = require 'lspconfig.configs'
 
-  lspconfig.gopls.setup{}
+  goplsSettings = {}
+  goplsSettings['local'] = os.getenv("GOPLS_SETTINGS_LOCAL") or ''
+
+  lspconfig.gopls.setup{
+    settings = {
+      gopls = goplsSettings
+    }
+  }
 
   if not configs.golangcilsp then
     configs.golangcilsp = {
       default_config = {
         cmd = {'golangci-lint-langserver'},
-        root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
+        root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
         init_options = {
             command = { "golangci-lint", "run", "--out-format", "json" };
         }
