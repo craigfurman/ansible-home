@@ -1,4 +1,4 @@
-golang 1.19.5
+golang 1.20
 direnv system
 nodejs lts
 python 3.10.6
