@@ -28,6 +28,4 @@ vmap('<', '<gv')
 vmap('>', '>gv')
 
 --- Save on focus lost
--- TODO this was causing spurious saves when no content was written, and the
--- mtime change was triggering expensive file watchers
--- cmd('autocmd BufLeave,FocusLost * silent! w')
+cmd('autocmd BufLeave,FocusLost * silent! update')
