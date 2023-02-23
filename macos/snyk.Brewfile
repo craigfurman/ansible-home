@@ -7,7 +7,6 @@ brew 'git-trim'
 brew 'graphviz'
 brew 'k3d'
 brew 'pinentry-mac'
-brew 'postico'
 brew 'python'
 brew 'redis', restart_service: :changed
 brew 'stern'
@@ -24,6 +23,7 @@ brew 'universal-ctags', args: ['HEAD']
 cask 'aws-vault'
 cask 'intel-power-gadget' # for istat-menus CPU frequency monitoring
 cask 'notion'
+cask 'postico'
 cask 'visual-studio-code'
 
 # This VM tooling is on the naughty step for a bit
