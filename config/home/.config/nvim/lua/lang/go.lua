@@ -7,6 +7,9 @@ local function setupLsp()
   goplsSettings = {}
   goplsSettings['local'] = os.getenv("GOPLS_SETTINGS_LOCAL") or ''
 
+  -- For some repos at my work
+  goplsSettings['buildFlags'] = {'-tags', 'integration'}
+
   lspconfig.gopls.setup{
     settings = {
       gopls = goplsSettings
