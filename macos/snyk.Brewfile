@@ -14,7 +14,7 @@ brew 'teleport'
 
 # TODO must manually pin icu4c to whatever gets installed by postgres. There are
 # no `@` versions for icu4c
-brew 'postgresql@13', link: true, restart_service: :changed # brew pin postgresql@13
+brew 'postgresql@14', link: true, restart_service: :changed
 
 tap 'universal-ctags/universal-ctags'
 brew 'universal-ctags', args: ['HEAD']
