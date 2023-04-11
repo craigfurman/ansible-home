@@ -34,5 +34,6 @@ Plug 'tpope/vim-rhubarb' -- Gbrowse
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-signify' -- Git gutter
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/vim-easy-align'
 
 fn['plug#end']()
