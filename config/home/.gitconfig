@@ -31,3 +31,6 @@
 	defaultBranch = main
 [url "git@github.com:snyk"]
 	insteadOf = https://github.com/snyk
+[log]
+	# Greater precision for nearer dates, but only if the pager is in use
+	date = auto:human
