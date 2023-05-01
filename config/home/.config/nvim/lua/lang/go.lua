@@ -16,20 +16,7 @@ local function setupLsp()
     }
   }
 
-  if not configs.golangcilsp then
-    configs.golangcilsp = {
-      default_config = {
-        cmd = {'golangci-lint-langserver'},
-        root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
-        init_options = {
-            command = { "golangci-lint", "run", "--out-format", "json" };
-        }
-      };
-    }
-  end
-  lspconfig.golangcilsp.setup {
-    filetypes = {filetype}
-  }
+  lspconfig.golangci_lint_ls.setup{}
 end
 
 return {
