@@ -178,6 +178,8 @@ complete -C '/usr/local/bin/aws_completer' aws
 # gcloud
 source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
+export PATH=$HOME/bin:$PATH
+
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
