@@ -116,6 +116,9 @@ alias diff='diff --color=auto'
 alias viknownhosts='vim ~/.ssh/known_hosts'
 alias notify_command_done="osascript -e 'display notification \"is finished\" with title \"Shell Command\"'"
 
+# Plugin overrides
+unalias got
+
 # Env vars
 export MAKEFLAGS="-j$(nproc)"
 export GPG_TTY=$TTY
