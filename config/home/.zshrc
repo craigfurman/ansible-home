@@ -75,6 +75,7 @@ FPATH=$HOMEBREW_PREFIX/share/zsh-completions:$FPATH
 # oh-my-zsh
 plugins=(docker git golang)
 ZSH_DISABLE_COMPFIX=true
+zstyle ':omz:lib:theme-and-appearance' gnu-ls yes
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
