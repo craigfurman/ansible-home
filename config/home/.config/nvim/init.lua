@@ -56,6 +56,7 @@ req('file-tree')
 req('config')
 req('bindings')
 req('appearance')
+req('headers')
 
 -- Configure language-specific things
 for name, lang in pairs(langs) do
