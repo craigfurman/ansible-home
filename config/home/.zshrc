@@ -112,18 +112,14 @@ source $ZSH/oh-my-zsh.sh
 . $HOME/.asdf/completions/asdf.bash
 export ASDF_GOLANG_MOD_VERSION_ENABLED=false
 
-# Long-term shell history logging
-# Credit: https://www.lesswrong.com/posts/6WGyKKQnfaGa3YtMn/logging-shell-history-in-zsh
-precmd() {
-  echo "$(date +%Y-%m-%d--%H-%M-%S) $(hostname) $PWD $(history -1)" \
-    >> ~/.zsh_history_longterm
-}
-
 # General aliases
 alias ll='ls -alh'
 alias diff='diff --color=auto'
 alias viknownhosts='vim ~/.ssh/known_hosts'
 alias notify_command_done="osascript -e 'display notification \"is finished\" with title \"Shell Command\"'"
+
+# Keep effectively unlimited history
+SAVEHIST=1000000000
 
 # Plugin overrides
 unalias got
