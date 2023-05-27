@@ -68,6 +68,7 @@ Unless otherwise spelt out, start in "System Preferences":
    1. Use standard function keys on external keyboards
    1. Shortcuts -> Input sources -> disable ^-space for "previous input source" -
       it's my tmux prefix.
+   1. Disable smart quotes
 1. Trackpad
    1. Allow tap to click
    1. Scroll and zoom: untick natural scroll
