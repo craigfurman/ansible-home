@@ -10,9 +10,7 @@ brew 'pinentry-mac'
 brew 'python'
 brew 'redis', restart_service: :changed
 brew 'stern'
-
-# need to pin an old version. I've just been dumping this in ~/bin/ for now
-# brew 'teleport'
+brew 'teleport'
 
 # TODO must manually pin icu4c to whatever gets installed by postgres. There are
 # no `@` versions for icu4c
