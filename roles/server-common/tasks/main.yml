@@ -5,14 +5,8 @@
   vars:
     packages:
       - git
-      - python-pip  # For docker module
       - vim
       - zsh
-
-- name: Install docker module for docker_image task
-  pip:
-    name: docker
-  become: true
 
 - name: Install zshrc
   copy:
