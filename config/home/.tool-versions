@@ -4,3 +4,4 @@ python 3.10.6
 kubectl 1.23.8
 helm 3.10.3
 nodejs 18.16.0
+terraform 1.4.6
