@@ -1,5 +1,6 @@
 local ensureInstalled = {
   "comment",
+  "cpp",
   "css",
   "gomod",
   "html",

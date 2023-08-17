@@ -36,6 +36,7 @@ g.mapleader = ','
 -- Load language-specific config
 -- TODO list the files in the lang dir, and loop over that
 langs = {
+  c = {},
   go = {},
   typescript = {},
   sh = {},
