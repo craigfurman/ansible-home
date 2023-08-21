@@ -20,6 +20,7 @@ tap 'universal-ctags/universal-ctags'
 brew 'universal-ctags', args: ['HEAD']
 
 # casks
+cask '1password'
 cask 'aws-vault'
 cask 'intel-power-gadget' # for istat-menus CPU frequency monitoring
 cask 'notion'
