@@ -4,7 +4,6 @@ brew 'age'
 brew 'ansible'
 brew 'awscli'
 brew 'bash'
-brew 'bluesnooze'
 brew 'curl'
 brew 'direnv'
 brew 'fzf'
@@ -41,6 +40,7 @@ brew 'make'
 
 # casks
 # cask 'brave-browser' # Installed manually, uncomment if reinstalling
+cask 'bluesnooze'
 cask 'discord'
 cask 'docker'
 cask 'flycut'
