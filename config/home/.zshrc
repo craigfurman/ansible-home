@@ -67,7 +67,7 @@ if [ -d /opt/homebrew ]; then
   __brew_prefix_pre_shellenv=/opt/homebrew
 fi
 
-eval "$("$__brew_prefix_pre_shellenv/bin/brew" shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 FPATH=$HOMEBREW_PREFIX/share/zsh-completions:$FPATH
@@ -181,7 +181,7 @@ alias mkpr="hub pull-request"
 complete -o nospace -C $(which tk) tk
 
 # AWS
-complete -C '/usr/local/bin/aws_completer' aws
+complete -C aws_completer aws
 
 # gcloud
 source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"

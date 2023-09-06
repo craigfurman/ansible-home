@@ -2,7 +2,7 @@
 opt.termguicolors = true
 cmd([[
 let base16colorspace=256
-source ~/.vimrc_background
+colorscheme base16-onedark
 ]])
 
 -- https://github.com/hoob3rt/lualine.nvim
