@@ -58,6 +58,7 @@ Unless otherwise spelt out, start in "System Preferences":
 1. Security and privacy
    1. General: require password immediately after sleep begins.
    1. Filevault: yes
+   1. Accessibility: allow flycut to control the computer.
 1. Sound
    1. Disable startup sound
 1. Keyboard

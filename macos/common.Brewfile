@@ -18,6 +18,7 @@ brew 'pidof'
 brew 'pwgen'
 brew 'restic'
 brew 'ripgrep'
+brew 'runit'
 brew 'shellcheck'
 brew 'shfmt'
 brew 'stow'
@@ -59,6 +60,9 @@ cask 'whatsapp'
 tap 'homebrew/cask-fonts'
 cask 'font-inconsolata'
 cask 'font-inconsolata-nerd-font'
+
+# Required for powerlevel10k. Need to restart terminal after installing.
+cask 'font-meslo-lg-nerd-font'
 
 # mac app store
 # bitwarden
