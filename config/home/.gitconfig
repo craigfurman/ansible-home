@@ -1,6 +1,6 @@
 # vi: syntax=gitconfig noexpandtab
 [include]
-	# work email and gpg signing key
+	# work email and gpg signing
 	path = ~/.gitconfig_machine_specific
 [core]
 	excludesfile = ~/.gitignore_global
@@ -34,3 +34,18 @@
 [log]
 	# Greater precision for nearer dates, but only if the pager is in use
 	date = auto:human
+
+# git-delta
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	light = false
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
+[delta]
+	side-by-side = true
