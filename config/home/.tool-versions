@@ -1,4 +1,4 @@
-golang 1.21.0
+golang 1.21.1
 direnv system
 python 3.10.6
 kubectl 1.23.8
