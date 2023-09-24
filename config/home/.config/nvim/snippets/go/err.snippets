@@ -1,0 +1,5 @@
+snippet rerr "Return wrapped error"
+	if err != nil {
+		return fmt.Errorf("$1: %w", err)
+	}
+
