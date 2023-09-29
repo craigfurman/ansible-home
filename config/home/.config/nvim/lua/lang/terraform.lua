@@ -5,7 +5,7 @@ return {
   filetype = 'terraform',
   extensions = {'tf'},
   setupLsp = setupLsp,
-  fileOpenCmds = {},
+  fileOpenCmds = {'setlocal commentstring=#\\ %s'},
   preSaveCmds = {'lua vim.lsp.buf.format({timeout_ms=2500})'},
   efmCfg = {
     {
