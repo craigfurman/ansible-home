@@ -4,7 +4,11 @@ local function setupLsp()
   local lspconfig = require('lspconfig')
   local configs = require 'lspconfig.configs'
 
-  goplsSettings = {}
+  goplsSettings = {
+    analyses = {
+      composites = false
+    }
+  }
   goplsSettings['local'] = os.getenv("GOPLS_SETTINGS_LOCAL") or ''
 
   -- For some repos at my work
