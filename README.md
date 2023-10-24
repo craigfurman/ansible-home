@@ -82,3 +82,6 @@ Unless otherwise spelt out, start in "System Preferences":
 1. Spotlight
    1. Privacy: exclude ~/workspace to avoid mds_stores doing work every time I
       compile things.
+1. TouchID for sudo (personal laptop only)
+   1. Add `auth sufficient pam_tid.so` to 2nd line of `/etc/pam.d/sudo`
+   1. Set up <https://github.com/fabianishere/pam_reattach>
