@@ -25,6 +25,9 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim' -- telescope dependency
 Plug 'nvim-telescope/telescope.nvim'
 
+-- MasonInstall elixir-ls
+Plug 'williamboman/mason.nvim'
+
 -- "Old fashioned"
 Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-tmux-navigator'

@@ -37,6 +37,7 @@ g.mapleader = ','
 -- TODO list the files in the lang dir, and loop over that
 langs = {
   c = {},
+  elixir = {},
   go = {},
   typescript = {},
   sh = {},
@@ -58,6 +59,8 @@ req('config')
 req('bindings')
 req('appearance')
 req('headers')
+
+require("mason").setup()
 
 -- Configure language-specific things
 for name, lang in pairs(langs) do
