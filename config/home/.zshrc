@@ -260,7 +260,12 @@ openproj() {
   local new_window_and_pane=$(tmux new-window -c "$proj" -P -F "#{window_id} #{pane_id}")
   local window_id=$(echo "$new_window_and_pane" | awk '{print $1}')
   local editor_pane=$(echo "$new_window_and_pane" | awk '{print $2}')
+
   local name="$(basename "$proj")"
+  if [ "$(echo -n "$name" | wc -c)" -gt 12 ] && echo -n "$name" | grep -q "-" ; then
+    # foo-bar_baz -> fbb
+    local name=$(echo -n "$name" | sed -E 's/([a-zA-Z0-9])[a-zA-Z0-9]*[_\-]?/\1/g')
+  fi
   tmux rename-window -t "${window_id}" "$name"
 
   # quick-and-dirty layout: open a pane only to kill it later, giving the editor
