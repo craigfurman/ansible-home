@@ -31,6 +31,7 @@ end
 -- keymaps: https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
 nmap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 nmap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+nmap('Gd', '<cmd>vsplit<CR><cmd>lua vim.lsp.buf.definition()<CR>')
 nmap('K', '<cmd>Lspsaga hover_doc<CR>')
 nmap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 imap('<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
