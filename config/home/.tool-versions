@@ -1,7 +1,7 @@
 golang 1.21.5
 direnv system
 python 3.10.6
-kubectl 1.24.14
+kubectl 1.26.11
 helm 3.10.3
 nodejs 18.16.0
 terraform 1.4.6
