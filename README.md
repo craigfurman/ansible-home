@@ -51,8 +51,9 @@ Unless otherwise spelt out, start in "System Preferences":
    1. Appearance: auto
 1. Sharing
    1. Change computer name
-1. Dock and menu bar
+1. Desktop & Dock
    1. automatically hide the dock
+   1. Click wallpaper to reveal desktop - "only in stage manager"
 1. Users and Groups
    1. Login items: add flycut.
 1. Security and privacy
