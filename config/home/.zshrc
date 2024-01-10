@@ -194,6 +194,8 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
+alias parse_k8s_secret="jq '.data | map_values(@base64d)'"
+
 # functions
 test_terminal_colors_fonts() {
   echo -e "\e[1mbold\e[0m"
