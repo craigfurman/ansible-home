@@ -3,3 +3,6 @@
 ALEPreviewWindow
 .envrc
 /.ccls-cache
+
+# Used by openproj()
+.projname

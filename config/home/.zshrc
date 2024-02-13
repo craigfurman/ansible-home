@@ -268,6 +268,9 @@ openproj() {
     # foo-bar_baz -> fbb
     local name=$(echo -n "$name" | sed -E 's/([a-zA-Z0-9])[a-zA-Z0-9]*[_\-]?/\1/g')
   fi
+  if [ -f "${proj}/.projname" ]; then
+    name="$(cat "${proj}/.projname" | tr -d '\n')"
+  fi
   tmux rename-window -t "${window_id}" "$name"
 
   # quick-and-dirty layout: open a pane only to kill it later, giving the editor
