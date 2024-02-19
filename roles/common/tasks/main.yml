@@ -70,3 +70,6 @@
 
 - name: Install asdf plugins and tools
   command: ./bin/asdf_install
+
+- name: Upgrade asdf tools
+  command: ~/bin/asdf_upgrade chdir={{ansible_env.HOME}}

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd ~
+# Updates a local .tool-versions
 
 asdf plugin update --all
 

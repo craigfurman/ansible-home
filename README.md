@@ -14,7 +14,7 @@ Append `-K` when running tasks that require root.
 
 ### Upgrading laptops
 
-1. `bin/upgrade`
+1. `brew_upgrade`
 1. Run ansible as normal.
 
 ### Upgrading morty
