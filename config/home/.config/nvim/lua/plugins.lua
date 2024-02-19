@@ -25,8 +25,9 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim' -- telescope dependency
 Plug 'nvim-telescope/telescope.nvim'
 
--- MasonInstall elixir-ls
 Plug 'williamboman/mason.nvim'
+-- Allows installing Mason packages from config and also MasonToolsUpdateSync
+Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 
 -- "Old fashioned"
 Plug 'tpope/vim-commentary'

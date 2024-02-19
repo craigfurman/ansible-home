@@ -50,6 +50,7 @@ end
 
 -- Most of the code
 require('plugins')
+req('mason-config')
 req('lsp')
 req('efm')
 req('config-completion')
@@ -59,8 +60,6 @@ req('config')
 req('bindings')
 req('appearance')
 req('headers')
-
-require("mason").setup()
 
 -- Configure language-specific things
 for name, lang in pairs(langs) do
