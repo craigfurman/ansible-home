@@ -1,2 +1,0 @@
-[macs]
-snyk ansible_user=craig ansible_connection=local ansible_python_interpreter=/opt/homebrew/bin/python3

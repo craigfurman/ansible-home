@@ -14,6 +14,7 @@ brew 'git-delta'
 brew 'gnupg'
 brew 'htop'
 brew 'jq'
+brew 'k3d'
 brew 'mockery'
 brew 'neovim'
 brew 'pidof'
@@ -57,7 +58,9 @@ cask 'rectangle'
 cask 'secretive'
 cask 'signal'
 cask 'todoist'
+cask 'visual-studio-code'
 cask 'whatsapp'
+cask 'zoom'
 
 tap 'homebrew/cask-fonts'
 cask 'font-inconsolata'
@@ -68,3 +71,4 @@ cask 'font-meslo-lg-nerd-font'
 
 # mac app store
 # bitwarden
+# Authy (ipad version)
