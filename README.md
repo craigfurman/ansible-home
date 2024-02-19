@@ -37,9 +37,9 @@ Clone the secrets repository into the checkout of this repository.
 
 ## Manual setup
 
-Ironically for an automation repo, I currently configure a few things on my work
-Mac laptop via the GUI. I figure that if these settings move / change their
-options / and removed, it'll be easier to learn that through the GUI.
+Ironically for an automation repo, I currently configure a few things on my
+mac(s) via the GUI. I figure that if these settings move / change their options
+/ and removed, it'll be easier to learn that through the GUI.
 
 A lot of this is automatable (<https://mths.be/macos> /
 <https://github.com/mathiasbynens/dotfiles/blob/master/.macos>), and I might
@@ -86,3 +86,5 @@ Unless otherwise spelt out, start in "System Preferences":
 1. TouchID for sudo (personal laptop only)
    1. Add `auth sufficient pam_tid.so` to 2nd line of `/etc/pam.d/sudo`
    1. Set up <https://github.com/fabianishere/pam_reattach>
+   1. This appears to be reset by certain OS updates, so I don't actually tend
+      to have this enabled.

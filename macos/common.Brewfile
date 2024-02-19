@@ -58,7 +58,7 @@ cask 'rectangle'
 cask 'secretive'
 cask 'signal'
 cask 'todoist'
-cask 'visual-studio-code'
+cask 'visual-studio-code' # log in to sync settings
 cask 'whatsapp'
 cask 'zoom'
 
