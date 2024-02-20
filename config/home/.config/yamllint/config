@@ -1,7 +1,0 @@
-# vi: syntax=yaml
----
-rules:
-  line-length:
-    max: 80
-    allow-non-breakable-words: true
-    allow-non-breakable-inline-mappings: true
