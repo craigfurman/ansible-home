@@ -5,7 +5,7 @@ local Plug = fn['plug#']
 
 -- Newfangled
 Plug 'neovim/nvim-lspconfig'
-Plug('tami5/lspsaga.nvim', {branch = 'nvim6.0'})
+Plug 'nvimdev/lspsaga.nvim'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 Plug 'p00f/nvim-ts-rainbow'
 
@@ -19,9 +19,9 @@ Plug 'andersevenrud/cmp-tmux'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
-Plug 'hoob3rt/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons' -- dependency of a few things
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons' -- dependency of a few things
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim' -- telescope dependency
 Plug 'nvim-telescope/telescope.nvim'
 

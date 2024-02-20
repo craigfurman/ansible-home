@@ -6,6 +6,11 @@ local ensureInstalled = {
   "html",
   "json",
   "lua",
+
+  -- Needed for Lspsaga hover_doc
+  "markdown",
+  "markdown_inline",
+
   "python",
   "ruby",
   "rust",

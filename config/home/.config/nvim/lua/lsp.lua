@@ -1,6 +1,15 @@
 local lspconfig = require('lspconfig')
 local configs = require 'lspconfig.configs'
 
+require('lspsaga').setup({
+  lightbulb = {
+    enable = false,
+  },
+  symbol_in_winbar = {
+    enable = false,
+  },
+})
+
 function lsp_imports(timeout_ms)
   local params = vim.lsp.util.make_range_params()
   params.context = {only = {"source.organizeImports"}}
@@ -29,6 +38,7 @@ function lsp_imports_and_format(timeout_ms)
 end
 
 -- keymaps: https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
+-- some use lspsaga
 nmap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 nmap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 nmap('Gd', '<cmd>vsplit<CR><cmd>lua vim.lsp.buf.definition()<CR>')
