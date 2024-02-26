@@ -61,12 +61,6 @@ DISABLE_AUTO_TITLE=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-# homebrew
-__brew_prefix_pre_shellenv=/usr/local
-if [ -d /opt/homebrew ]; then
-  __brew_prefix_pre_shellenv=/opt/homebrew
-fi
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
