@@ -3,6 +3,7 @@
 .asdf/**
 .cache/**
 .cargo/**
+.keras/**
 .npm/**
 .oh-my-zsh/**
 .rustup/**
