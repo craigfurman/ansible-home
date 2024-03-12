@@ -6,5 +6,6 @@ require('mason-tool-installer').setup {
     'elixir-ls',
     'golangci-lint-langserver',
     'gopls',
+    'python-lsp-server',
   }
 }

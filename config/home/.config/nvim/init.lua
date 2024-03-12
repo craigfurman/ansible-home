@@ -42,6 +42,7 @@ langs = {
   typescript = {},
   sh = {},
   terraform = {},
+  python = {},
   rego = {},
 }
 for name, lang in pairs(langs) do
