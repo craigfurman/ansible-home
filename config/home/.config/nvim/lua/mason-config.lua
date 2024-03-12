@@ -7,5 +7,6 @@ require('mason-tool-installer').setup {
     'golangci-lint-langserver',
     'gopls',
     'python-lsp-server',
+    'rust-analyzer',
   }
 }

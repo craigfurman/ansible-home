@@ -44,6 +44,7 @@ langs = {
   terraform = {},
   python = {},
   rego = {},
+  rust = {},
 }
 for name, lang in pairs(langs) do
   langs[name] = require('lang/' .. name)
