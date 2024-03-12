@@ -15,6 +15,7 @@ local ensureInstalled = {
   "ruby",
   "rust",
   "vim",
+  "vimdoc",
   "yaml",
 }
 
