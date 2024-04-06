@@ -48,15 +48,15 @@ crib from that in the future.
 Unless otherwise spelt out, start in "System Preferences":
 
 1. General
-   1. Appearance: auto
-1. Sharing
-   1. Change computer name
+    1. About: change computer name
+    1. Sharing: change hostname
+1. Appearance: auto
 1. Desktop & Dock
    1. automatically hide the dock
    1. Click wallpaper to reveal desktop - "only in stage manager"
 1. Users and Groups
    1. Login items: add flycut.
-1. Security and privacy
+1. Privacy & Security
    1. General: require password immediately after sleep begins.
    1. Filevault: yes
    1. Accessibility: allow flycut to control the computer.
@@ -65,12 +65,12 @@ Unless otherwise spelt out, start in "System Preferences":
 1. Keyboard
    1. Key repeat fastest, delay until repeat shortest.
    1. Turn off keyboard backlight after 5s
-   1. Remap caps lock to escape.
+   1. Keyboard shortcuts -> Modifier keys -> Remap caps lock to escape.
    1. Extra maps for PC keyboard. Set to ISO, swap option and command
-   1. Use standard function keys on external keyboards
+   1. Use standard function keys on external keyboards (keyboard shortcuts -> function keys)
    1. Shortcuts -> Input sources -> disable ^-space for "previous input source" -
       it's my tmux prefix.
-   1. Disable smart quotes
+   1. Input sources -> Edit -> Disable smart quotes
 1. Trackpad
    1. Allow tap to click
    1. Scroll and zoom: untick natural scroll
