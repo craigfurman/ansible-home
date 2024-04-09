@@ -1,0 +1,7 @@
+# Initial install: `curl --proto '=https' --tlsv1.2 -sSLf https://install.sg.dev | sh`
+# https://sourcegraph.com/docs/dev/background-information/sg
+export PATH=$PATH:$HOME/.sg
+
+# Configured by `sg setup`
+autoload -Uz compinit && compinit
+PROG=sg source /Users/craig/.sourcegraph/sg.zsh_autocomplete

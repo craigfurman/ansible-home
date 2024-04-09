@@ -62,6 +62,8 @@ Unless otherwise spelt out, start in "System Preferences":
    1. Accessibility: allow flycut to control the computer.
 1. Sound
    1. Disable startup sound
+1. Control centre
+   1. Sound -> Always show in menu bar
 1. Keyboard
    1. Key repeat fastest, delay until repeat shortest.
    1. Turn off keyboard backlight after 5s
