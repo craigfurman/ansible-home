@@ -24,7 +24,6 @@ brew 'pwgen'
 brew 'restic'
 brew 'ripgrep'
 brew 'runit'
-brew 'rustup-init'
 brew 'shellcheck'
 brew 'shfmt'
 brew 'stow'
@@ -74,6 +73,5 @@ cask 'font-inconsolata-nerd-font'
 # Required for powerlevel10k. Need to restart terminal after installing.
 cask 'font-meslo-lg-nerd-font'
 
-# mac app store
-# bitwarden
-# Authy (ipad version)
+tap 'ohueter/tap'
+brew 'autokbisw', restart_service: true
