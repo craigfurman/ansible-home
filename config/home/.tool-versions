@@ -1,4 +1,4 @@
 direnv system
 kubectl 1.29.3
-helm 3.14.3
-terraform 1.7.5
+helm 3.14.4
+terraform 1.8.0

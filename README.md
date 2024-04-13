@@ -47,6 +47,10 @@ crib from that in the future.
 
 Unless otherwise spelt out, start in "System Preferences":
 
+1. Install any hardware-specific drivers
+   1. <https://logitech.com/options>
+1. Install mac app store apps
+   1. On personal laptop: bitwarden, authy (ipad version)
 1. General
     1. About: change computer name
     1. Sharing: change hostname
