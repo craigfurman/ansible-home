@@ -7,9 +7,9 @@ asdf plugin update --all
 
 while read -r line; do
   tool="$(echo "$line" | awk '{print $1}')"
+  version="$(echo "$line" | awk '{print $2}')"
 
-  # direnv is special, we use system direnv
-  if [ "$tool" = "direnv" ]; then
+  if [ "$version" = "system" ]; then
     continue
   fi
 
