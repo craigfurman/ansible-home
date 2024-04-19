@@ -276,6 +276,10 @@ openproj() {
   tmux select-pane -t "${editor_pane}"
 }
 
+github_set_push_remote_ssh() {
+  git remote set-url --push origin "$(git remote get-url origin | sed -E 's/https:\/\//git@/' | sed -E 's/github.com\//github.com:/g')"
+}
+
 viewcert() {
   yes | openssl s_client -connect "${1}:${2:-443}" | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509  -text -noout
 }
