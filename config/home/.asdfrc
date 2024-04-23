@@ -1,1 +1,5 @@
 legacy_version_file = yes
+
+# Ensure BSD tar is used on macos. It apparently knows how to unpack zips as
+# well as tars, which is necessary for github-cli.
+pre_asdf_install_github-cli = export PATH=/usr/bin:${PATH}
