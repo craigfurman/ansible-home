@@ -20,6 +20,13 @@
 	prnotes = mrnotes
 	pullsubs = submodule update --init --recursive
 	st = status
+
+	# Not a hater, only trolling a little, I promise... 
+	#
+	# graphite.dev is a promising product that does a lot more than this alias,
+	# but a gitconfig comment really isn't the place for me to expand further on
+	# that.
+	graphene = rebase --onto origin/HEAD HEAD^
 [push]
 	default = simple
 	autoSetupRemote = true
