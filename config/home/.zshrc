@@ -143,6 +143,7 @@ alias vimdiff="nvim -d"
 
 # git
 alias git443='GIT_SSH_COMMAND="ssh -F ~/.ssh/config_altssh" git'
+alias git_prune="git fetch -p && git branch -v | grep '\[gone\]' | awk '{print $1}' | xargs git branch -D"
 
 # Go
 export GOPATH=$HOME/workspace/go
@@ -167,9 +168,6 @@ export FZF_DEFAULT_COMMAND='rg --smart-case --hidden --files --glob !.git'
 export ASDF_DIRENV_BIN="$(command -v direnv)" # or `$(command -v direnv)` for system managed.
 eval "$($ASDF_DIRENV_BIN hook zsh)"
 alias da="direnv allow"
-
-# Github
-alias mkpr="hub pull-request"
 
 # tanka
 complete -o nospace -C $(which tk) tk
