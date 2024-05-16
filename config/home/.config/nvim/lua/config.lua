@@ -7,7 +7,6 @@ opt.textwidth = 80
 opt.showmode = false -- lualine shows mode
 opt.scrolloff = 1
 opt.sidescrolloff = 5
-opt.pastetoggle = '<F6>' -- TODO doesn't show up. Lualine issue?
 
 -- Tabs vs Spaces
 opt.expandtab = true
