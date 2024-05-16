@@ -54,6 +54,8 @@ cask 'bluesnooze'
 cask 'discord'
 cask 'docker'
 cask 'flycut'
+cask 'font-inconsolata'
+cask 'font-inconsolata-nerd-font'
 cask 'google-chrome'
 cask 'google-cloud-sdk'
 cask 'istat-menus'
@@ -69,10 +71,6 @@ cask 'todoist'
 cask 'visual-studio-code' # log in to sync settings
 cask 'whatsapp'
 cask 'zoom'
-
-tap 'homebrew/cask-fonts'
-cask 'font-inconsolata'
-cask 'font-inconsolata-nerd-font'
 
 # Required for powerlevel10k. Need to restart terminal after installing.
 cask 'font-meslo-lg-nerd-font'
