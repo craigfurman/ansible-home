@@ -143,7 +143,7 @@ alias vimdiff="nvim -d"
 
 # git
 alias git443='GIT_SSH_COMMAND="ssh -F ~/.ssh/config_altssh" git'
-alias git_prune="git fetch -p && git branch -v | grep '\[gone\]' | awk '{print $1}' | xargs git branch -D"
+alias git_prune="git fetch -p && git branch -v | grep '\[gone\]' | awk '{print \$1}' | xargs git branch -D"
 
 # Go
 export GOPATH=$HOME/workspace/go

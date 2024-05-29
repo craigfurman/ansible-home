@@ -19,6 +19,7 @@
 	mrnotes = log --reverse --format='%n%n**%s**%n%n%b' origin/HEAD..HEAD
 	prnotes = mrnotes
 	pullsubs = submodule update --init --recursive
+	rom = rebase origin/main
 	st = status
 
 	# Not a hater, only trolling a little, I promise... 
