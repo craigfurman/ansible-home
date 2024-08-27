@@ -1,4 +1,0 @@
-# Initial install: `curl --proto '=https' --tlsv1.2 -sSLf https://install.sg.dev | sh`
-# https://sourcegraph.com/docs/dev/background-information/sg
-- name: Update sg dev tool
-  command: sg update
