@@ -1,7 +1,7 @@
 local filetype = 'typescript'
 
 local function setupLsp()
-  require('lspconfig').tsserver.setup({})
+  require('lspconfig').ts_ls.setup({})
 end
 
 return {
