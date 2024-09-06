@@ -77,6 +77,7 @@ Unless otherwise spelt out, start in "System Preferences":
    1. Shortcuts -> Input sources -> disable ^-space for "previous input source" -
       it's my tmux prefix.
    1. Input sources -> Edit -> Disable smart quotes
+      1. Also disable insert full stop after double space.
 1. Trackpad
    1. Allow tap to click
    1. Scroll and zoom: untick natural scroll
