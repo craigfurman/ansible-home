@@ -1,5 +1,1 @@
 direnv system
-golang system
-helm system
-kubectl system
-terraform 1.8.0
