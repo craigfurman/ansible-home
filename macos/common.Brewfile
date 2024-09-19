@@ -71,8 +71,5 @@ cask 'visual-studio-code' # log in to sync settings
 cask 'whatsapp'
 cask 'zoom'
 
-# Required for powerlevel10k. Need to restart terminal after installing.
-cask 'font-meslo-lg-nerd-font'
-
 tap 'ohueter/tap'
 brew 'autokbisw', restart_service: true
