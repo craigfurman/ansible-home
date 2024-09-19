@@ -32,7 +32,7 @@ Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 -- "Old fashioned"
 Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'fnune/base16-vim'
+Plug 'tinted-theming/base16-vim'
 Plug 'tpope/vim-fugitive' -- Git commands
 Plug 'tpope/vim-rhubarb' -- Gbrowse
 Plug 'tpope/vim-surround'

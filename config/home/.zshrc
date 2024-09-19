@@ -180,11 +180,8 @@ source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 
 export PATH=$HOME/bin:$PATH
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+source ~/tinted-shell/profile_helper.sh
+base16_solarized-light
 
 alias parse_k8s_secret="jq '.data | map_values(@base64d)'"
 

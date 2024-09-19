@@ -1,8 +1,10 @@
 -- colorscheme
 opt.termguicolors = true
+
+-- See base16-shell config in zshrc
 cmd([[
 let base16colorspace=256
-colorscheme base16-onedark
+colorscheme base16-$BASE16_THEME
 ]])
 
 -- https://github.com/hoob3rt/lualine.nvim
