@@ -79,7 +79,7 @@ for name, lang in pairs(langs) do
   end
 end
 
--- TODO clean up later: language-specific but outside lang/
+-- TODO clean up later? language-specific but outside lang/
 
 -- shell scripts often don't end in `.sh`
 -- but, running shfmt on every shell script creates unwanted diffs

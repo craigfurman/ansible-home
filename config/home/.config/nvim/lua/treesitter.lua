@@ -34,13 +34,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     disable = {},
   },
-  -- TODO learn what this is
-  -- indent = {
-  --   enable = false,
-  --   disable = {},
-  -- },
   ensure_installed = ensureInstalled,
-
   rainbow = {
     enable = true,
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean

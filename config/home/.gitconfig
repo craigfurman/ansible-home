@@ -33,8 +33,6 @@
 	autoSetupRemote = true
 [pull]
 	ff = only
-[transfer]
-	fsckObjects = false  # TODO couldn't clone oh-my-zsh
 [init]
 	defaultBranch = main
 [log]

@@ -8,8 +8,6 @@ colorscheme base16-$BASE16_THEME
 ]])
 
 -- https://github.com/hoob3rt/lualine.nvim
--- TODO customize
--- TODO get icons working
 require'lualine'.setup {
   options = {
     icons_enabled = true,
