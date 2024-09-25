@@ -181,7 +181,7 @@ source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 export PATH=$HOME/bin:$PATH
 
 source ~/tinted-shell/profile_helper.sh
-base16_solarized-light
+base16_gruvbox-dark-medium
 
 alias parse_k8s_secret="jq '.data | map_values(@base64d)'"
 
