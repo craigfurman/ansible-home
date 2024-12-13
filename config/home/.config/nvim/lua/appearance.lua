@@ -3,7 +3,7 @@ opt.termguicolors = true
 
 -- See base16-shell config in zshrc
 cmd([[
-let base16colorspace=256
+let base16_colorspace=256
 colorscheme base16-$BASE16_THEME
 ]])
 
