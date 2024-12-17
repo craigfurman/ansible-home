@@ -1,12 +1,6 @@
 # Uncomment this and the bottom line to enable profiling
 # zmodload zsh/zprof
 
-if [ -x /usr/libexec/path_helper ]; then
-  unset PATH
-  unset MANPATH
-  eval `/usr/libexec/path_helper -s`
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
