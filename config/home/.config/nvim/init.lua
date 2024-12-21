@@ -39,12 +39,13 @@ langs = {
   c = {},
   elixir = {},
   go = {},
-  typescript = {},
-  sh = {},
-  terraform = {},
+  nix = {},
   python = {},
   rego = {},
   rust = {},
+  sh = {},
+  terraform = {},
+  typescript = {},
 }
 for name, lang in pairs(langs) do
   langs[name] = require('lang/' .. name)
