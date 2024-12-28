@@ -29,9 +29,12 @@ Plug 'williamboman/mason.nvim'
 -- Allows installing Mason packages from config and also MasonToolsUpdateSync
 Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 
+-- Navigation
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'knubie/vim-kitty-navigator'
+
 -- "Old fashioned"
 Plug 'tpope/vim-commentary'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'tinted-theming/base16-vim'
 Plug 'tpope/vim-fugitive' -- Git commands
 Plug 'tpope/vim-rhubarb' -- Gbrowse
