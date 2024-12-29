@@ -1,6 +1,5 @@
 local function setupLsp()
   require('lspconfig').nil_ls.setup {
-    capabilities = caps,
     settings = {
       ['nil'] = {
         formatting = {
