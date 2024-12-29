@@ -1,4 +1,19 @@
 local function setupLsp()
+  require('lspconfig').nil_ls.setup {
+    capabilities = caps,
+    settings = {
+      ['nil'] = {
+        formatting = {
+          -- Credit to https://github.com/oxalica/nil/issues/70#issuecomment-2287139772
+          -- That thread has some ideas for making this less slow too. I think
+          -- I'll try to just switch to nixfmt once I actually have home-manager
+          -- up and running and can rely on my neovim always having nix packages
+          -- available.
+          command = {"nix", "fmt", "--", "-"},
+        },
+      },
+    },
+  }
 end
 
 return {
@@ -6,12 +21,5 @@ return {
   extensions = {'nix'},
   setupLsp = setupLsp,
   fileOpenCmds = {},
-  preSaveCmds = {'lua vim.lsp.buf.format({timeout_ms=2500})'},
-  efmCfg = {
-    {
-      -- Works in flakes only
-      formatCommand = 'nix fmt',
-      formatStdin = true
-    },
-  }
+  preSaveCmds = {'lua vim.lsp.buf.format({timeout_ms=5000})'},
 }
