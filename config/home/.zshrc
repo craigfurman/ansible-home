@@ -97,8 +97,6 @@ source $ZSH/oh-my-zsh.sh
 
 # asdf-vm
 . $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-export ASDF_GOLANG_MOD_VERSION_ENABLED=false
 
 # General aliases
 alias ll='ls -alh'
