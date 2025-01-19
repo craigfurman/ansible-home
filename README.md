@@ -1,6 +1,12 @@
 # ansible-home
 
-Configuration and automation for my various computers.
+> Friendship ended with Ansible - now Nix is my best friend.
+
+The roles and configuration files for my laptop in here are no longer used. That
+functionality is mostly ported over to
+<https://github.com/craigfurman/nix-workstations>.
+
+The server roles in here are still used.
 
 ## Usage
 
